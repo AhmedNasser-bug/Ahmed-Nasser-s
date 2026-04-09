@@ -5,8 +5,24 @@ function getRandomInt(min, max) {
 }
 
 
-// Activate Hanwag animations
+// Activate Hanwag animations and Lenis
         document.addEventListener('DOMContentLoaded', function () {
+            // Initialize Lenis Smooth Scroll
+            if (typeof Lenis !== 'undefined') {
+                const lenis = new Lenis({
+                    duration: 1.2,
+                    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
+                    smoothWheel: true
+                });
+
+                function raf(time) {
+                    lenis.raf(time);
+                    requestAnimationFrame(raf);
+                }
+
+                requestAnimationFrame(raf);
+            }
+            
             const hanwagElements = document.querySelectorAll('.hanwag-fade');
             const hanwagObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {

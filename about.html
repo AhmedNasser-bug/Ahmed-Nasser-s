@@ -7,61 +7,65 @@
     <title>About Ahmed | Full-Stack .NET Developer</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="blueprint.css">
 </head>
 
 <body>
 
-<!-- Navigation Bar -->
-    <nav class="navbar navbar-dark bg-transparent  fixed-top">
-        <div class="container-fluid">
-            <div class="d-flex align-content-center align-items-center flex-column">
-                <a class="navbar-brand btn-hero bg-opacity-10 fa fa-phone" href="#contact"></a>
-            <a class="navbar-brand btn-hero bg-opacity-10 fa-brands fa-github my-2" href="https://github.com/AhmedNasser-bug"></a>
-            </div>
-            
-            <button class="navbar-toggler bg-transparent " type="button" data-bs-toggle="offcanvas"
-                data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" onclick="chooseOffCanvasText()">
-                <span class="navbar-toggler-icon"></span> ^_^
-            </button>
-
-
-            <div class="offcanvas offcanvas-end bg-opacity-25 bg-dark text-white" tabindex="-1" id="offcanvasNavbar"
-                aria-labelledby="offcanvasNavbarLabel">
-                <div class="offcanvas-header">
-                    <h5 class="offcanvas-title text-opacity-100" id="offcanvasNavbarLabel">
-                        Offcanvas
-                    </h5>
-                    <button type="button" class="btn-close text-reset bg-white" data-bs-dismiss="offcanvas"
-                        aria-label="Close"></button>
-                </div>
-                <div class="offcanvas-body text-opacity-100">
-                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                        <li class="nav-item">
-                            <a class="nav-link active opacity-100" aria-current="page" href="index.html">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="about.html">About</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+    <!-- Floating Navigation Controls -->
+    <div class="fixed-top p-sm-4 p-3 d-flex justify-content-between align-items-start"
+        style="pointer-events: none; z-index: 1040;">
+        <div class="d-flex flex-column gap-3" style="pointer-events: auto;">
+            <a class="btn btn-hero d-flex align-items-center justify-content-center"
+                style="width:50px; height:50px; padding:0;" aria-label="Contact Section" href="#contact"><span
+                    class="fa fa-phone"></span></a>
+            <a class="btn btn-hero d-flex align-items-center justify-content-center"
+                style="width:50px; height:50px; padding:0;" aria-label="GitHub Profile"
+                href="https://github.com/AhmedNasser-bug"><span class="fa-brands fa-github"></span></a>
         </div>
-    </nav>
+
+        <button class="btn btn-hero d-flex align-items-center gap-2 px-3 py-2"
+            style="font-weight: 600; pointer-events: auto;" type="button" aria-label="Toggle Navigation Menu"
+            aria-expanded="false" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+            aria-controls="offcanvasNavbar"
+            onclick="if(typeof chooseOffCanvasText === 'function') chooseOffCanvasText()">
+            <span class="fa fa-bars"></span> <span class="d-none d-sm-inline">MENU</span>
+        </button>
+    </div>
+
+    <!-- Offcanvas Navigation Menu -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header border-bottom border-dark">
+            <h2 class="offcanvas-title h5 m-0" id="offcanvasNavbarLabel">Navigation</h2>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close menu"></button>
+        </div>
+        <div class="offcanvas-body">
+            <nav aria-label="Main Navigation">
+                <ul class="nav flex-column gap-3 mt-4">
+                    <li class="nav-item">
+                        <a class="nav-link fs-5" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active fw-bold fs-5" aria-current="page" href="about.html">About</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
 
     <div class="bg-blur blur-1 z-3"></div>
-        <div class="bg-blur blur-2 z-3"></div>
+    <div class="bg-blur blur-2 z-3"></div>
     <!-- About Hero Section -->
     <section class="about-hero section pb-0">
-        
+
         <div class="container">
-            
+
             <div class="row align-items-center">
-                
+
                 <!-- Image Column -->
                 <div class="col-lg-5 mb-5 mb-lg-0">
                     <div class="bio-image position-relative">
@@ -82,38 +86,37 @@
                 <div class="col-lg-7">
                     <div class="ps-lg-5">
                         <h1 class="about-headline mb-4" style="font-size: 3.2rem; font-weight: 800; line-height: 1.2;">
-                            Crafting Solutions <span class="text-primary">Through Code</span> & Leadership
+                            Engineering <span class="text-primary">Business Solutions</span> & High-ROI Architecture
                         </h1>
 
                         <div class="bio-content">
                             <p class="lead mb-4" style="font-size: 1.25rem;">
-                                I'm Ahmed - a <span class="text-primary">Full-Stack .NET Developer</span> and
-                                competitive programming enthusiast who believes software should solve <span
-                                    class="text-primary">real human challenges</span>.
+                                I'm Ahmed - a <span class="text-primary">Technical Consultant & AI Systems
+                                    Orchestrator</span> solving complex enterprise constraints before the first line of
+                                code is written.
                             </p>
 
                             <p class="mb-4">
-                                My journey began with the thrill of game development - that first moment seeing code
-                                transform into interactive experiences sparked a lifelong passion. Today, I channel that
-                                same creative energy into building enterprise systems that make tangible impacts.
+                                I am a research-driven developer building robust, scalable software architectures by
+                                combining deep systems-level knowledge (C/C++) with bleeding-edge AI orchestration. I
+                                don't just write code; I accelerate development cycles, eliminate scope creep, and
+                                prevent technical debt using advanced AI stacks.
                             </p>
 
                             <div class="d-flex align-items-center mb-4">
                                 <div class="border-start border-primary border-3 ps-3">
                                     <p class="mb-0 fst-italic">
-                                        "It's not just about the money anymore, but how each choice in this field fills
-                                        me with excitement."
+                                        "Translating low-level optimization into measurable business outcomes."
                                     </p>
                                 </div>
                             </div>
 
                             <p>
-                                As ICPC Training Director and Google DSC Lead, I've discovered that <span
-                                    class="text-primary">great software emerges where technical excellence meets
-                                    collaborative leadership</span>. Whether optimizing algorithms or architecting
-                                multi-tier systems, I approach every challenge with the same mindset: <span
-                                    class="text-primary">solve fundamentally, build resiliently, and elevate everyone
-                                    involved</span>.
+                                As an AI Systems Evaluator and Technical Consultant, I've discovered that <span
+                                    class="text-primary">great software emerges when strict constraints meet rapid
+                                    prototyping</span>. Whether reverse-engineering complex backends or drafting precise
+                                technical feasibility studies for enterprise budgets, I bridge the gap between low-level
+                                performance and high-level business logic.
                             </p>
                         </div>
                     </div>
@@ -136,12 +139,11 @@
                             <div class="col-md-4">
                                 <div class="skill-card h-100">
                                     <div class="skill-icon mx-auto mb-4">
-                                        <i class="fas fa-chess-knight"></i>
+                                        <i class="fas fa-microchip"></i>
                                     </div>
-                                    <h3 class="skill-title text-center">Strategic Problem-Solving</h3>
+                                    <h3 class="skill-title text-center">Systems-Level Optimization</h3>
                                     <p class="skill-description text-center mb-0">
-                                        Every challenge is a puzzle with optimal pathways. 230+ LeetCode solutions and
-                                        competition wins trained my systematic approach.
+                                        Performance defines user experience. From C/C++ memory management to executing robust algorithms under pressure, I optimize the lowest levels.
                                     </p>
                                 </div>
                             </div>
@@ -149,12 +151,11 @@
                             <div class="col-md-4">
                                 <div class="skill-card h-100">
                                     <div class="skill-icon mx-auto mb-4">
-                                        <i class="fas fa-layer-group"></i>
+                                        <i class="fas fa-brain"></i>
                                     </div>
-                                    <h3 class="skill-title text-center">Architectural Integrity</h3>
+                                    <h3 class="skill-title text-center">AI-Augmented Architecture</h3>
                                     <p class="skill-description text-center mb-0">
-                                        Systems outlive features. My OOP banking system and licensing platform prove
-                                        maintainability isn't optional.
+                                        Leveraging cutting-edge models (Cursor, v0, MCP) to generate systems under 135+ page highly constrained logic rules for maximum security and zero drift.
                                     </p>
                                 </div>
                             </div>
@@ -162,12 +163,11 @@
                             <div class="col-md-4">
                                 <div class="skill-card h-100">
                                     <div class="skill-icon mx-auto mb-4">
-                                        <i class="fas fa-people-group"></i>
+                                        <i class="fas fa-chart-pie"></i>
                                     </div>
-                                    <h3 class="skill-title text-center">Collective Elevation</h3>
+                                    <h3 class="skill-title text-center">Technical Business Consulting</h3>
                                     <p class="skill-description text-center mb-0">
-                                        Whether training programmers or founding startup teams, I believe technology
-                                        advances through shared growth.
+                                        Translating business requirements into 50+ page technical feasibility studies. Every architecture decision mitigates risk and accelerates project ROI.
                                     </p>
                                 </div>
                             </div>
@@ -179,145 +179,91 @@
     </section>
 
 
-<!-- Extended Skills Section -->
- 
-<section class="extended-skills-section section overflow-visible">
-    <div class="bg-grid"></div>
+    <!-- Extended Skills Section -->
+
+    <section class="extended-skills-section section overflow-visible">
+        <div class="bg-grid"></div>
         <div class="bg-blur blur-1 w-50"></div>
         <div class="bg-blur blur-2  w-50"></div>
-    <div class="container">
-        <h2 class="section-title mb-5">Technical Expertise</h2>
-        
-        <div class="skills-pills">
-            <!-- Programming Languages Group -->
-            <div class="skill-group mb-5 hanwag-fade">
-                <div class="d-flex align-items-center mb-4">
-                    <div class="me-3" style="width: 40px; height: 40px; background: rgba(37, 99, 235, 0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center;">
-                        <i class="fas fa-code text-primary"></i>
+        <div class="container">
+            <h2 class="section-title mb-5">Technical Expertise</h2>
+
+            <!-- Blueprint Skills Table -->
+            <div class="skills-blueprint-table hanwag-fade" style="display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid #000; box-shadow: 4px 4px 0 #000;">
+
+                <!-- Column 1: Full-Stack Engineering -->
+                <div style="border-right: 1px solid #000;">
+                    <div style="background: #0f172a; color: #fff; padding: 0.75rem 1rem; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #000; min-height: 64px;">
+                        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;">Full-Stack Engineering</span>
+                        <i class="fas fa-code" style="font-size: 0.85rem; opacity: 0.7;"></i>
                     </div>
-                    <h3 class="mb-0" style="font-size: 1.8rem; font-weight: 600; color: var(--light);">Languages & Frameworks</h3>
-                </div>
-                
-                <div class="d-flex flex-wrap gap-3">
-                    <div class="skill-pill d-flex align-items-center py-2 px-3 rounded-pill" style="background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.1);">
-                        <i class="fab fa-windows me-2 text-primary"></i>
-                        <span>.NET Framework</span>
-                    </div>
-                    <div class="skill-pill d-flex align-items-center py-2 px-3 rounded-pill" style="background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.1);">
-                        <i class="fas fa-gamepad me-2 text-blue-300"></i>
-                        <span>Unity Framework</span>
-                    </div>
-                    <div class="skill-pill d-flex align-items-center py-2 px-3 rounded-pill" style="background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.1);">
-                        <i class="fab fa-bootstrap me-2 text-purple"></i>
-                        <span>Bootstrap</span>
-                    </div>
-                    <div class="skill-pill d-flex align-items-center py-2 px-3 rounded-pill" style="background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.1);">
-                        <i class="fas fa-laptop-code me-2 text-primary"></i>
-                        <span>C#</span>
-                    </div>
-                    <div class="skill-pill d-flex align-items-center py-2 px-3 rounded-pill" style="background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.1);">
-                        <i class="fas fa-microchip me-2 text-blue-300"></i>
-                        <span>C/C++</span>
-                    </div>
-                    <div class="skill-pill d-flex align-items-center py-2 px-3 rounded-pill" style="background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.1);">
-                        <i class="fab fa-python me-2 text-primary"></i>
-                        <span>Python</span>
-                    </div>
-                    <div class="skill-pill d-flex align-items-center py-2 px-3 rounded-pill" style="background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.1);">
-                        <i class="fas fa-database me-2 text-blue-300"></i>
-                        <span>T-SQL</span>
-                    </div>
-                    <div class="skill-pill d-flex align-items-center py-2 px-3 rounded-pill" style="background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.1);">
-                        <i class="fab fa-html5 me-2 text-orange"></i>
-                        <span>HTML/CSS/JS</span>
+                    <div style="padding: 0 1rem;">
+                        <div style="padding: 0.75rem 0; border-bottom: 1px solid #e5e7eb; font-size: 0.9rem;">TypeScript</div>
+                        <div style="padding: 0.75rem 0; border-bottom: 1px solid #e5e7eb; font-size: 0.9rem;">React/Next.js</div>
+                        <div style="padding: 0.75rem 0; border-bottom: 1px solid #e5e7eb; font-size: 0.9rem;">Node.js</div>
+                        <div style="padding: 0.75rem 0; border-bottom: 1px solid #e5e7eb; font-size: 0.9rem;">PostgreSQL/MongoDB</div>
+                        <div style="padding: 0.75rem 0; border-bottom: 1px solid #e5e7eb; font-size: 0.9rem;">Supabase</div>
+                        <div style="padding: 0.75rem 0; border-bottom: 1px solid #e5e7eb; font-size: 0.9rem;">C/C++</div>
+                        <div style="padding: 0.75rem 0; border-bottom: 1px solid #e5e7eb; font-size: 0.9rem;">C#</div>
+                        <div style="padding: 0.75rem 0; border-bottom: 1px solid #e5e7eb; font-size: 0.9rem;">Python</div>
+                        <div style="padding: 0.75rem 0; border-bottom: 1px solid #e5e7eb; font-size: 0.9rem;">T-SQL</div>
+                        <div style="padding: 0.75rem 0; border-bottom: 1px solid #e5e7eb; font-size: 0.9rem;">.NET</div>
+                        <div style="padding: 0.75rem 0; font-size: 0.9rem;">ADO.Net</div>
                     </div>
                 </div>
-            </div>
-            
-            <!-- Database & Tools Group -->
-            <div class="skill-group mb-5 hanwag-fade">
-                <div class="d-flex align-items-center mb-4">
-                    <div class="me-3" style="width: 40px; height: 40px; background: rgba(37, 99, 235, 0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center;">
-                        <i class="fas fa-database text-primary"></i>
+
+                <!-- Column 2: AI-Augmented Architecture -->
+                <div style="border-right: 1px solid #000;">
+                    <div style="background: #0f172a; color: #fff; padding: 0.75rem 1rem; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #000; min-height: 64px;">
+                        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;">AI-Augmented Architecture</span>
+                        <i class="fas fa-brain" style="font-size: 0.85rem; opacity: 0.7;"></i>
                     </div>
-                    <h3 class="mb-0" style="font-size: 1.8rem; font-weight: 600; color: var(--light);">Database & Tools</h3>
-                </div>
-                
-                <div class="d-flex flex-wrap gap-3">
-                    <div class="skill-pill d-flex align-items-center py-2 px-3 rounded-pill" style="background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.1);">
-                        <i class="fas fa-server me-2 text-primary"></i>
-                        <span>SQL Server Management</span>
-                    </div>
-                    <div class="skill-pill d-flex align-items-center py-2 px-3 rounded-pill" style="background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.1);">
-                        <i class="fas fa-table me-2 text-blue-300"></i>
-                        <span>Python Pandas</span>
-                    </div>
-                    <div class="skill-pill d-flex align-items-center py-2 px-3 rounded-pill" style="background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.1);">
-                        <i class="fas fa-database me-2 text-purple"></i>
-                        <span>MSSQL</span>
-                    </div>
-                    <div class="skill-pill d-flex align-items-center py-2 px-3 rounded-pill" style="background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.1);">
-                        <i class="fas fa-plug me-2 text-primary"></i>
-                        <span>ADO.NET</span>
-                    </div>
-                    <div class="skill-pill d-flex align-items-center py-2 px-3 rounded-pill" style="background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.1);">
-                        <i class="fab fa-github me-2 text-light"></i>
-                        <span>GitHub</span>
-                    </div>
-                    <div class="skill-pill d-flex align-items-center py-2 px-3 rounded-pill" style="background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.1);">
-                        <i class="fas fa-robot me-2 text-blue-300"></i>
-                        <span>AI Prompt Engineering</span>
-                    </div>
-                    <div class="skill-pill d-flex align-items-center py-2 px-3 rounded-pill" style="background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.1);">
-                        <i class="fas fa-code me-2 text-primary"></i>
-                        <span>VS Code</span>
-                    </div>
-                    <div class="skill-pill d-flex align-items-center py-2 px-3 rounded-pill" style="background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.1);">
-                        <i class="fab fa-microsoft me-2 text-blue-300"></i>
-                        <span>Visual Studio</span>
+                    <div style="padding: 0 1rem;">
+                        <div style="padding: 0.75rem 0; border-bottom: 1px solid #e5e7eb; font-size: 0.9rem;">Large-Context AI Orchestration</div>
+                        <div style="padding: 0.75rem 0; border-bottom: 1px solid #e5e7eb; font-size: 0.9rem;">Cursor</div>
+                        <div style="padding: 0.75rem 0; border-bottom: 1px solid #e5e7eb; font-size: 0.9rem;">v0</div>
+                        <div style="padding: 0.75rem 0; border-bottom: 1px solid #e5e7eb; font-size: 0.9rem;">MCP</div>
+                        <div style="padding: 0.75rem 0; border-bottom: 1px solid #e5e7eb; font-size: 0.9rem;">Qodo</div>
+                        <div style="padding: 0.75rem 0; border-bottom: 1px solid #e5e7eb; font-size: 0.9rem;">CodeRabbit</div>
+                        <div style="padding: 0.75rem 0; border-bottom: 1px solid #e5e7eb; font-size: 0.9rem;">Google Stitch</div>
+                        <div style="padding: 0.75rem 0; border-bottom: 1px solid #e5e7eb; font-size: 0.9rem;">Speckit</div>
+                        <div style="padding: 0.75rem 0; font-size: 0.9rem;">Jules</div>
                     </div>
                 </div>
-            </div>
-            
-            <!-- Theory & Methodologies Group -->
-            <div class="skill-group hanwag-fade">
-                <div class="d-flex align-items-center mb-4">
-                    <div class="me-3" style="width: 40px; height: 40px; background: rgba(37, 99, 235, 0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center;">
-                        <i class="fas fa-brain text-primary"></i>
+
+                <!-- Column 3: Systems & Performance -->
+                <div style="border-right: 1px solid #000;">
+                    <div style="background: #0f172a; color: #fff; padding: 0.75rem 1rem; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #000; min-height: 64px;">
+                        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;">Systems &amp; Performance</span>
+                        <i class="fas fa-microchip" style="font-size: 0.85rem; opacity: 0.7;"></i>
                     </div>
-                    <h3 class="mb-0" style="font-size: 1.8rem; font-weight: 600; color: var(--light);">Theory & Methodologies</h3>
-                </div>
-                
-                <div class="d-flex flex-wrap gap-3">
-                    <div class="skill-pill d-flex align-items-center py-2 px-3 rounded-pill" style="background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.1);">
-                        <i class="fas fa-sitemap me-2 text-primary"></i>
-                        <span>Data Structures & Algorithms</span>
-                    </div>
-                    <div class="skill-pill d-flex align-items-center py-2 px-3 rounded-pill" style="background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.1);">
-                        <i class="fas fa-lightbulb me-2 text-blue-300"></i>
-                        <span>Problem Solving (230+ LeetCode)</span>
-                    </div>
-                    <div class="skill-pill d-flex align-items-center py-2 px-3 rounded-pill" style="background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.1);">
-                        <i class="fas fa-filter me-2 text-purple"></i>
-                        <span>Problem Analysis & Simplification</span>
-                    </div>
-                    <div class="skill-pill d-flex align-items-center py-2 px-3 rounded-pill" style="background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.1);">
-                        <i class="fas fa-chart-line me-2 text-primary"></i>
-                        <span>Complexity Analysis</span>
-                    </div>
-                    <div class="skill-pill d-flex align-items-center py-2 px-3 rounded-pill" style="background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.1);">
-                        <i class="fas fa-tasks me-2 text-blue-300"></i>
-                        <span>Project Planning & Management</span>
-                    </div>
-                    <div class="skill-pill d-flex align-items-center py-2 px-3 rounded-pill" style="background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.1);">
-                        <i class="fas fa-arrows-rotate me-2 text-primary"></i>
-                        <span>Agile Development</span>
+                    <div style="padding: 0 1rem;">
+                        <div style="padding: 0.75rem 0; border-bottom: 1px solid #e5e7eb; font-size: 0.9rem;">C++ Memory Management</div>
+                        <div style="padding: 0.75rem 0; border-bottom: 1px solid #e5e7eb; font-size: 0.9rem;">Algorithmic Optimization</div>
+                        <div style="padding: 0.75rem 0; border-bottom: 1px solid #e5e7eb; font-size: 0.9rem;">Low-Latency Execution</div>
+                        <div style="padding: 0.75rem 0; font-size: 0.9rem;">Automated DOM Querying</div>
                     </div>
                 </div>
+
+                <!-- Column 4: Technical Business Consulting -->
+                <div>
+                    <div style="background: #0f172a; color: #fff; padding: 0.75rem 1rem; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #000; min-height: 64px;">
+                        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;">Technical Business Consulting</span>
+                        <i class="fas fa-user-tie" style="font-size: 0.85rem; opacity: 0.7;"></i>
+                    </div>
+                    <div style="padding: 0 1rem;">
+                        <div style="padding: 0.75rem 0; border-bottom: 1px solid #e5e7eb; font-size: 0.9rem;">ROI &amp; TCO Analysis</div>
+                        <div style="padding: 0.75rem 0; border-bottom: 1px solid #e5e7eb; font-size: 0.9rem;">Technical Feasibility Studies</div>
+                        <div style="padding: 0.75rem 0; border-bottom: 1px solid #e5e7eb; font-size: 0.9rem;">Scope of Work (SOW) Constraints</div>
+                        <div style="padding: 0.75rem 0; font-size: 0.9rem;">Client Negotiation</div>
+                    </div>
+                </div>
+
             </div>
         </div>
-    </div>
-</section>
+    </section>
+
+
 
     <!-- Professional Journey -->
     <section class="journey-highlights section">
@@ -338,10 +284,13 @@
                             </div>
                         </div>
                         <p class="skill-description">
-                            Practically secured <span class="text-primary">1st Place</span> at the every University project i lead, i always start with the big picture deeply analyze is using 
-                            <span
-                                class="text-primary">abstraction divide and conquer</span> allowing me to crack any big idea into its simplest components even when i do not know the required technical knowledge to build it
-                                allowing me to effectivaly divide simple tasks to my colleagues, delivering the project on time far exceeding the project requirements
+                            Practically secured <span class="text-primary">1st Place</span> at the every University
+                            project i lead, i always start with the big picture deeply analyze is using
+                            <span class="text-primary">abstraction divide and conquer</span> allowing me to crack any
+                            big idea into its simplest components even when i do not know the required technical
+                            knowledge to build it
+                            allowing me to effectivaly divide simple tasks to my colleagues, delivering the project on
+                            time far exceeding the project requirements
                         </p>
                     </div>
                 </div>
@@ -464,7 +413,8 @@
                                 <h3 class="education-degree mb-2"
                                     style="font-size: 1.5rem; font-weight: 700; color: var(--light);">ITI’s InnovEgypt
                                     Program</h3>
-                                <div class="education-institution text-gray-500 mb-2">Information Technology Institute</div>
+                                <div class="education-institution text-gray-500 mb-2">Information Technology Institute
+                                </div>
                                 <div class="education-date mb-3">
                                     <span class="badge"
                                         style="background: rgba(37, 99, 235, 0.15); color: var(--primary); padding: 0.4rem 0.8rem; border-radius: 20px; font-weight: 600;">2024</span>
@@ -492,7 +442,8 @@
                                 <h3 class="education-degree mb-2"
                                     style="font-size: 1.5rem; font-weight: 700; color: var(--light);">Web Design &
                                     Branding Diploma</h3>
-                                <div class="education-institution text-gray-500 mb-2">National Telecommunication Institute & Career 180</div>
+                                <div class="education-institution text-gray-500 mb-2">National Telecommunication
+                                    Institute & Career 180</div>
                                 <div class="education-date mb-3">
                                     <span class="badge"
                                         style="background: rgba(37, 99, 235, 0.15); color: var(--primary); padding: 0.4rem 0.8rem; border-radius: 20px; font-weight: 600;">2025</span>
@@ -539,7 +490,7 @@
     </section>
 
 
-        <!-- CTA Section -->
+    <!-- CTA Section -->
     <section class="section overflow-visible" id="contact">
         <div class="bg-grid"></div>
         <div class="bg-blur blur-2 w-100 overflow-visible position-absolute h-100" style="opacity: 10%;"></div>
@@ -554,10 +505,12 @@
                 <p class="cta-subtext">Shall we begin?</p>
 
                 <nav class="nav justify-content-center  align-content-center">
-                    <a href="https://www.linkedin.com/in/ahmed-nasser-a9556a255/" class="cta-button mx-1"><span class="fa-brands fa-linkedin mx-1"></span>Linkedin</a>
+                    <a href="https://www.linkedin.com/in/ahmed-nasser-a9556a255/" class="cta-button mx-1"><span
+                            class="fa-brands fa-linkedin mx-1"></span>Linkedin</a>
                     <a href="https://wa.me/201009784937
 " class="cta-button mx-1"><span class="fa-brands fa-whatsapp mx-1"></span>Whatsapp</a>
-                    <a href="https://www.upwork.com/freelancers/~01f54fd7d135eb3939" class="cta-button mx-1 "><span class="fa fa-laptop-code mx-1"></span>Upwork</a>
+                    <a href="https://www.upwork.com/freelancers/~01f54fd7d135eb3939" class="cta-button mx-1 "><span
+                            class="fa fa-laptop-code mx-1"></span>Upwork</a>
                 </nav>
 
 
@@ -585,19 +538,20 @@
 
                 </div>
 
-                
+
             </div>
         </section>
     </section>
 
-    <script src="about.js">
-    </script>
+    <!-- Lenis Smooth Scroll -->
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    <script src="about.js"></script>
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
 
-   
+
 </body>
 
 </html>

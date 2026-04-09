@@ -8,53 +8,49 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="blueprint.css">
 </head>
 
 <body>
 
 
     <!-- Navigation Bar -->
-    <nav class="navbar  navbar-dark bg-transparent  fixed-top">
-        <div class="container-fluid">
-            <div class="d-flex align-content-center align-items-center flex-column">
-                <a class="navbar-brand btn-hero bg-opacity-10 " href="#contact"><span class="fa fa-phone"></span></a>
-                <a class="navbar-brand btn-hero bg-opacity-10  my-2"
-                    href="https://github.com/AhmedNasser-bug" ><span class="fa-brands fa-github"></span></a>
-            </div>
-            <button class="navbar-toggler bg-transparent " type="button" data-bs-toggle="offcanvas"
-                data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" onclick="chooseOffCanvasText()">
-                <span class="navbar-toggler-icon"></span> ^_^
-            </button>
-
-
-            <div class="offcanvas offcanvas-end bg-opacity-25 bg-dark text-white" tabindex="-1" id="offcanvasNavbar"
-                aria-labelledby="offcanvasNavbarLabel">
-                <div class="offcanvas-header">
-                    <h5 class="offcanvas-title text-opacity-100" id="offcanvasNavbarLabel">
-                        Offcanvas
-                    </h5>
-                    <button type="button" class="btn-close text-light bg-light" data-bs-dismiss="offcanvas"
-                        aria-label="Close"></button>
-                </div>
-                <div class="offcanvas-body text-opacity-100">
-                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                        <li class="nav-item">
-                            <a class="nav-link active opacity-100" aria-current="page" href="index.html">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="about.html">About</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+    <!-- Floating Navigation Controls -->
+    <div class="fixed-top p-sm-4 p-3 d-flex justify-content-between align-items-start" style="pointer-events: none; z-index: 1040;">
+        <div class="d-flex flex-column gap-3" style="pointer-events: auto;">
+            <a class="btn btn-hero d-flex align-items-center justify-content-center" style="width:50px; height:50px; padding:0;" aria-label="Contact Section" href="#contact"><span class="fa fa-phone"></span></a>
+            <a class="btn btn-hero d-flex align-items-center justify-content-center" style="width:50px; height:50px; padding:0;" aria-label="GitHub Profile" href="https://github.com/AhmedNasser-bug"><span class="fa-brands fa-github"></span></a>
         </div>
-    </nav>
+        
+        <button class="btn btn-hero d-flex align-items-center gap-2 px-3 py-2" style="font-weight: 600; pointer-events: auto;" type="button" aria-label="Toggle Navigation Menu" aria-expanded="false" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" onclick="if(typeof chooseOffCanvasText === 'function') chooseOffCanvasText()">
+            <span class="fa fa-bars"></span> <span class="d-none d-sm-inline">MENU</span>
+        </button>
+    </div>
+
+    <!-- Offcanvas Navigation Menu -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header">
+            <h2 class="offcanvas-title h5 m-0" id="offcanvasNavbarLabel">Navigation</h2>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close menu"></button>
+        </div>
+        <div class="offcanvas-body">
+            <nav aria-label="Main Navigation">
+                <ul class="nav flex-column gap-3 mt-4">
+                    <li class="nav-item">
+                        <a class="nav-link active fw-bold fs-5" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fs-5" href="about.html">About</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
 
 
 
     <!-- Hero Section -->
     <section class="hero-section overflow-visible" id="hero">
-        <canvas class="hero-canvas" id="heroCanvas"></canvas>
         <div class="bg-grid"></div>
         <div class="bg-blur blur-1 "></div>
         <div class="bg-blur blur-2"></div>
@@ -62,9 +58,9 @@
 
         <div class="container">
             <div class="hero-content">
-                <h1 class="hero-title">Ahmed Naser</h1>
-                <h2 class="hero-subtitle">Full-Stack .NET Developer</h2>
-                <p class="hero-description">Transforming complex ideas into scalable software solutions with a passion
+                <h1 class="hero-title">Ahmed Nasser</h1>
+                <h2 class="hero-subtitle">Full-Stack TypeScript Engineer | AI Systems Orchestrator</h2>
+                <p class="hero-description">I don't just write code; I engineer business solutions. Slashing timelines and eliminating technical debt via deep systems-level knowledge and bleeding-edge AI orchestration.
                 </p>
                 <a href="#projects" class="btn btn-hero">View Projects</a>
             </div>
@@ -89,42 +85,40 @@
                 <div class="col-md-6 col-lg-3 hanwag-fade">
                     <div class="skill-card">
                         <div class="skill-icon">
-                            <i class="fas fa-code"></i>
+                            <i class="fas fa-microchip"></i>
                         </div>
-                        <h3 class="skill-title">C# .NET</h3>
-                        <p class="skill-description">Expert in building scalable applications with .NET Framework and
-                            .NET Core</p>
+                        <h3 class="skill-title">AI Orchestration</h3>
+                        <p class="skill-description">Architecting large-context AI environments (100k+ tokens) using Cursor, v0, MCP, and Qodo to accelerate execution.</p>
                     </div>
                 </div>
 
                 <div class="col-md-6 col-lg-3 hanwag-fade">
                     <div class="skill-card">
                         <div class="skill-icon">
-                            <i class="fas fa-database"></i>
+                            <i class="fas fa-laptop-code"></i>
                         </div>
-                        <h3 class="skill-title">Database Design</h3>
-                        <p class="skill-description">Proficient in SQL Server, T-SQL, and data architecture design</p>
+                        <h3 class="skill-title">Full-Stack Architect</h3>
+                        <p class="skill-description">TypeScript, Next.js, Node.js, and C#. Designing secure interfaces and scalable backends backed by PostgreSQL.</p>
                     </div>
                 </div>
 
                 <div class="col-md-6 col-lg-3 hanwag-fade">
                     <div class="skill-card">
                         <div class="skill-icon">
-                            <i class="fas fa-project-diagram"></i>
+                            <i class="fas fa-layer-group"></i>
                         </div>
-                        <h3 class="skill-title">Algorithms</h3>
-                        <p class="skill-description">230+ LeetCode problems solved with strong complexity analysis
-                            skills</p>
+                        <h3 class="skill-title">Systems Optimization</h3>
+                        <p class="skill-description">C/C++ memory management, low-latency execution, and heavy algorithmic efficiency for complex data flows.</p>
                     </div>
                 </div>
 
                 <div class="col-md-6 col-lg-3 hanwag-fade">
                     <div class="skill-card">
                         <div class="skill-icon">
-                            <i class="fas fa-brain"></i>
+                            <i class="fas fa-chart-line"></i>
                         </div>
-                        <h3 class="skill-title">AI Development</h3>
-                        <p class="skill-description">Experience with AI model training and prompt engineering</p>
+                        <h3 class="skill-title">Technical Consulting</h3>
+                        <p class="skill-description">Translating requirements into ROI. Drafting 50+ page feasibility studies for enterprise-scalable system budgets.</p>
                     </div>
                 </div>
             </div>
@@ -138,39 +132,38 @@
 
             <div class="hanwag-fade">
                 <div class="experience-card">
-                    <span class="experience-badge">2024-Present</span>
-                    <h3 class="experience-title">AI Reasoning Trainer</h3>
-                    <p class="experience-company">Outlier | Freelance</p>
+                    <span class="experience-badge">2023-Present</span>
+                    <h3 class="experience-title">Technical Consultant & Full-Stack Architect</h3>
+                    <p class="experience-company">Freelance | Enterprise Solutions</p>
                     <ul class="experience-list">
-                        <li>Trained AI models on advanced programming concepts and problem-solving techniques</li>
-                        <li>Evaluated peer trainers' methodologies and provided constructive feedback</li>
-                        <li>Developed training materials for core and advanced programming concepts</li>
+                        <li>Architected highly constrained AI environments with massive system-level contexts (135+ pages) to eliminate scope creep.</li>
+                        <li>Drafted data-driven technical feasibility studies for enterprise projects up to 500M EGP.</li>
+                        <li>Engineered and deployed strict, secure end-to-end management systems from scratch.</li>
                     </ul>
                 </div>
             </div>
 
             <div class="hanwag-fade">
                 <div class="experience-card">
-                    <span class="experience-badge">2024</span>
-                    <h3 class="experience-title">Full-Stack Developer</h3>
-                    <p class="experience-company">Drivers & Vehicle Licensing System</p>
+                    <span class="experience-badge">2023-2024</span>
+                    <h3 class="experience-title">AI Systems Trainer & Evaluator</h3>
+                    <p class="experience-company">Outlier & DataAnnotation</p>
                     <ul class="experience-list">
-                        <li>Built comprehensive licensing management system with .NET 4.7 and SQL Server</li>
-                        <li>Developed Windows Forms interface for streamlined user interactions</li>
-                        <li>Implemented secure login and record management systems</li>
+                        <li>Fine-tuned frontier models (GPT-4o, Claude 3.5) on complex algorithmic reasoning.</li>
+                        <li>Optimized AI-generated code architectures across expansive commercial tech stacks.</li>
+                        <li>Gained proprietary insights into human-like automated development behaviors.</li>
                     </ul>
                 </div>
             </div>
 
             <div class="hanwag-fade">
                 <div class="experience-card">
-                    <span class="experience-badge">2024</span>
-                    <h3 class="experience-title">Project Lead</h3>
-                    <p class="experience-company">Twinkies Online Store</p>
+                    <span class="experience-badge">2025-Present</span>
+                    <h3 class="experience-title">President & Head of Trainers</h3>
+                    <p class="experience-company">ICPC PUA | Algorithmic Leadership</p>
                     <ul class="experience-list">
-                        <li>Led development of full-stack e-commerce solution using .NET 9</li>
-                        <li>Designed scalable database architecture and business logic layers</li>
-                        <li>Utilized AI to accelerate backend development process</li>
+                        <li>Lead algorithm developers emphasizing extreme code efficiency and space-time complexity scaling.</li>
+                        <li>Secured 1st place in university ranking at ACM ECPC 2025 through strategic problem-solving optimization.</li>
                     </ul>
                 </div>
             </div>
@@ -235,7 +228,7 @@
                     <div class="project-card hanwag-fade">
                         <div class="project-visual">
                             <div class="project-media">
-                                <video autoplay loop muted playsinline class="project-video"
+                                <video aria-label="Project demonstration for DVLD System" autoplay loop muted playsinline class="project-video"
                                     data-src="https://example.com/dvld-system-demo.mp4">
                                     <!-- Video placeholder will be set via JS -->
                                 </video>
@@ -275,7 +268,7 @@
                     <div class="project-card hanwag-fade">
                         <div class="project-visual">
                             <div class="project-media">
-                                <video autoplay loop muted playsinline class="project-video"
+                                <video aria-label="Project demonstration for Twinkies Store" autoplay loop muted playsinline class="project-video"
                                     data-src="https://example.com/twinkies-store-demo.mp4">
                                     <!-- Video placeholder will be set via JS -->
                                 </video>
@@ -312,7 +305,7 @@
                     <div class="project-card hanwag-fade">
                         <div class="project-visual">
                             <div class="project-media">
-                                <video autoplay loop muted playsinline class="project-video"
+                                <video aria-label="Project demonstration for Algorithm Analysis" autoplay loop muted playsinline class="project-video"
                                     data-src="https://example.com/algorithm-analysis-demo.mp4">
                                     <!-- Video placeholder will be set via JS -->
                                 </video>
@@ -349,7 +342,7 @@
                     <div class="project-card hanwag-fade">
                         <div class="project-visual">
                             <div class="project-media">
-                                <video autoplay loop muted playsinline class="project-video"
+                                <video aria-label="Project demonstration for Algorithmic Game Solver" autoplay loop muted playsinline class="project-video"
                                     data-src="https://example.com/game-solver-demo.mp4">
                                     <!-- Video placeholder will be set via JS -->
                                 </video>
@@ -437,8 +430,9 @@
     </section>
 
 
+    <!-- Lenis Smooth Scroll -->
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
     <script src="animations.js"></script>
-
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Font Awesome -->

@@ -38,60 +38,35 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// Initialize Three.js for hero background
-document.addEventListener("DOMContentLoaded", () => {
-  // Canvas setup
-  const canvas = document.getElementById("heroCanvas");
-  const ctx = canvas.getContext("2d");
+// Canvas animations removed for blueprint aesthetic.
+document.addEventListener('DOMContentLoaded', () => {
 
-  // Set canvas size
-  function setCanvasSize() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-  }
-  setCanvasSize();
-  window.addEventListener("resize", setCanvasSize);
+    // Initialize Lenis Smooth Scroll
+    if (typeof Lenis !== 'undefined') {
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
+            smoothWheel: true
+        });
 
-  // Particle system
-  const particles = [];
-  const particleCount = 150;
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
 
-  // Create particles
-  for (let i = 0; i < particleCount; i++) {
-    particles.push({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      size: Math.random() * 3 + 1,
-      speedX: (Math.random() - 0.5) * 0.5,
-      speedY: (Math.random() - 0.5) * 0.5,
-      color: `rgba(59, 130, 246, ${Math.random() * 0.2 + 0.05})`,
-    });
-  }
+        requestAnimationFrame(raf);
 
-  // Animation loop
-  function animateParticles() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    particles.forEach((particle) => {
-      particle.x += particle.speedX;
-      particle.y += particle.speedY;
-
-      // Reset particles that go off screen
-      if (particle.x > canvas.width || particle.x < 0) particle.speedX *= -1;
-      if (particle.y > canvas.height || particle.y < 0) particle.speedY *= -1;
-
-      // Draw particle
-      ctx.beginPath();
-      ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
-      ctx.fillStyle = particle.color;
-      ctx.fill();
-    });
-
-    requestAnimationFrame(animateParticles);
-  }
-
-  animateParticles();
-
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if(target) {
+                    lenis.scrollTo(target);
+                }
+            });
+        });
+    }
   // Hanwag scrolling effect
   const observer = new IntersectionObserver(
     (entries) => {
@@ -117,6 +92,7 @@ var possible_texts = [
   "I won't stop until I reach my goals.",
   "Only those who attempt the absurd can achieve the impossible.” – Albert Einstein ",
   "Feel free to contact me anytime anyway you like!",
+  "I do not know how, but i certainly will."
 ];
 function chooseOffCanvasText() {
   const offCanvasText = document.getElementById("offcanvasNavbarLabel");
