@@ -1,450 +1,345 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" class="light">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ahmed Naser | Full-Stack .NET Developer</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <title>Ahmed Naser - Full-Stack .NET Developer</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&family=IBM+Plex+Mono:wght@400&family=Newsreader:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#3730A3",
+              "background-light": "#FAFAFA",
+              "background-dark": "#121022",
+              "surface": "#FFFFFF",
+              "text-main": "#171717",
+              "muted": "#737373",
+              "accent": "#E0E7FF",
+              "border-color": "#171717",
+            },
+            fontFamily: {
+              "display": ["Newsreader", "serif"],
+              "sans": ["IBM Plex Sans", "sans-serif"],
+              "mono": ["IBM Plex Mono", "monospace"],
+            },
+            borderRadius: {"DEFAULT": "0px", "sm": "0px", "lg": "0px", "xl": "0px", "full": "0px"},
+            boxShadow: {
+              'hard': '4px 4px 0px #171717',
+              'hard-hover': '6px 6px 0px #171717',
+            }
+          },
+        },
+      }
+    </script>
+    <style>
+      .graph-paper {
+        background-color: #FAFAFA;
+        background-size: 20px 20px;
+        background-image:
+            linear-gradient(to right, #E5E5E5 1px, transparent 1px),
+            linear-gradient(to bottom, #E5E5E5 1px, transparent 1px);
+      }
+      .blueprint-border { border: 1px solid #171717; }
+      .mini-grid {
+        background-color: #FFFFFF;
+        background-size: 10px 10px;
+        background-image:
+            linear-gradient(to right, #F0F0F0 1px, transparent 1px),
+            linear-gradient(to bottom, #F0F0F0 1px, transparent 1px);
+      }
+    </style>
+
 </head>
+<body class="graph-paper min-h-screen text-[#171717] font-sans antialiased overflow-x-hidden selection:bg-primary selection:text-white pb-20">
+    <div class="relative flex h-auto w-full flex-col group/design-root">
+        <div class="layout-container flex h-full grow flex-col">
+            <div class="px-4 md:px-10 lg:px-40 flex flex-1 justify-center py-5">
+                <div class="layout-content-container flex flex-col w-full max-w-[1200px] flex-1">
 
-<body>
-
-
-    <!-- Navigation Bar -->
-    <nav class="navbar  navbar-dark bg-transparent  fixed-top">
-        <div class="container-fluid">
-            <div class="d-flex align-content-center align-items-center flex-column">
-                <a class="navbar-brand btn-hero bg-opacity-10 fa fa-phone" href="#contact">Holder</a>
-                <a class="navbar-brand btn-hero bg-opacity-10 fa-brands fa-github my-2"
-                    href="https://github.com/AhmedNasser-bug">Holder</a>
-            </div>
-            <button class="navbar-toggler bg-transparent " type="button" data-bs-toggle="offcanvas"
-                data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" onclick="chooseOffCanvasText()">
-                <span class="navbar-toggler-icon"></span> ^_^
-            </button>
-
-
-            <div class="offcanvas offcanvas-end bg-opacity-25 bg-dark text-white" tabindex="-1" id="offcanvasNavbar"
-                aria-labelledby="offcanvasNavbarLabel">
-                <div class="offcanvas-header">
-                    <h5 class="offcanvas-title text-opacity-100" id="offcanvasNavbarLabel">
-                        Offcanvas
-                    </h5>
-                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
-                        aria-label="Close"></button>
-                </div>
-                <div class="offcanvas-body text-opacity-100">
-                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                        <li class="nav-item">
-                            <a class="nav-link active opacity-100" aria-current="page" href="index.html">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="about.html">About</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-[#171717] bg-white px-6 py-4 rounded-sm shadow-hard mb-12">
+    <div class="flex items-center gap-4 text-[#171717]">
+        <div class="size-5 text-primary">
+            <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8.57829 8.57829C5.52816 11.6284 3.451 15.5145 2.60947 19.7452C1.76794 23.9758 2.19984 28.361 3.85056 32.3462C5.50128 36.3314 8.29667 39.7376 11.8832 42.134C15.4698 44.5305 19.6865 45.8096 24 45.8096C28.3135 45.8096 32.5302 44.5305 36.1168 42.134C39.7033 39.7375 42.4987 36.3314 44.1494 32.3462C45.8002 28.361 46.2321 23.9758 45.3905 19.7452C44.549 15.5145 42.4718 11.6284 39.4217 8.57829L24 24L8.57829 8.57829Z" fill="currentColor"></path>
+            </svg>
         </div>
-    </nav>
+        <h2 class="text-[#171717] font-display text-xl font-bold leading-tight">Ahmed Naser</h2>
+    </div>
+    <div class="hidden md:flex flex-1 justify-end gap-8">
+        <nav class="flex items-center gap-9 font-mono text-sm uppercase tracking-wider">
+            <a class="text-[#171717] hover:text-primary transition-colors" href="index.html">Home</a>
+            <a class="text-[#171717] hover:text-primary transition-colors" href="about.html">About</a>
+            <a class="text-[#171717] hover:text-primary transition-colors" href="https://github.com/AhmedNasser-bug">GitHub</a>
+            <a class="text-[#171717] hover:text-primary transition-colors" href="#contact">Contact</a>
+        </nav>
+    </div>
+</header>
 
 
-
-    <!-- Hero Section -->
-    <section class="hero-section overflow-visible" id="hero">
-        <canvas class="hero-canvas" id="heroCanvas"></canvas>
-        <div class="bg-grid"></div>
-        <div class="bg-blur blur-1 "></div>
-        <div class="bg-blur blur-2"></div>
-
-
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title">Ahmed Naser</h1>
-                <h2 class="hero-subtitle">Full-Stack .NET Developer</h2>
-                <p class="hero-description">Transforming complex ideas into scalable software solutions with a passion
-                </p>
-                <a href="#projects" class="btn btn-hero">View Projects</a>
-            </div>
-        </div>
-
-        <div class="scroll-indicator">
-            <div class="mouse"></div>
-            <span class="scroll-text">SCROLL DOWN</span>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section class="section" id="skills" style="overflow: visible;">
-        <div class="bg-grid"></div>
-        <div class="bg-blur blur-2 w-100 h-25"></div>
-
-
-        <div class="container">
-            <h2 class="section-title hanwag-fade">Technical Expertise</h2>
-
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-3 hanwag-fade">
-                    <div class="skill-card">
-                        <div class="skill-icon">
-                            <i class="fas fa-code"></i>
-                        </div>
-                        <h3 class="skill-title">C# .NET</h3>
-                        <p class="skill-description">Expert in building scalable applications with .NET Framework and
-                            .NET Core</p>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-3 hanwag-fade">
-                    <div class="skill-card">
-                        <div class="skill-icon">
-                            <i class="fas fa-database"></i>
-                        </div>
-                        <h3 class="skill-title">Database Design</h3>
-                        <p class="skill-description">Proficient in SQL Server, T-SQL, and data architecture design</p>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-3 hanwag-fade">
-                    <div class="skill-card">
-                        <div class="skill-icon">
-                            <i class="fas fa-project-diagram"></i>
-                        </div>
-                        <h3 class="skill-title">Algorithms</h3>
-                        <p class="skill-description">230+ LeetCode problems solved with strong complexity analysis
-                            skills</p>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-3 hanwag-fade">
-                    <div class="skill-card">
-                        <div class="skill-icon">
-                            <i class="fas fa-brain"></i>
-                        </div>
-                        <h3 class="skill-title">AI Development</h3>
-                        <p class="skill-description">Experience with AI model training and prompt engineering</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Work Experience Section -->
-    <section class="section" id="experience">
-        <div class="container">
-            <h2 class="section-title hanwag-fade">Work Experience</h2>
-
-            <div class="hanwag-fade">
-                <div class="experience-card">
-                    <span class="experience-badge">2024-Present</span>
-                    <h3 class="experience-title">AI Reasoning Trainer</h3>
-                    <p class="experience-company">Outlier | Freelance</p>
-                    <ul class="experience-list">
-                        <li>Trained AI models on advanced programming concepts and problem-solving techniques</li>
-                        <li>Evaluated peer trainers' methodologies and provided constructive feedback</li>
-                        <li>Developed training materials for core and advanced programming concepts</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="hanwag-fade">
-                <div class="experience-card">
-                    <span class="experience-badge">2024</span>
-                    <h3 class="experience-title">Full-Stack Developer</h3>
-                    <p class="experience-company">Drivers & Vehicle Licensing System</p>
-                    <ul class="experience-list">
-                        <li>Built comprehensive licensing management system with .NET 4.7 and SQL Server</li>
-                        <li>Developed Windows Forms interface for streamlined user interactions</li>
-                        <li>Implemented secure login and record management systems</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="hanwag-fade">
-                <div class="experience-card">
-                    <span class="experience-badge">2024</span>
-                    <h3 class="experience-title">Project Lead</h3>
-                    <p class="experience-company">Twinkies Online Store</p>
-                    <ul class="experience-list">
-                        <li>Led development of full-stack e-commerce solution using .NET 9</li>
-                        <li>Designed scalable database architecture and business logic layers</li>
-                        <li>Utilized AI to accelerate backend development process</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="section overflow-visible" id="services">
-        <div class="bg-grid"></div>
-        <div class="bg-blur blur-1 w-75 h-25 "></div>
-
-        <div class="container">
-            <h2 class="section-title hanwag-fade">Development Services</h2>
-
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-4 hanwag-fade">
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-layer-group"></i>
-                        </div>
-                        <h3 class="service-title">Full-Stack .NET</h3>
-                        <p class="service-description">End-to-end solutions with scalable architecture and optimized
-                            databases</p>
-                        <button class="service-cta">Get Quote</button>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-4 hanwag-fade">
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-database"></i>
-                        </div>
-                        <h3 class="service-title">Database Design</h3>
-                        <p class="service-description">Reliable database architecture with SQL Server optimization</p>
-                        <button class="service-cta">Get Quote</button>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-4 hanwag-fade">
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-cogs"></i>
-                        </div>
-                        <h3 class="service-title">Algorithmic Solutions</h3>
-                        <p class="service-description">Complex problem solving with optimized algorithms</p>
-                        <button class="service-cta">Get Quote</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section class="section" id="projects">
-        <div class="container">
-            <h2 class="section-title hanwag-fade">Project Showcase</h2>
-
-            <div class="projects-grid">
-                <!-- Project 1: DVLD System -->
-                <a href="https://github.com/AhmedNasser-bug/DVLD-System-Project" style="text-decoration-line: none;"
-                    target="_blank" rel="noopener noreferrer">
-                    <div class="project-card hanwag-fade">
-                        <div class="project-visual">
-                            <div class="project-media">
-                                <video autoplay loop muted playsinline class="project-video"
-                                    data-src="https://example.com/dvld-system-demo.mp4">
-                                    <!-- Video placeholder will be set via JS -->
-                                </video>
-                                <div class="project-overlay"></div>
+                    <main class="flex flex-col gap-16 lg:gap-24 items-start py-10 mb-20">
+                        <div class="flex flex-col gap-8">
+                            <div class="space-y-4">
+                                <h3 class="font-mono text-sm uppercase tracking-widest text-primary">Ahmed Naser</h3>
+                                <h1 class="font-sans font-semibold text-5xl md:text-6xl tracking-[-0.02em] leading-[1.1] text-[#171717]">
+                                    Full-Stack<br>.NET Developer
+                                </h1>
                             </div>
-                            <span class="project-type-badge badge-code">C# .NET</span>
-                        </div>
-
-                        <div class="project-content">
-                            <h3 class="project-title">DVLD System</h3>
-                            <p class="project-description">Driver and Vehicle Licensing Department management solution
+                            <p class="font-display text-xl text-[#4a4a4a] leading-relaxed max-w-md">
+                                Transforming complex ideas into scalable software solutions. Specializing in C#, .NET architecture, and AI-integrated systems.
                             </p>
-
-                            <div class="tech-stack">
-                                <span class="tech-tag">C#</span>
-                                <span class="tech-tag">.NET</span>
-                                <span class="tech-tag">MSSQL</span>
-                                <span class="tech-tag">T-SQL</span>
-                                <span class="tech-tag">ADO.NET</span>
-                                <span class="tech-tag">WinForms</span>
+                            <div class="flex flex-wrap gap-4 pt-4">
+                                <a href="#projects" class="flex items-center justify-center bg-[#171717] text-white px-6 py-3 border border-[#171717] rounded-sm font-mono text-sm uppercase tracking-wide hover:-translate-y-[2px] hover:-translate-x-[2px] hover:shadow-hard-hover transition-all duration-200">
+                                    View Projects
+                                </a>
+                                <a href="about.html" class="flex items-center justify-center bg-white text-[#171717] px-6 py-3 border border-[#171717] rounded-sm font-mono text-sm uppercase tracking-wide shadow-hard hover:-translate-y-[2px] hover:-translate-x-[2px] hover:shadow-hard-hover hover:text-primary transition-all duration-200">
+                                    About Me
+                                </a>
                             </div>
-
-                            <div class="project-impact">
-                                <i class="fas fa-lightbulb impact-icon"></i>
-                                <p>Problem: Manual licensing processes caused delays and errors</p>
-                                <p>Impact: Automated workflows reduced processing time by 40%</p>
-                            </div>
-
-
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Project 2: Twinkies Store -->
-                <a href="https://github.com/AhmedNasser-bug/Twinkies-Store-Management-App" target="_blank"
-                    style="text-decoration-line: none;" rel="noopener noreferrer">
-                    <div class="project-card hanwag-fade">
-                        <div class="project-visual">
-                            <div class="project-media">
-                                <video autoplay loop muted playsinline class="project-video"
-                                    data-src="https://example.com/twinkies-store-demo.mp4">
-                                    <!-- Video placeholder will be set via JS -->
-                                </video>
-                                <div class="project-overlay"></div>
-                            </div>
-                            <span class="project-type-badge badge-code">Full Stack</span>
                         </div>
 
-                        <div class="project-content">
-                            <h3 class="project-title">Twinkies Store Management</h3>
-                            <p class="project-description">E-commerce solution with inventory and sales analytics</p>
 
-                            <div class="tech-stack">
-                                <span class="tech-tag">C#</span>
-                                <span class="tech-tag">.NET</span>
-                                <span class="tech-tag">Three-Tier Architecture</span>
-                                <span class="tech-tag">SQL Database</span>
-                            </div>
-
-                            <div class="project-impact">
-                                <i class="fas fa-lightbulb impact-icon"></i>
-                                <p>Problem: Needed scalable solution for growing business</p>
-                                <p>Impact: Increased sales by 25% with inventory optimization</p>
-                            </div>
+                    </main>
 
 
+                    <div class="mb-16">
+                        <div class="flex flex-wrap justify-between gap-3 p-4 border-b border-border-color mb-8">
+                            <p class="text-text-main tracking-tight text-3xl font-semibold leading-tight min-w-72 font-sans">Technical Expertise</p>
                         </div>
-                    </div>
-                </a>
-
-                <!-- Project 3: Algorithm Analysis -->
-                <a href="https://github.com/AhmedNasser-bug/Algorithm-Analysis" target="_blank"
-                    style="text-decoration-line: none;" rel="noopener noreferrer">
-                    <div class="project-card hanwag-fade">
-                        <div class="project-visual">
-                            <div class="project-media">
-                                <video autoplay loop muted playsinline class="project-video"
-                                    data-src="https://example.com/algorithm-analysis-demo.mp4">
-                                    <!-- Video placeholder will be set via JS -->
-                                </video>
-                                <div class="project-overlay"></div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                            <div class="bg-surface blueprint-border p-6 hover:bg-[#FAFAFA] transition-colors">
+                                <span class="material-symbols-outlined text-3xl text-primary mb-4" style="font-variation-settings: 'FILL' 0;">code</span>
+                                <h3 class="font-sans font-semibold text-lg text-text-main mb-2">C# .NET</h3>
+                                <p class="text-[#4a4a4a] text-sm">Expert in building scalable applications with .NET Framework and .NET Core</p>
                             </div>
-                            <span class="project-type-badge badge-code">Data Visualization</span>
-                        </div>
-
-                        <div class="project-content">
-                            <h3 class="project-title">Algorithm Analysis</h3>
-                            <p class="project-description">Algorithm performance visualization and comparison tool</p>
-
-                            <div class="tech-stack">
-                                <span class="tech-tag">C#</span>
-                                <span class="tech-tag">WinForms</span>
-                                <span class="tech-tag">Data Visualization</span>
-                                <span class="tech-tag">Complexity Analysis</span>
+                            <div class="bg-surface blueprint-border p-6 hover:bg-[#FAFAFA] transition-colors">
+                                <span class="material-symbols-outlined text-3xl text-primary mb-4" style="font-variation-settings: 'FILL' 0;">database</span>
+                                <h3 class="font-sans font-semibold text-lg text-text-main mb-2">Database Design</h3>
+                                <p class="text-[#4a4a4a] text-sm">Proficient in MSSQL, T-SQL, and designing robust database architectures</p>
                             </div>
-
-                            <div class="project-impact">
-                                <i class="fas fa-lightbulb impact-icon"></i>
-                                <p>Problem: Difficulty understanding algorithm performance characteristics</p>
-                                <p>Impact: Visual comparisons improved learning outcomes by 35%</p>
+                            <div class="bg-surface blueprint-border p-6 hover:bg-[#FAFAFA] transition-colors">
+                                <span class="material-symbols-outlined text-3xl text-primary mb-4" style="font-variation-settings: 'FILL' 0;">account_tree</span>
+                                <h3 class="font-sans font-semibold text-lg text-text-main mb-2">Algorithms</h3>
+                                <p class="text-[#4a4a4a] text-sm">Strong background in data structures and algorithmic problem solving</p>
                             </div>
-
-
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Project 4: Algorithmic Game Solver -->
-                <a href="https://github.com/AhmedNasser-bug/Algorithmic-Game-solver" target="_blank"
-                    style="text-decoration-line: none;" rel="noopener noreferrer">
-                    <div class="project-card hanwag-fade">
-                        <div class="project-visual">
-                            <div class="project-media">
-                                <video autoplay loop muted playsinline class="project-video"
-                                    data-src="https://example.com/game-solver-demo.mp4">
-                                    <!-- Video placeholder will be set via JS -->
-                                </video>
-                                <div class="project-overlay"></div>
-                            </div>
-                            <span class="project-type-badge badge-code">Python</span>
-                        </div>
-
-                        <div class="project-content">
-                            <h3 class="project-title">Algorithmic Game Solver</h3>
-                            <p class="project-description">Solver for Sudoku, 8 Queens, and maze pathfinding</p>
-
-                            <div class="tech-stack">
-                                <span class="tech-tag">Python</span>
-                                <span class="tech-tag">Algorithms</span>
-                                <span class="tech-tag">Pathfinding</span>
-                                <span class="tech-tag">Problem Solving</span>
-                            </div>
-
-                            <div class="project-impact">
-                                <i class="fas fa-lightbulb impact-icon"></i>
-                                <p>Problem: Complex puzzle solving required specialized knowledge</p>
-                                <p>Impact: Created extensible framework adopted by CS department</p>
+                            <div class="bg-surface blueprint-border p-6 hover:bg-[#FAFAFA] transition-colors">
+                                <span class="material-symbols-outlined text-3xl text-primary mb-4" style="font-variation-settings: 'FILL' 0;">smart_toy</span>
+                                <h3 class="font-sans font-semibold text-lg text-text-main mb-2">AI Development</h3>
+                                <p class="text-[#4a4a4a] text-sm">Experience with AI model training and prompt engineering</p>
                             </div>
                         </div>
                     </div>
-                </a>
 
+                    <div class="mb-16">
+                        <div class="flex flex-wrap justify-between gap-3 p-4 border-b border-border-color mb-8">
+                            <p class="text-text-main tracking-tight text-3xl font-semibold leading-tight min-w-72 font-sans">Work Experience</p>
+                        </div>
+                        <div class="bg-surface blueprint-border shadow-hard p-6">
+                            <div class="flex flex-col gap-8">
+                                <div class="border-l-2 border-border-color pl-6 relative">
+                                    <div class="absolute w-3 h-3 bg-primary -left-[7px] top-2 border border-border-color"></div>
+                                    <div class="flex flex-col md:flex-row md:justify-between md:items-baseline mb-2">
+                                        <h3 class="font-sans font-semibold text-xl text-text-main">AI Reasoning Trainer</h3>
+                                        <span class="font-mono text-sm text-muted">2024 - Present</span>
+                                    </div>
+                                    <p class="font-display italic text-lg text-[#4a4a4a] mb-4">Outlier | Freelance</p>
+                                    <ul class="list-disc list-outside ml-4 text-[#4a4a4a] space-y-2">
+                                        <li>Trained AI models on advanced programming concepts and problem-solving techniques</li>
+                                        <li>Evaluated peer trainers' methodologies and provided constructive feedback</li>
+                                        <li>Developed training materials for core and advanced programming concepts</li>
+                                    </ul>
+                                </div>
+
+                                <div class="border-l-2 border-border-color pl-6 relative">
+                                    <div class="absolute w-3 h-3 bg-primary -left-[7px] top-2 border border-border-color"></div>
+                                    <div class="flex flex-col md:flex-row md:justify-between md:items-baseline mb-2">
+                                        <h3 class="font-sans font-semibold text-xl text-text-main">Full-Stack Developer</h3>
+                                        <span class="font-mono text-sm text-muted">2024</span>
+                                    </div>
+                                    <p class="font-display italic text-lg text-[#4a4a4a] mb-4">Drivers & Vehicle Licensing System</p>
+                                    <ul class="list-disc list-outside ml-4 text-[#4a4a4a] space-y-2">
+                                        <li>Built comprehensive licensing management system with .NET 4.7 and SQL Server</li>
+                                        <li>Developed Windows Forms interface for streamlined user interactions</li>
+                                        <li>Implemented secure login and record management systems</li>
+                                    </ul>
+                                </div>
+
+                                <div class="border-l-2 border-transparent pl-6 relative">
+                                    <div class="absolute w-3 h-3 bg-surface -left-[7px] top-2 border border-border-color"></div>
+                                    <div class="flex flex-col md:flex-row md:justify-between md:items-baseline mb-2">
+                                        <h3 class="font-sans font-semibold text-xl text-text-main">Project Lead</h3>
+                                        <span class="font-mono text-sm text-muted">2024</span>
+                                    </div>
+                                    <p class="font-display italic text-lg text-[#4a4a4a] mb-4">Twinkies Online Store</p>
+                                    <ul class="list-disc list-outside ml-4 text-[#4a4a4a] space-y-2">
+                                        <li>Led development of full-stack e-commerce solution using .NET 9</li>
+                                        <li>Designed scalable database architecture and business logic layers</li>
+                                        <li>Utilized AI to accelerate backend development process</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="mb-16">
+                        <div class="flex flex-wrap justify-between gap-3 p-4 border-b border-border-color mb-8">
+                            <p class="text-text-main tracking-tight text-3xl font-semibold leading-tight min-w-72 font-sans">Development Services</p>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                            <div class="bg-surface blueprint-border p-8 hover:-translate-y-1 hover:shadow-hard transition-all">
+                                <span class="material-symbols-outlined text-4xl text-primary mb-6" style="font-variation-settings: 'FILL' 0;">layers</span>
+                                <h3 class="font-sans font-semibold text-xl text-text-main mb-4">Full-Stack .NET</h3>
+                                <p class="text-[#4a4a4a] mb-6">End-to-end solutions with scalable architecture and optimized databases</p>
+                            </div>
+                            <div class="bg-surface blueprint-border p-8 hover:-translate-y-1 hover:shadow-hard transition-all">
+                                <span class="material-symbols-outlined text-4xl text-primary mb-6" style="font-variation-settings: 'FILL' 0;">database</span>
+                                <h3 class="font-sans font-semibold text-xl text-text-main mb-4">Database Design</h3>
+                                <p class="text-[#4a4a4a] mb-6">Custom SQL solutions with high performance and data integrity</p>
+                            </div>
+                            <div class="bg-surface blueprint-border p-8 hover:-translate-y-1 hover:shadow-hard transition-all">
+                                <span class="material-symbols-outlined text-4xl text-primary mb-6" style="font-variation-settings: 'FILL' 0;">functions</span>
+                                <h3 class="font-sans font-semibold text-xl text-text-main mb-4">Algorithmic Solutions</h3>
+                                <p class="text-[#4a4a4a] mb-6">Optimized complex problem solving for performance-critical applications</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-12 pt-20" id="projects">
+                        <h2 class="font-display italic text-3xl font-medium tracking-tight border-b border-border-color pb-4 inline-block pr-12">Project Showcase</h2>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
+                        <article class="bg-surface blueprint-border flex flex-col group hover:bg-[#FAFAFA] transition-colors duration-200">
+                            <div class="h-48 mini-grid border-b border-border-color relative flex items-center justify-center p-6 overflow-hidden">
+                                <span class="material-symbols-outlined text-5xl text-text-main relative z-10" style="font-variation-settings: 'FILL' 0;">account_tree</span>
+                            </div>
+                            <div class="p-6 flex flex-col flex-grow">
+                                <h3 class="font-sans font-semibold text-xl mb-2 group-hover:text-primary transition-colors">DVLD System</h3>
+                                <p class="text-text-main leading-relaxed mb-6 flex-grow">
+                                    Desktop application managing driving licenses, local/international permits, tests, and user management using robust C# features. Automated workflows reduced processing time by 40%.
+                                </p>
+                                <div class="mt-auto">
+                                    <div class="mb-6 flex flex-wrap gap-2">
+                                        <span class="font-mono text-xs bg-text-main text-surface px-2 py-1">C#</span>
+                                        <span class="font-mono text-xs blueprint-border px-2 py-1 bg-surface">.NET</span>
+                                        <span class="font-mono text-xs blueprint-border px-2 py-1 bg-surface">ADO.NET</span>
+                                        <span class="font-mono text-xs blueprint-border px-2 py-1 bg-surface">WinForms</span>
+                                    </div>
+                                    <a class="inline-flex items-center font-mono text-sm text-primary font-medium hover:underline underline-offset-4 decoration-primary decoration-2 group/link" href="https://github.com/AhmedNasser-bug/DVLD-System-Project" target="_blank" rel="noopener">
+                                        View Repository
+                                        <span class="material-symbols-outlined ml-1 text-[18px] group-hover/link:translate-x-1 transition-transform">arrow_right_alt</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="bg-surface blueprint-border flex flex-col group hover:bg-[#FAFAFA] transition-colors duration-200">
+                            <div class="h-48 mini-grid border-b border-border-color relative flex items-center justify-center p-6 overflow-hidden">
+                                <span class="material-symbols-outlined text-5xl text-text-main relative z-10" style="font-variation-settings: 'FILL' 0;">database</span>
+                            </div>
+                            <div class="p-6 flex flex-col flex-grow">
+                                <h3 class="font-sans font-semibold text-xl mb-2 group-hover:text-primary transition-colors">Twinkies Store Management</h3>
+                                <p class="text-text-main leading-relaxed mb-6 flex-grow">
+                                    E-commerce solution with inventory and sales analytics. Increased sales by 25% with inventory optimization.
+                                </p>
+                                <div class="mt-auto">
+                                    <div class="mb-6 flex flex-wrap gap-2">
+                                        <span class="font-mono text-xs bg-text-main text-surface px-2 py-1">C#</span>
+                                        <span class="font-mono text-xs blueprint-border px-2 py-1 bg-surface">.NET</span>
+                                        <span class="font-mono text-xs blueprint-border px-2 py-1 bg-surface">Three-Tier Architecture</span>
+                                    </div>
+                                    <a class="inline-flex items-center font-mono text-sm text-primary font-medium hover:underline underline-offset-4 decoration-primary decoration-2 group/link" href="https://github.com/AhmedNasser-bug/Twinkies-Store-Management-App" target="_blank" rel="noopener">
+                                        View Repository
+                                        <span class="material-symbols-outlined ml-1 text-[18px] group-hover/link:translate-x-1 transition-transform">arrow_right_alt</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="bg-surface blueprint-border flex flex-col group hover:bg-[#FAFAFA] transition-colors duration-200">
+                            <div class="h-48 mini-grid border-b border-border-color relative flex items-center justify-center p-6 overflow-hidden">
+                                <span class="material-symbols-outlined text-5xl text-text-main relative z-10" style="font-variation-settings: 'FILL' 0;">query_stats</span>
+                            </div>
+                            <div class="p-6 flex flex-col flex-grow">
+                                <h3 class="font-sans font-semibold text-xl mb-2 group-hover:text-primary transition-colors">Algorithm Analysis</h3>
+                                <p class="text-text-main leading-relaxed mb-6 flex-grow">
+                                    Algorithm performance visualization and comparison tool. Visual comparisons improved learning outcomes by 35%.
+                                </p>
+                                <div class="mt-auto">
+                                    <div class="mb-6 flex flex-wrap gap-2">
+                                        <span class="font-mono text-xs bg-text-main text-surface px-2 py-1">C#</span>
+                                        <span class="font-mono text-xs blueprint-border px-2 py-1 bg-surface">Complexity Analysis</span>
+                                    </div>
+                                    <a class="inline-flex items-center font-mono text-sm text-primary font-medium hover:underline underline-offset-4 decoration-primary decoration-2 group/link" href="https://github.com/AhmedNasser-bug/Algorithm-Analysis" target="_blank" rel="noopener">
+                                        View Repository
+                                        <span class="material-symbols-outlined ml-1 text-[18px] group-hover/link:translate-x-1 transition-transform">arrow_right_alt</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="bg-surface blueprint-border flex flex-col group hover:bg-[#FAFAFA] transition-colors duration-200">
+                            <div class="h-48 mini-grid border-b border-border-color relative flex items-center justify-center p-6 overflow-hidden">
+                                <span class="material-symbols-outlined text-5xl text-text-main relative z-10" style="font-variation-settings: 'FILL' 0;">hub</span>
+                            </div>
+                            <div class="p-6 flex flex-col flex-grow">
+                                <h3 class="font-sans font-semibold text-xl mb-2 group-hover:text-primary transition-colors">Algorithmic Game Solver</h3>
+                                <p class="text-text-main leading-relaxed mb-6 flex-grow">
+                                    Solver for Sudoku, 8 Queens, and maze pathfinding. Created extensible framework adopted by CS department.
+                                </p>
+                                <div class="mt-auto">
+                                    <div class="mb-6 flex flex-wrap gap-2">
+                                        <span class="font-mono text-xs bg-text-main text-surface px-2 py-1">Python</span>
+                                        <span class="font-mono text-xs blueprint-border px-2 py-1 bg-surface">Algorithms</span>
+                                        <span class="font-mono text-xs blueprint-border px-2 py-1 bg-surface">Pathfinding</span>
+                                    </div>
+                                    <a class="inline-flex items-center font-mono text-sm text-primary font-medium hover:underline underline-offset-4 decoration-primary decoration-2 group/link" href="https://github.com/AhmedNasser-bug/Algorithmic-Game-solver" target="_blank" rel="noopener">
+                                        View Repository
+                                        <span class="material-symbols-outlined ml-1 text-[18px] group-hover/link:translate-x-1 transition-transform">arrow_right_alt</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <section id="contact" class="w-full bg-surface border border-border-color shadow-hard p-8 transition-transform duration-200 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-hard-hover">
+                        <div class="flex flex-col gap-12">
+                            <div class="flex flex-col gap-4">
+                                <h2 class="font-mono text-sm uppercase text-muted">Ready to Bring Your Vision to Life?</h2>
+                                <a class="font-display font-semibold text-[32px] md:text-[48px] text-text-main border-b-2 border-primary w-fit pb-1 hover:text-primary transition-colors duration-200" href="mailto:ahmed.naser732000@gmail.com">
+                                    ahmed.naser732000@gmail.com
+                                </a>
+                                <p class="font-mono text-sm text-muted">Phone: +201009784937</p>
+                            </div>
+                            <div class="flex flex-wrap gap-6 border-t border-border-color pt-6">
+                                <a class="font-mono text-sm uppercase text-text-main hover:text-primary transition-colors flex items-center gap-2 group" href="https://www.linkedin.com/in/ahmed-nasser-a9556a255/" target="_blank" rel="noopener">
+                                    LinkedIn
+                                    <span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+                                </a>
+                                <a class="font-mono text-sm uppercase text-text-main hover:text-primary transition-colors flex items-center gap-2 group" href="https://github.com/AhmedNasser-bug" target="_blank" rel="noopener">
+                                    GitHub
+                                    <span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+                                </a>
+                                <a class="font-mono text-sm uppercase text-text-main hover:text-primary transition-colors flex items-center gap-2 group" href="https://wa.me/201009784937" target="_blank" rel="noopener">
+                                    WhatsApp
+                                    <span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+                                </a>
+                                <a class="font-mono text-sm uppercase text-text-main hover:text-primary transition-colors flex items-center gap-2 group" href="https://www.upwork.com/freelancers/~01f54fd7d135eb3939" target="_blank" rel="noopener">
+                                    Upwork
+                                    <span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+                </div>
             </div>
         </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="section overflow-visible" id="contact">
-        <div class="bg-grid"></div>
-        <div class="bg-blur blur-2 w-100 overflow-visible position-absolute h-100" style="opacity: 10%;"></div>
-        <section class="cta-section">
-
-            <div class="cta-grid"></div>
-            <div class="cta-blur blur-1"></div>
-            <div class="cta-blur blur-2"></div>
-
-            <div class="cta-content">
-                <h2 class="cta-heading">Ready to Bring Your Vision to Life?</h2>
-                <p class="cta-subtext">Let's collaborate to create exceptional software solutions tailored to your
-                    unique requirements. Reach out today to discuss your project.</p>
-
-                <nav class="nav justify-content-center  ">
-                    <a href="https://www.linkedin.com/in/ahmed-nasser-a9556a255/" class="cta-button mx-1"><span
-                            class="fa-brands fa-linkedin mx-1"></span>Linkedin</a>
-                    <a href="https://wa.me/201009784937
-" class="cta-button mx-1"><span class="fa-brands fa-whatsapp mx-1"></span>Whatsapp</a>
-                    <a href="https://www.upwork.com/freelancers/~01f54fd7d135eb3939" class="cta-button mx-1 "><span
-                            class="fa fa-laptop-code mx-1"></span>Upwork</a>
-                </nav>
-
-
-                <div class="contact-preview">
-                    <div class="contact-title">Prefer Direct Contact?</div>
-
-                    <div class="contact-method">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="contact-details">
-                            <div class="contact-label">Email Address</div>
-                            <div class="contact-value">ahmed.naser732000@gmail.com</div>
-                        </div>
-                    </div>
-                    <div class="contact-method">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div class="contact-details">
-                            <div class="contact-label">Phone</div>
-                            <div class="contact-value">+201009784937</div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <a href="about.html" class="cta-button mx-1 my-3 intense-button">know more about me --></a>
-            </div>
-        </section>
-    </section>
-
-
-    <script src="animations.js"></script>
-
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Font Awesome -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
-
-
+    </div>
 </body>
-
 </html>

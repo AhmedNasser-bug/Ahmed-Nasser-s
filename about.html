@@ -1,603 +1,387 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" class="light">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Ahmed | Full-Stack .NET Developer</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Ahmed Naser - Full-Stack .NET Developer</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&family=IBM+Plex+Mono:wght@400&family=Newsreader:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#3730A3",
+              "background-light": "#FAFAFA",
+              "background-dark": "#121022",
+              "surface": "#FFFFFF",
+              "text-main": "#171717",
+              "muted": "#737373",
+              "accent": "#E0E7FF",
+              "border-color": "#171717",
+            },
+            fontFamily: {
+              "display": ["Newsreader", "serif"],
+              "sans": ["IBM Plex Sans", "sans-serif"],
+              "mono": ["IBM Plex Mono", "monospace"],
+            },
+            borderRadius: {"DEFAULT": "0px", "sm": "0px", "lg": "0px", "xl": "0px", "full": "0px"},
+            boxShadow: {
+              'hard': '4px 4px 0px #171717',
+              'hard-hover': '6px 6px 0px #171717',
+            }
+          },
+        },
+      }
+    </script>
+    <style>
+      .graph-paper {
+        background-color: #FAFAFA;
+        background-size: 20px 20px;
+        background-image:
+            linear-gradient(to right, #E5E5E5 1px, transparent 1px),
+            linear-gradient(to bottom, #E5E5E5 1px, transparent 1px);
+      }
+      .blueprint-border { border: 1px solid #171717; }
+      .mini-grid {
+        background-color: #FFFFFF;
+        background-size: 10px 10px;
+        background-image:
+            linear-gradient(to right, #F0F0F0 1px, transparent 1px),
+            linear-gradient(to bottom, #F0F0F0 1px, transparent 1px);
+      }
+    </style>
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
 </head>
+<body class="graph-paper min-h-screen text-text-main font-sans antialiased overflow-x-hidden selection:bg-primary selection:text-white pb-20">
+    <div class="relative flex h-auto w-full flex-col group/design-root">
+        <div class="layout-container flex h-full grow flex-col">
+            <div class="px-4 md:px-10 lg:px-40 flex flex-1 justify-center py-5">
+                <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
 
-<body>
-
-<!-- Navigation Bar -->
-    <nav class="navbar navbar-dark bg-transparent  fixed-top">
-        <div class="container-fluid">
-            <div class="d-flex align-content-center align-items-center flex-column">
-                <a class="navbar-brand btn-hero bg-opacity-10 fa fa-phone" href="#contact"></a>
-            <a class="navbar-brand btn-hero bg-opacity-10 fa-brands fa-github my-2" href="https://github.com/AhmedNasser-bug"></a>
-            </div>
-            
-            <button class="navbar-toggler bg-transparent " type="button" data-bs-toggle="offcanvas"
-                data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" onclick="chooseOffCanvasText()">
-                <span class="navbar-toggler-icon"></span> ^_^
-            </button>
-
-
-            <div class="offcanvas offcanvas-end bg-opacity-25 bg-dark text-white" tabindex="-1" id="offcanvasNavbar"
-                aria-labelledby="offcanvasNavbarLabel">
-                <div class="offcanvas-header">
-                    <h5 class="offcanvas-title text-opacity-100" id="offcanvasNavbarLabel">
-                        Offcanvas
-                    </h5>
-                    <button type="button" class="btn-close text-reset bg-white" data-bs-dismiss="offcanvas"
-                        aria-label="Close"></button>
-                </div>
-                <div class="offcanvas-body text-opacity-100">
-                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                        <li class="nav-item">
-                            <a class="nav-link active opacity-100" aria-current="page" href="index.html">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="about.html">About</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-[#171717] bg-white px-6 py-4 rounded-sm shadow-hard mb-12">
+    <div class="flex items-center gap-4 text-[#171717]">
+        <div class="size-5 text-primary">
+            <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8.57829 8.57829C5.52816 11.6284 3.451 15.5145 2.60947 19.7452C1.76794 23.9758 2.19984 28.361 3.85056 32.3462C5.50128 36.3314 8.29667 39.7376 11.8832 42.134C15.4698 44.5305 19.6865 45.8096 24 45.8096C28.3135 45.8096 32.5302 44.5305 36.1168 42.134C39.7033 39.7375 42.4987 36.3314 44.1494 32.3462C45.8002 28.361 46.2321 23.9758 45.3905 19.7452C44.549 15.5145 42.4718 11.6284 39.4217 8.57829L24 24L8.57829 8.57829Z" fill="currentColor"></path>
+            </svg>
         </div>
-    </nav>
+        <h2 class="text-[#171717] font-display text-xl font-bold leading-tight">Ahmed Naser</h2>
+    </div>
+    <div class="hidden md:flex flex-1 justify-end gap-8">
+        <nav class="flex items-center gap-9 font-mono text-sm uppercase tracking-wider">
+            <a class="text-[#171717] hover:text-primary transition-colors" href="index.html">Home</a>
+            <a class="text-[#171717] hover:text-primary transition-colors" href="about.html">About</a>
+            <a class="text-[#171717] hover:text-primary transition-colors" href="https://github.com/AhmedNasser-bug">GitHub</a>
+            <a class="text-[#171717] hover:text-primary transition-colors" href="#contact">Contact</a>
+        </nav>
+    </div>
+</header>
 
-    <div class="bg-blur blur-1 z-3"></div>
-        <div class="bg-blur blur-2 z-3"></div>
-    <!-- About Hero Section -->
-    <section class="about-hero section pb-0">
-        
-        <div class="container">
-            
-            <div class="row align-items-center">
-                
-                <!-- Image Column -->
-                <div class="col-lg-5 mb-5 mb-lg-0">
-                    <div class="bio-image position-relative">
-                        <div class="placeholder-image d-flex align-items-center justify-content-center rounded-3"
-                            style="height: 480px; background: linear-gradient(135deg, #1e3a8a, #0f172a); border: 1px solid rgba(96, 165, 250, 0.3);">
-                            <div class="text-center text-blue-300">
 
-                                <img src="hero.jpeg" class="img-fluid rounded-3" alt="Ahmed">
-
-                            </div>
-                        </div>
-                        <div class="bg-blur position-absolute top-0 start-0 w-100 h-100"
-                            style="background: var(--primary); filter: blur(100px); opacity: 0.15; z-index: -1;"></div>
-                    </div>
-                </div>
-
-                <!-- Bio Content Column -->
-                <div class="col-lg-7">
-                    <div class="ps-lg-5">
-                        <h1 class="about-headline mb-4" style="font-size: 3.2rem; font-weight: 800; line-height: 1.2;">
-                            Crafting Solutions <span class="text-primary">Through Code</span> & Leadership
+                    <div class="mb-12">
+                        <h1 class="text-text-main text-[32px] md:text-[48px] font-semibold leading-tight tracking-[-0.02em] font-sans">
+                            Crafting Solutions Through Code & Leadership.
                         </h1>
-
-                        <div class="bio-content">
-                            <p class="lead mb-4" style="font-size: 1.25rem;">
-                                I'm Ahmed - a <span class="text-primary">Full-Stack .NET Developer</span> and
-                                competitive programming enthusiast who believes software should solve <span
-                                    class="text-primary">real human challenges</span>.
-                            </p>
-
-                            <p class="mb-4">
-                                My journey began with the thrill of game development - that first moment seeing code
-                                transform into interactive experiences sparked a lifelong passion. Today, I channel that
-                                same creative energy into building enterprise systems that make tangible impacts.
-                            </p>
-
-                            <div class="d-flex align-items-center mb-4">
-                                <div class="border-start border-primary border-3 ps-3">
-                                    <p class="mb-0 fst-italic">
-                                        "It's not just about the money anymore, but how each choice in this field fills
-                                        me with excitement."
-                                    </p>
-                                </div>
-                            </div>
-
-                            <p>
-                                As ICPC Training Director and Google DSC Lead, I've discovered that <span
-                                    class="text-primary">great software emerges where technical excellence meets
-                                    collaborative leadership</span>. Whether optimizing algorithms or architecting
-                                multi-tier systems, I approach every challenge with the same mindset: <span
-                                    class="text-primary">solve fundamentally, build resiliently, and elevate everyone
-                                    involved</span>.
-                            </p>
-                        </div>
+                        <p class="font-display italic text-[20px] text-muted mt-4 max-w-2xl">
+                            I'm Ahmed - a Full-Stack .NET Developer and competitive programming enthusiast who believes software should solve real human challenges.
+                        </p>
+                        <p class="font-sans text-[16px] text-[#4a4a4a] mt-4 max-w-2xl leading-relaxed">
+                            My journey began with the thrill of game development - that first moment seeing code transform into interactive experiences sparked a lifelong passion. Today, I channel that same creative energy into building enterprise systems that make tangible impacts.
+                            <br><br>
+                            <i>"It's not just about the money anymore, but how each choice in this field fills me with excitement."</i>
+                            <br><br>
+                            As ICPC Training Director and Google DSC Lead, I've discovered that great software emerges where technical excellence meets collaborative leadership.
+                        </p>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Values Section -->
-    <section class="personal-touches section m-0">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8 text-center">
-                    <h2 class="section-title mb-5">My Engineering Philosophy</h2>
-
-                    <div class="bg-grid position-absolute top-0 start-0 w-100 h-100"></div>
-
-                    <div class="position-relative">
-                        <div class="row g-4">
-                            <div class="col-md-4">
-                                <div class="skill-card h-100">
-                                    <div class="skill-icon mx-auto mb-4">
-                                        <i class="fas fa-chess-knight"></i>
+                    <!-- My Engineering Philosophy -->
+                    <div class="mb-16">
+                        <div class="flex flex-wrap justify-between gap-3 p-4 border-b border-border-color mb-8">
+                            <p class="text-text-main tracking-tight text-3xl font-semibold leading-tight min-w-72 font-sans">My Engineering Philosophy</p>
+                        </div>
+                        <div class="bg-surface border border-border-color shadow-hard hover:shadow-hard-hover transition-shadow duration-300 transform hover:-translate-y-1 hover:-translate-x-1 relative">
+                            <div class="flex flex-col">
+                                <div class="p-6 border-b border-[#171717] group hover:bg-[#FAFAFA] transition-colors">
+                                    <div class="flex gap-4 items-start">
+                                        <span class="font-mono text-primary text-sm mt-1">01</span>
+                                        <div>
+                                            <h3 class="font-sans font-semibold text-lg text-[#171717] mb-2">Strategic Problem-Solving</h3>
+                                            <p class="font-display italic text-lg text-[#4a4a4a]">Every challenge is a puzzle with optimal pathways. 230+ LeetCode solutions and competition wins trained my systematic approach.</p>
+                                        </div>
                                     </div>
-                                    <h3 class="skill-title text-center">Strategic Problem-Solving</h3>
-                                    <p class="skill-description text-center mb-0">
-                                        Every challenge is a puzzle with optimal pathways. 230+ LeetCode solutions and
-                                        competition wins trained my systematic approach.
-                                    </p>
                                 </div>
-                            </div>
-
-                            <div class="col-md-4">
-                                <div class="skill-card h-100">
-                                    <div class="skill-icon mx-auto mb-4">
-                                        <i class="fas fa-layer-group"></i>
+                                <div class="p-6 border-b border-[#171717] group hover:bg-[#FAFAFA] transition-colors">
+                                    <div class="flex gap-4 items-start">
+                                        <span class="font-mono text-primary text-sm mt-1">02</span>
+                                        <div>
+                                            <h3 class="font-sans font-semibold text-lg text-[#171717] mb-2">Architectural Integrity</h3>
+                                            <p class="font-display italic text-lg text-[#4a4a4a]">Systems outlive features. My OOP banking system and licensing platform prove maintainability isn't optional.</p>
+                                        </div>
                                     </div>
-                                    <h3 class="skill-title text-center">Architectural Integrity</h3>
-                                    <p class="skill-description text-center mb-0">
-                                        Systems outlive features. My OOP banking system and licensing platform prove
-                                        maintainability isn't optional.
-                                    </p>
                                 </div>
-                            </div>
-
-                            <div class="col-md-4">
-                                <div class="skill-card h-100">
-                                    <div class="skill-icon mx-auto mb-4">
-                                        <i class="fas fa-people-group"></i>
+                                <div class="p-6 group hover:bg-[#FAFAFA] transition-colors">
+                                    <div class="flex gap-4 items-start">
+                                        <span class="font-mono text-primary text-sm mt-1">03</span>
+                                        <div>
+                                            <h3 class="font-sans font-semibold text-lg text-[#171717] mb-2">Collective Elevation</h3>
+                                            <p class="font-display italic text-lg text-[#4a4a4a]">Whether training programmers or founding startup teams, I believe technology advances through shared growth.</p>
+                                        </div>
                                     </div>
-                                    <h3 class="skill-title text-center">Collective Elevation</h3>
-                                    <p class="skill-description text-center mb-0">
-                                        Whether training programmers or founding startup teams, I believe technology
-                                        advances through shared growth.
-                                    </p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
+                    <!-- Technical Expertise -->
+                    <div class="mb-16">
+                        <div class="flex flex-wrap justify-between gap-3 p-4 border-b border-border-color mb-8">
+                            <p class="text-text-main tracking-tight text-3xl font-semibold leading-tight min-w-72 font-sans">Technical Expertise</p>
+                        </div>
+                        <div class="bg-border-color gap-px grid grid-cols-1 md:grid-cols-3 border border-border-color shadow-hard">
+                            <div class="bg-surface flex flex-col h-full">
+                                <div class="bg-text-main text-surface font-mono text-[13px] uppercase px-4 py-2 flex items-center justify-between">
+                                    <span>Languages & Frameworks</span>
+                                    <span class="material-symbols-outlined text-base">code</span>
+                                </div>
+                                <ul class="flex flex-col flex-1 p-0">
+                                    <li class="px-5 py-4 border-b border-[#E5E5E5] last:border-0 hover:bg-background-light transition-colors flex justify-between items-baseline">
+                                        <span class="font-medium">C# (.NET Framework & Core)</span>
+                                    </li>
+                                    <li class="px-5 py-4 border-b border-[#E5E5E5] last:border-0 hover:bg-background-light transition-colors flex justify-between items-baseline">
+                                        <span class="font-medium">C/C++</span>
+                                    </li>
+                                    <li class="px-5 py-4 border-b border-[#E5E5E5] last:border-0 hover:bg-background-light transition-colors flex justify-between items-baseline">
+                                        <span class="font-medium">Python</span>
+                                    </li>
+                                    <li class="px-5 py-4 border-b border-[#E5E5E5] last:border-0 hover:bg-background-light transition-colors flex justify-between items-baseline">
+                                        <span class="font-medium">T-SQL</span>
+                                    </li>
+                                    <li class="px-5 py-4 border-b border-[#E5E5E5] last:border-0 hover:bg-background-light transition-colors flex justify-between items-baseline">
+                                        <span class="font-medium">HTML/CSS/JS</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="bg-surface flex flex-col h-full">
+                                <div class="bg-text-main text-surface font-mono text-[13px] uppercase px-4 py-2 flex items-center justify-between">
+                                    <span>Database & Tools</span>
+                                    <span class="material-symbols-outlined text-base">hub</span>
+                                </div>
+                                <ul class="flex flex-col flex-1 p-0">
+                                    <li class="px-5 py-4 border-b border-[#E5E5E5] last:border-0 hover:bg-background-light transition-colors flex flex-col gap-1">
+                                        <span class="font-medium">SQL Server Management Studio</span>
+                                    </li>
+                                    <li class="px-5 py-4 border-b border-[#E5E5E5] last:border-0 hover:bg-background-light transition-colors flex justify-between items-baseline">
+                                        <span class="font-medium">ADO.NET</span>
+                                    </li>
+                                    <li class="px-5 py-4 border-b border-[#E5E5E5] last:border-0 hover:bg-background-light transition-colors flex justify-between items-baseline">
+                                        <span class="font-medium">GitHub</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="bg-surface flex flex-col h-full">
+                                <div class="bg-text-main text-surface font-mono text-[13px] uppercase px-4 py-2 flex items-center justify-between">
+                                    <span>Theory & Methodologies</span>
+                                    <span class="material-symbols-outlined text-base">layers</span>
+                                </div>
+                                <ul class="flex flex-col flex-1 p-0">
+                                    <li class="px-5 py-4 border-b border-[#E5E5E5] last:border-0 hover:bg-background-light transition-colors flex justify-between items-baseline">
+                                        <span class="font-medium">Object-Oriented Programming (OOP)</span>
+                                    </li>
+                                    <li class="px-5 py-4 border-b border-[#E5E5E5] last:border-0 hover:bg-background-light transition-colors flex justify-between items-baseline">
+                                        <span class="font-medium">Data Structures & Algorithms</span>
+                                    </li>
+                                    <li class="px-5 py-4 border-b border-[#E5E5E5] last:border-0 hover:bg-background-light transition-colors flex justify-between items-baseline">
+                                        <span class="font-medium">Problem Solving (230+ problems)</span>
+                                    </li>
+                                    <li class="px-5 py-4 border-b border-[#E5E5E5] last:border-0 hover:bg-background-light transition-colors flex justify-between items-baseline">
+                                        <span class="font-medium">Complexity Analysis</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
 
-<!-- Extended Skills Section -->
- 
-<section class="extended-skills-section section overflow-visible">
-    <div class="bg-grid"></div>
-        <div class="bg-blur blur-1 w-50"></div>
-        <div class="bg-blur blur-2  w-50"></div>
-    <div class="container">
-        <h2 class="section-title mb-5">Technical Expertise</h2>
-        
-        <div class="skills-pills">
-            <!-- Programming Languages Group -->
-            <div class="skill-group mb-5 hanwag-fade">
-                <div class="d-flex align-items-center mb-4">
-                    <div class="me-3" style="width: 40px; height: 40px; background: rgba(37, 99, 235, 0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center;">
-                        <i class="fas fa-code text-primary"></i>
+                    <!-- Professional Journey -->
+                    <div class="mb-16">
+                        <div class="flex flex-wrap justify-between gap-3 p-4 border-b border-border-color mb-8">
+                            <p class="text-text-main tracking-tight text-3xl font-semibold leading-tight min-w-72 font-sans">My Professional Journey</p>
+                        </div>
+                        <div class="relative grid grid-cols-[40px_1fr] md:grid-cols-[60px_1fr] gap-x-2 md:gap-x-6 px-4">
+
+                            <div class="flex flex-col items-center pt-6">
+                                <div class="w-[12px] h-[12px] bg-primary border border-text-main z-10 relative"></div>
+                                <div class="w-[1px] bg-text-main h-full grow mt-2"></div>
+                            </div>
+                            <div class="flex flex-1 flex-col py-4 mb-8">
+                                <div class="bg-surface border border-text-main shadow-hard p-6 transition-all duration-200 hover:-translate-y-1 hover:-translate-x-1 hover:shadow-hard-hover">
+                                    <div class="flex flex-col md:flex-row md:items-baseline justify-between mb-4">
+                                        <h3 class="text-text-main text-2xl font-semibold font-display">Project planning and Idea <i>Simplification</i> excellence</h3>
+                                    </div>
+                                    <ul class="list-none space-y-3 mb-6">
+                                        <li class="flex items-start">
+                                            <span class="material-symbols-outlined text-[16px] mr-2 mt-1 shrink-0" data-icon="commit">commit</span>
+                                            <span class="text-[16px] leading-relaxed">Practically secured 1st Place at the every University project I lead. I always start with the big picture, deeply analyze it using abstraction divide and conquer, allowing me to crack any big idea into its simplest components, delivering projects on time and far exceeding requirements.</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="flex flex-col items-center pt-6">
+                                <div class="w-[12px] h-[12px] bg-surface border border-text-main z-10 relative"></div>
+                                <div class="w-[1px] bg-text-main h-full grow mt-2"></div>
+                            </div>
+                            <div class="flex flex-1 flex-col py-4 mb-8">
+                                <div class="bg-surface border border-text-main shadow-hard p-6 transition-all duration-200 hover:-translate-y-1 hover:-translate-x-1 hover:shadow-hard-hover">
+                                    <div class="flex flex-col md:flex-row md:items-baseline justify-between mb-4">
+                                        <h3 class="text-text-main text-2xl font-semibold font-display">Technical Leadership <span class="text-muted font-normal">@ ICPC PUA</span></h3>
+                                    </div>
+                                    <ul class="list-none space-y-3 mb-6">
+                                        <li class="flex items-start">
+                                            <span class="material-symbols-outlined text-[16px] mr-2 mt-1 shrink-0" data-icon="commit">commit</span>
+                                            <span class="text-[16px] leading-relaxed">As Director & Head Trainer at ICPC PUA, I built a championship-caliber program from scratch. Developed training roadmaps, led live algorithm sessions, and engineered competition simulations that increased our team's problem-solving speed by 40%. Taught me how to transform individual talent into collective excellence.</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="flex flex-col items-center pt-6">
+                                <div class="w-[12px] h-[12px] bg-surface border border-text-main z-10 relative"></div>
+                                <div class="w-[1px] bg-text-main h-full grow mt-2"></div>
+                            </div>
+                            <div class="flex flex-1 flex-col py-4 mb-8">
+                                <div class="bg-surface border border-text-main shadow-hard p-6 transition-all duration-200 hover:-translate-y-1 hover:-translate-x-1 hover:shadow-hard-hover">
+                                    <div class="flex flex-col md:flex-row md:items-baseline justify-between mb-4">
+                                        <h3 class="text-text-main text-2xl font-semibold font-display">Real-World System Architecture</h3>
+                                    </div>
+                                    <ul class="list-none space-y-3 mb-6">
+                                        <li class="flex items-start">
+                                            <span class="material-symbols-outlined text-[16px] mr-2 mt-1 shrink-0" data-icon="commit">commit</span>
+                                            <span class="text-[16px] leading-relaxed">Engineered a full-stack licensing platform handling 10+ complex workflows from vision tests to international permits. This project crystallized my approach: complex systems demand simple, maintainable architectures. Used C# .NET Framework 4.7 + SQL Server to abstract bureaucratic complexity into intuitive user flows.</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="flex flex-col items-center pt-6">
+                                <div class="w-[12px] h-[12px] bg-surface border border-text-main z-10 relative"></div>
+                                <div class="w-[1px] bg-transparent h-full grow mt-2"></div>
+                            </div>
+                            <div class="flex flex-1 flex-col py-4 mb-8">
+                                <div class="bg-surface border border-text-main shadow-hard p-6 transition-all duration-200 hover:-translate-y-1 hover:-translate-x-1 hover:shadow-hard-hover">
+                                    <div class="flex flex-col md:flex-row md:items-baseline justify-between mb-4">
+                                        <h3 class="text-text-main text-2xl font-semibold font-display">AI-Powered Development <span class="text-muted font-normal">@ Outlier Trainer</span></h3>
+                                    </div>
+                                    <ul class="list-none space-y-3 mb-6">
+                                        <li class="flex items-start">
+                                            <span class="material-symbols-outlined text-[16px] mr-2 mt-1 shrink-0" data-icon="commit">commit</span>
+                                            <span class="text-[16px] leading-relaxed">As an AI Reasoning Trainer, I've honed models in advanced programming concepts. This unique vantage point taught me how to leverage AI as a force multiplier - from accelerating backend development with prompt engineering to optimizing algorithm design, while keeping human judgment central.</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
-                    <h3 class="mb-0" style="font-size: 1.8rem; font-weight: 600; color: var(--light);">Languages & Frameworks</h3>
-                </div>
-                
-                <div class="d-flex flex-wrap gap-3">
-                    <div class="skill-pill d-flex align-items-center py-2 px-3 rounded-pill" style="background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.1);">
-                        <i class="fab fa-windows me-2 text-primary"></i>
-                        <span>.NET Framework</span>
+
+                    <!-- Education -->
+                    <div class="mb-16">
+                        <div class="flex flex-wrap justify-between gap-3 p-4 border-b border-border-color mb-8">
+                            <p class="text-text-main tracking-tight text-3xl font-semibold leading-tight min-w-72 font-sans">Education & Professional Development</p>
+                        </div>
+                        <div class="flex flex-col gap-6">
+
+                            <section class="w-full bg-surface border border-border-color shadow-hard p-6 transition-transform duration-200 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-hard-hover">
+                                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-border-color pb-4 mb-4">
+                                    <div class="flex flex-col">
+                                        <h3 class="font-display font-semibold text-xl text-text-main">BSc Computer Science</h3>
+                                        <p class="font-editorial italic text-lg text-muted mt-1">Pharos University in Alexandria</p>
+                                    </div>
+                                    <div class="font-mono text-sm text-text-main bg-accent px-3 py-1 border border-border-color">
+                                        Expected 2027
+                                    </div>
+                                </div>
+                                <p class="text-[#4a4a4a]">Fully funded scholarship program with current GPA of ~3.8. Focus on software architecture, algorithmic problem solving, advanced data structures, and system design.</p>
+                            </section>
+
+                            <section class="w-full bg-surface border border-border-color shadow-hard p-6 transition-transform duration-200 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-hard-hover">
+                                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-border-color pb-4 mb-4">
+                                    <div class="flex flex-col">
+                                        <h3 class="font-display font-semibold text-xl text-text-main">AI/ML Engineering Diploma</h3>
+                                        <p class="font-editorial italic text-lg text-muted mt-1">Arabian Academy</p>
+                                    </div>
+                                    <div class="font-mono text-sm text-text-main bg-accent px-3 py-1 border border-border-color">
+                                        2025 - Present
+                                    </div>
+                                </div>
+                                <p class="text-[#4a4a4a]">Comprehensive training in AI/ML systems - from foundational models (KNN) to advanced LLMs. Hands-on projects in model training, optimization, and real-world implementation.</p>
+                            </section>
+
+                            <section class="w-full bg-surface border border-border-color shadow-hard p-6 transition-transform duration-200 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-hard-hover">
+                                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-border-color pb-4 mb-4">
+                                    <div class="flex flex-col">
+                                        <h3 class="font-display font-semibold text-xl text-text-main">Web Design & Branding Diploma</h3>
+                                        <p class="font-editorial italic text-lg text-muted mt-1">National Telecommunication Institute & Career 180</p>
+                                    </div>
+                                    <div class="font-mono text-sm text-text-main bg-accent px-3 py-1 border border-border-color">
+                                        2025
+                                    </div>
+                                </div>
+                                <p class="text-[#4a4a4a]">100-hour intensive bootcamp covering professional frontend development (HTML, CSS, JS, Bootstrap) and personal branding strategies for tech professionals.</p>
+                            </section>
+
+                            <section class="w-full bg-surface border border-border-color shadow-hard p-6 transition-transform duration-200 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-hard-hover">
+                                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-border-color pb-4 mb-4">
+                                    <div class="flex flex-col">
+                                        <h3 class="font-display font-semibold text-xl text-text-main">ITI's InnovEgypt Program</h3>
+                                        <p class="font-editorial italic text-lg text-muted mt-1">Information Technology Institute</p>
+                                    </div>
+                                    <div class="font-mono text-sm text-text-main bg-accent px-3 py-1 border border-border-color">
+                                        2024
+                                    </div>
+                                </div>
+                                <p class="text-[#4a4a4a]">An introductory training program for startups and businesses to develop strong leadership and collaborative skills. Initiated and founded a team for a startup project idea.</p>
+                            </section>
+
+                        </div>
                     </div>
-                    <div class="skill-pill d-flex align-items-center py-2 px-3 rounded-pill" style="background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.1);">
-                        <i class="fas fa-gamepad me-2 text-blue-300"></i>
-                        <span>Unity Framework</span>
-                    </div>
-                    <div class="skill-pill d-flex align-items-center py-2 px-3 rounded-pill" style="background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.1);">
-                        <i class="fab fa-bootstrap me-2 text-purple"></i>
-                        <span>Bootstrap</span>
-                    </div>
-                    <div class="skill-pill d-flex align-items-center py-2 px-3 rounded-pill" style="background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.1);">
-                        <i class="fas fa-laptop-code me-2 text-primary"></i>
-                        <span>C#</span>
-                    </div>
-                    <div class="skill-pill d-flex align-items-center py-2 px-3 rounded-pill" style="background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.1);">
-                        <i class="fas fa-microchip me-2 text-blue-300"></i>
-                        <span>C/C++</span>
-                    </div>
-                    <div class="skill-pill d-flex align-items-center py-2 px-3 rounded-pill" style="background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.1);">
-                        <i class="fab fa-python me-2 text-primary"></i>
-                        <span>Python</span>
-                    </div>
-                    <div class="skill-pill d-flex align-items-center py-2 px-3 rounded-pill" style="background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.1);">
-                        <i class="fas fa-database me-2 text-blue-300"></i>
-                        <span>T-SQL</span>
-                    </div>
-                    <div class="skill-pill d-flex align-items-center py-2 px-3 rounded-pill" style="background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.1);">
-                        <i class="fab fa-html5 me-2 text-orange"></i>
-                        <span>HTML/CSS/JS</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Database & Tools Group -->
-            <div class="skill-group mb-5 hanwag-fade">
-                <div class="d-flex align-items-center mb-4">
-                    <div class="me-3" style="width: 40px; height: 40px; background: rgba(37, 99, 235, 0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center;">
-                        <i class="fas fa-database text-primary"></i>
-                    </div>
-                    <h3 class="mb-0" style="font-size: 1.8rem; font-weight: 600; color: var(--light);">Database & Tools</h3>
-                </div>
-                
-                <div class="d-flex flex-wrap gap-3">
-                    <div class="skill-pill d-flex align-items-center py-2 px-3 rounded-pill" style="background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.1);">
-                        <i class="fas fa-server me-2 text-primary"></i>
-                        <span>SQL Server Management</span>
-                    </div>
-                    <div class="skill-pill d-flex align-items-center py-2 px-3 rounded-pill" style="background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.1);">
-                        <i class="fas fa-table me-2 text-blue-300"></i>
-                        <span>Python Pandas</span>
-                    </div>
-                    <div class="skill-pill d-flex align-items-center py-2 px-3 rounded-pill" style="background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.1);">
-                        <i class="fas fa-database me-2 text-purple"></i>
-                        <span>MSSQL</span>
-                    </div>
-                    <div class="skill-pill d-flex align-items-center py-2 px-3 rounded-pill" style="background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.1);">
-                        <i class="fas fa-plug me-2 text-primary"></i>
-                        <span>ADO.NET</span>
-                    </div>
-                    <div class="skill-pill d-flex align-items-center py-2 px-3 rounded-pill" style="background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.1);">
-                        <i class="fab fa-github me-2 text-light"></i>
-                        <span>GitHub</span>
-                    </div>
-                    <div class="skill-pill d-flex align-items-center py-2 px-3 rounded-pill" style="background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.1);">
-                        <i class="fas fa-robot me-2 text-blue-300"></i>
-                        <span>AI Prompt Engineering</span>
-                    </div>
-                    <div class="skill-pill d-flex align-items-center py-2 px-3 rounded-pill" style="background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.1);">
-                        <i class="fas fa-code me-2 text-primary"></i>
-                        <span>VS Code</span>
-                    </div>
-                    <div class="skill-pill d-flex align-items-center py-2 px-3 rounded-pill" style="background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.1);">
-                        <i class="fab fa-microsoft me-2 text-blue-300"></i>
-                        <span>Visual Studio</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Theory & Methodologies Group -->
-            <div class="skill-group hanwag-fade">
-                <div class="d-flex align-items-center mb-4">
-                    <div class="me-3" style="width: 40px; height: 40px; background: rgba(37, 99, 235, 0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center;">
-                        <i class="fas fa-brain text-primary"></i>
-                    </div>
-                    <h3 class="mb-0" style="font-size: 1.8rem; font-weight: 600; color: var(--light);">Theory & Methodologies</h3>
-                </div>
-                
-                <div class="d-flex flex-wrap gap-3">
-                    <div class="skill-pill d-flex align-items-center py-2 px-3 rounded-pill" style="background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.1);">
-                        <i class="fas fa-sitemap me-2 text-primary"></i>
-                        <span>Data Structures & Algorithms</span>
-                    </div>
-                    <div class="skill-pill d-flex align-items-center py-2 px-3 rounded-pill" style="background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.1);">
-                        <i class="fas fa-lightbulb me-2 text-blue-300"></i>
-                        <span>Problem Solving (230+ LeetCode)</span>
-                    </div>
-                    <div class="skill-pill d-flex align-items-center py-2 px-3 rounded-pill" style="background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.1);">
-                        <i class="fas fa-filter me-2 text-purple"></i>
-                        <span>Problem Analysis & Simplification</span>
-                    </div>
-                    <div class="skill-pill d-flex align-items-center py-2 px-3 rounded-pill" style="background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.1);">
-                        <i class="fas fa-chart-line me-2 text-primary"></i>
-                        <span>Complexity Analysis</span>
-                    </div>
-                    <div class="skill-pill d-flex align-items-center py-2 px-3 rounded-pill" style="background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.1);">
-                        <i class="fas fa-tasks me-2 text-blue-300"></i>
-                        <span>Project Planning & Management</span>
-                    </div>
-                    <div class="skill-pill d-flex align-items-center py-2 px-3 rounded-pill" style="background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.1);">
-                        <i class="fas fa-arrows-rotate me-2 text-primary"></i>
-                        <span>Agile Development</span>
-                    </div>
+
+                    <section id="contact" class="w-full bg-surface border border-border-color shadow-hard p-8 transition-transform duration-200 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-hard-hover">
+                        <div class="flex flex-col gap-12">
+                            <div class="flex flex-col gap-4">
+                                <h2 class="font-mono text-sm uppercase text-muted">I see you're convinced. Shall we begin?</h2>
+                                <a class="font-display font-semibold text-[32px] md:text-[48px] text-text-main border-b-2 border-primary w-fit pb-1 hover:text-primary transition-colors duration-200" href="mailto:ahmed.naser732000@gmail.com">
+                                    ahmed.naser732000@gmail.com
+                                </a>
+                                <p class="font-mono text-sm text-muted">Phone: +201009784937</p>
+                            </div>
+                            <div class="flex flex-wrap gap-6 border-t border-border-color pt-6">
+                                <a class="font-mono text-sm uppercase text-text-main hover:text-primary transition-colors flex items-center gap-2 group" href="https://www.linkedin.com/in/ahmed-nasser-a9556a255/" target="_blank" rel="noopener">
+                                    LinkedIn
+                                    <span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+                                </a>
+                                <a class="font-mono text-sm uppercase text-text-main hover:text-primary transition-colors flex items-center gap-2 group" href="https://github.com/AhmedNasser-bug" target="_blank" rel="noopener">
+                                    GitHub
+                                    <span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+                                </a>
+                                <a class="font-mono text-sm uppercase text-text-main hover:text-primary transition-colors flex items-center gap-2 group" href="https://wa.me/201009784937" target="_blank" rel="noopener">
+                                    WhatsApp
+                                    <span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+                                </a>
+                                <a class="font-mono text-sm uppercase text-text-main hover:text-primary transition-colors flex items-center gap-2 group" href="https://www.upwork.com/freelancers/~01f54fd7d135eb3939" target="_blank" rel="noopener">
+                                    Upwork
+                                    <span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+
                 </div>
             </div>
         </div>
     </div>
-</section>
-
-    <!-- Professional Journey -->
-    <section class="journey-highlights section">
-        <div class="container">
-            <h2 class="section-title mb-5">My Professional Journey</h2>
-
-            <div class="row g-4">
-                <!-- Journey Item 1 -->
-                <div class="col-md-6">
-                    <div class="journey-highlight-item skill-card hanwag-fade">
-                        <div class="d-flex align-items-start mb-3">
-                            <div class="skill-icon me-3">
-                                <i class="fas fa-medal"></i>
-                            </div>
-                            <div>
-                                <h3 class="skill-title">Project planning and Idea <i>Simplification</i> excellence</h3>
-                                <div class="experience-badge">University projects</div>
-                            </div>
-                        </div>
-                        <p class="skill-description">
-                            Practically secured <span class="text-primary">1st Place</span> at the every University project i lead, i always start with the big picture deeply analyze is using 
-                            <span
-                                class="text-primary">abstraction divide and conquer</span> allowing me to crack any big idea into its simplest components even when i do not know the required technical knowledge to build it
-                                allowing me to effectivaly divide simple tasks to my colleagues, delivering the project on time far exceeding the project requirements
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Journey Item 2 -->
-                <div class="col-md-6">
-                    <div class="journey-highlight-item skill-card hanwag-fade">
-                        <div class="d-flex align-items-start mb-3">
-                            <div class="skill-icon me-3">
-                                <i class="fas fa-users-gear"></i>
-                            </div>
-                            <div>
-                                <h3 class="skill-title">Technical Leadership</h3>
-                                <div class="experience-badge">ICPC PUA Director</div>
-                            </div>
-                        </div>
-                        <p class="skill-description">
-                            As <span class="text-primary">Director & Head Trainer</span> at ICPC PUA, I built a
-                            championship-caliber program from scratch. Developed training roadmaps, led live algorithm
-                            sessions, and engineered competition simulations that increased our team's problem-solving
-                            speed by <span class="text-primary">40%</span>. Taught me how to transform individual talent
-                            into collective excellence.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Journey Item 3 -->
-                <div class="col-md-6">
-                    <div class="journey-highlight-item skill-card hanwag-fade">
-                        <div class="d-flex align-items-start mb-3">
-                            <div class="skill-icon me-3">
-                                <i class="fas fa-road-circle-check"></i>
-                            </div>
-                            <div>
-                                <h3 class="skill-title">Real-World System Architecture</h3>
-                                <div class="experience-badge">Drivers Licensing System</div>
-                            </div>
-                        </div>
-                        <p class="skill-description">
-                            Engineered a <span class="text-primary">full-stack licensing platform</span> handling 10+
-                            complex workflows from vision tests to international permits. This project crystallized my
-                            approach: <span class="text-primary">complex systems demand simple, maintainable
-                                architectures</span>. Used C# .NET 4.7 + SQL Server to abstract bureaucratic complexity
-                            into intuitive user flows.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Journey Item 4 -->
-                <div class="col-md-6">
-                    <div class="journey-highlight-item skill-card hanwag-fade">
-                        <div class="d-flex align-items-start mb-3">
-                            <div class="skill-icon me-3">
-                                <i class="fas fa-brain"></i>
-                            </div>
-                            <div>
-                                <h3 class="skill-title">AI-Powered Development</h3>
-                                <div class="experience-badge">Outlier Trainer</div>
-                            </div>
-                        </div>
-                        <p class="skill-description">
-                            As an <span class="text-primary">AI Reasoning Trainer</span>, I've honed models in advanced
-                            programming concepts. This unique vantage point taught me how to <span
-                                class="text-primary">leverage AI as a force multiplier</span> - from accelerating
-                            backend development with prompt engineering to optimizing algorithm design, while keeping
-                            human judgment central.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Education Section -->
-    <section class="education-section section">
-        <div class="container">
-            <h2 class="section-title mb-5">Education & Professional Development</h2>
-
-            <!-- Education Items Container -->
-            <div class="row justify-content-center">
-                <!-- Item 1: BSc Computer Science -->
-                <div class="col-lg-8 mb-4 education-item hanwag-fade">
-                    <div class="education-card skill-card p-4 h-100 education-formal"
-                        style="border-left: 4px solid var(--primary);">
-                        <div class="d-flex align-items-start">
-                            <div class="education-icon me-4"
-                                style="width: 70px; height: 70px; background: rgba(37, 99, 235, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
-                                <i class="fas fa-graduation-cap fa-2x text-primary"></i>
-                            </div>
-                            <div>
-                                <h3 class="education-degree mb-2"
-                                    style="font-size: 1.5rem; font-weight: 700; color: var(--light);">BSc Computer
-                                    Science</h3>
-                                <div class="education-institution text-gray-500 mb-2">Pharos University in Alexandria
-                                </div>
-                                <div class="education-date mb-3">
-                                    <span class="badge"
-                                        style="background: rgba(37, 99, 235, 0.15); color: var(--primary); padding: 0.4rem 0.8rem; border-radius: 20px; font-weight: 600;">2023
-                                        - 2027</span>
-                                </div>
-                                <div class="education-details text-gray-500" style="line-height: 1.7;">
-                                    Fully funded scholarship program with current GPA of ~3.8. Focus on software
-                                    architecture, algorithmic problem solving, advanced data structures, and system
-                                    design.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Item 2: Web Design Diploma -->
-                <div class="col-lg-8 mb-4 education-item hanwag-fade">
-                    <div class="education-card skill-card p-4 h-100 education-training">
-                        <div class="d-flex align-items-start">
-                            <div class="education-icon me-4"
-                                style="width: 60px; height: 60px; background: rgba(37, 99, 235, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
-                                <i class="fas fa-laptop fa-2x text-blue-300"></i>
-                            </div>
-                            <div>
-                                <h3 class="education-degree mb-2"
-                                    style="font-size: 1.5rem; font-weight: 700; color: var(--light);">ITI’s InnovEgypt
-                                    Program</h3>
-                                <div class="education-institution text-gray-500 mb-2">Information Technology Institute</div>
-                                <div class="education-date mb-3">
-                                    <span class="badge"
-                                        style="background: rgba(37, 99, 235, 0.15); color: var(--primary); padding: 0.4rem 0.8rem; border-radius: 20px; font-weight: 600;">2024</span>
-                                </div>
-                                <div class="education-details text-gray-500" style="line-height: 1.7;">
-                                    an introductory training program for startups and businesses to develop strong
-                                    leadership and collaborative skills,
-                                    Initiated and founded a team for a startup project idea.
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Item 2: Web Design Diploma -->
-                <div class="col-lg-8 mb-4 education-item hanwag-fade">
-                    <div class="education-card skill-card p-4 h-100 education-training">
-                        <div class="d-flex align-items-start">
-                            <div class="education-icon me-4"
-                                style="width: 60px; height: 60px; background: rgba(37, 99, 235, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
-                                <i class="fas fa-laptop-code fa-2x text-blue-300"></i>
-                            </div>
-                            <div>
-                                <h3 class="education-degree mb-2"
-                                    style="font-size: 1.5rem; font-weight: 700; color: var(--light);">Web Design &
-                                    Branding Diploma</h3>
-                                <div class="education-institution text-gray-500 mb-2">National Telecommunication Institute & Career 180</div>
-                                <div class="education-date mb-3">
-                                    <span class="badge"
-                                        style="background: rgba(37, 99, 235, 0.15); color: var(--primary); padding: 0.4rem 0.8rem; border-radius: 20px; font-weight: 600;">2025</span>
-                                </div>
-                                <div class="education-details text-gray-500" style="line-height: 1.7;">
-                                    100-hour intensive bootcamp covering professional frontend development (HTML, CSS,
-                                    JS, Bootstrap) and personal branding strategies for tech professionals.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Item 3: AI/ML Engineering Diploma -->
-                <div class="col-lg-8 mb-4 education-item hanwag-fade">
-                    <div class="education-card skill-card p-4 h-100 education-certification"
-                        style="border-left: 4px solid var(--primary);">
-                        <div class="d-flex align-items-start">
-                            <div class="education-icon me-4"
-                                style="width: 70px; height: 70px; background: rgba(37, 99, 235, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
-                                <i class="fas fa-robot fa-2x text-purple"></i>
-                            </div>
-                            <div>
-                                <h3 class="education-degree mb-2"
-                                    style="font-size: 1.5rem; font-weight: 700; color: var(--light);">AI/ML Engineering
-                                    Diploma</h3>
-                                <div class="education-institution text-gray-500 mb-2">Arabian Academy</div>
-                                <div class="education-date mb-3">
-                                    <span class="badge"
-                                        style="background: rgba(37, 99, 235, 0.15); color: var(--primary); padding: 0.4rem 0.8rem; border-radius: 20px; font-weight: 600;">2025
-                                        - Present</span>
-                                </div>
-                                <div class="education-details text-gray-500" style="line-height: 1.7;">
-                                    Comprehensive training in AI/ML systems - from foundational models (KNN) to advanced
-                                    LLMs. Hands-on projects in model training, optimization, and real-world
-                                    implementation.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-        <!-- CTA Section -->
-    <section class="section overflow-visible" id="contact">
-        <div class="bg-grid"></div>
-        <div class="bg-blur blur-2 w-100 overflow-visible position-absolute h-100" style="opacity: 10%;"></div>
-        <section class="cta-section">
-
-            <div class="cta-grid"></div>
-            <div class="cta-blur blur-1"></div>
-            <div class="cta-blur blur-2"></div>
-
-            <div class="cta-content">
-                <h2 class="cta-heading">I see you're convinced</h2>
-                <p class="cta-subtext">Shall we begin?</p>
-
-                <nav class="nav justify-content-center  align-content-center">
-                    <a href="https://www.linkedin.com/in/ahmed-nasser-a9556a255/" class="cta-button mx-1"><span class="fa-brands fa-linkedin mx-1"></span>Linkedin</a>
-                    <a href="https://wa.me/201009784937
-" class="cta-button mx-1"><span class="fa-brands fa-whatsapp mx-1"></span>Whatsapp</a>
-                    <a href="https://www.upwork.com/freelancers/~01f54fd7d135eb3939" class="cta-button mx-1 "><span class="fa fa-laptop-code mx-1"></span>Upwork</a>
-                </nav>
-
-
-                <div class="contact-preview">
-                    <div class="contact-title">Prefer Direct Contact?</div>
-
-                    <div class="contact-method">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="contact-details">
-                            <div class="contact-label">Email Address</div>
-                            <div class="contact-value">ahmed.naser732000@gmail.com</div>
-                        </div>
-                    </div>
-                    <div class="contact-method">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div class="contact-details">
-                            <div class="contact-label">Phone</div>
-                            <div class="contact-value">+201009784937</div>
-                        </div>
-                    </div>
-
-                </div>
-
-                
-            </div>
-        </section>
-    </section>
-
-    <script src="about.js">
-    </script>
-
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
-
-   
 </body>
-
 </html>
