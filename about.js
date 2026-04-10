@@ -48,7 +48,7 @@ function getRandomInt(min, max) {
 function chooseOffCanvasText() {
   const offCanvasText = document.getElementById("offcanvasNavbarLabel");
   if (offCanvasText) {
-    offCanvasText.innerHTML = possible_texts[
+    offCanvasText.textContent = possible_texts[
       getRandomInt(0, possible_texts.length - 1)
     ];
   }
