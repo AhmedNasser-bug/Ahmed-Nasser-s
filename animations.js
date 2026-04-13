@@ -10,13 +10,14 @@ function getRandomInt(min, max) {
 
 document.addEventListener("DOMContentLoaded", function () {
   const videoObserver = new IntersectionObserver(
-    (entries) => {
+    (entries, observer) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           const video = entry.target.querySelector("video");
           if (video) {
             video.src = video.getAttribute("data-src");
             video.removeAttribute("data-src");
+            observer.unobserve(entry.target);
           }
         }
       });
@@ -69,10 +70,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   // Hanwag scrolling effect
   const observer = new IntersectionObserver(
-    (entries) => {
+    (entries, observer) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add("hanwag-active");
+          observer.unobserve(entry.target);
         }
       });
     },
