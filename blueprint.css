@@ -264,3 +264,22 @@ html.lenis, html.lenis body {
 .lenis.lenis-scrolling iframe {
   pointer-events: none;
 }
+
+/* Fix for service-icon UI bug */
+.service-icon {
+  background: transparent !important;
+  border: none !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.service-cta {
+  background-color: var(--color-primary) !important;
+  color: var(--color-surface) !important;
+}
+
+.service-cta:hover {
+  background-color: var(--color-text) !important;
+  color: var(--color-surface) !important;
+}
