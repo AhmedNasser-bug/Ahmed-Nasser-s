@@ -109,6 +109,12 @@ h2.section-title::after {
   background: var(--color-background) !important;
   border: var(--border-thin) !important;
   color: var(--color-primary) !important;
+  width: 60px !important;
+  height: 60px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-bottom: 1.5rem !important;
 }
 
 /* Text adjustments in cards */
@@ -235,6 +241,7 @@ a {
 /* More specific icon overrides (avoid overriding ALL i tags if unnecessary, but keeping monochromatic blueprint constraints) */
 .skill-icon i, .service-icon i, .contact-icon i, .experience-icon i, .education-icon i {
     color: var(--color-primary) !important;
+    font-size: 1.8rem !important;
 }
 
 .skill-pill i {
