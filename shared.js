@@ -49,4 +49,59 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    // Hanwag scrolling effect
+    const hanwagObserver = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("hanwag-active");
+                    hanwagObserver.unobserve(entry.target);
+                }
+            });
+        },
+        {
+            threshold: 0.15,
+            rootMargin: "0px 0px -100px 0px",
+        }
+    );
+
+    document.querySelectorAll(".hanwag-fade").forEach((section) => {
+        hanwagObserver.observe(section);
+    });
+
+    // Video optimization - only load when in viewport
+    const videoObserver = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    const video = entry.target.querySelector("video");
+                    if (video) {
+                        const dataSrc = video.getAttribute("data-src");
+                        if (dataSrc) {
+                            video.src = dataSrc;
+                            video.removeAttribute("data-src");
+                        }
+                        videoObserver.unobserve(entry.target);
+                    }
+                }
+            });
+        },
+        { threshold: 0.1 }
+    );
+
+    document.querySelectorAll(".project-card").forEach((card) => {
+        videoObserver.observe(card);
+    });
+
+    // Update video sources to use data-src for lazy loading
+    document.querySelectorAll(".project-video").forEach((video) => {
+        const src = video.getAttribute("src");
+        if (src) {
+            video.removeAttribute("src");
+            video.setAttribute("data-src", src);
+            video.poster =
+                'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450"%3E%3Crect fill="%230f172a" width="800" height="450"/%3E%3Cpath fill="%231e293b" d="M0,0 L800,450 M800,0 L0,450" stroke="%232563eb" stroke-width="1"/%3E%3C/svg%3E';
+        }
+    });
 });
