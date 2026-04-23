@@ -60,7 +60,11 @@
     <div class="bg-blur blur-1 z-3"></div>
     <div class="bg-blur blur-2 z-3"></div>
     <!-- About Hero Section -->
-    <section class="about-hero section pb-0">
+    <section class="about-hero section pb-0" id="hero" style="min-height: 100vh;">
+
+        <!-- Three.js Canvas Container -->
+        <div id="canvas-container" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; opacity: 0.5;"></div>
+
 
         <div class="container">
 
@@ -70,10 +74,10 @@
                 <div class="col-lg-5 mb-5 mb-lg-0">
                     <div class="bio-image position-relative">
                         <div class="placeholder-image d-flex align-items-center justify-content-center rounded-3"
-                            style="min-height: 240px; max-height: 480px; height: clamp(240px, 45vw, 480px); background: linear-gradient(135deg, #1e3a8a, #0f172a); border: 1px solid rgba(96, 165, 250, 0.3); overflow: hidden;">
+                            style="aspect-ratio: 9 / 16; width: 100%; height: auto; max-width: 400px; margin: 0 auto; background: linear-gradient(135deg, #1e3a8a, #0f172a); border: 1px solid rgba(96, 165, 250, 0.3); overflow: hidden;">
                             <div class="text-center text-blue-300 w-100 h-100">
 
-                                <img src="hero.jpeg" loading="lazy" class="img-fluid rounded-3" alt="Ahmed" style="width: 100%; height: 100%; object-fit: cover; object-position: top;">
+                                <img src="hero.jpeg" loading="eager" fetchpriority="high" class="img-fluid rounded-3" alt="Ahmed" style="width: 100%; height: 100%; object-fit: cover; object-position: top;">
 
                             </div>
                         </div>
@@ -544,6 +548,87 @@
             </div>
         </section>
     </section>
+
+    <!-- Three.js Integration -->
+    <script type="module">
+        import * as THREE from 'https://cdn.skypack.dev/three@0.132.2';
+
+        const container = document.getElementById('canvas-container');
+        if (container) {
+            const scene = new THREE.Scene();
+
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            camera.position.z = 30;
+
+            const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+            renderer.setSize(container.clientWidth, container.clientHeight);
+            renderer.setPixelRatio(window.devicePixelRatio);
+            container.appendChild(renderer.domElement);
+
+            const geometry1 = new THREE.IcosahedronGeometry(8, 0);
+            const material1 = new THREE.MeshBasicMaterial({
+                color: 0x1c10c1,
+                wireframe: true,
+                transparent: true,
+                opacity: 0.2
+            });
+            const mesh1 = new THREE.Mesh(geometry1, material1);
+            mesh1.position.set(-15, 5, -10);
+            scene.add(mesh1);
+
+            const geometry2 = new THREE.TorusKnotGeometry(6, 1.5, 100, 16);
+            const material2 = new THREE.MeshBasicMaterial({
+                color: 0x1c10c1,
+                wireframe: true,
+                transparent: true,
+                opacity: 0.15
+            });
+            const mesh2 = new THREE.Mesh(geometry2, material2);
+            mesh2.position.set(20, -5, -20);
+            scene.add(mesh2);
+
+            let mouseX = 0;
+            let mouseY = 0;
+            let targetX = 0;
+            let targetY = 0;
+
+            const windowHalfX = window.innerWidth / 2;
+            const windowHalfY = window.innerHeight / 2;
+
+            document.addEventListener('mousemove', (event) => {
+                mouseX = (event.clientX - windowHalfX) * 0.0005;
+                mouseY = (event.clientY - windowHalfY) * 0.0005;
+            });
+
+            function animate() {
+                requestAnimationFrame(animate);
+
+                targetX = mouseX * 0.5;
+                targetY = mouseY * 0.5;
+
+                mesh1.rotation.x += 0.005;
+                mesh1.rotation.y += 0.005;
+
+                mesh2.rotation.x -= 0.003;
+                mesh2.rotation.y -= 0.003;
+
+                scene.rotation.x += 0.05 * (targetY - scene.rotation.x);
+                scene.rotation.y += 0.05 * (targetX - scene.rotation.y);
+
+                renderer.render(scene, camera);
+            }
+
+            animate();
+
+            window.addEventListener('resize', () => {
+                if(container) {
+                    camera.aspect = window.innerWidth / window.innerHeight;
+                    camera.updateProjectionMatrix();
+                    renderer.setSize(container.clientWidth, container.clientHeight);
+                }
+            });
+        }
+    </script>
 
     <!-- Lenis Smooth Scroll -->
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
