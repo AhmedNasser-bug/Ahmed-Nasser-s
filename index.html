@@ -226,8 +226,10 @@
             mouseY = (event.clientY - windowHalfY) * 0.0005;
         });
 
+        let animationFrameId = null;
+
         function animate() {
-            requestAnimationFrame(animate);
+            animationFrameId = requestAnimationFrame(animate);
 
             targetX = mouseX * 0.5;
             targetY = mouseY * 0.5;
@@ -245,7 +247,22 @@
             renderer.render(scene, camera);
         }
 
-        animate();
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (!animationFrameId) {
+                        animate();
+                    }
+                } else {
+                    if (animationFrameId) {
+                        cancelAnimationFrame(animationFrameId);
+                        animationFrameId = null;
+                    }
+                }
+            });
+        });
+
+        observer.observe(container);
 
         // Handle Resize
         window.addEventListener('resize', () => {
