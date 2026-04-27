@@ -1020,3 +1020,15 @@ body {
         font-size: 0.9rem;
     }
 }
+/* Accessibility: Focus visible outline */
+*:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 3px;
+}
