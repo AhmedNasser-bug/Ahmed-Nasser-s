@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
             video.src = video.getAttribute("data-src");
             video.removeAttribute("data-src");
           }
+          videoObserver.unobserve(entry.target);
         }
       });
     },
