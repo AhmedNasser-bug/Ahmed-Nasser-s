@@ -6,8 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Ahmed | Full-Stack .NET Developer</title>
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"></noscript>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
@@ -60,7 +62,7 @@
     <div class="bg-blur blur-1 z-3"></div>
     <div class="bg-blur blur-2 z-3"></div>
     <!-- About Hero Section -->
-    <section class="about-hero section pb-0" id="hero" style="min-height: 100vh;">
+    <section class="about-hero section pb-0 position-relative" id="hero" style="min-height: 100vh;">
 
         <!-- Three.js Canvas Container -->
         <div id="canvas-container" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; opacity: 0.5;"></div>
@@ -565,8 +567,8 @@
                 // Optimize: Disable antialias for performance, it's just a blurry background
                 const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: false });
                 renderer.setSize(container.clientWidth, container.clientHeight);
-                // Optimize: Cap pixel ratio to 2 to prevent massive GPU load on high-DPI displays
-                renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+                // Optimize: Cap pixel ratio to 1.5 to prevent massive GPU load on high-DPI displays
+                renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
                 container.appendChild(renderer.domElement);
 
                 const geometry1 = new THREE.IcosahedronGeometry(8, 0);
@@ -600,20 +602,26 @@
                 const windowHalfX = window.innerWidth / 2;
                 const windowHalfY = window.innerHeight / 2;
 
-                // Optimize: Use passive event listener
                 document.addEventListener('mousemove', (event) => {
                     mouseX = (event.clientX - windowHalfX) * 0.0005;
                     mouseY = (event.clientY - windowHalfY) * 0.0005;
                 }, { passive: true });
 
                 let isVisible = true;
+                let animationFrameId = null;
                 const observer = new IntersectionObserver((entries) => {
                     isVisible = entries[0].isIntersecting;
+                    if(isVisible && !animationFrameId) {
+                        animate();
+                    } else if(!isVisible && animationFrameId) {
+                        cancelAnimationFrame(animationFrameId);
+                        animationFrameId = null;
+                    }
                 }, { threshold: 0 });
                 observer.observe(container);
 
                 function animate() {
-                    requestAnimationFrame(animate);
+                    animationFrameId = requestAnimationFrame(animate);
 
                     // Optimize: Don't render when not visible
                     if (!isVisible) return;
@@ -633,11 +641,9 @@
                     renderer.render(scene, camera);
                 }
 
-                animate();
-
                 // Optimize: Use passive event listener
                 window.addEventListener('resize', () => {
-                    if(container) {
+                    if(container && window.innerWidth >= 768) {
                         camera.aspect = window.innerWidth / window.innerHeight;
                         camera.updateProjectionMatrix();
                         renderer.setSize(container.clientWidth, container.clientHeight);
@@ -648,13 +654,13 @@
     </script>
 
     <!-- Lenis Smooth Scroll -->
-    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
-    <script src="shared.js"></script>
-    <script src="about.js"></script>
+    <script defer src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    <script defer src="shared.js"></script>
+    <script defer src="about.js"></script>
 
     <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
 
 
 </body>
