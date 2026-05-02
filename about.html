@@ -641,14 +641,16 @@
                     renderer.render(scene, camera);
                 }
 
-                // Optimize: Use passive event listener
-                window.addEventListener('resize', () => {
-                    if(container && window.innerWidth >= 768) {
+                animate();
+
+                // Optimize: Use passive event listener and debounce
+                window.addEventListener('resize', debounce(() => {
+                    if(container) {
                         camera.aspect = window.innerWidth / window.innerHeight;
                         camera.updateProjectionMatrix();
                         renderer.setSize(container.clientWidth, container.clientHeight);
                     }
-                }, { passive: true });
+                }, 100), { passive: true });
             }).catch(err => console.error("Failed to load Three.js:", err));
         }
     </script>
