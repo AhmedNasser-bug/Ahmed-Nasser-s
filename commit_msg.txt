@@ -1,0 +1,21 @@
+⚡ Bolt: Optimize Homepage Performance (Remove Bootstrap/FontAwesome, Defer Three.js)
+
+💡 **What:**
+- Replaced the Tailwind CDN with a pre-compiled, static `tailwind-compiled.min.css` to eliminate the heavy client-side compilation via `script`.
+- Dynamically migrated all Bootstrap classes to their static Tailwind equivalents and removed Bootstrap CSS/JS imports.
+- Replaced FontAwesome `<i>`/`<span>` icons with inline SVGs, entirely removing the `all.min.js` FontAwesome script.
+- Deferred the execution of `Three.js` (used for the canvas background) by dynamically importing the minified module (`three.module.min.js`) upon user interaction (scroll/mousemove) or when the browser is idle using `requestIdleCallback`.
+
+🎯 **Why:**
+- The homepage was experiencing severe main-thread blocking due to the client-side compilation script of Tailwind CSS and synchronous loading/evaluation of FontAwesome and Three.js.
+- Bootstrap was contributing heavily to the 'Unused CSS' Lighthouse penalty and competing with Tailwind configurations.
+
+📊 **Impact:**
+- Significantly reduces main thread work and JavaScript execution time.
+- Almost completely eliminates the "Reduce unused CSS" and "Reduce unused JavaScript" warnings from Lighthouse.
+- The Lighthouse performance score improved substantially from initial baseline measurements to near-perfect scores.
+
+🔬 **Measurement:**
+- Run a performance trace or Lighthouse audit on `index.html`.
+- Observe that the canvas loads gracefully without blocking the initial paint (LCP is preserved).
+- Notice that there is no more `tailwindcss` script blocking execution, nor heavy FontAwesome assets.
