@@ -3,6 +3,12 @@
 ## 2026-04-25 - [IntersectionObserver for Canvas Animations]
 **Learning:** Continuous `requestAnimationFrame` loops (like in Three.js) consume CPU/GPU resources even when the canvas is not visible in the viewport.
 **Action:** Use `IntersectionObserver` to wrap `requestAnimationFrame` loops, only calling `animate()` when `entry.isIntersecting` is true and using `cancelAnimationFrame()` when it's out of view, thereby optimizing performance.
+<<<<<<< jules-18324113008456419251-4646d625
 ## 2024-05-01 - [Prefers Reduced Motion Check]
 **Learning:** IntersectionObserver animations can trigger motion sickness. Always check for `prefers-reduced-motion: reduce` and bypass animations by immediately applying active classes if true.
 **Action:** When adding scroll animations (like .hanwag-fade), wrap the observer initialization in a `window.matchMedia` check.
+=======
+## 2024-04-27 - [Global Focus State Support]
+**Learning:** The project was missing a unified visible focus state for keyboard navigation. We needed a generic fallback since this project uses vanilla CSS with Bootstrap but lacks an overriding focus visibility strategy.
+**Action:** Added global `*:focus-visible` style in `style.css` using the existing `--primary` variable to ensure screen readers and keyboard users can track their position across all interactive elements.
+>>>>>>> main

@@ -24,19 +24,29 @@ function chooseOffCanvasText() {
 
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize Lenis Smooth Scroll
-    if (typeof Lenis !== 'undefined') {
+    if (typeof Lenis !== 'undefined' && window.innerWidth >= 768) {
         const lenis = new Lenis({
             duration: 1.2,
             easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
             smoothWheel: true
         });
 
+        let rafId;
         function raf(time) {
             lenis.raf(time);
-            requestAnimationFrame(raf);
+            rafId = requestAnimationFrame(raf);
         }
 
-        requestAnimationFrame(raf);
+        rafId = requestAnimationFrame(raf);
+
+        // Disable lenis when not visible
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                cancelAnimationFrame(rafId);
+            } else {
+                rafId = requestAnimationFrame(raf);
+            }
+        });
 
         // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -50,3 +60,21 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+/**
+ * Debounce function to limit the rate at which a function can fire.
+ * @param {Function} func - The function to debounce.
+ * @param {number} wait - The delay in milliseconds.
+ * @returns {Function} - The debounced function.
+ */
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
