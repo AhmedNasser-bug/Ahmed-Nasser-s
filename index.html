@@ -4,25 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
-    <link rel="preconnect" href="https://cdn.skypack.dev" />
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ahmed Naser | Full-Stack .NET Developer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="blueprint.css">
 
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"></noscript>
-    <link rel="stylesheet" href="tailwind-compiled.min.css">
-    <link rel="stylesheet" href="style.min.css">
-    <link rel="stylesheet" href="blueprint.min.css">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&family=IBM+Plex+Mono:wght@400&family=Newsreader:ital,wght@0,400;0,700;1,400&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&family=IBM+Plex+Mono:wght@400&family=Newsreader:ital,wght@0,400;0,700;1,400&display=swap"></noscript>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"></noscript>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&family=IBM+Plex+Mono:wght@400&family=Newsreader:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 
 </head>
 
@@ -31,31 +20,31 @@
 
     <!-- Navigation Bar -->
     <!-- Floating Navigation Controls -->
-    <div class="fixed top-0 left-0 right-0 sm:p-6 p-6 flex justify-between items-start" style="pointer-events: none; z-index: 1040;">
-        <div class="flex flex-col gap-6" style="pointer-events: auto;">
-            <a class="btn btn-hero flex items-center justify-center" style="width:50px; height:50px; padding:0;" aria-label="Contact Section" href="#contact"><span class="fa fa-phone"></span></a>
-            <a class="btn btn-hero flex items-center justify-center" style="width:50px; height:50px; padding:0;" aria-label="GitHub Profile" href="https://github.com/AhmedNasser-bug"><span class="fa-brands fa-github"></span></a>
+    <div class="fixed-top p-sm-4 p-3 d-flex justify-content-between align-items-start" style="pointer-events: none; z-index: 1040;">
+        <div class="d-flex flex-column gap-3" style="pointer-events: auto;">
+            <a class="btn btn-hero d-flex align-items-center justify-content-center" style="width:50px; height:50px; padding:0;" aria-label="Contact Section" href="#contact"><span class="fa fa-phone"></span></a>
+            <a class="btn btn-hero d-flex align-items-center justify-content-center" style="width:50px; height:50px; padding:0;" aria-label="GitHub Profile" href="https://github.com/AhmedNasser-bug"><span class="fa-brands fa-github"></span></a>
         </div>
         
-        <button class="btn btn-hero flex items-center gap-2 px-4 py-2" style="font-weight: 600; pointer-events: auto;" type="button" aria-label="Toggle Navigation Menu" aria-expanded="false" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" onclick="if(typeof chooseOffCanvasText === 'function') chooseOffCanvasText()">
-            <span class="fa fa-bars"></span> <span class="hidden sm:inline">MENU</span>
+        <button class="btn btn-hero d-flex align-items-center gap-2 px-3 py-2" style="font-weight: 600; pointer-events: auto;" type="button" aria-label="Toggle Navigation Menu" aria-expanded="false" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" onclick="if(typeof chooseOffCanvasText === 'function') chooseOffCanvasText()">
+            <span class="fa fa-bars"></span> <span class="d-none d-sm-inline">MENU</span>
         </button>
     </div>
 
     <!-- Offcanvas Navigation Menu -->
-    <div class="fixed top-0 right-0 h-full w-80 bg-gray-900 text-white transform translate-x-full transition-transform duration-300 z-[1050]" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
         <div class="offcanvas-header">
             <h2 class="offcanvas-title h5 m-0" id="offcanvasNavbarLabel">Navigation</h2>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close menu"></button>
         </div>
         <div class="offcanvas-body">
             <nav aria-label="Main Navigation">
-                <ul class="flex flex-wrap list-none pl-0 mb-0 flex-col gap-6 mt-4">
-                    <li class="flex flex-wrap list-none pl-0 mb-0-item">
-                        <a class="flex flex-wrap list-none pl-0 mb-0-link active fw-bold fs-5" aria-current="page" href="index.html">Home</a>
+                <ul class="nav flex-column gap-3 mt-4">
+                    <li class="nav-item">
+                        <a class="nav-link active fw-bold fs-5" aria-current="page" href="index.html">Home</a>
                     </li>
-                    <li class="flex flex-wrap list-none pl-0 mb-0-item">
-                        <a class="flex flex-wrap list-none pl-0 mb-0-link fs-5" href="about.html">About</a>
+                    <li class="nav-item">
+                        <a class="nav-link fs-5" href="about.html">About</a>
                     </li>
                 </ul>
             </nav>
@@ -66,8 +55,32 @@
 
 
     <!-- Tailwind CSS configuration for the new Hero Section -->
-
-
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            corePlugins: { preflight: false },
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1c10c1",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#121022",
+                    },
+                    fontFamily: {
+                        "display": ["Newsreader", "serif"],
+                        "sans": ["IBM Plex Sans", "sans-serif"],
+                        "mono": ["IBM Plex Mono", "monospace"],
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "sm": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                    boxShadow: {
+                        'hard': '4px 4px 0px #171717',
+                        'hard-hover': '6px 6px 0px #171717',
+                    }
+                },
+            },
+        }
+    </script>
     <style>
         .graph-paper {
             background-color: #FAFAFA;
@@ -83,14 +96,14 @@
     </style>
 
     <!-- Hero Section -->
-    <section class="tw-hero relative graph-paper overflow-x-hidden selection:bg-primary selection:text-white pt-[5rem]" id="hero" style="min-height: 100vh;">
+    <section class="tw-hero graph-paper overflow-x-hidden selection:bg-primary selection:text-white pt-[5rem]" id="hero" style="min-height: 100vh;">
         <!-- Three.js Canvas Container -->
         <div id="canvas-container" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; opacity: 0.5;"></div>
 
         <div class="relative flex h-auto w-full flex-col group/design-root z-10">
-            <div class="layout-max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex h-full grow flex-col">
+            <div class="layout-container flex h-full grow flex-col">
                 <div class="px-4 md:px-10 lg:px-40 flex flex-1 justify-center py-5">
-                    <div class="layout-content-max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col w-full max-w-[1200px] flex-1">
+                    <div class="layout-content-container flex flex-col w-full max-w-[1200px] flex-1">
                         <!-- Main Split Section -->
                         <main class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center py-10 min-h-[calc(100vh-10rem)]">
                             <!-- Left Column: Hero Intro -->
@@ -104,7 +117,7 @@
                                 <p class="font-display text-xl text-[#4a4a4a] leading-relaxed max-w-md">
                                     I don't just write code; I engineer business solutions. Slashing timelines and eliminating technical debt via deep systems-level knowledge and bleeding-edge AI orchestration.
                                 </p>
-                                <div class="flex flex-wrap gap-6 pt-4">
+                                <div class="flex flex-wrap gap-4 pt-4">
                                     <a href="https://github.com/AhmedNasser-bug" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center bg-[#171717] text-white px-6 py-3 border border-[#171717] rounded-sm font-mono text-sm uppercase tracking-wide hover:-translate-y-[2px] hover:-translate-x-[2px] hover:shadow-hard-hover transition-all duration-200" style="text-decoration: none;">
                                         View GitHub
                                     </a>
@@ -115,7 +128,7 @@
                             </div>
                             <!-- Right Column: Philosophy Box -->
                             <div class="bg-white border border-[#171717] rounded-sm shadow-hard hover:shadow-hard-hover transition-shadow duration-300 transform hover:-translate-y-1 hover:-translate-x-1 relative">
-                                <div class="border-b border-[#171717] bg-[#171717] p-6">
+                                <div class="border-b border-[#171717] bg-[#171717] p-4">
                                     <h2 class="font-mono text-white text-sm uppercase tracking-widest flex items-center gap-2 m-0">
                                         <span class="material-symbols-outlined text-[18px]">terminal</span>
                                         Engineering Philosophy
@@ -124,7 +137,7 @@
                                 <div class="flex flex-col">
                                     <!-- Tenet 1 -->
                                     <div class="p-6 border-b border-[#171717] group hover:bg-[#FAFAFA] transition-colors">
-                                        <div class="flex gap-6 items-start">
+                                        <div class="flex gap-4 items-start">
                                             <span class="font-mono text-primary text-sm mt-1">01</span>
                                             <div>
                                                 <h3 class="font-sans font-semibold text-lg text-[#171717] mb-2 mt-0">Architectural Clarity</h3>
@@ -134,7 +147,7 @@
                                     </div>
                                     <!-- Tenet 2 -->
                                     <div class="p-6 border-b border-[#171717] group hover:bg-[#FAFAFA] transition-colors">
-                                        <div class="flex gap-6 items-start">
+                                        <div class="flex gap-4 items-start">
                                             <span class="font-mono text-primary text-sm mt-1">02</span>
                                             <div>
                                                 <h3 class="font-sans font-semibold text-lg text-[#171717] mb-2 mt-0">Predictable Systems</h3>
@@ -144,7 +157,7 @@
                                     </div>
                                     <!-- Tenet 3 -->
                                     <div class="p-6 group hover:bg-[#FAFAFA] transition-colors">
-                                        <div class="flex gap-6 items-start">
+                                        <div class="flex gap-4 items-start">
                                             <span class="font-mono text-primary text-sm mt-1">03</span>
                                             <div>
                                                 <h3 class="font-sans font-semibold text-lg text-[#171717] mb-2 mt-0">AI Multiplier</h3>
@@ -251,26 +264,26 @@
 
         observer.observe(container);
 
-        // Handle Resize with debounce
-        window.addEventListener('resize', debounce(() => {
+        // Handle Resize
+        window.addEventListener('resize', () => {
             camera.aspect = window.innerWidth / window.innerHeight;
             camera.updateProjectionMatrix();
             renderer.setSize(container.clientWidth, container.clientHeight);
-        }, 100), { passive: true });
+        });
     </script>
 
 
     <!-- Skills Section -->
     <section class="section" id="skills" style="overflow: visible;">
         <div class="bg-grid"></div>
-        <div class="bg-blur blur-2 w-full h-25"></div>
+        <div class="bg-blur blur-2 w-100 h-25"></div>
 
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="container">
             <h2 class="section-title hanwag-fade">Technical Expertise</h2>
 
-            <div class="flex flex-wrap -mx-4 gap-6">
-                <div class="w-full md:w-1/2 px-4 w-full lg:w-1/4 px-4 hanwag-fade">
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3 hanwag-fade">
                     <div class="skill-card">
                         <div class="skill-icon">
                             <i class="fas fa-microchip"></i>
@@ -280,7 +293,7 @@
                     </div>
                 </div>
 
-                <div class="w-full md:w-1/2 px-4 w-full lg:w-1/4 px-4 hanwag-fade">
+                <div class="col-md-6 col-lg-3 hanwag-fade">
                     <div class="skill-card">
                         <div class="skill-icon">
                             <i class="fas fa-laptop-code"></i>
@@ -290,7 +303,7 @@
                     </div>
                 </div>
 
-                <div class="w-full md:w-1/2 px-4 w-full lg:w-1/4 px-4 hanwag-fade">
+                <div class="col-md-6 col-lg-3 hanwag-fade">
                     <div class="skill-card">
                         <div class="skill-icon">
                             <i class="fas fa-layer-group"></i>
@@ -300,7 +313,7 @@
                     </div>
                 </div>
 
-                <div class="w-full md:w-1/2 px-4 w-full lg:w-1/4 px-4 hanwag-fade">
+                <div class="col-md-6 col-lg-3 hanwag-fade">
                     <div class="skill-card">
                         <div class="skill-icon">
                             <i class="fas fa-chart-line"></i>
@@ -315,7 +328,7 @@
 
     <!-- Work Experience Section -->
     <section class="section" id="experience">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="container">
             <h2 class="section-title hanwag-fade">Work Experience</h2>
 
             <div class="hanwag-fade">
@@ -361,13 +374,13 @@
     <!-- Services Section -->
     <section class="section overflow-visible" id="services">
         <div class="bg-grid"></div>
-        <div class="bg-blur blur-1 w-75 h-25"></div>
+        <div class="bg-blur blur-1 w-75 h-25 "></div>
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="container">
             <h2 class="section-title hanwag-fade">Development Services</h2>
 
-            <div class="flex flex-wrap -mx-4 gap-6">
-                <div class="w-full md:w-1/2 px-4 w-full lg:w-1/3 px-4 hanwag-fade">
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4 hanwag-fade">
                     <div class="service-card">
                         <div class="service-icon">
                             <i class="fas fa-layer-group"></i>
@@ -375,29 +388,29 @@
                         <h3 class="service-title">Full-Stack .NET</h3>
                         <p class="service-description">End-to-end solutions with scalable architecture and optimized
                             databases</p>
-                        <button type="button" class="service-cta" onclick="window.location.href='#contact'" aria-label="Get a quote for Full-Stack .NET">Get Quote</button>
+                        <button class="service-cta" onclick="window.location.href='#contact'" aria-label="Get a quote for Full-Stack .NET">Get Quote</button>
                     </div>
                 </div>
 
-                <div class="w-full md:w-1/2 px-4 w-full lg:w-1/3 px-4 hanwag-fade">
+                <div class="col-md-6 col-lg-4 hanwag-fade">
                     <div class="service-card">
                         <div class="service-icon">
                             <i class="fas fa-database"></i>
                         </div>
                         <h3 class="service-title">Database Design</h3>
                         <p class="service-description">Reliable database architecture with SQL Server optimization</p>
-                        <button type="button" class="service-cta" onclick="window.location.href='#contact'" aria-label="Get a quote for Database Design">Get Quote</button>
+                        <button class="service-cta" onclick="window.location.href='#contact'" aria-label="Get a quote for Database Design">Get Quote</button>
                     </div>
                 </div>
 
-                <div class="w-full md:w-1/2 px-4 w-full lg:w-1/3 px-4 hanwag-fade">
+                <div class="col-md-6 col-lg-4 hanwag-fade">
                     <div class="service-card">
                         <div class="service-icon">
                             <i class="fas fa-cogs"></i>
                         </div>
                         <h3 class="service-title">Algorithmic Solutions</h3>
                         <p class="service-description">Complex problem solving with optimized algorithms</p>
-                        <button type="button" class="service-cta" onclick="window.location.href='#contact'" aria-label="Get a quote for Algorithmic Solutions">Get Quote</button>
+                        <button class="service-cta" onclick="window.location.href='#contact'" aria-label="Get a quote for Algorithmic Solutions">Get Quote</button>
                     </div>
                 </div>
             </div>
@@ -406,7 +419,7 @@
 
     <!-- Projects Section -->
     <section class="section" id="projects">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="container">
             <h2 class="section-title hanwag-fade">Project Showcase</h2>
 
             <div class="projects-grid">
@@ -566,7 +579,7 @@
     <!-- CTA Section -->
     <section class="section overflow-visible" id="contact">
         <div class="bg-grid"></div>
-        <div class="bg-blur blur-2 w-full overflow-visible absolute h-full" style="opacity: 10%;"></div>
+        <div class="bg-blur blur-2 w-100 overflow-visible position-absolute h-100" style="opacity: 10%;"></div>
         <section class="cta-section">
 
             <div class="cta-grid"></div>
@@ -578,12 +591,12 @@
                 <p class="cta-subtext">Let's collaborate to create exceptional software solutions tailored to your
                     unique requirements. Reach out today to discuss your project.</p>
 
-                <nav class="flex flex-wrap list-none pl-0 mb-0 justify-center">
+                <nav class="nav justify-content-center  ">
                     <a href="https://www.linkedin.com/in/ahmed-nasser-a9556a255/" class="cta-button mx-1"><span
                             class="fa-brands fa-linkedin mx-1"></span>Linkedin</a>
                     <a href="https://wa.me/201009784937
 " class="cta-button mx-1"><span class="fa-brands fa-whatsapp mx-1"></span>Whatsapp</a>
-                    <a href="https://www.upwork.com/freelancers/~01f54fd7d135eb3939" class="cta-button mx-1"><span
+                    <a href="https://www.upwork.com/freelancers/~01f54fd7d135eb3939" class="cta-button mx-1 "><span
                             class="fa fa-laptop-code mx-1"></span>Upwork</a>
                 </nav>
 
@@ -612,20 +625,20 @@
 
                 </div>
 
-                <a href="about.html" class="cta-button mx-1 my-4 intense-button">know more about me --></a>
+                <a href="about.html" class="cta-button mx-1 my-3 intense-button">Know more about me <i class="fas fa-arrow-right ms-2" aria-hidden="true"></i></a>
             </div>
         </section>
     </section>
 
 
     <!-- Lenis Smooth Scroll -->
-    <script defer src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
-    <script defer src="shared.js"></script>
-    <script defer src="animations.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    <script src="shared.js"></script>
+    <script src="animations.js"></script>
     <!-- Bootstrap JS -->
-
-
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Font Awesome -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
 
 
 </body>

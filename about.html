@@ -4,59 +4,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
-    <link rel="preconnect" href="https://cdn.skypack.dev" />
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Ahmed | Full-Stack .NET Developer</title>
     <!-- Bootstrap CSS -->
-
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="style.min.css">
-    <link rel="stylesheet" href="blueprint.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="blueprint.css">
 </head>
 
 <body>
 
     <!-- Floating Navigation Controls -->
-    <div class="fixed top-0 left-0 right-0 sm:p-6 p-6 flex justify-between items-start"
+    <div class="fixed-top p-sm-4 p-3 d-flex justify-content-between align-items-start"
         style="pointer-events: none; z-index: 1040;">
-        <div class="flex flex-col gap-6" style="pointer-events: auto;">
-            <a class="btn btn-hero flex items-center justify-center"
+        <div class="d-flex flex-column gap-3" style="pointer-events: auto;">
+            <a class="btn btn-hero d-flex align-items-center justify-content-center"
                 style="width:50px; height:50px; padding:0;" aria-label="Contact Section" href="#contact"><span
                     class="fa fa-phone"></span></a>
-            <a class="btn btn-hero flex items-center justify-center"
+            <a class="btn btn-hero d-flex align-items-center justify-content-center"
                 style="width:50px; height:50px; padding:0;" aria-label="GitHub Profile"
                 href="https://github.com/AhmedNasser-bug"><span class="fa-brands fa-github"></span></a>
         </div>
 
-        <button class="btn btn-hero flex items-center gap-2 px-4 py-2"
+        <button class="btn btn-hero d-flex align-items-center gap-2 px-3 py-2"
             style="font-weight: 600; pointer-events: auto;" type="button" aria-label="Toggle Navigation Menu"
             aria-expanded="false" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
             aria-controls="offcanvasNavbar"
             onclick="if(typeof chooseOffCanvasText === 'function') chooseOffCanvasText()">
-            <span class="fa fa-bars"></span> <span class="hidden sm:inline">MENU</span>
+            <span class="fa fa-bars"></span> <span class="d-none d-sm-inline">MENU</span>
         </button>
     </div>
 
     <!-- Offcanvas Navigation Menu -->
-    <div class="fixed top-0 right-0 h-full w-80 bg-gray-900 text-white transform translate-x-full transition-transform duration-300 z-[1050]" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
         <div class="offcanvas-header border-bottom border-dark">
             <h2 class="offcanvas-title h5 m-0" id="offcanvasNavbarLabel">Navigation</h2>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close menu"></button>
         </div>
         <div class="offcanvas-body">
             <nav aria-label="Main Navigation">
-                <ul class="flex flex-wrap list-none pl-0 mb-0 flex-col gap-6 mt-4">
-                    <li class="flex flex-wrap list-none pl-0 mb-0-item">
-                        <a class="flex flex-wrap list-none pl-0 mb-0-link fs-5" href="index.html">Home</a>
+                <ul class="nav flex-column gap-3 mt-4">
+                    <li class="nav-item">
+                        <a class="nav-link fs-5" href="index.html">Home</a>
                     </li>
-                    <li class="flex flex-wrap list-none pl-0 mb-0-item">
-                        <a class="flex flex-wrap list-none pl-0 mb-0-link active fw-bold fs-5" aria-current="page" href="about.html">About</a>
+                    <li class="nav-item">
+                        <a class="nav-link active fw-bold fs-5" aria-current="page" href="about.html">About</a>
                     </li>
                 </ul>
             </nav>
@@ -66,54 +60,54 @@
     <div class="bg-blur blur-1 z-3"></div>
     <div class="bg-blur blur-2 z-3"></div>
     <!-- About Hero Section -->
-    <section class="about-hero section pb-0 position-relative" id="hero" style="min-height: 100vh;">
+    <section class="about-hero section pb-0" id="hero" style="min-height: 100vh;">
 
         <!-- Three.js Canvas Container -->
         <div id="canvas-container" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; opacity: 0.5;"></div>
 
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="container">
 
-            <div class="flex flex-wrap -mx-4 items-center">
+            <div class="row align-items-center">
 
                 <!-- Image Column -->
-                <div class="w-full lg:w-5/12 px-4 mb-12 lg:mb-0">
+                <div class="col-lg-5 mb-5 mb-lg-0">
                     <div class="bio-image position-relative">
-                        <div class="placeholder-image flex items-center justify-center rounded-lg"
+                        <div class="placeholder-image d-flex align-items-center justify-content-center rounded-3"
                             style="aspect-ratio: 9 / 16; width: 100%; height: auto; max-width: 400px; margin: 0 auto; background: linear-gradient(135deg, #1e3a8a, #0f172a); border: 1px solid rgba(96, 165, 250, 0.3); overflow: hidden;">
-                            <div class="text-center text-blue-300 w-full h-full">
+                            <div class="text-center text-blue-300 w-100 h-100">
 
-                                <img src="hero.jpeg" loading="eager" fetchpriority="high" class="max-w-full h-auto rounded-lg" alt="Ahmed" style="width: 100%; height: 100%; object-fit: cover; object-position: top;">
+                                <img src="hero.jpeg" loading="eager" fetchpriority="high" class="img-fluid rounded-3" alt="Ahmed" style="width: 100%; height: 100%; object-fit: cover; object-position: top;">
 
                             </div>
                         </div>
-                        <div class="bg-blur absolute top-0 left-0 w-full h-full"
+                        <div class="bg-blur position-absolute top-0 start-0 w-100 h-100"
                             style="background: var(--primary); filter: blur(100px); opacity: 0.15; z-index: -1;"></div>
                     </div>
                 </div>
 
                 <!-- Bio Content Column -->
-                <div class="w-full lg:w-7/12 px-4">
+                <div class="col-lg-7">
                     <div class="ps-lg-5">
-                        <h1 class="about-headline mb-6" style="font-size: 3.2rem; font-weight: 800; line-height: 1.2;">
+                        <h1 class="about-headline mb-4" style="font-size: 3.2rem; font-weight: 800; line-height: 1.2;">
                             Engineering <span class="text-primary">Business Solutions</span> & High-ROI Architecture
                         </h1>
 
                         <div class="bio-content">
-                            <p class="lead mb-6" style="font-size: 1.25rem;">
+                            <p class="lead mb-4" style="font-size: 1.25rem;">
                                 I'm Ahmed - a <span class="text-primary">Technical Consultant & AI Systems
                                     Orchestrator</span> solving complex enterprise constraints before the first line of
                                 code is written.
                             </p>
 
-                            <p class="mb-6">
+                            <p class="mb-4">
                                 I am a research-driven developer building robust, scalable software architectures by
                                 combining deep systems-level knowledge (C/C++) with bleeding-edge AI orchestration. I
                                 don't just write code; I accelerate development cycles, eliminate scope creep, and
                                 prevent technical debt using advanced AI stacks.
                             </p>
 
-                            <div class="flex items-center mb-6">
+                            <div class="d-flex align-items-center mb-4">
                                 <div class="border-start border-primary border-3 ps-3">
                                     <p class="mb-0 fst-italic">
                                         "Translating low-level optimization into measurable business outcomes."
@@ -137,18 +131,18 @@
 
     <!-- Values Section -->
     <section class="personal-touches section m-0">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-wrap -mx-4 justify-center">
-                <div class="w-full lg:w-2/3 px-4 text-center">
-                    <h2 class="section-title mb-12">My Engineering Philosophy</h2>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="section-title mb-5">My Engineering Philosophy</h2>
 
-                    <div class="bg-grid absolute top-0 left-0 w-full h-full"></div>
+                    <div class="bg-grid position-absolute top-0 start-0 w-100 h-100"></div>
 
                     <div class="position-relative">
-                        <div class="flex flex-wrap -mx-4 gap-6">
-                            <div class="w-full md:w-1/3 px-4">
-                                <div class="skill-card h-full">
-                                    <div class="skill-icon mx-auto mb-6">
+                        <div class="row g-4">
+                            <div class="col-md-4">
+                                <div class="skill-card h-100">
+                                    <div class="skill-icon mx-auto mb-4">
                                         <i class="fas fa-microchip"></i>
                                     </div>
                                     <h3 class="skill-title text-center">Systems-Level Optimization</h3>
@@ -158,9 +152,9 @@
                                 </div>
                             </div>
 
-                            <div class="w-full md:w-1/3 px-4">
-                                <div class="skill-card h-full">
-                                    <div class="skill-icon mx-auto mb-6">
+                            <div class="col-md-4">
+                                <div class="skill-card h-100">
+                                    <div class="skill-icon mx-auto mb-4">
                                         <i class="fas fa-brain"></i>
                                     </div>
                                     <h3 class="skill-title text-center">AI-Augmented Architecture</h3>
@@ -170,9 +164,9 @@
                                 </div>
                             </div>
 
-                            <div class="w-full md:w-1/3 px-4">
-                                <div class="skill-card h-full">
-                                    <div class="skill-icon mx-auto mb-6">
+                            <div class="col-md-4">
+                                <div class="skill-card h-100">
+                                    <div class="skill-icon mx-auto mb-4">
                                         <i class="fas fa-chart-pie"></i>
                                     </div>
                                     <h3 class="skill-title text-center">Technical Business Consulting</h3>
@@ -194,9 +188,9 @@
     <section class="extended-skills-section section overflow-visible">
         <div class="bg-grid"></div>
         <div class="bg-blur blur-1 w-50"></div>
-        <div class="bg-blur blur-2 w-50"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="section-title mb-12">Technical Expertise</h2>
+        <div class="bg-blur blur-2  w-50"></div>
+        <div class="container">
+            <h2 class="section-title mb-5">Technical Expertise</h2>
 
             <!-- Blueprint Skills Table — horizontally scrollable on mobile -->
             <div style="overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 0 -0.75rem;">
@@ -279,14 +273,14 @@
 
     <!-- Professional Journey -->
     <section class="journey-highlights section">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="section-title mb-12">My Professional Journey</h2>
+        <div class="container">
+            <h2 class="section-title mb-5">My Professional Journey</h2>
 
-            <div class="flex flex-wrap -mx-4 gap-6">
+            <div class="row g-4">
                 <!-- Journey Item 1 -->
-                <div class="w-full md:w-1/2 px-4">
+                <div class="col-md-6">
                     <div class="journey-highlight-item skill-card hanwag-fade">
-                        <div class="flex items-start mb-6">
+                        <div class="d-flex align-items-start mb-3">
                             <div class="skill-icon me-3">
                                 <i class="fas fa-medal"></i>
                             </div>
@@ -308,9 +302,9 @@
                 </div>
 
                 <!-- Journey Item 2 -->
-                <div class="w-full md:w-1/2 px-4">
+                <div class="col-md-6">
                     <div class="journey-highlight-item skill-card hanwag-fade">
-                        <div class="flex items-start mb-6">
+                        <div class="d-flex align-items-start mb-3">
                             <div class="skill-icon me-3">
                                 <i class="fas fa-users-gear"></i>
                             </div>
@@ -330,9 +324,9 @@
                 </div>
 
                 <!-- Journey Item 3 -->
-                <div class="w-full md:w-1/2 px-4">
+                <div class="col-md-6">
                     <div class="journey-highlight-item skill-card hanwag-fade">
-                        <div class="flex items-start mb-6">
+                        <div class="d-flex align-items-start mb-3">
                             <div class="skill-icon me-3">
                                 <i class="fas fa-road-circle-check"></i>
                             </div>
@@ -352,9 +346,9 @@
                 </div>
 
                 <!-- Journey Item 4 -->
-                <div class="w-full md:w-1/2 px-4">
+                <div class="col-md-6">
                     <div class="journey-highlight-item skill-card hanwag-fade">
-                        <div class="flex items-start mb-6">
+                        <div class="d-flex align-items-start mb-3">
                             <div class="skill-icon me-3">
                                 <i class="fas fa-brain"></i>
                             </div>
@@ -378,16 +372,16 @@
 
     <!-- Education Section -->
     <section class="education-section section">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="section-title mb-12">Education & Professional Development</h2>
+        <div class="container">
+            <h2 class="section-title mb-5">Education & Professional Development</h2>
 
             <!-- Education Items Container -->
-            <div class="flex flex-wrap -mx-4 justify-center">
+            <div class="row justify-content-center">
                 <!-- Item 1: BSc Computer Science -->
-                <div class="w-full lg:w-2/3 px-4 mb-6 education-item hanwag-fade">
-                    <div class="education-card skill-card p-6 h-full education-formal"
+                <div class="col-lg-8 mb-4 education-item hanwag-fade">
+                    <div class="education-card skill-card p-4 h-100 education-formal"
                         style="border-left: 4px solid var(--primary);">
-                        <div class="flex items-start">
+                        <div class="d-flex align-items-start">
                             <div class="education-icon me-4"
                                 style="width: 70px; height: 70px; background: rgba(37, 99, 235, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
                                 <i class="fas fa-graduation-cap fa-2x text-primary"></i>
@@ -398,7 +392,7 @@
                                     Science</h3>
                                 <div class="education-institution text-gray-500 mb-2">Pharos University in Alexandria
                                 </div>
-                                <div class="education-date mb-6">
+                                <div class="education-date mb-3">
                                     <span class="badge"
                                         style="background: rgba(37, 99, 235, 0.15); color: var(--primary); padding: 0.4rem 0.8rem; border-radius: 20px; font-weight: 600;">2023
                                         - 2027</span>
@@ -414,9 +408,9 @@
                 </div>
 
                 <!-- Item 2: Web Design Diploma -->
-                <div class="w-full lg:w-2/3 px-4 mb-6 education-item hanwag-fade">
-                    <div class="education-card skill-card p-6 h-full education-training">
-                        <div class="flex items-start">
+                <div class="col-lg-8 mb-4 education-item hanwag-fade">
+                    <div class="education-card skill-card p-4 h-100 education-training">
+                        <div class="d-flex align-items-start">
                             <div class="education-icon me-4"
                                 style="width: 60px; height: 60px; background: rgba(37, 99, 235, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
                                 <i class="fa fa-laptop fa-2x text-blue-300"></i>
@@ -427,7 +421,7 @@
                                     Program</h3>
                                 <div class="education-institution text-gray-500 mb-2">Information Technology Institute
                                 </div>
-                                <div class="education-date mb-6">
+                                <div class="education-date mb-3">
                                     <span class="badge"
                                         style="background: rgba(37, 99, 235, 0.15); color: var(--primary); padding: 0.4rem 0.8rem; border-radius: 20px; font-weight: 600;">2024</span>
                                 </div>
@@ -443,9 +437,9 @@
                 </div>
 
                 <!-- Item 2: Web Design Diploma -->
-                <div class="w-full lg:w-2/3 px-4 mb-6 education-item hanwag-fade">
-                    <div class="education-card skill-card p-6 h-full education-training">
-                        <div class="flex items-start">
+                <div class="col-lg-8 mb-4 education-item hanwag-fade">
+                    <div class="education-card skill-card p-4 h-100 education-training">
+                        <div class="d-flex align-items-start">
                             <div class="education-icon me-4"
                                 style="width: 60px; height: 60px; background: rgba(37, 99, 235, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
                                 <i class="fas fa-laptop-code fa-2x text-blue-300"></i>
@@ -456,7 +450,7 @@
                                     Branding Diploma</h3>
                                 <div class="education-institution text-gray-500 mb-2">National Telecommunication
                                     Institute & Career 180</div>
-                                <div class="education-date mb-6">
+                                <div class="education-date mb-3">
                                     <span class="badge"
                                         style="background: rgba(37, 99, 235, 0.15); color: var(--primary); padding: 0.4rem 0.8rem; border-radius: 20px; font-weight: 600;">2025</span>
                                 </div>
@@ -470,10 +464,10 @@
                 </div>
 
                 <!-- Item 3: AI/ML Engineering Diploma -->
-                <div class="w-full lg:w-2/3 px-4 mb-6 education-item hanwag-fade">
-                    <div class="education-card skill-card p-6 h-full education-certification"
+                <div class="col-lg-8 mb-4 education-item hanwag-fade">
+                    <div class="education-card skill-card p-4 h-100 education-certification"
                         style="border-left: 4px solid var(--primary);">
-                        <div class="flex items-start">
+                        <div class="d-flex align-items-start">
                             <div class="education-icon me-4"
                                 style="width: 70px; height: 70px; background: rgba(37, 99, 235, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
                                 <i class="fas fa-robot fa-2x text-purple"></i>
@@ -483,7 +477,7 @@
                                     style="font-size: 1.5rem; font-weight: 700; color: var(--light);">AI/ML Engineering
                                     Diploma</h3>
                                 <div class="education-institution text-gray-500 mb-2">Arabian Academy</div>
-                                <div class="education-date mb-6">
+                                <div class="education-date mb-3">
                                     <span class="badge"
                                         style="background: rgba(37, 99, 235, 0.15); color: var(--primary); padding: 0.4rem 0.8rem; border-radius: 20px; font-weight: 600;">2025
                                         - Present</span>
@@ -505,7 +499,7 @@
     <!-- CTA Section -->
     <section class="section overflow-visible" id="contact">
         <div class="bg-grid"></div>
-        <div class="bg-blur blur-2 w-full overflow-visible absolute h-full" style="opacity: 10%;"></div>
+        <div class="bg-blur blur-2 w-100 overflow-visible position-absolute h-100" style="opacity: 10%;"></div>
         <section class="cta-section">
 
             <div class="cta-grid"></div>
@@ -516,12 +510,12 @@
                 <h2 class="cta-heading">I see you're convinced</h2>
                 <p class="cta-subtext">Shall we begin?</p>
 
-                <nav class="flex flex-wrap list-none pl-0 mb-0 justify-center content-center">
+                <nav class="nav justify-content-center  align-content-center">
                     <a href="https://www.linkedin.com/in/ahmed-nasser-a9556a255/" class="cta-button mx-1"><span
                             class="fa-brands fa-linkedin mx-1"></span>Linkedin</a>
                     <a href="https://wa.me/201009784937
 " class="cta-button mx-1"><span class="fa-brands fa-whatsapp mx-1"></span>Whatsapp</a>
-                    <a href="https://www.upwork.com/freelancers/~01f54fd7d135eb3939" class="cta-button mx-1"><span
+                    <a href="https://www.upwork.com/freelancers/~01f54fd7d135eb3939" class="cta-button mx-1 "><span
                             class="fa fa-laptop-code mx-1"></span>Upwork</a>
                 </nav>
 
@@ -571,8 +565,8 @@
                 // Optimize: Disable antialias for performance, it's just a blurry background
                 const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: false });
                 renderer.setSize(container.clientWidth, container.clientHeight);
-                // Optimize: Cap pixel ratio to 1.5 to prevent massive GPU load on high-DPI displays
-                renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
+                // Optimize: Cap pixel ratio to 2 to prevent massive GPU load on high-DPI displays
+                renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
                 container.appendChild(renderer.domElement);
 
                 const geometry1 = new THREE.IcosahedronGeometry(8, 0);
@@ -606,26 +600,20 @@
                 const windowHalfX = window.innerWidth / 2;
                 const windowHalfY = window.innerHeight / 2;
 
+                // Optimize: Use passive event listener
                 document.addEventListener('mousemove', (event) => {
                     mouseX = (event.clientX - windowHalfX) * 0.0005;
                     mouseY = (event.clientY - windowHalfY) * 0.0005;
                 }, { passive: true });
 
                 let isVisible = true;
-                let animationFrameId = null;
                 const observer = new IntersectionObserver((entries) => {
                     isVisible = entries[0].isIntersecting;
-                    if(isVisible && !animationFrameId) {
-                        animate();
-                    } else if(!isVisible && animationFrameId) {
-                        cancelAnimationFrame(animationFrameId);
-                        animationFrameId = null;
-                    }
                 }, { threshold: 0 });
                 observer.observe(container);
 
                 function animate() {
-                    animationFrameId = requestAnimationFrame(animate);
+                    requestAnimationFrame(animate);
 
                     // Optimize: Don't render when not visible
                     if (!isVisible) return;
@@ -647,26 +635,26 @@
 
                 animate();
 
-                // Optimize: Use passive event listener and debounce
-                window.addEventListener('resize', debounce(() => {
+                // Optimize: Use passive event listener
+                window.addEventListener('resize', () => {
                     if(container) {
                         camera.aspect = window.innerWidth / window.innerHeight;
                         camera.updateProjectionMatrix();
                         renderer.setSize(container.clientWidth, container.clientHeight);
                     }
-                }, 100), { passive: true });
+                }, { passive: true });
             }).catch(err => console.error("Failed to load Three.js:", err));
         }
     </script>
 
     <!-- Lenis Smooth Scroll -->
-    <script defer src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
-    <script defer src="shared.js"></script>
-    <script defer src="about.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    <script src="shared.js"></script>
+    <script src="about.js"></script>
 
     <!-- Scripts -->
-
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
 
 
 </body>
