@@ -106,8 +106,6 @@ h2.section-title::after {
 }
 
 .skill-icon, .service-icon, .contact-icon {
-  background: var(--color-background) !important;
-  border: var(--border-thin) !important;
   color: var(--color-primary) !important;
   width: 60px !important;
   height: 60px !important;
@@ -115,6 +113,16 @@ h2.section-title::after {
   align-items: center !important;
   justify-content: center !important;
   margin-bottom: 1.5rem !important;
+}
+
+.skill-icon, .contact-icon {
+  background: var(--color-background) !important;
+  border: var(--border-thin) !important;
+}
+
+.service-icon {
+  background: transparent !important;
+  border: none !important;
 }
 
 /* Text adjustments in cards */
@@ -270,15 +278,6 @@ html.lenis, html.lenis body {
 
 .lenis.lenis-scrolling iframe {
   pointer-events: none;
-}
-
-/* Fix for service-icon UI bug */
-.service-icon {
-  background: transparent !important;
-  border: none !important;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .service-cta {
