@@ -14,52 +14,56 @@ var possible_texts = [
 ];
 
 function chooseOffCanvasText() {
-  const offCanvasText = document.getElementById("offcanvasNavbarLabel");
-  if (offCanvasText) {
-    offCanvasText.textContent = possible_texts[
-      getRandomInt(0, possible_texts.length - 1)
-    ];
+  if (typeof document !== 'undefined') {
+    const offCanvasText = document.getElementById("offcanvasNavbarLabel");
+    if (offCanvasText) {
+      offCanvasText.textContent = possible_texts[
+        getRandomInt(0, possible_texts.length - 1)
+      ];
+    }
   }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    // Initialize Lenis Smooth Scroll
-    if (typeof Lenis !== 'undefined' && window.innerWidth >= 768) {
-        const lenis = new Lenis({
-            duration: 1.2,
-            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-            smoothWheel: true
-        });
+if (typeof document !== 'undefined') {
+  document.addEventListener('DOMContentLoaded', () => {
+      // Initialize Lenis Smooth Scroll
+      if (typeof Lenis !== 'undefined' && window.innerWidth >= 768) {
+          const lenis = new Lenis({
+              duration: 1.2,
+              easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+              smoothWheel: true
+          });
 
-        let rafId;
-        function raf(time) {
-            lenis.raf(time);
-            rafId = requestAnimationFrame(raf);
-        }
+          let rafId;
+          function raf(time) {
+              lenis.raf(time);
+              rafId = requestAnimationFrame(raf);
+          }
 
-        rafId = requestAnimationFrame(raf);
+          rafId = requestAnimationFrame(raf);
 
-        // Disable lenis when not visible
-        document.addEventListener('visibilitychange', () => {
-            if (document.hidden) {
-                cancelAnimationFrame(rafId);
-            } else {
-                rafId = requestAnimationFrame(raf);
-            }
-        });
+          // Disable lenis when not visible
+          document.addEventListener('visibilitychange', () => {
+              if (document.hidden) {
+                  cancelAnimationFrame(rafId);
+              } else {
+                  rafId = requestAnimationFrame(raf);
+              }
+          });
 
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if(target) {
-                    lenis.scrollTo(target);
-                }
-            });
-        });
-    }
-});
+          // Smooth scroll for anchor links
+          document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+              anchor.addEventListener('click', function (e) {
+                  e.preventDefault();
+                  const target = document.querySelector(this.getAttribute('href'));
+                  if(target) {
+                      lenis.scrollTo(target);
+                  }
+              });
+          });
+      }
+  });
+}
 
 /**
  * Debounce function to limit the rate at which a function can fire.
@@ -77,4 +81,8 @@ function debounce(func, wait) {
         clearTimeout(timeout);
         timeout = setTimeout(later, wait);
     };
+}
+
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = { getRandomInt, debounce };
 }
