@@ -208,10 +208,10 @@
         const windowHalfX = window.innerWidth / 2;
         const windowHalfY = window.innerHeight / 2;
 
-        document.addEventListener('mousemove', (event) => {
+        document.addEventListener('mousemove', debounce((event) => {
             mouseX = (event.clientX - windowHalfX) * 0.0005;
             mouseY = (event.clientY - windowHalfY) * 0.0005;
-        });
+        }, 10), { passive: true });
 
         let animationFrameId = null;
 
