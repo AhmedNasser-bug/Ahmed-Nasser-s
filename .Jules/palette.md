@@ -12,3 +12,6 @@
 **Learning:** The project was missing a unified visible focus state for keyboard navigation. We needed a generic fallback since this project uses vanilla CSS with Bootstrap but lacks an overriding focus visibility strategy.
 **Action:** Added global `*:focus-visible` style in `style.css` using the existing `--primary` variable to ensure screen readers and keyboard users can track their position across all interactive elements.
 >>>>>>> main
+## 2026-05-12 - [Contact Links and A11y]
+**Learning:** Found several opportunities to improve accessibility (skip-to-content links, descriptive alt text, hiding decorative icons with `aria-hidden`) and micro-interactions (clickable phone/email links via `tel:` and `mailto:`) that significantly improve user experience for both standard and assistive tech users without requiring large structural changes.
+**Action:** Always verify that icon-only buttons have both `aria-label` and `title` attributes, ensure external links have `target="_blank" rel="noopener noreferrer"`, and convert plain text contact details to actionable links.
