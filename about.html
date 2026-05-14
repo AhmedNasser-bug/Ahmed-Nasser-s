@@ -17,7 +17,7 @@
 <body>
 
     <!-- Accessibility: Skip to main content -->
-    <a href="#hero" class="skip-to-content visually-hidden-focusable p-3 bg-primary text-white position-absolute z-3">Skip to main content</a>
+    <a href="#main-content" class="skip-to-content visually-hidden-focusable p-3 bg-primary text-white position-absolute z-3">Skip to main content</a>
 
 
     <!-- Floating Navigation Controls -->
@@ -28,7 +28,7 @@
                 style="width:50px; height:50px; padding:0;" aria-label="Contact Section" title="Contact Section" href="#contact"><span
                     class="fa fa-phone" aria-hidden="true"></span></a>
             <a class="btn btn-hero d-flex align-items-center justify-content-center"
-                style="width:50px; height:50px; padding:0;" aria-label="GitHub Profile" title="GitHub Profile"
+                style="width:50px; height:50px; padding:0;" aria-label="GitHub Profile (opens in a new tab)" title="GitHub Profile"
                 href="https://github.com/AhmedNasser-bug" target="_blank" rel="noopener noreferrer"><span class="fa-brands fa-github" aria-hidden="true"></span></a>
         </div>
 
@@ -45,7 +45,7 @@
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
         <div class="offcanvas-header border-bottom border-dark">
             <h2 class="offcanvas-title h5 m-0" id="offcanvasNavbarLabel">Navigation</h2>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close menu"></button>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close navigation menu"></button>
         </div>
         <div class="offcanvas-body">
             <nav aria-label="Main Navigation">
@@ -61,8 +61,8 @@
         </div>
     </div>
 
-    <div class="bg-blur blur-1 z-3"></div>
-    <div class="bg-blur blur-2 z-3"></div>
+    <div class="bg-blur blur-1 z-3" aria-hidden="true"></div>
+    <div class="bg-blur blur-2 z-3" aria-hidden="true"></div>
     <!-- About Hero Section -->
     <section class="about-hero section pb-0" id="hero" style="min-height: 100vh;">
 
@@ -86,7 +86,7 @@
                             </div>
                         </div>
                         <div class="bg-blur position-absolute top-0 start-0 w-100 h-100"
-                            style="background: var(--primary); filter: blur(100px); opacity: 0.15; z-index: -1;"></div>
+                            style="background: var(--primary); filter: blur(100px); opacity: 0.15; z-index: -1;" aria-hidden="true"></div>
                     </div>
                 </div>
 
@@ -134,13 +134,13 @@
     </section>
 
     <!-- Values Section -->
-    <section class="personal-touches section m-0">
+    <section class="personal-touches section m-0" id="main-content">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8 text-center">
                     <h2 class="section-title mb-5">My Engineering Philosophy</h2>
 
-                    <div class="bg-grid position-absolute top-0 start-0 w-100 h-100"></div>
+                    <div class="bg-grid position-absolute top-0 start-0 w-100 h-100" aria-hidden="true"></div>
 
                     <div class="position-relative">
                         <div class="row g-4">
@@ -190,9 +190,9 @@
     <!-- Extended Skills Section -->
 
     <section class="extended-skills-section section overflow-visible">
-        <div class="bg-grid"></div>
-        <div class="bg-blur blur-1 w-50"></div>
-        <div class="bg-blur blur-2  w-50"></div>
+        <div class="bg-grid" aria-hidden="true"></div>
+        <div class="bg-blur blur-1 w-50" aria-hidden="true"></div>
+        <div class="bg-blur blur-2  w-50" aria-hidden="true"></div>
         <div class="container">
             <h2 class="section-title mb-5">Technical Expertise</h2>
 
@@ -502,23 +502,23 @@
 
     <!-- CTA Section -->
     <section class="section overflow-visible" id="contact">
-        <div class="bg-grid"></div>
-        <div class="bg-blur blur-2 w-100 overflow-visible position-absolute h-100" style="opacity: 10%;"></div>
+        <div class="bg-grid" aria-hidden="true"></div>
+        <div class="bg-blur blur-2 w-100 overflow-visible position-absolute h-100" style="opacity: 10%;" aria-hidden="true"></div>
         <section class="cta-section">
 
-            <div class="cta-grid"></div>
-            <div class="cta-blur blur-1"></div>
-            <div class="cta-blur blur-2"></div>
+            <div class="cta-grid" aria-hidden="true"></div>
+            <div class="cta-blur blur-1" aria-hidden="true"></div>
+            <div class="cta-blur blur-2" aria-hidden="true"></div>
 
             <div class="cta-content">
                 <h2 class="cta-heading">I see you're convinced</h2>
                 <p class="cta-subtext">Shall we begin?</p>
 
                 <nav class="nav justify-content-center  align-content-center">
-                    <a href="https://www.linkedin.com/in/ahmed-nasser-a9556a255/" target="_blank" rel="noopener noreferrer" class="cta-button mx-1"><span
+                    <a href="https://www.linkedin.com/in/ahmed-nasser-a9556a255/" target="_blank" rel="noopener noreferrer" class="cta-button mx-1" aria-label="Connect on LinkedIn (opens in a new tab)"><span
                             class="fa-brands fa-linkedin mx-1" aria-hidden="true"></span>Linkedin</a>
-                    <a href="https://wa.me/201009784937" target="_blank" rel="noopener noreferrer" class="cta-button mx-1"><span class="fa-brands fa-whatsapp mx-1" aria-hidden="true"></span>Whatsapp</a>
-                    <a href="https://www.upwork.com/freelancers/~01f54fd7d135eb3939" target="_blank" rel="noopener noreferrer" class="cta-button mx-1 "><span
+                    <a href="https://wa.me/201009784937" target="_blank" rel="noopener noreferrer" class="cta-button mx-1" aria-label="Message on WhatsApp (opens in a new tab)"><span class="fa-brands fa-whatsapp mx-1" aria-hidden="true"></span>Whatsapp</a>
+                    <a href="https://www.upwork.com/freelancers/~01f54fd7d135eb3939" target="_blank" rel="noopener noreferrer" class="cta-button mx-1 " aria-label="Hire on Upwork (opens in a new tab)"><span
                             class="fa fa-laptop-code mx-1" aria-hidden="true"></span>Upwork</a>
                 </nav>
 
@@ -532,7 +532,7 @@
                         </div>
                         <div class="contact-details">
                             <div class="contact-label">Email Address</div>
-                            <div class="contact-value"><a href="mailto:ahmed.naser732000@gmail.com" class="text-white text-decoration-none hover:underline">ahmed.naser732000@gmail.com</a></div>
+                            <div class="contact-value"><a href="mailto:ahmed.naser732000@gmail.com" class="text-white text-decoration-none hover:underline" title="Send an email to ahmed.naser732000@gmail.com">ahmed.naser732000@gmail.com</a></div>
                         </div>
                     </div>
                     <div class="contact-method">
@@ -541,7 +541,7 @@
                         </div>
                         <div class="contact-details">
                             <div class="contact-label">Phone</div>
-                            <div class="contact-value"><a href="tel:+201009784937" class="text-white text-decoration-none hover:underline">+201009784937</a></div>
+                            <div class="contact-value"><a href="tel:+201009784937" class="text-white text-decoration-none hover:underline" title="Call +201009784937">+201009784937</a></div>
                         </div>
                     </div>
 

@@ -15,3 +15,14 @@
 ## 2026-05-12 - [Contact Links and A11y]
 **Learning:** Found several opportunities to improve accessibility (skip-to-content links, descriptive alt text, hiding decorative icons with `aria-hidden`) and micro-interactions (clickable phone/email links via `tel:` and `mailto:`) that significantly improve user experience for both standard and assistive tech users without requiring large structural changes.
 **Action:** Always verify that icon-only buttons have both `aria-label` and `title` attributes, ensure external links have `target="_blank" rel="noopener noreferrer"`, and convert plain text contact details to actionable links.
+## 2026-05-13 - [Skip-to-Content Targeting]
+**Learning:** The skip-to-content links were navigating to the hero section which contains a complex 3D animation, forcing screen readers and keyboard users to navigate through the animation they are trying to skip.
+**Action:** Ensure skip-to-content links target the actual main content area (e.g. `#skills` or `#main-content`) directly bypassing heavy visual sections.
+
+## 2026-05-13 - [Decorative Elements and Screen Readers]
+**Learning:** Decorative background grids and blurs created screen reader noise because they were empty `<div>`s lacking ARIA roles.
+**Action:** Always add `aria-hidden="true"` to visual-only elements that don't contain content to improve screen reader flow.
+
+## 2026-05-13 - [ARIA Label Overrides Inner Text]
+**Learning:** When using both `aria-label` and inner text (e.g. `<span class="visually-hidden">`) on an anchor element, the screen reader prioritizes the `aria-label` and ignores the inner text.
+**Action:** Append screen reader instructions like '(opens in a new tab)' directly to the `aria-label` string instead of injecting hidden span elements.
