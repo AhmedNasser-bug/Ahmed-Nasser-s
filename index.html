@@ -39,7 +39,7 @@
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
         <div class="offcanvas-header">
             <h2 class="offcanvas-title h5 m-0" id="offcanvasNavbarLabel">Navigation</h2>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close navigation menu"></button>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close navigation menu">        </button>
         </div>
         <div class="offcanvas-body">
             <nav aria-label="Main Navigation">
@@ -122,10 +122,10 @@
                                     I don't just write code; I engineer business solutions. Slashing timelines and eliminating technical debt via deep systems-level knowledge and bleeding-edge AI orchestration.
                                 </p>
                                 <div class="flex flex-wrap gap-4 pt-4">
-                                    <a href="https://github.com/AhmedNasser-bug" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center bg-[#171717] text-white px-6 py-3 border border-[#171717] rounded-sm font-mono text-sm uppercase tracking-wide hover:-translate-y-[2px] hover:-translate-x-[2px] hover:shadow-hard-hover transition-all duration-200" style="text-decoration: none;">
+                                    <a href="https://github.com/AhmedNasser-bug" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center bg-[#171717] text-white px-6 py-3 border border-[#171717] rounded-sm font-mono text-sm uppercase tracking-wide hover:-translate-y-[2px] hover:-translate-x-[2px] hover:shadow-hard-hover focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#171717] focus-visible:outline-none transition-all duration-200" style="text-decoration: none;" aria-label="View GitHub (opens in a new tab)">
                                         View GitHub
                                     </a>
-                                    <a href="#projects" class="flex items-center justify-center bg-white text-[#171717] px-6 py-3 border border-[#171717] rounded-sm font-mono text-sm uppercase tracking-wide shadow-hard hover:-translate-y-[2px] hover:-translate-x-[2px] hover:shadow-hard-hover hover:text-primary transition-all duration-200" style="text-decoration: none;">
+                                    <a href="#projects" class="flex items-center justify-center bg-white text-[#171717] px-6 py-3 border border-[#171717] rounded-sm font-mono text-sm uppercase tracking-wide shadow-hard hover:-translate-y-[2px] hover:-translate-x-[2px] hover:shadow-hard-hover hover:text-primary focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#171717] focus-visible:outline-none transition-all duration-200" style="text-decoration: none;">
                                         View Projects
                                     </a>
                                 </div>
@@ -392,7 +392,7 @@
                         <h3 class="service-title">Full-Stack .NET</h3>
                         <p class="service-description">End-to-end solutions with scalable architecture and optimized
                             databases</p>
-                        <button class="service-cta" onclick="window.location.href='#contact'" aria-label="Get a quote for Full-Stack .NET">Get Quote</button>
+                        <a href="#contact" class="service-cta text-decoration-none d-inline-block text-center" aria-label="Get a quote for Full-Stack .NET">Get Quote</a>
                     </div>
                 </div>
 
@@ -403,7 +403,7 @@
                         </div>
                         <h3 class="service-title">Database Design</h3>
                         <p class="service-description">Reliable database architecture with SQL Server optimization</p>
-                        <button class="service-cta" onclick="window.location.href='#contact'" aria-label="Get a quote for Database Design">Get Quote</button>
+                        <a href="#contact" class="service-cta text-decoration-none d-inline-block text-center" aria-label="Get a quote for Database Design">Get Quote</a>
                     </div>
                 </div>
 
@@ -414,7 +414,7 @@
                         </div>
                         <h3 class="service-title">Algorithmic Solutions</h3>
                         <p class="service-description">Complex problem solving with optimized algorithms</p>
-                        <button class="service-cta" onclick="window.location.href='#contact'" aria-label="Get a quote for Algorithmic Solutions">Get Quote</button>
+                        <a href="#contact" class="service-cta text-decoration-none d-inline-block text-center" aria-label="Get a quote for Algorithmic Solutions">Get Quote</a>
                     </div>
                 </div>
             </div>
@@ -428,8 +428,8 @@
 
             <div class="projects-grid">
                 <!-- Project 1: DVLD System -->
-                <a href="https://github.com/AhmedNasser-bug/DVLD-System-Project" style="text-decoration-line: none;"
-                    target="_blank" rel="noopener noreferrer">
+                <a href="https://github.com/AhmedNasser-bug/DVLD-System-Project" style="text-decoration-line: none;" class="project-link"
+                    target="_blank" rel="noopener noreferrer" aria-label="View DVLD System project on GitHub (opens in a new tab)">
                     <div class="project-card hanwag-fade">
                         <div class="project-visual">
                             <div class="project-media">
@@ -447,13 +447,13 @@
                             <p class="project-description">Driver and Vehicle Licensing Department management solution
                             </p>
 
-                            <div class="tech-stack">
-                                <span class="tech-tag">C#</span>
-                                <span class="tech-tag">.NET</span>
-                                <span class="tech-tag">MSSQL</span>
-                                <span class="tech-tag">T-SQL</span>
-                                <span class="tech-tag">ADO.NET</span>
-                                <span class="tech-tag">WinForms</span>
+                            <div class="tech-stack" role="list" aria-label="Technologies used">
+                                <span class="tech-tag" role="listitem">C#</span>
+                                <span class="tech-tag" role="listitem">.NET</span>
+                                <span class="tech-tag" role="listitem">MSSQL</span>
+                                <span class="tech-tag" role="listitem">T-SQL</span>
+                                <span class="tech-tag" role="listitem">ADO.NET</span>
+                                <span class="tech-tag" role="listitem">WinForms</span>
                             </div>
 
                             <div class="project-impact">
@@ -469,7 +469,7 @@
 
                 <!-- Project 2: Twinkies Store -->
                 <a href="https://github.com/AhmedNasser-bug/Twinkies-Store-Management-App" target="_blank" rel="noopener noreferrer"
-                    style="text-decoration-line: none;" rel="noopener noreferrer">
+                    style="text-decoration-line: none;" class="project-link" aria-label="View Twinkies Store project on GitHub (opens in a new tab)">
                     <div class="project-card hanwag-fade">
                         <div class="project-visual">
                             <div class="project-media">
@@ -486,11 +486,11 @@
                             <h3 class="project-title">Twinkies Store Management</h3>
                             <p class="project-description">E-commerce solution with inventory and sales analytics</p>
 
-                            <div class="tech-stack">
-                                <span class="tech-tag">C#</span>
-                                <span class="tech-tag">.NET</span>
-                                <span class="tech-tag">Three-Tier Architecture</span>
-                                <span class="tech-tag">SQL Database</span>
+                            <div class="tech-stack" role="list" aria-label="Technologies used">
+                                <span class="tech-tag" role="listitem">C#</span>
+                                <span class="tech-tag" role="listitem">.NET</span>
+                                <span class="tech-tag" role="listitem">Three-Tier Architecture</span>
+                                <span class="tech-tag" role="listitem">SQL Database</span>
                             </div>
 
                             <div class="project-impact">
@@ -506,7 +506,7 @@
 
                 <!-- Project 3: Algorithm Analysis -->
                 <a href="https://github.com/AhmedNasser-bug/Algorithm-Analysis" target="_blank" rel="noopener noreferrer"
-                    style="text-decoration-line: none;" rel="noopener noreferrer">
+                    style="text-decoration-line: none;" class="project-link" aria-label="View Algorithm Analysis project on GitHub (opens in a new tab)">
                     <div class="project-card hanwag-fade">
                         <div class="project-visual">
                             <div class="project-media">
@@ -523,11 +523,11 @@
                             <h3 class="project-title">Algorithm Analysis</h3>
                             <p class="project-description">Algorithm performance visualization and comparison tool</p>
 
-                            <div class="tech-stack">
-                                <span class="tech-tag">C#</span>
-                                <span class="tech-tag">WinForms</span>
-                                <span class="tech-tag">Data Visualization</span>
-                                <span class="tech-tag">Complexity Analysis</span>
+                            <div class="tech-stack" role="list" aria-label="Technologies used">
+                                <span class="tech-tag" role="listitem">C#</span>
+                                <span class="tech-tag" role="listitem">WinForms</span>
+                                <span class="tech-tag" role="listitem">Data Visualization</span>
+                                <span class="tech-tag" role="listitem">Complexity Analysis</span>
                             </div>
 
                             <div class="project-impact">
@@ -543,7 +543,7 @@
 
                 <!-- Project 4: Algorithmic Game Solver -->
                 <a href="https://github.com/AhmedNasser-bug/Algorithmic-Game-solver" target="_blank" rel="noopener noreferrer"
-                    style="text-decoration-line: none;" rel="noopener noreferrer">
+                    style="text-decoration-line: none;" class="project-link" aria-label="View Algorithmic Game Solver project on GitHub (opens in a new tab)">
                     <div class="project-card hanwag-fade">
                         <div class="project-visual">
                             <div class="project-media">
@@ -560,11 +560,11 @@
                             <h3 class="project-title">Algorithmic Game Solver</h3>
                             <p class="project-description">Solver for Sudoku, 8 Queens, and maze pathfinding</p>
 
-                            <div class="tech-stack">
-                                <span class="tech-tag">Python</span>
-                                <span class="tech-tag">Algorithms</span>
-                                <span class="tech-tag">Pathfinding</span>
-                                <span class="tech-tag">Problem Solving</span>
+                            <div class="tech-stack" role="list" aria-label="Technologies used">
+                                <span class="tech-tag" role="listitem">Python</span>
+                                <span class="tech-tag" role="listitem">Algorithms</span>
+                                <span class="tech-tag" role="listitem">Pathfinding</span>
+                                <span class="tech-tag" role="listitem">Problem Solving</span>
                             </div>
 
                             <div class="project-impact">

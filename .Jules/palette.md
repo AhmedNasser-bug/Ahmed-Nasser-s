@@ -26,3 +26,9 @@
 ## 2026-05-13 - [ARIA Label Overrides Inner Text]
 **Learning:** When using both `aria-label` and inner text (e.g. `<span class="visually-hidden">`) on an anchor element, the screen reader prioritizes the `aria-label` and ignores the inner text.
 **Action:** Append screen reader instructions like '(opens in a new tab)' directly to the `aria-label` string instead of injecting hidden span elements.
+## 2026-05-15 - [A11y/UX Improvements]
+**Learning:** Found multiple opportunities to enhance keyboard accessibility and screen reader experience:
+- Interactive JS elements missing semantic anchor equivalents (e.g. `onclick="window.location.href"` instead of `<a>`) affect native interactions.
+- Tech stack elements rendered visually as lists need explicit `role="list"` and `role="listitem"` to be read semantically by screen readers.
+- Animations using smooth scrolling (like Lenis) must verify `prefers-reduced-motion` to support vestibular disorders.
+**Action:** Always favor semantic tags (like `<a>` for navigation). Add focus indicators (`focus-visible` states) to interactive components to support keyboard navigation. Respect system preferences for reduced motion on heavy scroll animations.
