@@ -1,6 +1,8 @@
 // Video optimization - only load when in viewport
 
 document.addEventListener("DOMContentLoaded", function () {
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   const videoObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -9,6 +11,11 @@ document.addEventListener("DOMContentLoaded", function () {
           if (video) {
             video.src = video.getAttribute("data-src");
             video.removeAttribute("data-src");
+            if (prefersReducedMotion) {
+                video.removeAttribute("autoplay");
+                video.setAttribute("controls", "true");
+                video.pause();
+            }
           }
           videoObserver.unobserve(entry.target);
         }
@@ -28,6 +35,12 @@ document.addEventListener("DOMContentLoaded", function () {
     video.setAttribute("data-src", src);
     video.poster =
       'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450"%3E%3Crect fill="%230f172a" width="800" height="450"/%3E%3Cpath fill="%231e293b" d="M0,0 L800,450 M800,0 L0,450" stroke="%232563eb" stroke-width="1"/%3E%3C/svg%3E';
+
+    if (prefersReducedMotion) {
+      video.removeAttribute("autoplay");
+      video.setAttribute("controls", "true");
+      video.pause();
+    }
   });
 });
 
