@@ -26,6 +26,7 @@ function chooseOffCanvasText() {
 
 if (typeof document !== 'undefined') {
   document.addEventListener('DOMContentLoaded', () => {
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       // Initialize Lenis Smooth Scroll
       const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       if (typeof Lenis !== 'undefined' && window.innerWidth >= 768 && !prefersReducedMotion) {

@@ -3,15 +3,12 @@
 ## 2026-04-25 - [IntersectionObserver for Canvas Animations]
 **Learning:** Continuous `requestAnimationFrame` loops (like in Three.js) consume CPU/GPU resources even when the canvas is not visible in the viewport.
 **Action:** Use `IntersectionObserver` to wrap `requestAnimationFrame` loops, only calling `animate()` when `entry.isIntersecting` is true and using `cancelAnimationFrame()` when it's out of view, thereby optimizing performance.
-<<<<<<< jules-18324113008456419251-4646d625
 ## 2024-05-01 - [Prefers Reduced Motion Check]
 **Learning:** IntersectionObserver animations can trigger motion sickness. Always check for `prefers-reduced-motion: reduce` and bypass animations by immediately applying active classes if true.
 **Action:** When adding scroll animations (like .hanwag-fade), wrap the observer initialization in a `window.matchMedia` check.
-=======
 ## 2024-04-27 - [Global Focus State Support]
 **Learning:** The project was missing a unified visible focus state for keyboard navigation. We needed a generic fallback since this project uses vanilla CSS with Bootstrap but lacks an overriding focus visibility strategy.
 **Action:** Added global `*:focus-visible` style in `style.css` using the existing `--primary` variable to ensure screen readers and keyboard users can track their position across all interactive elements.
->>>>>>> main
 ## 2026-05-12 - [Contact Links and A11y]
 **Learning:** Found several opportunities to improve accessibility (skip-to-content links, descriptive alt text, hiding decorative icons with `aria-hidden`) and micro-interactions (clickable phone/email links via `tel:` and `mailto:`) that significantly improve user experience for both standard and assistive tech users without requiring large structural changes.
 **Action:** Always verify that icon-only buttons have both `aria-label` and `title` attributes, ensure external links have `target="_blank" rel="noopener noreferrer"`, and convert plain text contact details to actionable links.
@@ -32,3 +29,6 @@
 - Tech stack elements rendered visually as lists need explicit `role="list"` and `role="listitem"` to be read semantically by screen readers.
 - Animations using smooth scrolling (like Lenis) must verify `prefers-reduced-motion` to support vestibular disorders.
 **Action:** Always favor semantic tags (like `<a>` for navigation). Add focus indicators (`focus-visible` states) to interactive components to support keyboard navigation. Respect system preferences for reduced motion on heavy scroll animations.
+## 2026-05-13 - [Respecting prefers-reduced-motion for Video and Scroll]
+**Learning:** Found that users who enabled `prefers-reduced-motion: reduce` in their OS were still forced to endure smooth-scrolling animations (via Lenis) and autoplaying background videos, triggering potential accessibility issues.
+**Action:** Always wrap continuous scroll libraries and `<video autoplay>` initialization logic in a `window.matchMedia('(prefers-reduced-motion: reduce)')` check, gracefully degrading to default native scroll and paused/controlled video playback.
