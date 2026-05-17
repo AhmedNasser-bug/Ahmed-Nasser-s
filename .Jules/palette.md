@@ -26,3 +26,6 @@
 ## 2026-05-13 - [ARIA Label Overrides Inner Text]
 **Learning:** When using both `aria-label` and inner text (e.g. `<span class="visually-hidden">`) on an anchor element, the screen reader prioritizes the `aria-label` and ignores the inner text.
 **Action:** Append screen reader instructions like '(opens in a new tab)' directly to the `aria-label` string instead of injecting hidden span elements.
+## 2026-05-13 - [Respecting prefers-reduced-motion for Video and Scroll]
+**Learning:** Found that users who enabled `prefers-reduced-motion: reduce` in their OS were still forced to endure smooth-scrolling animations (via Lenis) and autoplaying background videos, triggering potential accessibility issues.
+**Action:** Always wrap continuous scroll libraries and `<video autoplay>` initialization logic in a `window.matchMedia('(prefers-reduced-motion: reduce)')` check, gracefully degrading to default native scroll and paused/controlled video playback.
