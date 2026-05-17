@@ -26,3 +26,7 @@
 ## 2026-05-13 - [ARIA Label Overrides Inner Text]
 **Learning:** When using both `aria-label` and inner text (e.g. `<span class="visually-hidden">`) on an anchor element, the screen reader prioritizes the `aria-label` and ignores the inner text.
 **Action:** Append screen reader instructions like '(opens in a new tab)' directly to the `aria-label` string instead of injecting hidden span elements.
+
+## 2026-05-14 - [Dual ARIA-label and Title Pattern]
+**Learning:** For interactive elements (like icon-only buttons or ambiguous external links), screen reader users benefit from `aria-label`, but mouse users relying on visual cues miss this context if there's no visible text.
+**Action:** Use a dual pattern by providing both `aria-label` (for screen readers) and a matching `title` attribute (for native browser tooltips on hover) to ensure an equitable UX for all interaction types.
