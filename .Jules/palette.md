@@ -36,3 +36,6 @@
 ## 2026-05-13 - [Respecting prefers-reduced-motion for Video and Scroll]
 **Learning:** Found that users who enabled `prefers-reduced-motion: reduce` in their OS were still forced to endure smooth-scrolling animations (via Lenis) and autoplaying background videos, triggering potential accessibility issues.
 **Action:** Always wrap continuous scroll libraries and `<video autoplay>` initialization logic in a `window.matchMedia('(prefers-reduced-motion: reduce)')` check, gracefully degrading to default native scroll and paused/controlled video playback.
+## 2026-05-18 - [Event Delegation for Smooth Scroll]
+**Learning:** Attaching event listeners inside a loop (like `querySelectorAll('a[href^="#"]').forEach`) creates multiple closures and incurs O(N) memory and CPU overhead.
+**Action:** Use event delegation by attaching a single listener to a common ancestor (e.g., `document.body`) and using `e.target.closest('a[href^="#"]')` to determine the target. This reduces attachment overhead to O(1).
