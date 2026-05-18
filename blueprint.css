@@ -106,9 +106,23 @@ h2.section-title::after {
 }
 
 .skill-icon, .service-icon, .contact-icon {
+  color: var(--color-primary) !important;
+  width: 60px !important;
+  height: 60px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-bottom: 1.5rem !important;
+}
+
+.skill-icon, .contact-icon {
   background: var(--color-background) !important;
   border: var(--border-thin) !important;
-  color: var(--color-primary) !important;
+}
+
+.service-icon {
+  background: transparent !important;
+  border: none !important;
 }
 
 /* Text adjustments in cards */
@@ -235,6 +249,7 @@ a {
 /* More specific icon overrides (avoid overriding ALL i tags if unnecessary, but keeping monochromatic blueprint constraints) */
 .skill-icon i, .service-icon i, .contact-icon i, .experience-icon i, .education-icon i {
     color: var(--color-primary) !important;
+    font-size: 1.8rem !important;
 }
 
 .skill-pill i {
@@ -263,4 +278,26 @@ html.lenis, html.lenis body {
 
 .lenis.lenis-scrolling iframe {
   pointer-events: none;
+}
+
+.service-cta {
+  background-color: var(--color-primary) !important;
+  color: var(--color-surface) !important;
+}
+
+.service-cta:hover {
+  background-color: var(--color-text) !important;
+  color: var(--color-surface) !important;
+}
+
+/* Accessible focus state for project cards */
+.project-link:focus-visible {
+  outline: none;
+}
+
+.project-link:focus-visible .project-card {
+  transform: translateY(-5px);
+  box-shadow: 6px 6px 0px #171717;
+  outline: 3px solid var(--primary);
+  outline-offset: 4px;
 }
