@@ -45,3 +45,7 @@
 ## 2026-05-18 - [Security: Pinned CDN and SRI]
 **Learning:** Unpinned CDN links without Subresource Integrity (SRI) expose the site to arbitrary code execution if the CDN is compromised, and unexpected layout breaks due to silent updates.
 **Action:** Always pin third-party library versions in CDN URLs and generate/apply SRI hashes (`integrity` attribute) along with `crossorigin="anonymous"` to ensure script integrity.
+
+## 2024-05-24 - Dual-Pattern Accessibility & Visually-Hidden Spans
+**Learning:** For icon-only or generic-text links ("Get Quote"), relying purely on `aria-label` is not enough for mouse users, and relying on visual text isn't always possible. Applying a "dual-pattern" (`aria-label` for screen readers and `title` for visual tooltips) creates an equitable UX. Additionally, when providing auxiliary screen reader context for card links, using a visually-hidden `<span>` inside the content is more robust than wrapping the entire card in an `aria-label` that completely overrides inner text content.
+**Action:** Always implement the dual `aria-label` and `title` pattern on ambiguous interactive elements. When building complex interactive cards, favor placing visually hidden text inside the DOM over placing an overriding `aria-label` on the wrapper.
