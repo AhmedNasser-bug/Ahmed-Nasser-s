@@ -53,14 +53,15 @@ if (typeof document !== 'undefined') {
           });
 
           // Smooth scroll for anchor links
-          document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-              anchor.addEventListener('click', function (e) {
+          document.body.addEventListener('click', function (e) {
+              const anchor = e.target.closest('a[href^="#"]');
+              if (anchor) {
                   e.preventDefault();
-                  const target = document.querySelector(this.getAttribute('href'));
-                  if(target) {
+                  const target = document.querySelector(anchor.getAttribute('href'));
+                  if (target) {
                       lenis.scrollTo(target);
                   }
-              });
+              }
           });
       }
   });
