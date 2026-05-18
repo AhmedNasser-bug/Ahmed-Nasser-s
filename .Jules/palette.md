@@ -39,3 +39,6 @@
 ## 2024-05-17 - [Security: Subresource Integrity (SRI) on CDNs]
 **Learning:** Loading external libraries via CDNs without Subresource Integrity (SRI) exposes the site to supply chain attacks. If a CDN is compromised, a malicious script could be served instead of the expected library, leading to Cross-Site Scripting (XSS) and data exfiltration.
 **Action:** When adding external scripts or stylesheets from CDNs (like Bootstrap, FontAwesome, Lenis), always generate and include cryptographic hashes using the `integrity` attribute along with `crossorigin="anonymous"`. Verify correct implementation by checking the browser console for SRI validation errors during local testing.
+## 2026-05-18 - [Security: Pinned CDN and SRI]
+**Learning:** Unpinned CDN links without Subresource Integrity (SRI) expose the site to arbitrary code execution if the CDN is compromised, and unexpected layout breaks due to silent updates.
+**Action:** Always pin third-party library versions in CDN URLs and generate/apply SRI hashes (`integrity` attribute) along with `crossorigin="anonymous"` to ensure script integrity.
