@@ -4,7 +4,7 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-var possible_texts = [
+const possible_texts = [
   "It's a beautiful day outside, isn't it?",
   "Don't you just adore the joy of creation?",
   "I won't stop until I reach my goals.",
