@@ -1,5 +1,0 @@
-127.0.0.1 - - [10/May/2026 01:55:44] "GET /index.html HTTP/1.1" 200 -
-127.0.0.1 - - [10/May/2026 01:55:44] "GET /style.css HTTP/1.1" 200 -
-127.0.0.1 - - [10/May/2026 01:55:44] "GET /blueprint.css HTTP/1.1" 200 -
-127.0.0.1 - - [10/May/2026 01:55:44] "GET /shared.js HTTP/1.1" 200 -
-127.0.0.1 - - [10/May/2026 01:55:44] "GET /animations.js HTTP/1.1" 200 -
