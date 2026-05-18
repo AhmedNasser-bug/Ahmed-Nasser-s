@@ -4,7 +4,7 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-var possible_texts = [
+const possible_texts = [
   "It's a beautiful day outside, isn't it?",
   "Don't you just adore the joy of creation?",
   "I won't stop until I reach my goals.",
@@ -28,7 +28,6 @@ if (typeof document !== 'undefined') {
   document.addEventListener('DOMContentLoaded', () => {
       const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       // Initialize Lenis Smooth Scroll
-      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       if (typeof Lenis !== 'undefined' && window.innerWidth >= 768 && !prefersReducedMotion) {
           const lenis = new Lenis({
               duration: 1.2,
