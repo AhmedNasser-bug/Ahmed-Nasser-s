@@ -426,11 +426,24 @@
         <div class="container">
             <h2 class="section-title hanwag-fade">Project Showcase</h2>
 
+            <!-- Project Filter Controls -->
+            <div class="filter-controls mb-5">
+                <div class="filter-search">
+                    <input type="search" id="project-search" placeholder="Search projects..." aria-label="Search projects by name or technology">
+                </div>
+                <div class="filter-buttons" role="group" aria-label="Filter projects by category">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="dotnet">.NET</button>
+                    <button class="filter-btn" data-filter="python">Python</button>
+                    <button class="filter-btn" data-filter="algorithms">Algorithms</button>
+                </div>
+            </div>
+
             <div class="projects-grid">
                 <!-- Project 1: DVLD System -->
                 <a href="https://github.com/AhmedNasser-bug/DVLD-System-Project" style="text-decoration-line: none;" class="project-link"
                     target="_blank" rel="noopener noreferrer" aria-label="View DVLD System project on GitHub (opens in a new tab)">
-                    <div class="project-card hanwag-fade">
+                    <div class="project-card hanwag-fade" data-category="dotnet" data-tags="c#,.net,mssql,winforms,ado.net,sql database">
                         <div class="project-visual">
                             <div class="project-media">
                                 <video aria-label="Project demonstration for DVLD System" autoplay loop muted playsinline class="project-video"
@@ -470,7 +483,7 @@
                 <!-- Project 2: Twinkies Store -->
                 <a href="https://github.com/AhmedNasser-bug/Twinkies-Store-Management-App" target="_blank" rel="noopener noreferrer"
                     style="text-decoration-line: none;" class="project-link" aria-label="View Twinkies Store project on GitHub (opens in a new tab)">
-                    <div class="project-card hanwag-fade">
+                    <div class="project-card hanwag-fade" data-category="dotnet" data-tags="c#,.net,three-tier architecture,sql database,full stack">
                         <div class="project-visual">
                             <div class="project-media">
                                 <video aria-label="Project demonstration for Twinkies Store" autoplay loop muted playsinline class="project-video"
@@ -507,7 +520,7 @@
                 <!-- Project 3: Algorithm Analysis -->
                 <a href="https://github.com/AhmedNasser-bug/Algorithm-Analysis" target="_blank" rel="noopener noreferrer"
                     style="text-decoration-line: none;" aria-label="View Algorithm Analysis Project (opens in a new tab)" title="Algorithm Analysis Project">
-                    <div class="project-card hanwag-fade">
+                    <div class="project-card hanwag-fade" data-category="algorithms" data-tags="c#,winforms,data visualization,complexity analysis,algorithms">
                         <div class="project-visual">
                             <div class="project-media">
                                 <video aria-label="Project demonstration for Algorithm Analysis" autoplay loop muted playsinline class="project-video"
@@ -544,7 +557,7 @@
                 <!-- Project 4: Algorithmic Game Solver -->
                 <a href="https://github.com/AhmedNasser-bug/Algorithmic-Game-solver" target="_blank" rel="noopener noreferrer"
                     style="text-decoration-line: none;" aria-label="View Algorithmic Game Solver Project (opens in a new tab)" title="Algorithmic Game Solver Project">
-                    <div class="project-card hanwag-fade">
+                    <div class="project-card hanwag-fade" data-category="python" data-tags="python,algorithms,pathfinding,problem solving,sudoku,maze">
                         <div class="project-visual">
                             <div class="project-media">
                                 <video aria-label="Project demonstration for Algorithmic Game Solver" autoplay loop muted playsinline class="project-video"

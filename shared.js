@@ -88,3 +88,113 @@ function debounce(func, wait) {
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = { getRandomInt, debounce };
 }
+
+/**
+ * Initialize Project Filter & Search System
+ * Provides category filtering and text search for project cards
+ */
+function initProjectFilter() {
+  const searchInput = document.getElementById('project-search');
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const projectCards = document.querySelectorAll('.project-card');
+  
+  if (!searchInput || !filterButtons.length || !projectCards.length) {
+    return;
+  }
+  
+  let activeFilter = 'all';
+  
+  // Add transition to project cards for smooth filtering
+  projectCards.forEach(card => {
+    card.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+  });
+  
+  // Filter button handlers
+  filterButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      activeFilter = btn.dataset.filter;
+      
+      // Update active state
+      filterButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      
+      applyFilters(activeFilter, searchInput.value);
+    });
+    
+    // Keyboard navigation support
+    btn.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        btn.click();
+      }
+    });
+  });
+  
+  // Search input handler (debounced)
+  searchInput.addEventListener('input', debounce(() => {
+    applyFilters(activeFilter, searchInput.value);
+  }, 300));
+  
+  function applyFilters(category, searchTerm) {
+    const normalizedSearch = searchTerm.toLowerCase().trim();
+    
+    projectCards.forEach(card => {
+      const cardCategory = card.dataset.category || '';
+      const cardTags = card.dataset.tags || '';
+      const cardText = card.textContent.toLowerCase();
+      
+      // Check category match
+      const matchesCategory = category === 'all' || 
+        cardCategory.includes(category) ||
+        (category === 'algorithms' && (cardCategory.includes('algorithm') || cardTags.includes('algorithm')));
+      
+      // Check search term match (in tags, title, or description)
+      const matchesSearch = normalizedSearch === '' || 
+        cardText.includes(normalizedSearch) ||
+        cardTags.toLowerCase().includes(normalizedSearch);
+      
+      // Apply visibility
+      const isVisible = matchesCategory && matchesSearch;
+      card.style.display = isVisible ? 'block' : 'none';
+      card.setAttribute('aria-hidden', !isVisible);
+    });
+    
+    // Announce filter results to screen readers
+    announceFilterResults(projectCards, category, normalizedSearch);
+  }
+  
+  function announceFilterResults(cards, category, searchTerm) {
+    const visibleCount = Array.from(cards).filter(card => 
+      card.getAttribute('aria-hidden') !== 'true'
+    ).length;
+    
+    let announcement = `${visibleCount} project${visibleCount !== 1 ? 's' : ''} found`;
+    
+    if (category !== 'all') {
+      announcement += ` in ${category} category`;
+    }
+    
+    if (searchTerm) {
+      announcement += ` matching "${searchTerm}"`;
+    }
+    
+    // Create live region announcement
+    const liveRegion = document.createElement('div');
+    liveRegion.setAttribute('role', 'status');
+    liveRegion.setAttribute('aria-live', 'polite');
+    liveRegion.setAttribute('aria-atomic', 'true');
+    liveRegion.className = 'visually-hidden';
+    liveRegion.textContent = announcement;
+    
+    document.body.appendChild(liveRegion);
+    
+    setTimeout(() => {
+      liveRegion.remove();
+    }, 1000);
+  }
+}
+
+// Initialize on DOM ready
+if (typeof document !== 'undefined') {
+  document.addEventListener('DOMContentLoaded', initProjectFilter);
+}
