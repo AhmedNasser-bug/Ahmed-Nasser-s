@@ -36,3 +36,6 @@
 ## 2026-05-13 - [Respecting prefers-reduced-motion for Video and Scroll]
 **Learning:** Found that users who enabled `prefers-reduced-motion: reduce` in their OS were still forced to endure smooth-scrolling animations (via Lenis) and autoplaying background videos, triggering potential accessibility issues.
 **Action:** Always wrap continuous scroll libraries and `<video autoplay>` initialization logic in a `window.matchMedia('(prefers-reduced-motion: reduce)')` check, gracefully degrading to default native scroll and paused/controlled video playback.
+## 2024-05-17 - [Security: Subresource Integrity (SRI) on CDNs]
+**Learning:** Loading external libraries via CDNs without Subresource Integrity (SRI) exposes the site to supply chain attacks. If a CDN is compromised, a malicious script could be served instead of the expected library, leading to Cross-Site Scripting (XSS) and data exfiltration.
+**Action:** When adding external scripts or stylesheets from CDNs (like Bootstrap, FontAwesome, Lenis), always generate and include cryptographic hashes using the `integrity` attribute along with `crossorigin="anonymous"`. Verify correct implementation by checking the browser console for SRI validation errors during local testing.
