@@ -36,3 +36,6 @@
 ## 2026-05-13 - [Respecting prefers-reduced-motion for Video and Scroll]
 **Learning:** Found that users who enabled `prefers-reduced-motion: reduce` in their OS were still forced to endure smooth-scrolling animations (via Lenis) and autoplaying background videos, triggering potential accessibility issues.
 **Action:** Always wrap continuous scroll libraries and `<video autoplay>` initialization logic in a `window.matchMedia('(prefers-reduced-motion: reduce)')` check, gracefully degrading to default native scroll and paused/controlled video playback.
+## 2026-05-18 - [Security: Pinned CDN and SRI]
+**Learning:** Unpinned CDN links without Subresource Integrity (SRI) expose the site to arbitrary code execution if the CDN is compromised, and unexpected layout breaks due to silent updates.
+**Action:** Always pin third-party library versions in CDN URLs and generate/apply SRI hashes (`integrity` attribute) along with `crossorigin="anonymous"` to ensure script integrity.
