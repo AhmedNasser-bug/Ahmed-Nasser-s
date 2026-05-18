@@ -289,3 +289,15 @@ html.lenis, html.lenis body {
   background-color: var(--color-text) !important;
   color: var(--color-surface) !important;
 }
+
+/* Accessible focus state for project cards */
+.project-link:focus-visible {
+  outline: none;
+}
+
+.project-link:focus-visible .project-card {
+  transform: translateY(-5px);
+  box-shadow: 6px 6px 0px #171717;
+  outline: 3px solid var(--primary);
+  outline-offset: 4px;
+}

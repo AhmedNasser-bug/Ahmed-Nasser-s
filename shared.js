@@ -26,8 +26,10 @@ function chooseOffCanvasText() {
 
 if (typeof document !== 'undefined') {
   document.addEventListener('DOMContentLoaded', () => {
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       // Initialize Lenis Smooth Scroll
-      if (typeof Lenis !== 'undefined' && window.innerWidth >= 768) {
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (typeof Lenis !== 'undefined' && window.innerWidth >= 768 && !prefersReducedMotion) {
           const lenis = new Lenis({
               duration: 1.2,
               easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
