@@ -695,6 +695,11 @@ body {
   font-size: 0.95rem;
 }
 
+/* Filter hidden state for project links */
+.project-link[aria-hidden="true"] {
+  display: none !important;
+}
+
 .project-link i {
   margin-right: 0.5rem;
   font-size: 1.1rem;

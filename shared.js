@@ -153,10 +153,17 @@ function initProjectFilter() {
         cardText.includes(normalizedSearch) ||
         cardTags.toLowerCase().includes(normalizedSearch);
       
-      // Apply visibility
+      // Apply visibility to the parent link wrapper
       const isVisible = matchesCategory && matchesSearch;
-      card.style.display = isVisible ? 'block' : 'none';
-      card.setAttribute('aria-hidden', !isVisible);
+      const parentLink = card.closest('.project-link');
+      
+      if (parentLink) {
+        parentLink.style.display = isVisible ? 'flex' : 'none';
+        parentLink.setAttribute('aria-hidden', !isVisible);
+      } else {
+        card.style.display = isVisible ? 'flex' : 'none';
+        card.setAttribute('aria-hidden', !isVisible);
+      }
     });
     
     // Announce filter results to screen readers
