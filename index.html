@@ -431,18 +431,28 @@
 
             <!-- Project Filter Controls -->
             <div class="filter-controls mb-5">
-                <div class="filter-search">
-                    <input type="search" id="project-search" placeholder="Search projects..." aria-label="Search projects by name or technology">
+                <div class="filter-search position-relative">
+                    <label for="project-search" class="visually-hidden">Search projects by name or technology</label>
+                    <input type="search" id="project-search" placeholder="Search projects...">
+                    <kbd class="search-shortcut" id="search-shortcut" aria-hidden="true">/</kbd>
+                    <button class="search-clear-btn" id="search-clear-btn" aria-label="Clear search text" title="Clear search text" style="display: none;">&times;</button>
                 </div>
                 <div class="filter-buttons" role="group" aria-label="Filter projects by category">
-                    <button class="filter-btn active" data-filter="all">All</button>
-                    <button class="filter-btn" data-filter="dotnet">.NET</button>
-                    <button class="filter-btn" data-filter="python">Python</button>
-                    <button class="filter-btn" data-filter="algorithms">Algorithms</button>
+                    <button class="filter-btn active" data-filter="all" aria-pressed="true">All</button>
+                    <button class="filter-btn" data-filter="dotnet" aria-pressed="false">.NET</button>
+                    <button class="filter-btn" data-filter="python" aria-pressed="false">Python</button>
+                    <button class="filter-btn" data-filter="algorithms" aria-pressed="false">Algorithms</button>
                 </div>
             </div>
 
             <div class="projects-grid">
+                <div id="no-projects-message" class="text-center w-100 py-5" style="display: none; grid-column: 1 / -1;">
+                    <i class="fas fa-search fa-3x text-gray-500 mb-3" aria-hidden="true"></i>
+                    <h3 class="h4">No projects found</h3>
+                    <p class="text-gray-500 mb-4">Try adjusting your search or filter to find what you're looking for.</p>
+                    <button class="btn btn-hero" id="clear-filters-btn">Clear Filters</button>
+                </div>
+
                 <!-- Project 1: DVLD System -->
                 <a href="https://github.com/AhmedNasser-bug/DVLD-System-Project" style="text-decoration-line: none;" class="project-link"
                     target="_blank" rel="noopener noreferrer" aria-label="View DVLD System project on GitHub (opens in a new tab)">
@@ -453,7 +463,7 @@
                                     data-src="https://example.com/dvld-system-demo.mp4">
                                     <!-- Video placeholder will be set via JS -->
                                 </video>
-                                <div class="project-overlay"></div>
+                                <div class="project-overlay" aria-hidden="true"></div>
                             </div>
                             <span class="project-type-badge badge-code">C# .NET</span>
                         </div>
@@ -493,7 +503,7 @@
                                     data-src="https://example.com/twinkies-store-demo.mp4">
                                     <!-- Video placeholder will be set via JS -->
                                 </video>
-                                <div class="project-overlay"></div>
+                                <div class="project-overlay" aria-hidden="true"></div>
                             </div>
                             <span class="project-type-badge badge-code">Full Stack</span>
                         </div>
@@ -530,7 +540,7 @@
                                     data-src="https://example.com/algorithm-analysis-demo.mp4">
                                     <!-- Video placeholder will be set via JS -->
                                 </video>
-                                <div class="project-overlay"></div>
+                                <div class="project-overlay" aria-hidden="true"></div>
                             </div>
                             <span class="project-type-badge badge-code">Data Visualization</span>
                         </div>
@@ -567,7 +577,7 @@
                                     data-src="https://example.com/game-solver-demo.mp4">
                                     <!-- Video placeholder will be set via JS -->
                                 </video>
-                                <div class="project-overlay"></div>
+                                <div class="project-overlay" aria-hidden="true"></div>
                             </div>
                             <span class="project-type-badge badge-code">Python</span>
                         </div>

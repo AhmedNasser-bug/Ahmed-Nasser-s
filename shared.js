@@ -104,6 +104,26 @@ function initProjectFilter() {
   
   let activeFilter = 'all';
   
+  const clearFiltersBtn = document.getElementById('clear-filters-btn');
+  if (clearFiltersBtn) {
+    clearFiltersBtn.addEventListener('click', () => {
+      searchInput.value = '';
+      const allBtn = document.querySelector('.filter-btn[data-filter="all"]');
+      if (allBtn) {
+        allBtn.click();
+      } else {
+        activeFilter = 'all';
+        applyFilters('all', '');
+      }
+
+      const searchClearBtn = document.getElementById('search-clear-btn');
+      if(searchClearBtn) searchClearBtn.style.display = 'none';
+
+      const searchShortcutHint = document.getElementById('search-shortcut');
+      if(searchShortcutHint) searchShortcutHint.style.display = 'block';
+    });
+  }
+
   // Add transition to project cards for smooth filtering
   projectCards.forEach(card => {
     card.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
@@ -115,8 +135,12 @@ function initProjectFilter() {
       activeFilter = btn.dataset.filter;
       
       // Update active state
-      filterButtons.forEach(b => b.classList.remove('active'));
+      filterButtons.forEach(b => {
+          b.classList.remove('active');
+          b.setAttribute('aria-pressed', 'false');
+      });
       btn.classList.add('active');
+      btn.setAttribute('aria-pressed', 'true');
       
       applyFilters(activeFilter, searchInput.value);
     });
@@ -130,13 +154,44 @@ function initProjectFilter() {
     });
   });
   
+  const searchClearBtn = document.getElementById('search-clear-btn');
+  const searchShortcutHint = document.getElementById('search-shortcut');
+
   // Search input handler (debounced)
   searchInput.addEventListener('input', debounce(() => {
     applyFilters(activeFilter, searchInput.value);
+    const hasText = searchInput.value.length > 0;
+    if (searchClearBtn) {
+        searchClearBtn.style.display = hasText ? 'flex' : 'none';
+    }
+    if (searchShortcutHint) {
+        searchShortcutHint.style.display = hasText ? 'none' : 'block';
+    }
   }, 300));
+
+  // Focus shortcut handler
+  document.addEventListener('keydown', (e) => {
+    if (e.key === '/' && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
+        e.preventDefault();
+        searchInput.focus();
+    }
+  });
+
+  if (searchClearBtn) {
+      searchClearBtn.addEventListener('click', () => {
+          searchInput.value = '';
+          searchClearBtn.style.display = 'none';
+          if (searchShortcutHint) {
+              searchShortcutHint.style.display = 'block';
+          }
+          applyFilters(activeFilter, '');
+          searchInput.focus();
+      });
+  }
   
   function applyFilters(category, searchTerm) {
     const normalizedSearch = searchTerm.toLowerCase().trim();
+    let visibleCount = 0;
     
     projectCards.forEach(card => {
       const cardCategory = card.dataset.category || '';
@@ -164,7 +219,17 @@ function initProjectFilter() {
         card.style.display = isVisible ? 'flex' : 'none';
         card.setAttribute('aria-hidden', !isVisible);
       }
+
+      if (isVisible) {
+        visibleCount++;
+      }
     });
+
+    // Handle empty state
+    const emptyState = document.getElementById('no-projects-message');
+    if (emptyState) {
+        emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
+    }
     
     // Announce filter results to screen readers
     announceFilterResults(projectCards, category, normalizedSearch);
