@@ -49,3 +49,7 @@
 ## 2024-05-24 - Dual-Pattern Accessibility & Visually-Hidden Spans
 **Learning:** For icon-only or generic-text links ("Get Quote"), relying purely on `aria-label` is not enough for mouse users, and relying on visual text isn't always possible. Applying a "dual-pattern" (`aria-label` for screen readers and `title` for visual tooltips) creates an equitable UX. Additionally, when providing auxiliary screen reader context for card links, using a visually-hidden `<span>` inside the content is more robust than wrapping the entire card in an `aria-label` that completely overrides inner text content.
 **Action:** Always implement the dual `aria-label` and `title` pattern on ambiguous interactive elements. When building complex interactive cards, favor placing visually hidden text inside the DOM over placing an overriding `aria-label` on the wrapper.
+
+## 2024-05-21 - [A11y and UX Micro-Enhancements on Portfolio Filter]
+**Learning:** Found that custom filter components frequently miss key accessibility patterns like explicit aria-labels, visually hidden labels for native screen reader support, and dual-pattern native tooltips (`title` + `aria-label`). Users also miss intuitive feedback when search yields zero results.
+**Action:** Applied visually hidden label, dynamic `aria-pressed`, native tooltips, explicit semantic bindings (`aria-controls`), and global keyboard shortcuts to improve the project filtering UX.

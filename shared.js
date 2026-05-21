@@ -115,8 +115,12 @@ function initProjectFilter() {
       activeFilter = btn.dataset.filter;
       
       // Update active state
-      filterButtons.forEach(b => b.classList.remove('active'));
+      filterButtons.forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-pressed', 'false');
+      });
       btn.classList.add('active');
+      btn.setAttribute('aria-pressed', 'true');
       
       applyFilters(activeFilter, searchInput.value);
     });
@@ -137,6 +141,7 @@ function initProjectFilter() {
   
   function applyFilters(category, searchTerm) {
     const normalizedSearch = searchTerm.toLowerCase().trim();
+    let hasVisibleCards = false;
     
     projectCards.forEach(card => {
       const cardCategory = card.dataset.category || '';
@@ -164,8 +169,21 @@ function initProjectFilter() {
         card.style.display = isVisible ? 'flex' : 'none';
         card.setAttribute('aria-hidden', !isVisible);
       }
+
+      if (isVisible) {
+        hasVisibleCards = true;
+      }
     });
     
+    const emptyState = document.getElementById('projects-empty-state');
+    if (emptyState) {
+      if (hasVisibleCards) {
+        emptyState.classList.add('d-none');
+      } else {
+        emptyState.classList.remove('d-none');
+      }
+    }
+
     // Announce filter results to screen readers
     announceFilterResults(projectCards, category, normalizedSearch);
   }
@@ -201,7 +219,30 @@ function initProjectFilter() {
   }
 }
 
+// Global keyboard shortcuts
+function initKeyboardShortcuts() {
+  document.addEventListener('keydown', (e) => {
+    // Focus search input on "/"
+    if (e.key === '/' && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
+      const searchInput = document.getElementById('project-search');
+      if (searchInput) {
+        e.preventDefault();
+        searchInput.focus();
+
+        // Scroll to the search input if not in view
+        const rect = searchInput.getBoundingClientRect();
+        if (rect.top < 0 || rect.bottom > window.innerHeight) {
+            searchInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }
+    }
+  });
+}
+
 // Initialize on DOM ready
 if (typeof document !== 'undefined') {
-  document.addEventListener('DOMContentLoaded', initProjectFilter);
+  document.addEventListener('DOMContentLoaded', () => {
+    initProjectFilter();
+    initKeyboardShortcuts();
+  });
 }
