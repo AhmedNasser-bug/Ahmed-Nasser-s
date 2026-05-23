@@ -101,6 +101,18 @@ function initProjectFilter() {
   if (!searchInput || !filterButtons.length || !projectCards.length) {
     return;
   }
+
+  // Keyboard shortcut to focus search input
+  document.addEventListener('keydown', (e) => {
+    if (e.key === '/') {
+      // Don't focus if user is already typing in an input or textarea
+      if (document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'TEXTAREA') {
+        return;
+      }
+      e.preventDefault();
+      searchInput.focus();
+    }
+  });
   
   let activeFilter = 'all';
   
@@ -115,8 +127,12 @@ function initProjectFilter() {
       activeFilter = btn.dataset.filter;
       
       // Update active state
-      filterButtons.forEach(b => b.classList.remove('active'));
+      filterButtons.forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-pressed', 'false');
+      });
       btn.classList.add('active');
+      btn.setAttribute('aria-pressed', 'true');
       
       applyFilters(activeFilter, searchInput.value);
     });
@@ -134,9 +150,25 @@ function initProjectFilter() {
   searchInput.addEventListener('input', debounce(() => {
     applyFilters(activeFilter, searchInput.value);
   }, 300));
+
+  const emptyState = document.getElementById('projects-empty-state');
+  const clearFiltersBtn = document.getElementById('clear-filters-btn');
+
+  if (clearFiltersBtn) {
+    clearFiltersBtn.addEventListener('click', () => {
+      searchInput.value = '';
+      const allFilterBtn = Array.from(filterButtons).find(btn => btn.dataset.filter === 'all');
+      if (allFilterBtn) {
+        allFilterBtn.click();
+      } else {
+        applyFilters('all', '');
+      }
+    });
+  }
   
   function applyFilters(category, searchTerm) {
     const normalizedSearch = searchTerm.toLowerCase().trim();
+    let visibleCount = 0;
     
     projectCards.forEach(card => {
       const cardCategory = card.dataset.category || '';
@@ -164,8 +196,22 @@ function initProjectFilter() {
         card.style.display = isVisible ? 'flex' : 'none';
         card.setAttribute('aria-hidden', !isVisible);
       }
+
+      if (isVisible) {
+        visibleCount++;
+      }
     });
     
+    if (emptyState) {
+      if (visibleCount === 0) {
+        emptyState.classList.remove('visually-hidden');
+        emptyState.setAttribute('aria-hidden', 'false');
+      } else {
+        emptyState.classList.add('visually-hidden');
+        emptyState.setAttribute('aria-hidden', 'true');
+      }
+    }
+
     // Announce filter results to screen readers
     announceFilterResults(projectCards, category, normalizedSearch);
   }

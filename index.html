@@ -432,17 +432,18 @@
             <!-- Project Filter Controls -->
             <div class="filter-controls mb-5">
                 <div class="filter-search">
-                    <input type="search" id="project-search" placeholder="Search projects..." aria-label="Search projects by name or technology">
+                    <label for="project-search" class="visually-hidden">Search projects by name or technology</label>
+                    <input type="search" id="project-search" placeholder="Search projects... (Press '/')" aria-label="Search projects by name or technology" aria-controls="projects-grid">
                 </div>
                 <div class="filter-buttons" role="group" aria-label="Filter projects by category">
-                    <button class="filter-btn active" data-filter="all">All</button>
-                    <button class="filter-btn" data-filter="dotnet">.NET</button>
-                    <button class="filter-btn" data-filter="python">Python</button>
-                    <button class="filter-btn" data-filter="algorithms">Algorithms</button>
+                    <button class="filter-btn active" data-filter="all" aria-controls="projects-grid" aria-pressed="true">All</button>
+                    <button class="filter-btn" data-filter="dotnet" aria-controls="projects-grid" aria-pressed="false">.NET</button>
+                    <button class="filter-btn" data-filter="python" aria-controls="projects-grid" aria-pressed="false">Python</button>
+                    <button class="filter-btn" data-filter="algorithms" aria-controls="projects-grid" aria-pressed="false">Algorithms</button>
                 </div>
             </div>
 
-            <div class="projects-grid">
+            <div class="projects-grid" id="projects-grid" aria-live="polite">
                 <!-- Project 1: DVLD System -->
                 <a href="https://github.com/AhmedNasser-bug/DVLD-System-Project" style="text-decoration-line: none;" class="project-link"
                     target="_blank" rel="noopener noreferrer" aria-label="View DVLD System project on GitHub (opens in a new tab)">
@@ -593,6 +594,15 @@
                 </a>
 
             </div>
+
+            <!-- Empty State for Project Filtering -->
+            <div id="projects-empty-state" class="text-center py-5 visually-hidden" aria-hidden="true">
+                <i class="fas fa-search fa-3x mb-3 text-secondary" aria-hidden="true"></i>
+                <h3 class="h4 mb-2">No projects found</h3>
+                <p class="text-secondary mb-4">Try adjusting your filters or search query.</p>
+                <button type="button" class="btn btn-outline-primary px-4 py-2" id="clear-filters-btn">Clear Filters</button>
+            </div>
+
         </div>
     </section>
 
