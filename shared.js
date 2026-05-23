@@ -85,8 +85,30 @@ function debounce(func, wait) {
     };
 }
 
+function copyToClipboard(buttonElement, textToCopy) {
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(textToCopy).then(() => {
+      const icon = buttonElement.querySelector('i');
+      if (icon) {
+        icon.className = 'fas fa-check';
+        const originalTitle = buttonElement.getAttribute('title');
+        buttonElement.setAttribute('title', 'Copied!');
+        buttonElement.setAttribute('aria-label', 'Copied!');
+
+        setTimeout(() => {
+          icon.className = 'fas fa-copy';
+          buttonElement.setAttribute('title', originalTitle);
+          buttonElement.setAttribute('aria-label', originalTitle);
+        }, 2000);
+      }
+    }).catch(err => {
+      console.error('Failed to copy text: ', err);
+    });
+  }
+}
+
 if (typeof module !== 'undefined' && module.exports) {
-  module.exports = { getRandomInt, debounce };
+  module.exports = { getRandomInt, debounce, copyToClipboard };
 }
 
 /**
@@ -151,17 +173,40 @@ function initProjectFilter() {
     applyFilters(activeFilter, searchInput.value);
   }, 300));
 
-  const emptyState = document.getElementById('projects-empty-state');
-  const clearFiltersBtn = document.getElementById('clear-filters-btn');
-
-  if (clearFiltersBtn) {
-    clearFiltersBtn.addEventListener('click', () => {
+  // Clear search on Escape key
+  searchInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      e.preventDefault();
       searchInput.value = '';
       const allFilterBtn = Array.from(filterButtons).find(btn => btn.dataset.filter === 'all');
       if (allFilterBtn) {
         allFilterBtn.click();
       } else {
         applyFilters('all', '');
+      }
+      searchInput.blur();
+    }
+  });
+
+  const emptyState = document.getElementById('projects-empty-state');
+  const clearFiltersBtn = document.getElementById('clear-filters-btn');
+
+  if (clearFiltersBtn) {
+    const handleClear = () => {
+      searchInput.value = '';
+      const allFilterBtn = Array.from(filterButtons).find(btn => btn.dataset.filter === 'all');
+      if (allFilterBtn) {
+        allFilterBtn.click();
+      } else {
+        applyFilters('all', '');
+      }
+    };
+
+    clearFiltersBtn.addEventListener('click', handleClear);
+    clearFiltersBtn.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        handleClear();
       }
     });
   }
