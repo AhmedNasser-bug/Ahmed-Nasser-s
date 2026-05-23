@@ -30,7 +30,7 @@
     <div class="fixed-top p-sm-4 p-3 d-flex justify-content-between align-items-start" style="pointer-events: none; z-index: 1040;">
         <div class="d-flex flex-column gap-3" style="pointer-events: auto;">
             <a class="btn btn-hero d-flex align-items-center justify-content-center" style="width:50px; height:50px; padding:0;" aria-label="Contact Section" title="Contact Section" href="#contact"><span class="fa fa-phone" aria-hidden="true"></span></a>
-            <a class="btn btn-hero d-flex align-items-center justify-content-center" style="width:50px; height:50px; padding:0;" aria-label="GitHub Profile (opens in a new tab)" title="GitHub Profile" href="https://github.com/AhmedNasser-bug" target="_blank" rel="noopener noreferrer"><span class="fa-brands fa-github" aria-hidden="true"></span></a>
+            <a class="btn btn-hero d-flex align-items-center justify-content-center" style="width:50px; height:50px; padding:0;" aria-label="GitHub Profile (opens in a new tab)" title="GitHub Profile" href="https://github.com/AhmedNasser-bug" target="_blank" rel="noopener noreferrer"><span class="fa-brands fa-github" aria-hidden="true"></span><i class="fas fa-external-link-alt position-absolute" style="font-size: 0.5em; top: 4px; right: 4px;" aria-hidden="true"></i></a>
         </div>
         
         <button class="btn btn-hero d-flex align-items-center gap-2 px-3 py-2" style="font-weight: 600; pointer-events: auto;" type="button" aria-label="Toggle Navigation Menu" title="Toggle Navigation Menu" aria-expanded="false" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" onclick="if(typeof chooseOffCanvasText === 'function') chooseOffCanvasText()">
@@ -126,7 +126,7 @@
                                 </p>
                                 <div class="flex flex-wrap gap-4 pt-4">
                                     <a href="https://github.com/AhmedNasser-bug" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center bg-[#171717] text-white px-6 py-3 border border-[#171717] rounded-sm font-mono text-sm uppercase tracking-wide hover:-translate-y-[2px] hover:-translate-x-[2px] hover:shadow-hard-hover focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#171717] focus-visible:outline-none transition-all duration-200" style="text-decoration: none;" aria-label="View GitHub (opens in a new tab)" title="View GitHub">
-                                        View GitHub
+                                        View GitHub<i class="fas fa-external-link-alt ms-2" style="font-size: 0.8em;" aria-hidden="true"></i>
                                     </a>
                                     <a href="#projects" class="flex items-center justify-center bg-white text-[#171717] px-6 py-3 border border-[#171717] rounded-sm font-mono text-sm uppercase tracking-wide shadow-hard hover:-translate-y-[2px] hover:-translate-x-[2px] hover:shadow-hard-hover hover:text-primary focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#171717] focus-visible:outline-none transition-all duration-200" style="text-decoration: none;" aria-label="View Projects" title="View Projects">
                                         View Projects
@@ -281,7 +281,7 @@
 
 
     <!-- Skills Section -->
-    <section class="section" id="skills" style="overflow: visible;">
+    <section class="section" id="skills" style="overflow: visible;" tabindex="-1">
         <div class="bg-grid" aria-hidden="true"></div>
         <div class="bg-blur blur-2 w-100 h-25" aria-hidden="true"></div>
 
@@ -433,7 +433,10 @@
             <div class="filter-controls mb-5">
                 <div class="filter-search">
                     <label for="project-search" class="visually-hidden">Search projects by name or technology</label>
-                    <input type="search" id="project-search" placeholder="Search projects... (Press '/')" aria-label="Search projects by name or technology" aria-controls="projects-grid">
+                    <div class="position-relative w-100">
+                        <input type="search" id="project-search" placeholder="Search projects..." aria-label="Search projects by name or technology" aria-controls="projects-grid">
+                        <kbd class="position-absolute top-50 translate-middle-y end-0 me-3 bg-secondary text-white border-0 px-2 py-1 rounded shadow-sm" style="font-family: var(--font-mono); font-size: 0.75rem; pointer-events: none;" aria-hidden="true">/</kbd>
+                    </div>
                 </div>
                 <div class="filter-buttons" role="group" aria-label="Filter projects by category">
                     <button class="filter-btn active" data-filter="all" aria-controls="projects-grid" aria-pressed="true">All</button>
@@ -623,10 +626,10 @@
 
                 <nav class="nav justify-content-center  ">
                     <a href="https://www.linkedin.com/in/ahmed-nasser-a9556a255/" target="_blank" rel="noopener noreferrer" class="cta-button mx-1" aria-label="Connect on LinkedIn (opens in a new tab)" title="Connect on LinkedIn"><span
-                            class="fa-brands fa-linkedin mx-1" aria-hidden="true"></span>Linkedin</a>
-                    <a href="https://wa.me/201009784937" target="_blank" rel="noopener noreferrer" class="cta-button mx-1" aria-label="Message on WhatsApp (opens in a new tab)" title="Message on WhatsApp"><span class="fa-brands fa-whatsapp mx-1" aria-hidden="true"></span>Whatsapp</a>
+                            class="fa-brands fa-linkedin mx-1" aria-hidden="true"></span>Linkedin<i class="fas fa-external-link-alt ms-2" style="font-size: 0.8em;" aria-hidden="true"></i></a>
+                    <a href="https://wa.me/201009784937" target="_blank" rel="noopener noreferrer" class="cta-button mx-1" aria-label="Message on WhatsApp (opens in a new tab)" title="Message on WhatsApp"><span class="fa-brands fa-whatsapp mx-1" aria-hidden="true"></span>Whatsapp<i class="fas fa-external-link-alt ms-2" style="font-size: 0.8em;" aria-hidden="true"></i></a>
                     <a href="https://www.upwork.com/freelancers/~01f54fd7d135eb3939" target="_blank" rel="noopener noreferrer" class="cta-button mx-1 " aria-label="Hire on Upwork (opens in a new tab)" title="Hire on Upwork"><span
-                            class="fa fa-laptop-code mx-1" aria-hidden="true"></span>Upwork</a>
+                            class="fa fa-laptop-code mx-1" aria-hidden="true"></span>Upwork<i class="fas fa-external-link-alt ms-2" style="font-size: 0.8em;" aria-hidden="true"></i></a>
                 </nav>
 
 
@@ -639,7 +642,7 @@
                         </div>
                         <div class="contact-details">
                             <div class="contact-label">Email Address</div>
-                            <div class="contact-value"><a href="mailto:ahmed.naser732000@gmail.com" class="text-white text-decoration-none hover:underline" aria-label="Send an email to Ahmed Naser" title="Send an email to Ahmed Naser">ahmed.naser732000@gmail.com</a></div>
+                            <div class="contact-value"><a href="mailto:ahmed.naser732000@gmail.com" class="text-white text-decoration-none hover:underline" aria-label="Send an email to Ahmed Naser" title="Send an email to Ahmed Naser">ahmed.naser732000@gmail.com</a><button class="btn btn-sm btn-outline-secondary ms-2 copy-btn" aria-label="Copy to clipboard" title="Copy to clipboard" onclick="if(typeof copyToClipboard === 'function') copyToClipboard(this, 'ahmed.naser732000@gmail.com')"><i class="fas fa-copy" aria-hidden="true"></i></button></div>
                         </div>
                     </div>
                     <div class="contact-method">
@@ -648,7 +651,7 @@
                         </div>
                         <div class="contact-details">
                             <div class="contact-label">Phone</div>
-                            <div class="contact-value"><a href="tel:+201009784937" class="text-white text-decoration-none hover:underline" aria-label="Call Ahmed Naser" title="Call Ahmed Naser">+201009784937</a></div>
+                            <div class="contact-value"><a href="tel:+201009784937" class="text-white text-decoration-none hover:underline" aria-label="Call Ahmed Naser" title="Call Ahmed Naser">+201009784937</a><button class="btn btn-sm btn-outline-secondary ms-2 copy-btn" aria-label="Copy to clipboard" title="Copy to clipboard" onclick="if(typeof copyToClipboard === 'function') copyToClipboard(this, '+201009784937')"><i class="fas fa-copy" aria-hidden="true"></i></button></div>
                         </div>
                     </div>
 

@@ -53,3 +53,14 @@
 ## 2026-05-22 - [Accessible Filter Grid Patterns]
 **Learning:** Using `aria-pressed` dynamically on filter toggles paired with `aria-live="polite"` on the target grid provides excellent context for screen readers when filtering content, while an empty state prevents confusion when queries yield no results.
 **Action:** Standardize applying `aria-live="polite"` to dynamically updating containers (like search/filter result grids) and always wire `aria-pressed` to active tabs/filters.
+## 2026-05-23 - [Keyboard Accessible Custom Controls]
+**Learning:** Adding a `click` event listener to a `div` or `span` doesn't make it accessible to keyboard users who navigate via Tab and activate via Enter or Space.
+**Action:** When creating custom controls (e.g., "Clear Filters" button), ensure you either use a native `<button>` or attach a `keydown` listener checking for `e.key === 'Enter' || e.key === ' '` alongside the `click` listener.
+
+## 2026-05-23 - [Clipboard API Feedback]
+**Learning:** Using `navigator.clipboard.writeText` silently is a poor user experience, leaving the user unsure if the action succeeded.
+**Action:** When implementing copy-to-clipboard functionality, temporarily provide semantic and visual feedback (e.g., swapping to a checkmark icon and changing `aria-label`/`title` to "Copied!" for 2 seconds) to assure both sighted and screen reader users of success.
+
+## 2026-05-23 - [Skip-to-Content Target Focusability]
+**Learning:** Clicking a skip-to-content anchor visually scrolls to the target ID, but if the target (like a `<main>` or `<section>`) is not focusable by default, the next `Tab` press will start focusing elements from the top of the page again.
+**Action:** Always add `tabindex="-1"` to the target element of a skip-to-content link so it can programmatically receive keyboard focus.
