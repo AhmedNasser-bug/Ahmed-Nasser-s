@@ -62,7 +62,7 @@ export default function About() {
                   }}
                 >
                   <div className="text-center text-blue-300 w-100 h-100">
-                    <img src="hero.jpeg" loading="eager" className="img-fluid rounded-3" alt="Portrait of Ahmed Naser" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }} />
+                    <img src="/hero.jpeg" loading="eager" className="img-fluid rounded-3" alt="Portrait of Ahmed Naser" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }} />
                   </div>
                 </div>
                 <div className="bg-blur position-absolute top-0 start-0 w-100 h-100" style={{ background: 'var(--primary)', filter: 'blur(100px)', opacity: 0.15, zIndex: -1 }} aria-hidden="true" />
