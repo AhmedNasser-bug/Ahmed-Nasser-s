@@ -14,9 +14,11 @@ export default function ThreeBackground() {
 
     // Load Three.js dynamically only on desktop
     if (window.innerWidth >= 768) {
-      import('https://cdn.skypack.dev/three@0.132.2' as any).then((module: any) => {
+      // @ts-expect-error TypeScript doesn't natively support importing from a CDN like Skypack.
+      import('https://cdn.skypack.dev/three@0.132.2').then((module: unknown) => {
         if (!active) return;
-        const THREE = module;
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const THREE = module as any;
         const scene = new THREE.Scene();
 
         const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);

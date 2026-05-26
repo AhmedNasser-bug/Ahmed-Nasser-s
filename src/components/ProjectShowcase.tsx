@@ -72,6 +72,11 @@ export default function ProjectShowcase() {
   const [announcement, setAnnouncement] = useState('');
   const searchInputRef = useRef<HTMLInputElement>(null);
 
+  const handleClearFilters = () => {
+    setSearchQuery('');
+    setSelectedCategory('all');
+  };
+
   // Keyboard shortcut listener
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -99,11 +104,6 @@ export default function ProjectShowcase() {
     return () => document.removeEventListener('keydown', handleKeyDown);
   }, []);
 
-  const handleClearFilters = () => {
-    setSearchQuery('');
-    setSelectedCategory('all');
-  };
-
   // Filter projects
   const filteredProjects = projectsData.filter(project => {
     const query = searchQuery.toLowerCase().trim();
@@ -128,7 +128,13 @@ export default function ProjectShowcase() {
     if (searchQuery) {
       msg += ` matching "${searchQuery}"`;
     }
-    setAnnouncement(msg);
+
+    // Announce changes asynchronously to avoid synchronous setState inside an effect warning
+    const timeoutId = setTimeout(() => {
+      setAnnouncement(msg);
+    }, 100);
+
+    return () => clearTimeout(timeoutId);
   }, [filteredProjects.length, selectedCategory, searchQuery]);
 
   return (
