@@ -64,3 +64,7 @@
 ## 2026-05-23 - [Skip-to-Content Target Focusability]
 **Learning:** Clicking a skip-to-content anchor visually scrolls to the target ID, but if the target (like a `<main>` or `<section>`) is not focusable by default, the next `Tab` press will start focusing elements from the top of the page again.
 **Action:** Always add `tabindex="-1"` to the target element of a skip-to-content link so it can programmatically receive keyboard focus.
+
+## 2025-05-26 - Keyboard Redundancy on Native Buttons
+**Learning:** Adding explicit `onKeyDown` handlers listening for 'Enter' and 'Space' on native `<button>` elements creates redundant double-firing, as standard HTML buttons already natively trigger `onClick` for these keys.
+**Action:** When improving keyboard accessibility, rely on native `<button>` behavior for Enter/Space clicks, reserving custom `onKeyDown` mapping strictly for non-native interactive elements (like `div` or `span` mimicking a button).

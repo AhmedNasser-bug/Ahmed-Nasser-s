@@ -40,16 +40,16 @@ export default function Header() {
       <div className="offcanvas offcanvas-end" tabIndex={-1} id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
         <div className="offcanvas-header border-bottom border-dark">
           <h2 className="offcanvas-title h5 m-0" id="offcanvasNavbarLabel">{navLabel}</h2>
-          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close navigation menu" title="Close navigation menu"></button>
+          <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close navigation menu" title="Close navigation menu"></button>
         </div>
         <div className="offcanvas-body">
           <nav aria-label="Main Navigation">
             <ul className="nav flex-column gap-3 mt-4">
               <li className="nav-item">
-                <Link className={`nav-link fs-5 ${pathname === '/' ? 'active fw-bold' : ''}`} href="/" data-bs-dismiss="offcanvas">Home</Link>
+                <Link className={`nav-link fs-5 ${pathname === '/' ? 'active fw-bold' : ''}`} href="/" data-bs-dismiss="offcanvas" aria-current={pathname === '/' ? 'page' : undefined}>Home</Link>
               </li>
               <li className="nav-item">
-                <Link className={`nav-link fs-5 ${pathname === '/about' ? 'active fw-bold' : ''}`} href="/about" data-bs-dismiss="offcanvas">About</Link>
+                <Link className={`nav-link fs-5 ${pathname === '/about' ? 'active fw-bold' : ''}`} href="/about" data-bs-dismiss="offcanvas" aria-current={pathname === '/about' ? 'page' : undefined}>About</Link>
               </li>
             </ul>
           </nav>

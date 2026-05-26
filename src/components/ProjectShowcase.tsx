@@ -69,8 +69,12 @@ const projectsData: Project[] = [
 export default function ProjectShowcase() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
-  const [announcement, setAnnouncement] = useState('');
   const searchInputRef = useRef<HTMLInputElement>(null);
+
+  const handleClearFilters = () => {
+    setSearchQuery('');
+    setSelectedCategory('all');
+  };
 
   // Keyboard shortcut listener
   useEffect(() => {
@@ -91,7 +95,7 @@ export default function ProjectShowcase() {
       if (e.key === 'Escape' && document.activeElement === searchInputRef.current) {
         e.preventDefault();
         handleClearFilters();
-        searchInputRef.current.blur();
+        searchInputRef.current?.blur();
       }
     };
 
@@ -99,10 +103,6 @@ export default function ProjectShowcase() {
     return () => document.removeEventListener('keydown', handleKeyDown);
   }, []);
 
-  const handleClearFilters = () => {
-    setSearchQuery('');
-    setSelectedCategory('all');
-  };
 
   // Filter projects
   const filteredProjects = projectsData.filter(project => {
@@ -119,17 +119,14 @@ export default function ProjectShowcase() {
     return matchesCategory && matchesSearch;
   });
 
-  // Announce results to screen readers
-  useEffect(() => {
-    let msg = `${filteredProjects.length} project${filteredProjects.length !== 1 ? 's' : ''} found`;
-    if (selectedCategory !== 'all') {
-      msg += ` in ${selectedCategory} category`;
-    }
-    if (searchQuery) {
-      msg += ` matching "${searchQuery}"`;
-    }
-    setAnnouncement(msg);
-  }, [filteredProjects.length, selectedCategory, searchQuery]);
+  // Calculate announcement for screen readers
+  let announcementMsg = `${filteredProjects.length} project${filteredProjects.length !== 1 ? 's' : ''} found`;
+  if (selectedCategory !== 'all') {
+    announcementMsg += ` in ${selectedCategory} category`;
+  }
+  if (searchQuery) {
+    announcementMsg += ` matching "${searchQuery}"`;
+  }
 
   return (
     <section className="section" id="projects">
@@ -173,7 +170,7 @@ export default function ProjectShowcase() {
 
         {/* A11y Announcements */}
         <div role="status" aria-live="polite" aria-atomic="true" className="visually-hidden">
-          {announcement}
+          {announcementMsg}
         </div>
 
         {/* Grid Container */}
@@ -230,11 +227,13 @@ export default function ProjectShowcase() {
           </div>
         ) : (
           /* Empty State */
-          <div id="projects-empty-state" className="text-center py-5" aria-hidden="false">
-            <i className="fas fa-search fa-3x mb-3 text-secondary" aria-hidden="true" />
-            <h3 className="h4 mb-2">No projects found</h3>
-            <p className="text-secondary mb-4">Try adjusting your filters or search query.</p>
-            <button type="button" className="btn btn-outline-primary px-4 py-2" onClick={handleClearFilters}>Clear Filters</button>
+                    <div id="projects-empty-state" className="text-center py-5 bg-dark rounded-3 border border-secondary p-5 my-4" aria-hidden="false" aria-live="polite">
+            <i className="fas fa-search fa-3x mb-4 text-primary" aria-hidden="true" />
+            <h3 className="h4 mb-2 text-white">No projects found</h3>
+            <p className="text-secondary mb-4 fs-5">We couldn&apos;t find any projects matching your current filters. Try clearing them to see more.</p>
+            <button type="button" className="btn btn-primary px-4 py-2 fw-bold" onClick={handleClearFilters}>
+              <i className="fas fa-times me-2" aria-hidden="true"></i> Clear Filters
+            </button>
           </div>
         )}
       </div>

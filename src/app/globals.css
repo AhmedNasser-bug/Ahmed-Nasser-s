@@ -1142,7 +1142,31 @@ body {
 }
 
 button:focus-visible,
-a:focus-visible {
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
   outline: 3px solid var(--primary);
   outline-offset: 3px;
+  box-shadow: 0 0 0 5px rgba(37, 99, 235, 0.3);
+  border-radius: 4px;
+  transition: outline 0.1s ease-in-out, box-shadow 0.1s ease-in-out;
+}
+
+/* Skip to content link */
+.skip-to-content {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--primary);
+  color: white;
+  padding: 8px;
+  z-index: 10000;
+  transition: top 0.2s ease-in-out;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.skip-to-content:focus {
+  top: 0;
 }
