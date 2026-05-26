@@ -15,6 +15,15 @@ const ThreeBackground = dynamic(() => import('@/components/ThreeBackground'), {
 export default function Home() {
   // Activate Hanwag scroll animations on client mount
   useEffect(() => {
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (prefersReducedMotion) {
+      document.querySelectorAll(".hanwag-fade").forEach((section) => {
+        section.classList.add("hanwag-active");
+      });
+      return;
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -51,7 +60,7 @@ export default function Home() {
               <div className="layout-content-container flex flex-col w-full max-w-[1200px] flex-1">
                 
                 {/* Main Split Section */}
-                <main className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center py-10 min-h-[calc(100vh-10rem)]">
+                <main id="main-content" tabIndex={-1} className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center py-10 min-h-[calc(100vh-10rem)] outline-none">
                   
                   {/* Left Column: Hero Intro */}
                   <div className="flex flex-col gap-8">
@@ -62,7 +71,7 @@ export default function Home() {
                       </h1>
                     </div>
                     <p className="font-display text-xl text-[#4a4a4a] leading-relaxed max-w-md">
-                      I don't just write code; I engineer business solutions. Slashing timelines and eliminating technical debt via deep systems-level knowledge and bleeding-edge AI orchestration.
+                      I don&apos;t just write code; I engineer business solutions. Slashing timelines and eliminating technical debt via deep systems-level knowledge and bleeding-edge AI orchestration.
                     </p>
                     <div className="flex flex-wrap gap-4 pt-4">
                       <a href="https://github.com/AhmedNasser-bug" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center bg-[#171717] text-white px-6 py-3 border border-[#171717] rounded-sm font-mono text-sm uppercase tracking-wide hover:-translate-y-[2px] hover:-translate-x-[2px] hover:shadow-hard-hover focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#171717] focus-visible:outline-none transition-all duration-200" style={{ textDecoration: 'none' }} aria-label="View GitHub (opens in a new tab)" title="View GitHub">

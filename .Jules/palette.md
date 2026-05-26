@@ -64,3 +64,6 @@
 ## 2026-05-23 - [Skip-to-Content Target Focusability]
 **Learning:** Clicking a skip-to-content anchor visually scrolls to the target ID, but if the target (like a `<main>` or `<section>`) is not focusable by default, the next `Tab` press will start focusing elements from the top of the page again.
 **Action:** Always add `tabindex="-1"` to the target element of a skip-to-content link so it can programmatically receive keyboard focus.
+## 2026-05-26 - [Skip-to-Content Link Targeting and React Accessibility Fixes]
+**Learning:** When adding skip-to-content links, ensuring the target element has an `id` and `tabIndex={-1}` is crucial for programmatic focus. React requires camelCase attributes like `crossOrigin` and `referrerPolicy`. Additionally, extracting aria-live announcements from `useEffect` directly into render scope prevents unnecessary cascading re-renders.
+**Action:** Verify that skip-to-content links resolve to valid, focusable `id`s. Ensure standard HTML attributes are converted to their React equivalents. Compute purely derived state synchronously rather than using `useEffect`.

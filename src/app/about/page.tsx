@@ -13,6 +13,15 @@ const ThreeBackground = dynamic(() => import('@/components/ThreeBackground'), {
 export default function About() {
   // Activate Hanwag scroll animations on client mount
   useEffect(() => {
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (prefersReducedMotion) {
+      document.querySelectorAll(".hanwag-fade").forEach((section) => {
+        section.classList.add("hanwag-active");
+      });
+      return;
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -62,6 +71,7 @@ export default function About() {
                   }}
                 >
                   <div className="text-center text-blue-300 w-100 h-100">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src="/hero.jpeg" loading="eager" className="img-fluid rounded-3" alt="Portrait of Ahmed Naser" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }} />
                   </div>
                 </div>
@@ -78,23 +88,23 @@ export default function About() {
 
                 <div className="bio-content">
                   <p className="lead mb-4" style={{ fontSize: '1.25rem' }}>
-                    I'm Ahmed - a <span class="text-primary">Technical Consultant & AI Systems Orchestrator</span> solving complex enterprise constraints before the first line of code is written.
+                    I&apos;m Ahmed - a <span className="text-primary">Technical Consultant & AI Systems Orchestrator</span> solving complex enterprise constraints before the first line of code is written.
                   </p>
 
                   <p className="mb-4">
-                    I am a research-driven developer building robust, scalable software architectures by combining deep systems-level knowledge (C/C++) with bleeding-edge AI orchestration. I don't just write code; I accelerate development cycles, eliminate scope creep, and prevent technical debt using advanced AI stacks.
+                    I am a research-driven developer building robust, scalable software architectures by combining deep systems-level knowledge (C/C++) with bleeding-edge AI orchestration. I don&apos;t just write code; I accelerate development cycles, eliminate scope creep, and prevent technical debt using advanced AI stacks.
                   </p>
 
                   <div className="d-flex align-items-center mb-4">
                     <div className="border-start border-primary border-3 ps-3">
                       <p className="mb-0 fst-italic">
-                        "Translating low-level optimization into measurable business outcomes."
+                        &quot;Translating low-level optimization into measurable business outcomes.&quot;
                       </p>
                     </div>
                   </div>
 
                   <p>
-                    As an AI Systems Evaluator and Technical Consultant, I've discovered that <span className="text-primary">great software emerges when strict constraints meet rapid prototyping</span>. Whether reverse-engineering complex backends or drafting precise technical feasibility studies for enterprise budgets, I bridge the gap between low-level performance and high-level business logic.
+                    As an AI Systems Evaluator and Technical Consultant, I&apos;ve discovered that <span className="text-primary">great software emerges when strict constraints meet rapid prototyping</span>. Whether reverse-engineering complex backends or drafting precise technical feasibility studies for enterprise budgets, I bridge the gap between low-level performance and high-level business logic.
                   </p>
                 </div>
               </div>
@@ -166,7 +176,7 @@ export default function About() {
 
           {/* Blueprint Skills Table — horizontally scrollable on mobile */}
           <div style={{ overflowX: 'auto', WebkitOverflowScrolling: 'touch', margin: '0 -0.75rem' }}>
-            <div className="skills-blueprint-table hanwag-fade" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', border: '1px solid #000', boxIntersect: '4px 4px 0 #000', minWidth: '620px' }}>
+            <div className="skills-blueprint-table hanwag-fade" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', border: '1px solid #000', boxShadow: '4px 4px 0 #000', minWidth: '620px' }}>
               
               {/* Column 1: Full-Stack Engineering */}
               <div style={{ borderRight: '1px solid #000' }}>

@@ -27,7 +27,7 @@ export default function ContactSection() {
 
         <div className="cta-content">
           <h2 className="cta-heading">Ready to Bring Your Vision to Life?</h2>
-          <p className="cta-subtext">Let's collaborate to create exceptional software solutions tailored to your unique requirements. Reach out today to discuss your project.</p>
+          <p className="cta-subtext">Let&apos;s collaborate to create exceptional software solutions tailored to your unique requirements. Reach out today to discuss your project.</p>
 
           <nav className="nav justify-content-center">
             <a href="https://www.linkedin.com/in/ahmed-nasser-a9556a255/" target="_blank" rel="noopener noreferrer" className="cta-button mx-1" aria-label="Connect on LinkedIn (opens in a new tab)" title="Connect on LinkedIn"><span className="fa-brands fa-linkedin mx-1" aria-hidden="true"></span>Linkedin<i className="fas fa-external-link-alt ms-2" style={{ fontSize: '0.8em' }} aria-hidden="true"></i></a>

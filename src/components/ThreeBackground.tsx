@@ -14,6 +14,7 @@ export default function ThreeBackground() {
 
     // Load Three.js dynamically only on desktop
     if (window.innerWidth >= 768) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       import('https://cdn.skypack.dev/three@0.132.2' as any).then((module: any) => {
         if (!active) return;
         const THREE = module;
