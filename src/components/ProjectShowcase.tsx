@@ -69,8 +69,12 @@ const projectsData: Project[] = [
 export default function ProjectShowcase() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
-  const [announcement, setAnnouncement] = useState('');
   const searchInputRef = useRef<HTMLInputElement>(null);
+
+  const handleClearFilters = () => {
+    setSearchQuery('');
+    setSelectedCategory('all');
+  };
 
   // Keyboard shortcut listener
   useEffect(() => {
@@ -91,18 +95,13 @@ export default function ProjectShowcase() {
       if (e.key === 'Escape' && document.activeElement === searchInputRef.current) {
         e.preventDefault();
         handleClearFilters();
-        searchInputRef.current.blur();
+        searchInputRef.current?.blur();
       }
     };
 
     document.addEventListener('keydown', handleKeyDown);
     return () => document.removeEventListener('keydown', handleKeyDown);
   }, []);
-
-  const handleClearFilters = () => {
-    setSearchQuery('');
-    setSelectedCategory('all');
-  };
 
   // Filter projects
   const filteredProjects = projectsData.filter(project => {
@@ -119,8 +118,8 @@ export default function ProjectShowcase() {
     return matchesCategory && matchesSearch;
   });
 
-  // Announce results to screen readers
-  useEffect(() => {
+  // Announce results to screen readers directly during render
+  const announcement = (() => {
     let msg = `${filteredProjects.length} project${filteredProjects.length !== 1 ? 's' : ''} found`;
     if (selectedCategory !== 'all') {
       msg += ` in ${selectedCategory} category`;
@@ -128,8 +127,8 @@ export default function ProjectShowcase() {
     if (searchQuery) {
       msg += ` matching "${searchQuery}"`;
     }
-    setAnnouncement(msg);
-  }, [filteredProjects.length, selectedCategory, searchQuery]);
+    return msg;
+  })();
 
   return (
     <section className="section" id="projects">
@@ -140,7 +139,7 @@ export default function ProjectShowcase() {
         <div className="filter-controls mb-5">
           <div className="filter-search">
             <label htmlFor="project-search" className="visually-hidden">Search projects by name or technology</label>
-            <div className="position-relative w-100">
+            <div className="position-relative w-100 d-flex align-items-center">
               <input
                 ref={searchInputRef}
                 type="search"
@@ -151,7 +150,19 @@ export default function ProjectShowcase() {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
-              <kbd className="position-absolute top-50 translate-middle-y end-0 me-3 bg-secondary text-white border-0 px-2 py-1 rounded shadow-sm" style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', pointerEvents: 'none' }} aria-hidden="true">/</kbd>
+              {searchQuery && (
+                <button
+                  type="button"
+                  className="btn btn-link position-absolute top-50 translate-middle-y end-0 me-5 text-secondary p-0"
+                  style={{ zIndex: 5 }}
+                  onClick={() => setSearchQuery('')}
+                  aria-label="Clear search query"
+                  title="Clear search query"
+                >
+                  <i className="fas fa-times" aria-hidden="true"></i>
+                </button>
+              )}
+              <kbd className="position-absolute top-50 translate-middle-y end-0 me-3 bg-secondary text-white border-0 px-2 py-1 rounded shadow-sm" style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', pointerEvents: 'none', zIndex: 1 }} aria-hidden="true">/</kbd>
             </div>
           </div>
 
