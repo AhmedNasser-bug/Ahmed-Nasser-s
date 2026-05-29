@@ -18,6 +18,11 @@ export default function ContactSection() {
 
   return (
     <section className="section overflow-visible" id="contact">
+      {/* A11y Announcements */}
+      <div role="status" aria-live="polite" aria-atomic="true" className="visually-hidden">
+        {copiedLabel === 'email' ? 'Email address copied to clipboard.' : copiedLabel === 'phone' ? 'Phone number copied to clipboard.' : ''}
+      </div>
+
       <div className="bg-grid" aria-hidden="true"></div>
       <div className="bg-blur blur-2 w-100 overflow-visible position-absolute h-100" style={{ opacity: '10%' }} aria-hidden="true"></div>
       <section className="cta-section">
@@ -49,11 +54,11 @@ export default function ContactSection() {
                   <button
                     type="button"
                     className="btn btn-sm btn-outline-secondary ms-2 copy-btn"
-                    aria-label={copiedLabel === 'email' ? 'Copied!' : 'Copy to clipboard'}
-                    title={copiedLabel === 'email' ? 'Copied!' : 'Copy to clipboard'}
+                    aria-label={copiedLabel === 'email' ? 'Copied email address!' : 'Copy email address to clipboard'}
+                    title={copiedLabel === 'email' ? 'Copied!' : 'Copy email address to clipboard'}
                     onClick={() => handleCopyToClipboard('ahmed.naser732000@gmail.com', 'email')}
                   >
-                    <i className={copiedLabel === 'email' ? 'fas fa-check' : 'fas fa-copy'} aria-hidden="true"></i>
+                    <i className={copiedLabel === 'email' ? 'fas fa-check text-success' : 'fas fa-copy'} style={{ transition: 'color 0.2s ease-in-out' }} aria-hidden="true"></i>
                   </button>
                 </div>
               </div>
@@ -70,11 +75,11 @@ export default function ContactSection() {
                   <button
                     type="button"
                     className="btn btn-sm btn-outline-secondary ms-2 copy-btn"
-                    aria-label={copiedLabel === 'phone' ? 'Copied!' : 'Copy to clipboard'}
-                    title={copiedLabel === 'phone' ? 'Copied!' : 'Copy to clipboard'}
+                    aria-label={copiedLabel === 'phone' ? 'Copied phone number!' : 'Copy phone number to clipboard'}
+                    title={copiedLabel === 'phone' ? 'Copied!' : 'Copy phone number to clipboard'}
                     onClick={() => handleCopyToClipboard('+201009784937', 'phone')}
                   >
-                    <i className={copiedLabel === 'phone' ? 'fas fa-check' : 'fas fa-copy'} aria-hidden="true"></i>
+                    <i className={copiedLabel === 'phone' ? 'fas fa-check text-success' : 'fas fa-copy'} style={{ transition: 'color 0.2s ease-in-out' }} aria-hidden="true"></i>
                   </button>
                 </div>
               </div>

@@ -147,6 +147,9 @@ export default function ProjectShowcase() {
                 placeholder="Search projects..."
                 aria-label="Search projects by name or technology"
                 aria-controls="projects-grid"
+                aria-keyshortcuts="/"
+                spellCheck={false}
+                autoComplete="off"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
@@ -158,6 +161,7 @@ export default function ProjectShowcase() {
                   onClick={() => setSearchQuery('')}
                   aria-label="Clear search query"
                   title="Clear search query"
+                  aria-keyshortcuts="Escape"
                 >
                   <i className="fas fa-times" aria-hidden="true"></i>
                 </button>

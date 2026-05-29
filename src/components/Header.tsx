@@ -37,9 +37,9 @@ export default function Header() {
       </div>
 
       {/* Offcanvas Navigation Menu */}
-      <div className="offcanvas offcanvas-end" tabIndex={-1} id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div className="offcanvas offcanvas-end" tabIndex={-1} id="offcanvasNavbar" aria-label="Main Navigation Menu">
         <div className="offcanvas-header border-bottom border-dark">
-          <h2 className="offcanvas-title h5 m-0" id="offcanvasNavbarLabel">{navLabel}</h2>
+          <h2 className="offcanvas-title h5 m-0" aria-hidden="true">{navLabel}</h2>
           <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close navigation menu" title="Close navigation menu"></button>
         </div>
         <div className="offcanvas-body">
