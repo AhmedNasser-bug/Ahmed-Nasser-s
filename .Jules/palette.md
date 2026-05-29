@@ -67,3 +67,11 @@
 ## 2026-05-26 - [Skip-to-Content Link Targeting and React Accessibility Fixes]
 **Learning:** When adding skip-to-content links, ensuring the target element has an `id` and `tabIndex={-1}` is crucial for programmatic focus. React requires camelCase attributes like `crossOrigin` and `referrerPolicy`. Additionally, extracting aria-live announcements from `useEffect` directly into render scope prevents unnecessary cascading re-renders.
 **Action:** Verify that skip-to-content links resolve to valid, focusable `id`s. Ensure standard HTML attributes are converted to their React equivalents. Compute purely derived state synchronously rather than using `useEffect`.
+
+## 2026-05-29 - [Avoid aria-labelledby on Dynamic Quote Content]
+**Learning:** Using `aria-labelledby` to point to a dynamic element like a philosophical quote on an offcanvas menu creates severe confusion, as screen readers announce the quote instead of the purpose of the menu.
+**Action:** Use a static `aria-label` (e.g. "Main Navigation Menu") for container menus and hide decorative or non-essential philosophical headers from screen readers using `aria-hidden="true"`.
+
+## 2026-05-29 - [Native Search Input Overrides]
+**Learning:** Native browser spellchecking and autocomplete dropdowns can severely interfere with custom filter inputs by highlighting technical terms as errors or obscuring custom dynamic grid results.
+**Action:** When implementing custom search/filter inputs, use `spellCheck={false}` and `autoComplete="off"` to maintain control over the UX.
