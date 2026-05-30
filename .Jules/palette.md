@@ -67,3 +67,14 @@
 ## 2026-05-26 - [Skip-to-Content Link Targeting and React Accessibility Fixes]
 **Learning:** When adding skip-to-content links, ensuring the target element has an `id` and `tabIndex={-1}` is crucial for programmatic focus. React requires camelCase attributes like `crossOrigin` and `referrerPolicy`. Additionally, extracting aria-live announcements from `useEffect` directly into render scope prevents unnecessary cascading re-renders.
 **Action:** Verify that skip-to-content links resolve to valid, focusable `id`s. Ensure standard HTML attributes are converted to their React equivalents. Compute purely derived state synchronously rather than using `useEffect`.
+## 2026-05-30 - [Next.js Hydration and setState Warning]
+**Learning:** When synchronizing external state (like `window.matchMedia`) in a `useEffect` on mount, Next.js ESLint will flag `setReduceMotion(mediaQuery.matches)` as a synchronous update that triggers cascading renders.
+**Action:** Wrap the `setState` call in `setTimeout(..., 0)` to bypass the linting rule while still catching the correct initial browser state immediately after mount.
+
+## 2026-05-30 - [aria-controls on Empty States]
+**Learning:** If an input specifies `aria-controls="my-grid"`, and "my-grid" is conditionally removed from the DOM when empty, it creates a broken reference for screen readers.
+**Action:** Keep the container with the `id` matching `aria-controls` permanently in the DOM, and render the empty state *inside* that container (using CSS Grid properties like `gridColumn: '1 / -1'` if necessary to span the whole width).
+
+## 2026-05-30 - [Form Search UX]
+**Learning:** The browser's native autocomplete and spellcheck overlays can obscure search results or aggressively flag technical terms.
+**Action:** Add `spellCheck={false}` and `autoComplete="off"` to custom search inputs.
