@@ -135,6 +135,7 @@ export default function ThreeBackground() {
     <div
       ref={containerRef}
       id="canvas-container"
+      aria-hidden="true"
       style={{
         position: 'absolute',
         top: 0,

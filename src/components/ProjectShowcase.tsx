@@ -69,7 +69,27 @@ const projectsData: Project[] = [
 export default function ProjectShowcase() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
+  const [reduceMotion, setReduceMotion] = useState(false);
   const searchInputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    // Use timeout to bypass ESLint sync state update warning
+    const timeoutId = setTimeout(() => {
+      setReduceMotion(mediaQuery.matches);
+    }, 0);
+
+    const handleMotionChange = (e: MediaQueryListEvent) => {
+      setReduceMotion(e.matches);
+    };
+
+    mediaQuery.addEventListener('change', handleMotionChange);
+    return () => {
+      clearTimeout(timeoutId);
+      mediaQuery.removeEventListener('change', handleMotionChange);
+    };
+  }, []);
 
   const handleClearFilters = () => {
     setSearchQuery('');
@@ -137,7 +157,7 @@ export default function ProjectShowcase() {
 
         {/* Project Filter Controls */}
         <div className="filter-controls mb-5">
-          <div className="filter-search">
+          <div className="filter-search" role="search">
             <label htmlFor="project-search" className="visually-hidden">Search projects by name or technology</label>
             <div className="position-relative w-100 d-flex align-items-center">
               <input
@@ -149,6 +169,9 @@ export default function ProjectShowcase() {
                 aria-controls="projects-grid"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
+                spellCheck={false}
+                autoComplete="off"
+                aria-keyshortcuts="/"
               />
               {searchQuery && (
                 <button
@@ -158,6 +181,7 @@ export default function ProjectShowcase() {
                   onClick={() => setSearchQuery('')}
                   aria-label="Clear search query"
                   title="Clear search query"
+                  aria-keyshortcuts="Escape"
                 >
                   <i className="fas fa-times" aria-hidden="true"></i>
                 </button>
@@ -188,9 +212,9 @@ export default function ProjectShowcase() {
         </div>
 
         {/* Grid Container */}
-        {filteredProjects.length > 0 ? (
-          <div className="projects-grid" id="projects-grid" aria-live="polite">
-            {filteredProjects.map((project) => (
+        <div className="projects-grid" id="projects-grid" aria-live="polite">
+          {filteredProjects.length > 0 ? (
+            filteredProjects.map((project) => (
               <a
                 key={project.id}
                 href={project.url}
@@ -206,7 +230,8 @@ export default function ProjectShowcase() {
                     <div className="project-media">
                       <video
                         aria-label={`Project demonstration for ${project.title}`}
-                        autoPlay
+                        autoPlay={!reduceMotion}
+                        controls={reduceMotion}
                         loop
                         muted
                         playsInline
@@ -237,17 +262,17 @@ export default function ProjectShowcase() {
                   </div>
                 </div>
               </a>
-            ))}
-          </div>
-        ) : (
-          /* Empty State */
-          <div id="projects-empty-state" className="text-center py-5" aria-hidden="false">
-            <i className="fas fa-search fa-3x mb-3 text-secondary" aria-hidden="true" />
-            <h3 className="h4 mb-2">No projects found</h3>
-            <p className="text-secondary mb-4">Try adjusting your filters or search query.</p>
-            <button type="button" className="btn btn-outline-primary px-4 py-2" onClick={handleClearFilters}>Clear Filters</button>
-          </div>
-        )}
+            ))
+          ) : (
+            /* Empty State */
+            <div id="projects-empty-state" className="text-center py-5 w-100" style={{ gridColumn: '1 / -1' }} aria-hidden="false">
+              <i className="fas fa-search fa-3x mb-3 text-secondary" aria-hidden="true" />
+              <h3 className="h4 mb-2">No projects found</h3>
+              <p className="text-secondary mb-4">Try adjusting your filters or search query.</p>
+              <button type="button" className="btn btn-outline-primary px-4 py-2" onClick={handleClearFilters}>Clear Filters</button>
+            </div>
+          )}
+        </div>
       </div>
     </section>
   );
