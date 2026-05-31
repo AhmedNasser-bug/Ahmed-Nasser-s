@@ -70,10 +70,20 @@ export default function ProjectShowcase() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
   const searchInputRef = useRef<HTMLInputElement>(null);
+  const [reducedMotion, setReducedMotion] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setTimeout(() => setReducedMotion(mediaQuery.matches), 0);
+    const handleChange = (e: MediaQueryListEvent) => setReducedMotion(e.matches);
+    mediaQuery.addEventListener('change', handleChange);
+    return () => mediaQuery.removeEventListener('change', handleChange);
+  }, []);
 
   const handleClearFilters = () => {
     setSearchQuery('');
     setSelectedCategory('all');
+    searchInputRef.current?.focus();
   };
 
   // Keyboard shortcut listener
@@ -149,13 +159,15 @@ export default function ProjectShowcase() {
                 aria-controls="projects-grid"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
+                spellCheck={false}
+                autoComplete="off"
               />
               {searchQuery && (
                 <button
                   type="button"
                   className="btn btn-link position-absolute top-50 translate-middle-y end-0 me-5 text-secondary p-0"
                   style={{ zIndex: 5 }}
-                  onClick={() => setSearchQuery('')}
+                  onClick={() => { setSearchQuery(''); searchInputRef.current?.focus(); }}
                   aria-label="Clear search query"
                   title="Clear search query"
                 >
@@ -206,7 +218,8 @@ export default function ProjectShowcase() {
                     <div className="project-media">
                       <video
                         aria-label={`Project demonstration for ${project.title}`}
-                        autoPlay
+                        autoPlay={!reducedMotion}
+                        controls={reducedMotion}
                         loop
                         muted
                         playsInline
