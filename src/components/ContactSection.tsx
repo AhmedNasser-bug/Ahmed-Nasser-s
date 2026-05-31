@@ -18,6 +18,10 @@ export default function ContactSection() {
 
   return (
     <section className="section overflow-visible" id="contact">
+      <div aria-live="polite" className="visually-hidden">
+        {copiedLabel === 'email' && 'Email copied to clipboard.'}
+        {copiedLabel === 'phone' && 'Phone number copied to clipboard.'}
+      </div>
       <div className="bg-grid" aria-hidden="true"></div>
       <div className="bg-blur blur-2 w-100 overflow-visible position-absolute h-100" style={{ opacity: '10%' }} aria-hidden="true"></div>
       <section className="cta-section">
@@ -29,7 +33,7 @@ export default function ContactSection() {
           <h2 className="cta-heading">Ready to Bring Your Vision to Life?</h2>
           <p className="cta-subtext">Let&apos;s collaborate to create exceptional software solutions tailored to your unique requirements. Reach out today to discuss your project.</p>
 
-          <nav className="nav justify-content-center">
+          <nav className="nav justify-content-center" aria-label="Social Links">
             <a href="https://www.linkedin.com/in/ahmed-nasser-a9556a255/" target="_blank" rel="noopener noreferrer" className="cta-button mx-1" aria-label="Connect on LinkedIn (opens in a new tab)" title="Connect on LinkedIn"><span className="fa-brands fa-linkedin mx-1" aria-hidden="true"></span>Linkedin<i className="fas fa-external-link-alt ms-2" style={{ fontSize: '0.8em' }} aria-hidden="true"></i></a>
             <a href="https://wa.me/201009784937" target="_blank" rel="noopener noreferrer" className="cta-button mx-1" aria-label="Message on WhatsApp (opens in a new tab)" title="Message on WhatsApp"><span className="fa-brands fa-whatsapp mx-1" aria-hidden="true"></span>Whatsapp<i className="fas fa-external-link-alt ms-2" style={{ fontSize: '0.8em' }} aria-hidden="true"></i></a>
             <a href="https://www.upwork.com/freelancers/~01f54fd7d135eb3939" target="_blank" rel="noopener noreferrer" className="cta-button mx-1 " aria-label="Hire on Upwork (opens in a new tab)" title="Hire on Upwork"><span className="fa fa-laptop-code mx-1" aria-hidden="true"></span>Upwork<i className="fas fa-external-link-alt ms-2" style={{ fontSize: '0.8em' }} aria-hidden="true"></i></a>
