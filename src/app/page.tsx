@@ -91,9 +91,9 @@ export default function Home() {
                         Engineering Philosophy
                       </h2>
                     </div>
-                    <div className="flex flex-col">
+                    <div className="flex flex-col" role="list" aria-label="Engineering Philosophy Tenets">
                       {/* Tenet 1 */}
-                      <div className="p-6 border-b border-[#171717] group hover:bg-[#FAFAFA] transition-colors">
+                      <div className="p-6 border-b border-[#171717] group hover:bg-[#FAFAFA] transition-colors" role="listitem">
                         <div className="flex gap-4 items-start">
                           <span className="font-mono text-primary text-sm mt-1">01</span>
                           <div>
@@ -103,7 +103,7 @@ export default function Home() {
                         </div>
                       </div>
                       {/* Tenet 2 */}
-                      <div className="p-6 border-b border-[#171717] group hover:bg-[#FAFAFA] transition-colors">
+                      <div className="p-6 border-b border-[#171717] group hover:bg-[#FAFAFA] transition-colors" role="listitem">
                         <div className="flex gap-4 items-start">
                           <span className="font-mono text-primary text-sm mt-1">02</span>
                           <div>
@@ -113,7 +113,7 @@ export default function Home() {
                         </div>
                       </div>
                       {/* Tenet 3 */}
-                      <div className="p-6 group hover:bg-[#FAFAFA] transition-colors">
+                      <div className="p-6 group hover:bg-[#FAFAFA] transition-colors" role="listitem">
                         <div className="flex gap-4 items-start">
                           <span className="font-mono text-primary text-sm mt-1">03</span>
                           <div>

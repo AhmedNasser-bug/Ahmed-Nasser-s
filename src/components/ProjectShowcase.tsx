@@ -95,7 +95,6 @@ export default function ProjectShowcase() {
       if (e.key === 'Escape' && document.activeElement === searchInputRef.current) {
         e.preventDefault();
         handleClearFilters();
-        searchInputRef.current?.blur();
       }
     };
 
@@ -147,6 +146,9 @@ export default function ProjectShowcase() {
                 placeholder="Search projects..."
                 aria-label="Search projects by name or technology"
                 aria-controls="projects-grid"
+                spellCheck={false}
+                autoComplete="off"
+                aria-keyshortcuts="/"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
@@ -155,7 +157,10 @@ export default function ProjectShowcase() {
                   type="button"
                   className="btn btn-link position-absolute top-50 translate-middle-y end-0 me-5 text-secondary p-0"
                   style={{ zIndex: 5 }}
-                  onClick={() => setSearchQuery('')}
+                  onClick={() => {
+                    setSearchQuery('');
+                    searchInputRef.current?.focus();
+                  }}
                   aria-label="Clear search query"
                   title="Clear search query"
                 >
