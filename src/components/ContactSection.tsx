@@ -18,6 +18,9 @@ export default function ContactSection() {
 
   return (
     <section className="section overflow-visible" id="contact">
+      <div className="visually-hidden" aria-live="polite" aria-atomic="true">
+        {copiedLabel === 'email' ? 'Email copied to clipboard.' : copiedLabel === 'phone' ? 'Phone copied to clipboard.' : ''}
+      </div>
       <div className="bg-grid" aria-hidden="true"></div>
       <div className="bg-blur blur-2 w-100 overflow-visible position-absolute h-100" style={{ opacity: '10%' }} aria-hidden="true"></div>
       <section className="cta-section">
