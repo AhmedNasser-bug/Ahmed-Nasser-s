@@ -151,12 +151,12 @@ export const PROJECTS: Project[] = [
     bentoSize: "tall"
   },
   {
-    title: "LiveStar Portfolio",
+    title: "Live Star Agency",
     category: "Creative Portfolio",
     tech: ["React", "Framer Motion", "Tailwind"],
     description: "Interactive and highly animated portfolio for a creative agency or individual.",
     highlights: ["Smooth animations", "Creative layout", "Performance optimized"],
-    link: "https://livestar-portfolio.vercel.app/",
+    link: "https://livestar.agency",
     bentoSize: "small"
   },
   {
@@ -169,15 +169,6 @@ export const PROJECTS: Project[] = [
     bentoSize: "small"
   },
   {
-    title: "Hoor Resin E-Commerce",
-    category: "E-Commerce",
-    tech: ["Next.js", "Stripe", "Tailwind CSS"],
-    description: "Full-stack e-commerce platform for custom resin art, featuring product customization and secure checkout.",
-    highlights: ["Shopping cart", "Payment gateway", "Order tracking"],
-    link: "https://hoor-resin.vercel.app/",
-    bentoSize: "large"
-  },
-  {
     title: "Lamees Nasser Portfolio",
     category: "Personal Brand",
     tech: ["React", "CSS", "Vite"],
@@ -186,24 +177,7 @@ export const PROJECTS: Project[] = [
     link: "https://lamees-nasser.vercel.app/",
     bentoSize: "tall"
   },
-  {
-    title: "Ahmed Nasser S",
-    category: "Personal Brand",
-    tech: ["React", "TypeScript"],
-    description: "Alternate personal portfolio iteration focusing on specific technical niches.",
-    highlights: ["Technical blogging", "Project showcase", "SEO optimized"],
-    link: "https://ahmed-nasser-s.vercel.app/",
-    bentoSize: "small"
-  },
-  {
-    title: "Ahmed Nasser Dev",
-    category: "Developer Portfolio",
-    tech: ["Next.js", "Tailwind"],
-    description: "Developer-focused portfolio highlighting system architecture and full-stack capabilities.",
-    highlights: ["Code snippets", "Architecture diagrams", "Fast load times"],
-    link: "https://ahmed-nasser-dev.vercel.app/",
-    bentoSize: "wide"
-  },
+
   {
     title: "Finals QB",
     category: "Education Platform",

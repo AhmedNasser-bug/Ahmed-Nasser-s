@@ -2,10 +2,11 @@ import React from 'react';
 import ThreeBackground from './ThreeBackground';
 import { PROFILE, EXPERIENCE, SKILLS } from '../constants';
 import { GitCommit, Download, MapPin, Mail, Phone, Code2, Brain, Cpu, Users, GraduationCap, Laptop, Landmark, Terminal, Medal } from 'lucide-react';
+import ScrollPaintStroke from './ui/ScrollPaintStroke';
 
 const AboutPage: React.FC = () => {
   return (
-    <div className="relative min-h-screen font-sans">
+    <div className="relative min-h-screen font-sans animate-page-in">
       
       {/* Container */}
       <div className="relative flex flex-col items-center">
@@ -101,6 +102,71 @@ const AboutPage: React.FC = () => {
             </div>
           </div>
         </section>
+
+        {/* --- Stack Agnosticism Section with Paint Stroke highlight --- */}
+        <section className="w-full py-24 bg-background-light relative border-b border-border-color">
+          <div className="w-full max-w-[1200px] mx-auto px-4 md:px-10 lg:px-20 relative z-10">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+              
+              {/* Left Column: Visual/Telemetry representation of basics */}
+              <div className="col-span-1 lg:col-span-5 bg-surface border border-border-color p-8 shadow-hard" data-aos="fade-right">
+                <h4 className="font-mono text-xs uppercase text-primary font-bold tracking-wider border-b border-border-color pb-2 mb-4">
+                  Systems Architecture Telemetry
+                </h4>
+                <div className="font-mono text-xs text-text-main space-y-2 leading-relaxed">
+                  <div className="flex justify-between border-b border-border-color/10 py-1">
+                    <span className="text-muted">MEMORY_SCOPE:</span>
+                    <span className="text-primary font-bold">Manual C++ / Alloc</span>
+                  </div>
+                  <div className="flex justify-between border-b border-border-color/10 py-1">
+                    <span className="text-muted">MUTEX_LOCKS:</span>
+                    <span className="text-green-600 font-bold">Safe Concurrency</span>
+                  </div>
+                  <div className="flex justify-between border-b border-border-color/10 py-1">
+                    <span className="text-muted">TRANSACTIONAL_INTEGRITY:</span>
+                    <span className="text-blue-600 font-bold">SQL Relational ACID</span>
+                  </div>
+                  <div className="flex justify-between border-b border-border-color/10 py-1">
+                    <span className="text-muted">COMPILATION_SCOPES:</span>
+                    <span className="font-bold">Type-Safe Interface</span>
+                  </div>
+                  
+                  {/* Decorative ascii tree */}
+                  <div className="pt-4 text-muted select-none text-[10px] leading-tight">
+                    <div>root_node/</div>
+                    <div>├── memory_manager.cpp</div>
+                    <div>├── thread_pool.h</div>
+                    <div>└── acid_transaction.sql</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right Column: The Pitch */}
+              <div className="col-span-1 lg:col-span-7 flex flex-col gap-6" data-aos="fade-left">
+                <div className="relative inline-block">
+                  <h3 className="font-display italic text-3xl md:text-4xl font-extrabold tracking-tight text-text-main leading-tight">
+                    The Art of the Basics: <br />
+                    <ScrollPaintStroke>Stack Agnosticism</ScrollPaintStroke>
+                  </h3>
+                </div>
+                
+                <div className="text-muted text-base leading-relaxed space-y-4 font-sans mt-4">
+                  <p>
+                    Frameworks change, libraries deprecate, and AI can write standard syntax in seconds. But true engineering excellence doesn't come from memorizing a particular technology. It comes from <strong className="text-text-main">mastering the absolute basics</strong> of computer science.
+                  </p>
+                  <p>
+                    Whether optimizing C/C++ memory allocations, handling multithreaded database concurrency, or implementing ACID-compliant relational schemas, I focus heavily on the hard engineering foundations. 
+                  </p>
+                  <p className="border-l-2 border-primary pl-4 font-display italic text-lg text-text-main bg-primary/5 py-2">
+                    "When you understand how systems execute at their lowest level, adapting to any new stack—be it Next.js, .NET, or bleeding-edge AI multi-agent orchestration—becomes an exercise in syntax, not conceptual discovery."
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
 
         {/* --- Blueprint Skills Table --- */}
         <section className="w-full py-24 relative overflow-hidden">

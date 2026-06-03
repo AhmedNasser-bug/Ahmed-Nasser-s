@@ -1,7 +1,109 @@
-import React from 'react';
-import { Github, Linkedin, Mail, Terminal } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Github, Linkedin, Mail, Terminal, ChevronLeft, ChevronRight } from 'lucide-react';
 import { PROFILE } from '../constants';
 import ThreeBackground from './ThreeBackground';
+
+interface CarouselItem {
+  image: string;
+  title: string;
+  metric: string;
+  description: string;
+}
+
+const CAROUSEL_ITEMS: CarouselItem[] = [
+  {
+    image: '/finals_qb_preview.png',
+    title: 'Finals-Qb Quiz Platform',
+    metric: 'WAF Infinite Scaling',
+    description: 'Mastery Quiz Engine engineered with strategy patterns, Zod validation boundaries, and metacognitive diagnostics aligning with WAF pillars.'
+  },
+  {
+    image: '/livestar_preview.png',
+    title: 'Live Star Conversion Funnel',
+    metric: 'Double Lead Vol. | Halved CPL',
+    description: 'High-conversion, mobile-first agency landing page leveraging advanced web telemetry and responsive interface optimization.'
+  },
+  {
+    image: '/dvld_preview.png',
+    title: 'DVLD Enterprise Dashboard',
+    metric: '10+ Complex Workflows',
+    description: 'Custom full-stack licensing platform built from scratch in C# .NET + SQL Server to enforce strict regulatory data integrity.'
+  }
+];
+
+const ProjectCarousel: React.FC = () => {
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % CAROUSEL_ITEMS.length);
+    }, 4500);
+    return () => clearInterval(timer);
+  }, []);
+
+  const handlePrev = () => {
+    setCurrent((prev) => (prev - 1 + CAROUSEL_ITEMS.length) % CAROUSEL_ITEMS.length);
+  };
+
+  const handleNext = () => {
+    setCurrent((prev) => (prev + 1) % CAROUSEL_ITEMS.length);
+  };
+
+  return (
+    <div className="relative border border-border-color bg-surface shadow-hard hover:shadow-hard-hover transition-all duration-300 w-full overflow-hidden flex flex-col pointer-events-auto">
+      <div className="relative w-full aspect-[16/10] bg-background-light overflow-hidden border-b border-border-color">
+        {CAROUSEL_ITEMS.map((item, idx) => (
+          <div
+            key={idx}
+            className={`absolute inset-0 w-full h-full transition-all duration-700 ease-in-out flex items-center justify-center ${
+              idx === current ? 'opacity-100 scale-100 z-10' : 'opacity-0 scale-95 z-0'
+            }`}
+          >
+            <img src={item.image} alt={item.title} className="w-full h-full object-cover object-top" />
+            <div className="absolute top-3 left-3 bg-text-main text-surface px-2 py-1 font-mono text-[10px] uppercase border border-border-color tracking-wider z-20 shadow-hard">
+              {item.metric}
+            </div>
+          </div>
+        ))}
+        
+        {/* Navigation buttons */}
+        <button
+          onClick={handlePrev}
+          className="absolute left-2 top-1/2 -translate-y-1/2 bg-surface hover:bg-text-main hover:text-surface border border-border-color p-2 transition-all z-20 cursor-pointer shadow-hard"
+          aria-label="Previous Project"
+        >
+          <ChevronLeft size={16} />
+        </button>
+        <button
+          onClick={handleNext}
+          className="absolute right-2 top-1/2 -translate-y-1/2 bg-surface hover:bg-text-main hover:text-surface border border-border-color p-2 transition-all z-20 cursor-pointer shadow-hard"
+          aria-label="Next Project"
+        >
+          <ChevronRight size={16} />
+        </button>
+      </div>
+
+      <div className="p-5 flex flex-col gap-2 min-h-[125px]">
+        <h4 className="font-sans font-bold text-lg text-text-main tracking-tight">{CAROUSEL_ITEMS[current].title}</h4>
+        <p className="font-display italic text-base text-muted leading-relaxed">{CAROUSEL_ITEMS[current].description}</p>
+        
+        {/* Indicators */}
+        <div className="flex gap-2 mt-2 justify-end">
+          {CAROUSEL_ITEMS.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => setCurrent(idx)}
+              className={`w-3 h-3 border border-border-color transition-colors cursor-pointer ${
+                idx === current ? 'bg-primary' : 'bg-surface'
+              }`}
+              aria-label={`Slide ${idx + 1}`}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const Hero: React.FC = () => {
   return (
@@ -32,44 +134,18 @@ const Hero: React.FC = () => {
                 </div>
               </div>
 
-              <div className="bg-surface border border-border-color shadow-hard hover:shadow-hard-hover transition-shadow duration-300 transform hover:-translate-y-1 hover:-translate-x-1 relative" data-aos="fade-left" data-aos-delay="200">
-                <div className="border-b border-border-color bg-text-main p-4">
-                  <h2 className="font-mono text-surface text-sm uppercase tracking-widest flex items-center gap-2">
-                    <Terminal size={18} />
-                    Engineering Philosophy
+              <div className="flex flex-col gap-6" data-aos="fade-left" data-aos-delay="200">
+                <div className="border-b-2 border-border-color pb-2">
+                  <h2 className="font-display italic text-3xl md:text-4xl font-extrabold tracking-tight text-text-main leading-tight">
+                    Build Anything <span className="text-primary not-italic">Faster</span> and <span className="text-primary not-italic">Safer</span>
                   </h2>
                 </div>
-                <div className="flex flex-col">
-                  <div className="p-6 border-b border-border-color group hover:bg-background-light transition-colors">
-                    <div className="flex gap-4 items-start">
-                      <span className="font-mono text-primary text-sm mt-1">01</span>
-                      <div>
-                        <h3 className="font-sans font-semibold text-lg text-text-main mb-2">Architectural Clarity</h3>
-                        <p className="font-display italic text-lg text-muted">Architectural clarity over cleverness. Systems should be readable before they are writeable.</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="p-6 border-b border-border-color group hover:bg-background-light transition-colors">
-                    <div className="flex gap-4 items-start">
-                      <span className="font-mono text-primary text-sm mt-1">02</span>
-                      <div>
-                        <h3 className="font-sans font-semibold text-lg text-text-main mb-2">Predictable Systems</h3>
-                        <p className="font-display italic text-lg text-muted">Predictable, type-safe, and tested systems. Logic must be verifiable at compile time.</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="p-6 group hover:bg-background-light transition-colors">
-                    <div className="flex gap-4 items-start">
-                      <span className="font-mono text-primary text-sm mt-1">03</span>
-                      <div>
-                        <h3 className="font-sans font-semibold text-lg text-text-main mb-2">AI Multiplier</h3>
-                        <p className="font-display italic text-lg text-muted">AI as a multiplier, not a crutch. Automate the mundane, but engineer the core manually.</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                
+                {/* Project Scroller Carousel */}
+                <ProjectCarousel />
               </div>
             </main>
+
 
           </div>
         </div>

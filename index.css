@@ -20,3 +20,40 @@
     linear-gradient(to bottom, #E5E5E5 1px, transparent 1px);
   background-size: 20px 20px;
 }
+
+/* Seamless Page Fade-in Animation */
+@keyframes pageFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-page-in {
+  animation: pageFadeIn 500ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Paint Stroke Drawing Animation */
+@keyframes paintStrokeDraw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+.paint-stroke-path {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: paintStrokeDraw 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Parallax scroll transition container utilities */
+.perspective-container {
+  perspective: 1000px;
+}
+.parallax-layer {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+

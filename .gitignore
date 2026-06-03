@@ -39,5 +39,7 @@ lerna-debug.log*
 # AI Tooling & Local System Directories
 .Jules/
 .qodo/
+.kiro/
+.semgrepignore
 coverage/
 __pycache__/

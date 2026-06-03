@@ -22,6 +22,9 @@ const Header: React.FC = () => {
           <Link to="/" className={`hidden md:block transition-colors ${location.pathname === '/' ? 'text-primary font-bold' : 'text-text-main hover:text-primary'}`}>
             Home
           </Link>
+          <Link to="/projects" className={`hidden md:block transition-colors ${location.pathname === '/projects' ? 'text-primary font-bold' : 'text-text-main hover:text-primary'}`}>
+            Projects
+          </Link>
           <Link to="/about" className={`hidden md:block transition-colors ${location.pathname === '/about' ? 'text-primary font-bold' : 'text-text-main hover:text-primary'}`}>
             About
           </Link>
@@ -31,6 +34,9 @@ const Header: React.FC = () => {
           <a className="text-surface bg-text-main hover:bg-primary px-4 py-2 hover:shadow-hard-hover transition-all -my-2 border border-border-color hidden md:block" href={location.pathname === '/' ? '#contact' : '/#contact'}>Contact</a>
           
           <div className="md:hidden flex items-center gap-4">
+             <Link to="/projects" className={`transition-colors ${location.pathname === '/projects' ? 'text-primary font-bold' : 'text-text-main'}`}>
+                Projects
+             </Link>
              <Link to="/about" className={`transition-colors ${location.pathname === '/about' ? 'text-primary font-bold' : 'text-text-main'}`}>
                 About
              </Link>
