@@ -1,0 +1,22 @@
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #FAFAFA;
+}
+::-webkit-scrollbar-thumb {
+  background: #171717;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3730A3;
+}
+
+/* Graph Paper Background Grid Pattern */
+.graph-paper {
+  background-color: #FAFAFA;
+  background-image: 
+    linear-gradient(to right, #E5E5E5 1px, transparent 1px),
+    linear-gradient(to bottom, #E5E5E5 1px, transparent 1px);
+  background-size: 20px 20px;
+}

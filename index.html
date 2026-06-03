@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ahmed Nasser Mohammed | Full-Stack TypeScript Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#3730A3",
+              "background-light": "#FAFAFA",
+              "background-dark": "#121022",
+              "surface": "#FFFFFF",
+              "text-main": "#171717",
+              "muted": "#737373",
+              "accent": "#E0E7FF",
+              "border-color": "#171717",
+            },
+            fontFamily: {
+              "display": ["Newsreader", "serif"],
+              "sans": ["IBM Plex Sans", "sans-serif"],
+              "mono": ["IBM Plex Mono", "monospace"],
+            },
+            borderRadius: {"DEFAULT": "0px", "sm": "0px", "md": "0px", "lg": "0px", "xl": "0px", "full": "0px"},
+            boxShadow: {
+              'hard': '4px 4px 0px #171717',
+              'hard-hover': '6px 6px 0px #171717',
+            }
+          },
+        },
+      }
+    </script>
+
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="graph-paper text-text-main font-sans antialiased selection:bg-accent selection:text-primary">
+    <div id="root"></div>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>

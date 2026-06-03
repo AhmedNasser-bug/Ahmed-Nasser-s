@@ -1,36 +1,74 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ahmed Nasser | Full-Stack TypeScript Engineer Portfolio
 
-## Getting Started
+A premium, interactive developer portfolio demonstrating full-stack engineering expertise, systems-level optimization philosophy, and advanced AI-augmented systems orchestration.
 
-First, run the development server:
+Designed using a clean **Neobrutalist / Blueprint Design System** with a custom graph-paper grid pattern, hard shadows, and high contrast accents.
 
+## 🚀 Tech Stack & Core Libraries
+
+- **Core**: [React 19](https://react.dev/) + [Vite 6](https://vite.dev/) + [TypeScript 5](https://www.typescriptlang.org/)
+- **Styling**: [Tailwind CSS CDN](https://tailwindcss.com/) with a custom theme and layout configuration defined in `index.html`
+- **Animations**: [AOS (Animate On Scroll)](https://michalsnik.github.io/aos/) for micro-animations and entrance transitions
+- **Scroller**: [Lenis Scroll](https://lenis.darkroom.engineering/) for inertia-based smooth scrolling
+- **WebGL**: [Three.js](https://threejs.org/) for a dynamic wireframe background particle/geometry system
+
+---
+
+## 🛠️ Local Development Setup
+
+Ensure you have [Node.js](https://nodejs.org/) installed (v18+ recommended).
+
+### 1. Install Dependencies
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Run Development Server
+```bash
+npm run dev
+```
+The application will run locally at `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 3. Build for Production
+```bash
+npm run build
+```
+Vite will compile the code and assets into the `dist/` directory.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 4. Preview Production Build
+```bash
+npm run preview
+```
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## ☁️ Vercel Deployment Configuration
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This project is fully configured for hosting on [Vercel](https://vercel.com).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Framework Preset**: Vite
+- **Root Directory**: `./` (workspace root)
+- **Build Command**: `vite build` (or `npm run build`)
+- **Output Directory**: `dist`
 
-## Deploy on Vercel
+### Single Page Application (SPA) Routing
+A `vercel.json` file is defined at the root to rewrite all requests back to `/index.html`:
+```json
+{
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
+```
+This ensures direct subpath routing (like visiting `/about` directly) resolves correctly without Vercel returning a `404 Not Found` error.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📄 Git Configurations
+
+- **`.gitignore`**: Ignores `node_modules`, `dist/` builds, local environment variables (`.env.*`), local Vercel CLI folders (`.vercel/`), and AI/IDE cache folders (`.Jules/`, `.qodo/`, `.vscode/`).
+- **`.gitattributes`**: Configured to normalize all checkouts to LF line endings (`eol=lf`) for build environment cross-platform consistency.
