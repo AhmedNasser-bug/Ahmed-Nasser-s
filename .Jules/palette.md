@@ -67,3 +67,11 @@
 ## 2026-05-26 - [Skip-to-Content Link Targeting and React Accessibility Fixes]
 **Learning:** When adding skip-to-content links, ensuring the target element has an `id` and `tabIndex={-1}` is crucial for programmatic focus. React requires camelCase attributes like `crossOrigin` and `referrerPolicy`. Additionally, extracting aria-live announcements from `useEffect` directly into render scope prevents unnecessary cascading re-renders.
 **Action:** Verify that skip-to-content links resolve to valid, focusable `id`s. Ensure standard HTML attributes are converted to their React equivalents. Compute purely derived state synchronously rather than using `useEffect`.
+
+## 2026-05-26 - [Visual Keyboard Focus States for Interactive Components]
+**Learning:** Interactive UI controls like the offcanvas close button in Bootstrap often lack strong visual indicators for keyboard focus by default, which hinders keyboard-only users from tracking their position.
+**Action:** Ensure interactive elements, particularly structural UI controls like offcanvas close buttons, have explicit visual keyboard focus states (e.g., using Tailwind utilities like `focus-visible:ring-2 focus-visible:outline-none`) to aid keyboard navigation.
+
+## 2026-05-26 - [Playwright Flakiness with Animations]
+**Learning:** Playwright scripts can fail with 'Timeout' or 'Element is outside of the viewport' errors when interacting with elements like Bootstrap offcanvas buttons or conditional UI states that might be transitioning or obscured.
+**Action:** When using Playwright to interact with UI elements that may be partially obscured by animations or conditionally rendered transitions, utilize robust locators and `.click(force=True)` to prevent script flakiness.
