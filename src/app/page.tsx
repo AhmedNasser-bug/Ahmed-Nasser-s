@@ -91,9 +91,9 @@ export default function Home() {
                         Engineering Philosophy
                       </h2>
                     </div>
-                    <div className="flex flex-col">
+                    <div className="flex flex-col" role="list">
                       {/* Tenet 1 */}
-                      <div className="p-6 border-b border-[#171717] group hover:bg-[#FAFAFA] transition-colors">
+                      <div className="p-6 border-b border-[#171717] group hover:bg-[#FAFAFA] transition-colors" role="listitem">
                         <div className="flex gap-4 items-start">
                           <span className="font-mono text-primary text-sm mt-1">01</span>
                           <div>
@@ -103,7 +103,7 @@ export default function Home() {
                         </div>
                       </div>
                       {/* Tenet 2 */}
-                      <div className="p-6 border-b border-[#171717] group hover:bg-[#FAFAFA] transition-colors">
+                      <div className="p-6 border-b border-[#171717] group hover:bg-[#FAFAFA] transition-colors" role="listitem">
                         <div className="flex gap-4 items-start">
                           <span className="font-mono text-primary text-sm mt-1">02</span>
                           <div>
@@ -113,7 +113,7 @@ export default function Home() {
                         </div>
                       </div>
                       {/* Tenet 3 */}
-                      <div className="p-6 group hover:bg-[#FAFAFA] transition-colors">
+                      <div className="p-6 group hover:bg-[#FAFAFA] transition-colors" role="listitem">
                         <div className="flex gap-4 items-start">
                           <span className="font-mono text-primary text-sm mt-1">03</span>
                           <div>
@@ -140,8 +140,8 @@ export default function Home() {
         <div className="container">
           <h2 className="section-title hanwag-fade">Technical Expertise</h2>
 
-          <div className="row g-4">
-            <div className="col-md-6 col-lg-3 hanwag-fade">
+          <div className="row g-4" role="list">
+            <div className="col-md-6 col-lg-3 hanwag-fade" role="listitem">
               <div className="skill-card">
                 <div className="skill-icon">
                   <i className="fas fa-microchip" aria-hidden="true"></i>
@@ -151,7 +151,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="col-md-6 col-lg-3 hanwag-fade">
+            <div className="col-md-6 col-lg-3 hanwag-fade" role="listitem">
               <div className="skill-card">
                 <div className="skill-icon">
                   <i className="fas fa-laptop-code" aria-hidden="true"></i>
@@ -161,7 +161,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="col-md-6 col-lg-3 hanwag-fade">
+            <div className="col-md-6 col-lg-3 hanwag-fade" role="listitem">
               <div className="skill-card">
                 <div className="skill-icon">
                   <i className="fas fa-layer-group" aria-hidden="true"></i>
@@ -171,7 +171,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="col-md-6 col-lg-3 hanwag-fade">
+            <div className="col-md-6 col-lg-3 hanwag-fade" role="listitem">
               <div className="skill-card">
                 <div className="skill-icon">
                   <i className="fas fa-chart-line" aria-hidden="true"></i>
@@ -189,7 +189,8 @@ export default function Home() {
         <div className="container">
           <h2 className="section-title hanwag-fade">Work Experience</h2>
 
-          <div className="hanwag-fade">
+          <div role="list" className="d-flex flex-column gap-4">
+          <div className="hanwag-fade" role="listitem">
             <div className="experience-card">
               <span className="experience-badge">2023-Present</span>
               <h3 className="experience-title">Technical Consultant & Full-Stack Architect</h3>
@@ -202,7 +203,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="hanwag-fade">
+          <div className="hanwag-fade" role="listitem">
             <div className="experience-card">
               <span className="experience-badge">2023-2024</span>
               <h3 className="experience-title">AI Systems Trainer & Evaluator</h3>
@@ -215,7 +216,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="hanwag-fade">
+          <div className="hanwag-fade" role="listitem">
             <div className="experience-card">
               <span className="experience-badge">2025-Present</span>
               <h3 className="experience-title">President & Head of Trainers</h3>
@@ -225,6 +226,7 @@ export default function Home() {
                 <li>Secured 1st place in university ranking at ACM ECPC 2025 through strategic problem-solving optimization.</li>
               </ul>
             </div>
+          </div>
           </div>
         </div>
       </section>
@@ -237,8 +239,8 @@ export default function Home() {
         <div className="container">
           <h2 className="section-title hanwag-fade">Development Services</h2>
 
-          <div className="row g-4">
-            <div className="col-md-6 col-lg-4 hanwag-fade">
+          <div className="row g-4" role="list">
+            <div className="col-md-6 col-lg-4 hanwag-fade" role="listitem">
               <div className="service-card">
                 <div className="service-icon">
                   <i className="fas fa-layer-group" aria-hidden="true"></i>
@@ -249,7 +251,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="col-md-6 col-lg-4 hanwag-fade">
+            <div className="col-md-6 col-lg-4 hanwag-fade" role="listitem">
               <div className="service-card">
                 <div className="service-icon">
                   <i className="fas fa-database" aria-hidden="true"></i>
@@ -260,7 +262,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="col-md-6 col-lg-4 hanwag-fade">
+            <div className="col-md-6 col-lg-4 hanwag-fade" role="listitem">
               <div className="service-card">
                 <div className="service-icon">
                   <i className="fas fa-cogs" aria-hidden="true"></i>

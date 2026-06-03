@@ -147,6 +147,7 @@ export default function ProjectShowcase() {
                 placeholder="Search projects..."
                 aria-label="Search projects by name or technology"
                 aria-controls="projects-grid"
+                aria-keyshortcuts="/"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
@@ -245,7 +246,7 @@ export default function ProjectShowcase() {
             <i className="fas fa-search fa-3x mb-3 text-secondary" aria-hidden="true" />
             <h3 className="h4 mb-2">No projects found</h3>
             <p className="text-secondary mb-4">Try adjusting your filters or search query.</p>
-            <button type="button" className="btn btn-outline-primary px-4 py-2" onClick={handleClearFilters}>Clear Filters</button>
+            <button type="button" className="btn btn-outline-primary px-4 py-2" aria-label="Clear all filters and search query" title="Clear all filters and search query" onClick={handleClearFilters}>Clear Filters</button>
           </div>
         )}
       </div>
