@@ -36,15 +36,15 @@ const Contact: React.FC = () => {
                 </div>
                 <div className="flex flex-wrap gap-6 border-t border-border-color pt-6">
                   {PROFILE.contact.linkedin && (
-                    <a className="font-mono text-sm uppercase text-text-main hover:text-primary transition-colors flex items-center gap-2 group" href={PROFILE.contact.linkedin} target="_blank" rel="noreferrer">
+                    <a className="font-mono text-sm uppercase text-text-main hover:text-primary transition-colors flex items-center gap-2 group focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none focus-visible:ring-offset-4" href={PROFILE.contact.linkedin} target="_blank" rel="noreferrer" title="LinkedIn (opens in a new tab)">
                       LinkedIn
-                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
                     </a>
                   )}
                   {PROFILE.contact.github && (
-                    <a className="font-mono text-sm uppercase text-text-main hover:text-primary transition-colors flex items-center gap-2 group" href={PROFILE.contact.github} target="_blank" rel="noreferrer">
+                    <a className="font-mono text-sm uppercase text-text-main hover:text-primary transition-colors flex items-center gap-2 group focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none focus-visible:ring-offset-4" href={PROFILE.contact.github} target="_blank" rel="noreferrer" title="GitHub (opens in a new tab)">
                       GitHub
-                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
                     </a>
                   )}
                   <div className="font-mono text-sm uppercase text-text-main flex items-center gap-2">

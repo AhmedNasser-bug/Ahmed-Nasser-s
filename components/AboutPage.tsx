@@ -6,7 +6,7 @@ import ScrollPaintStroke from './ui/ScrollPaintStroke';
 
 const AboutPage: React.FC = () => {
   return (
-    <div className="relative min-h-screen font-sans animate-page-in">
+    <div className="relative min-h-screen font-sans animate-page-in" id="main-content" tabIndex={-1}>
       
       {/* Container */}
       <div className="relative flex flex-col items-center">

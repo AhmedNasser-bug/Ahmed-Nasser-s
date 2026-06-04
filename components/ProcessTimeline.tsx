@@ -574,7 +574,8 @@ const ProcessTimeline: React.FC = () => {
                       <button
                         key={step.id}
                         onClick={() => handleStepClick(idx)}
-                        className={`text-left p-3.5 border transition-all duration-300 flex items-start gap-4 shadow-hard hover:shadow-hard-hover cursor-pointer relative group focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 ${
+                        aria-expanded={isStepActive}
+                        className={`text-left p-3.5 border transition-all duration-300 flex items-start gap-4 shadow-hard hover:shadow-hard-hover cursor-pointer relative group focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none focus-visible:ring-offset-2 ${
                           isStepActive 
                             ? 'border-2 border-primary bg-surface -translate-y-[2px] -translate-x-[2px] shadow-hard-hover' 
                             : 'border-border-color/30 bg-surface/75 hover:bg-background-light'
