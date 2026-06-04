@@ -266,20 +266,22 @@ const ProjectScrollItem: React.FC<ScrollItemProps> = ({ project, index }) => {
               <div className="flex border border-surface/20 bg-surface/5 rounded-sm p-0.5 overflow-hidden">
                 <button
                   onClick={() => setMediaMode('image')}
-                  className={`px-2 py-0.5 font-mono text-[9px] uppercase tracking-wider rounded-sm transition-all flex items-center gap-1 cursor-pointer ${
+                  aria-pressed={mediaMode === 'image'}
+                  className={`px-2 py-0.5 font-mono text-[9px] uppercase tracking-wider rounded-sm transition-all flex items-center gap-1 cursor-pointer focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none focus-visible:ring-offset-1 ${
                     mediaMode === 'image' ? 'bg-surface text-text-main font-bold' : 'text-surface/50 hover:text-surface'
                   }`}
                 >
-                  <ImageIcon size={10} />
+                  <ImageIcon size={10} aria-hidden="true" />
                   Screenshot
                 </button>
                 <button
                   onClick={() => setMediaMode('iframe')}
-                  className={`px-2 py-0.5 font-mono text-[9px] uppercase tracking-wider rounded-sm transition-all flex items-center gap-1 cursor-pointer ${
+                  aria-pressed={mediaMode === 'iframe'}
+                  className={`px-2 py-0.5 font-mono text-[9px] uppercase tracking-wider rounded-sm transition-all flex items-center gap-1 cursor-pointer focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none focus-visible:ring-offset-1 ${
                     mediaMode === 'iframe' ? 'bg-surface text-text-main font-bold' : 'text-surface/50 hover:text-surface'
                   }`}
                 >
-                  <Globe size={10} />
+                  <Globe size={10} aria-hidden="true" />
                   Live App
                 </button>
               </div>
@@ -306,7 +308,7 @@ const ProjectScrollItem: React.FC<ScrollItemProps> = ({ project, index }) => {
 
 const ProjectsPage: React.FC = () => {
   return (
-    <div className="min-h-screen bg-background-light graph-paper flex flex-col items-center animate-page-in">
+    <div className="min-h-screen bg-background-light graph-paper flex flex-col items-center animate-page-in" id="main-content" tabIndex={-1}>
       
       {/* Sticky Top Header */}
       <div className="w-full max-w-[1200px] px-4 md:px-8 pt-20 pb-4 border-b border-border-color/20 flex items-center justify-between z-30 bg-background-light/95 backdrop-blur-sm sticky top-0">

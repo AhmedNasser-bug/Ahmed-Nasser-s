@@ -67,3 +67,10 @@
 ## 2026-05-26 - [Skip-to-Content Link Targeting and React Accessibility Fixes]
 **Learning:** When adding skip-to-content links, ensuring the target element has an `id` and `tabIndex={-1}` is crucial for programmatic focus. React requires camelCase attributes like `crossOrigin` and `referrerPolicy`. Additionally, extracting aria-live announcements from `useEffect` directly into render scope prevents unnecessary cascading re-renders.
 **Action:** Verify that skip-to-content links resolve to valid, focusable `id`s. Ensure standard HTML attributes are converted to their React equivalents. Compute purely derived state synchronously rather than using `useEffect`.
+## 2024-05-24 - [Skip Link Global Targets]
+**Learning:** Adding a 'Skip to main content' link in a global layout (like App.tsx) requires ensuring the target anchor (`id="main-content"`) exists on every possible route view. If it's only on the Home component, the skip link becomes useless on subpages.
+**Action:** Always verify skip link target IDs exist on all top-level route components, or wrap the routing logic inside a single container that has the `id="main-content"` to guarantee functionality globally.
+
+## 2024-05-24 - [Playwright Strict Mode Locator Handling]
+**Learning:** When using `page.get_by_role()` to verify focus states in Playwright, be aware that React apps might render multiple elements with the same accessible name across different views or responsive layouts (e.g., mobile vs desktop headers). This causes Playwright strict mode errors.
+**Action:** When asserting on focus states of elements that might have duplicates, utilize `.first` or `.nth()` to specify which matching element you are asserting against.

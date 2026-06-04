@@ -19,25 +19,25 @@ const Header: React.FC = () => {
       </div>
       <div className="flex flex-1 justify-end gap-8">
         <div className="flex items-center gap-6 font-mono text-sm uppercase tracking-wider">
-          <Link to="/" className={`hidden md:block transition-colors ${location.pathname === '/' ? 'text-primary font-bold' : 'text-text-main hover:text-primary'}`}>
+          <Link to="/" aria-current={location.pathname === '/' ? 'page' : undefined} className={`hidden md:block transition-colors focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none ${location.pathname === '/' ? 'text-primary font-bold' : 'text-text-main hover:text-primary'}`}>
             Home
           </Link>
-          <Link to="/projects" className={`hidden md:block transition-colors ${location.pathname === '/projects' ? 'text-primary font-bold' : 'text-text-main hover:text-primary'}`}>
+          <Link to="/projects" aria-current={location.pathname === '/projects' ? 'page' : undefined} className={`hidden md:block transition-colors focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none ${location.pathname === '/projects' ? 'text-primary font-bold' : 'text-text-main hover:text-primary'}`}>
             Projects
           </Link>
-          <Link to="/about" className={`hidden md:block transition-colors ${location.pathname === '/about' ? 'text-primary font-bold' : 'text-text-main hover:text-primary'}`}>
+          <Link to="/about" aria-current={location.pathname === '/about' ? 'page' : undefined} className={`hidden md:block transition-colors focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none ${location.pathname === '/about' ? 'text-primary font-bold' : 'text-text-main hover:text-primary'}`}>
             About
           </Link>
           <div className="w-[1px] h-4 bg-border-color/30 hidden md:block"></div>
-          {PROFILE.contact.github && <a className="hidden md:flex items-center gap-2 text-text-main hover:text-primary transition-colors" href={PROFILE.contact.github} target="_blank" rel="noreferrer" aria-label="GitHub"><Github size={16} /></a>}
-          {PROFILE.contact.linkedin && <a className="hidden md:flex items-center gap-2 text-text-main hover:text-primary transition-colors" href={PROFILE.contact.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn"><Linkedin size={16} /></a>}
-          <a className="text-surface bg-text-main hover:bg-primary px-4 py-2 hover:shadow-hard-hover transition-all -my-2 border border-border-color hidden md:block" href={location.pathname === '/' ? '#contact' : '/#contact'}>Contact</a>
+          {PROFILE.contact.github && <a className="hidden md:flex items-center gap-2 text-text-main hover:text-primary transition-colors focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none" href={PROFILE.contact.github} target="_blank" rel="noreferrer" aria-label="GitHub"><Github size={16} aria-hidden="true" /></a>}
+          {PROFILE.contact.linkedin && <a className="hidden md:flex items-center gap-2 text-text-main hover:text-primary transition-colors focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none" href={PROFILE.contact.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn"><Linkedin size={16} aria-hidden="true" /></a>}
+          <a className="text-surface bg-text-main hover:bg-primary px-4 py-2 hover:shadow-hard-hover transition-all -my-2 border border-border-color hidden md:block focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none focus-visible:ring-offset-2" href={location.pathname === '/' ? '#contact' : '/#contact'}>Contact</a>
           
           <div className="md:hidden flex items-center gap-4">
-             <Link to="/projects" className={`transition-colors ${location.pathname === '/projects' ? 'text-primary font-bold' : 'text-text-main'}`}>
+             <Link to="/projects" aria-current={location.pathname === '/projects' ? 'page' : undefined} className={`transition-colors focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none ${location.pathname === '/projects' ? 'text-primary font-bold' : 'text-text-main'}`}>
                 Projects
              </Link>
-             <Link to="/about" className={`transition-colors ${location.pathname === '/about' ? 'text-primary font-bold' : 'text-text-main'}`}>
+             <Link to="/about" aria-current={location.pathname === '/about' ? 'page' : undefined} className={`transition-colors focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none ${location.pathname === '/about' ? 'text-primary font-bold' : 'text-text-main'}`}>
                 About
              </Link>
           </div>

@@ -14,7 +14,7 @@ import Footer from './components/Footer';
 import ScrollToTop from './components/ui/ScrollToTop';
 
 const Home = () => (
-  <div className="animate-page-in">
+  <div className="animate-page-in" id="main-content" tabIndex={-1}>
     <Hero />
     <Skills />
     <ProcessTimeline />
@@ -78,6 +78,12 @@ const App: React.FC = () => {
 
   return (
     <main className="min-h-screen overflow-x-hidden">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-[100] bg-text-main text-surface px-4 py-2 font-mono text-sm border-2 border-primary outline-none focus-visible:ring-4 focus-visible:ring-primary/50"
+      >
+        Skip to main content
+      </a>
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
