@@ -28,7 +28,7 @@ const AboutPage: React.FC = () => {
                     className="w-full h-full object-cover object-top opacity-90 group-hover:opacity-100 transition-opacity duration-300"
                   />
                   {/* Subtle grid overly */}
-                  <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCI+CjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0ibm9uZSI+PC9yZWN0Pgo8cGF0aCBkPSJNMjAgMEwwIDBMMCAyMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMSkiIHN0cm9rZS13aWR0aD0iMSI+PC9wYXRoPgo8L3N2Zz4=')] opacity-20 pointer-events-none mix-blend-overlay"></div>
+                  <div aria-hidden="true" className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCI+CjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0ibm9uZSI+PC9yZWN0Pgo8cGF0aCBkPSJNMjAgMEwwIDBMMCAyMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMSkiIHN0cm9rZS13aWR0aD0iMSI+PC9wYXRoPgo8L3N2Zz4=')] opacity-20 pointer-events-none mix-blend-overlay"></div>
                 </div>
               </div>
             </div>
@@ -355,17 +355,17 @@ const AboutPage: React.FC = () => {
             <p className="font-display italic text-2xl text-muted mb-10">Shall we begin?</p>
             
             <div className="flex flex-wrap justify-center gap-4 mb-12">
-              <a href={PROFILE.contact.linkedin} target="_blank" rel="noopener noreferrer" className="bg-text-main text-surface hover:bg-primary transition-colors border-2 border-text-main hover:border-primary px-8 py-3 font-mono font-bold uppercase tracking-wider flex items-center gap-2 shadow-hard hover:-translate-y-1 hover:-translate-x-1 hover:shadow-hard-hover">
+              <a href={PROFILE.contact.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn (opens in a new tab)" title="LinkedIn (opens in a new tab)" className="bg-text-main text-surface hover:bg-primary transition-colors border-2 border-text-main hover:border-primary px-8 py-3 font-mono font-bold uppercase tracking-wider flex items-center gap-2 shadow-hard hover:-translate-y-1 hover:-translate-x-1 hover:shadow-hard-hover focus-visible:ring-2 focus-visible:outline-none">
                 LinkedIn 
-                <svg className="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                <svg className="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
               </a>
-              <a href={`https://wa.me/${PROFILE.contact.phone}`} target="_blank" rel="noopener noreferrer" className="bg-background-light text-text-main hover:bg-green-500 hover:text-white transition-colors border-2 border-border-color hover:border-green-500 px-8 py-3 font-mono font-bold uppercase tracking-wider flex items-center gap-2 shadow-hard hover:-translate-y-1 hover:-translate-x-1 hover:shadow-hard-hover">
+              <a href={`https://wa.me/${PROFILE.contact.phone}`} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp (opens in a new tab)" title="WhatsApp (opens in a new tab)" className="bg-background-light text-text-main hover:bg-green-500 hover:text-white transition-colors border-2 border-border-color hover:border-green-500 px-8 py-3 font-mono font-bold uppercase tracking-wider flex items-center gap-2 shadow-hard hover:-translate-y-1 hover:-translate-x-1 hover:shadow-hard-hover focus-visible:ring-2 focus-visible:outline-none">
                 WhatsApp
-                <Phone className="w-4 h-4 ml-1" />
+                <Phone className="w-4 h-4 ml-1" aria-hidden="true" />
               </a>
-              <a href="https://www.upwork.com/freelancers/~01f54fd7d135eb3939" target="_blank" rel="noopener noreferrer" className="bg-background-light text-text-main hover:bg-[#14a800] hover:text-white transition-colors border-2 border-border-color hover:border-[#14a800] px-8 py-3 font-mono font-bold uppercase tracking-wider flex items-center gap-2 shadow-hard hover:-translate-y-1 hover:-translate-x-1 hover:shadow-hard-hover">
+              <a href="https://www.upwork.com/freelancers/~01f54fd7d135eb3939" target="_blank" rel="noopener noreferrer" aria-label="Upwork (opens in a new tab)" title="Upwork (opens in a new tab)" className="bg-background-light text-text-main hover:bg-[#14a800] hover:text-white transition-colors border-2 border-border-color hover:border-[#14a800] px-8 py-3 font-mono font-bold uppercase tracking-wider flex items-center gap-2 shadow-hard hover:-translate-y-1 hover:-translate-x-1 hover:shadow-hard-hover focus-visible:ring-2 focus-visible:outline-none">
                 Upwork
-                <Code2 className="w-4 h-4 ml-1" />
+                <Code2 className="w-4 h-4 ml-1" aria-hidden="true" />
               </a>
             </div>
 

@@ -67,3 +67,7 @@
 ## 2026-05-26 - [Skip-to-Content Link Targeting and React Accessibility Fixes]
 **Learning:** When adding skip-to-content links, ensuring the target element has an `id` and `tabIndex={-1}` is crucial for programmatic focus. React requires camelCase attributes like `crossOrigin` and `referrerPolicy`. Additionally, extracting aria-live announcements from `useEffect` directly into render scope prevents unnecessary cascading re-renders.
 **Action:** Verify that skip-to-content links resolve to valid, focusable `id`s. Ensure standard HTML attributes are converted to their React equivalents. Compute purely derived state synchronously rather than using `useEffect`.
+
+## 2026-06-05 - [Interactive Components Accessibility]
+**Learning:** Decorative SVG icons inside interactive elements (buttons/links) create noise for screen readers, while missing `role` attributes on custom toggle controls (like carousel indicators and media mode switchers) fail to communicate their state effectively.
+**Action:** Always apply `aria-hidden="true"` to pure visual SVGs inside links. When building custom tab-like controls, ensure the container has `role="tablist"` and the toggle buttons implement `role="tab"` with dynamic `aria-selected` mapped to their active state.
