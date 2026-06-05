@@ -229,13 +229,15 @@ const ProjectScrollItem: React.FC<ScrollItemProps> = ({ project, index }) => {
                   href={project.link} 
                   target="_blank" 
                   rel="noreferrer" 
-                  className="inline-flex items-center justify-center bg-text-main text-surface px-3 py-1.5 border border-border-color font-mono text-[10px] uppercase tracking-wider hover:bg-primary transition-colors cursor-pointer"
+                  aria-label="Open Live App (opens in a new tab)"
+                  title="Open Live App (opens in a new tab)"
+                  className="inline-flex items-center justify-center bg-text-main text-surface px-3 py-1.5 border border-border-color font-mono text-[10px] uppercase tracking-wider hover:bg-primary transition-colors cursor-pointer focus-visible:ring-2 focus-visible:outline-none"
                 >
-                  Open Live App <ExternalLink className="ml-1.5 w-3 h-3" />
+                  Open Live App <ExternalLink className="ml-1.5 w-3 h-3" aria-hidden="true" />
                 </a>
               ) : (
                 <span className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase text-muted font-bold">
-                  <ShieldAlert size={12} /> Internal System
+                  <ShieldAlert size={12} aria-hidden="true" /> Internal System
                 </span>
               )}
             </div>
@@ -263,23 +265,31 @@ const ProjectScrollItem: React.FC<ScrollItemProps> = ({ project, index }) => {
             
             {/* Screenshot vs Live App Toggle tabs (for projects with deployment links, except Live Star) */}
             {project.link && !isLiveStar && (
-              <div className="flex border border-surface/20 bg-surface/5 rounded-sm p-0.5 overflow-hidden">
+              <div className="flex border border-surface/20 bg-surface/5 rounded-sm p-0.5 overflow-hidden" role="tablist" aria-label="Media View Options">
                 <button
+                  role="tab"
+                  aria-selected={mediaMode === 'image'}
+                  aria-pressed={mediaMode === 'image'}
+                  title="View Screenshot"
                   onClick={() => setMediaMode('image')}
-                  className={`px-2 py-0.5 font-mono text-[9px] uppercase tracking-wider rounded-sm transition-all flex items-center gap-1 cursor-pointer ${
+                  className={`px-2 py-0.5 font-mono text-[9px] uppercase tracking-wider rounded-sm transition-all flex items-center gap-1 cursor-pointer focus-visible:ring-2 focus-visible:outline-none ${
                     mediaMode === 'image' ? 'bg-surface text-text-main font-bold' : 'text-surface/50 hover:text-surface'
                   }`}
                 >
-                  <ImageIcon size={10} />
+                  <ImageIcon size={10} aria-hidden="true" />
                   Screenshot
                 </button>
                 <button
+                  role="tab"
+                  aria-selected={mediaMode === 'iframe'}
+                  aria-pressed={mediaMode === 'iframe'}
+                  title="View Live App"
                   onClick={() => setMediaMode('iframe')}
-                  className={`px-2 py-0.5 font-mono text-[9px] uppercase tracking-wider rounded-sm transition-all flex items-center gap-1 cursor-pointer ${
+                  className={`px-2 py-0.5 font-mono text-[9px] uppercase tracking-wider rounded-sm transition-all flex items-center gap-1 cursor-pointer focus-visible:ring-2 focus-visible:outline-none ${
                     mediaMode === 'iframe' ? 'bg-surface text-text-main font-bold' : 'text-surface/50 hover:text-surface'
                   }`}
                 >
-                  <Globe size={10} />
+                  <Globe size={10} aria-hidden="true" />
                   Live App
                 </button>
               </div>

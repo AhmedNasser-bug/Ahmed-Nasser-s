@@ -29,9 +29,9 @@ const Header: React.FC = () => {
             About
           </Link>
           <div className="w-[1px] h-4 bg-border-color/30 hidden md:block"></div>
-          {PROFILE.contact.github && <a className="hidden md:flex items-center gap-2 text-text-main hover:text-primary transition-colors" href={PROFILE.contact.github} target="_blank" rel="noreferrer" aria-label="GitHub"><Github size={16} /></a>}
-          {PROFILE.contact.linkedin && <a className="hidden md:flex items-center gap-2 text-text-main hover:text-primary transition-colors" href={PROFILE.contact.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn"><Linkedin size={16} /></a>}
-          <a className="text-surface bg-text-main hover:bg-primary px-4 py-2 hover:shadow-hard-hover transition-all -my-2 border border-border-color hidden md:block" href={location.pathname === '/' ? '#contact' : '/#contact'}>Contact</a>
+          {PROFILE.contact.github && <a className="hidden md:flex items-center gap-2 text-text-main hover:text-primary transition-colors focus-visible:ring-2 focus-visible:outline-none" href={PROFILE.contact.github} target="_blank" rel="noreferrer" aria-label="GitHub (opens in a new tab)" title="GitHub (opens in a new tab)"><Github size={16} aria-hidden="true" /></a>}
+          {PROFILE.contact.linkedin && <a className="hidden md:flex items-center gap-2 text-text-main hover:text-primary transition-colors focus-visible:ring-2 focus-visible:outline-none" href={PROFILE.contact.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn (opens in a new tab)" title="LinkedIn (opens in a new tab)"><Linkedin size={16} aria-hidden="true" /></a>}
+          <a className="text-surface bg-text-main hover:bg-primary px-4 py-2 hover:shadow-hard-hover transition-all -my-2 border border-border-color hidden md:block focus-visible:ring-2 focus-visible:outline-none" href={location.pathname === '/' ? '#contact' : '/#contact'}>Contact</a>
           
           <div className="md:hidden flex items-center gap-4">
              <Link to="/projects" className={`transition-colors ${location.pathname === '/projects' ? 'text-primary font-bold' : 'text-text-main'}`}>

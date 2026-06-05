@@ -69,17 +69,19 @@ const ProjectCarousel: React.FC = () => {
         {/* Navigation buttons */}
         <button
           onClick={handlePrev}
-          className="absolute left-2 top-1/2 -translate-y-1/2 bg-surface hover:bg-text-main hover:text-surface border border-border-color p-2 transition-all z-20 cursor-pointer shadow-hard"
+          className="absolute left-2 top-1/2 -translate-y-1/2 bg-surface hover:bg-text-main hover:text-surface border border-border-color p-2 transition-all z-20 cursor-pointer shadow-hard focus-visible:ring-2 focus-visible:outline-none"
           aria-label="Previous Project"
+          title="Previous Project"
         >
-          <ChevronLeft size={16} />
+          <ChevronLeft size={16} aria-hidden="true" />
         </button>
         <button
           onClick={handleNext}
-          className="absolute right-2 top-1/2 -translate-y-1/2 bg-surface hover:bg-text-main hover:text-surface border border-border-color p-2 transition-all z-20 cursor-pointer shadow-hard"
+          className="absolute right-2 top-1/2 -translate-y-1/2 bg-surface hover:bg-text-main hover:text-surface border border-border-color p-2 transition-all z-20 cursor-pointer shadow-hard focus-visible:ring-2 focus-visible:outline-none"
           aria-label="Next Project"
+          title="Next Project"
         >
-          <ChevronRight size={16} />
+          <ChevronRight size={16} aria-hidden="true" />
         </button>
       </div>
 
@@ -88,12 +90,16 @@ const ProjectCarousel: React.FC = () => {
         <p className="font-display italic text-base text-muted leading-relaxed">{CAROUSEL_ITEMS[current].description}</p>
         
         {/* Indicators */}
-        <div className="flex gap-2 mt-2 justify-end">
+        <div className="flex gap-2 mt-2 justify-end" role="tablist" aria-label="Project carousel tabs">
           {CAROUSEL_ITEMS.map((_, idx) => (
             <button
               key={idx}
+              role="tab"
+              aria-selected={idx === current}
+              aria-pressed={idx === current}
+              title={`View ${CAROUSEL_ITEMS[idx].title}`}
               onClick={() => setCurrent(idx)}
-              className={`w-3 h-3 border border-border-color transition-colors cursor-pointer ${
+              className={`w-3 h-3 border border-border-color transition-colors cursor-pointer focus-visible:ring-2 focus-visible:ring-offset-1 focus-visible:outline-none ${
                 idx === current ? 'bg-primary' : 'bg-surface'
               }`}
               aria-label={`Slide ${idx + 1}`}
