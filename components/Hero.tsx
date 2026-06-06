@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Github, Linkedin, Mail, Terminal, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { PROFILE } from '../constants';
 import ThreeBackground from './ThreeBackground';
+import { GSAPSplitText, GSAPMagnetic, GSAPReveal } from './gsap';
 
 interface CarouselItem {
   image: string;
@@ -69,14 +70,14 @@ const ProjectCarousel: React.FC = () => {
         {/* Navigation buttons */}
         <button
           onClick={handlePrev}
-          className="absolute left-2 top-1/2 -translate-y-1/2 bg-surface hover:bg-text-main hover:text-surface border border-border-color p-2 transition-all z-20 cursor-pointer shadow-hard"
+          className="absolute left-2 top-1/2 -translate-y-1/2 bg-surface hover:bg-text-main hover:text-surface border border-border-color p-2 transition-all z-20 cursor-pointer shadow-hard focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2"
           aria-label="Previous Project"
         >
           <ChevronLeft size={16} />
         </button>
         <button
           onClick={handleNext}
-          className="absolute right-2 top-1/2 -translate-y-1/2 bg-surface hover:bg-text-main hover:text-surface border border-border-color p-2 transition-all z-20 cursor-pointer shadow-hard"
+          className="absolute right-2 top-1/2 -translate-y-1/2 bg-surface hover:bg-text-main hover:text-surface border border-border-color p-2 transition-all z-20 cursor-pointer shadow-hard focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2"
           aria-label="Next Project"
         >
           <ChevronRight size={16} />
@@ -85,7 +86,7 @@ const ProjectCarousel: React.FC = () => {
 
       <div className="p-5 flex flex-col gap-2 min-h-[125px]">
         <h4 className="font-sans font-bold text-lg text-text-main tracking-tight">{CAROUSEL_ITEMS[current].title}</h4>
-        <p className="font-display italic text-base text-muted leading-relaxed">{CAROUSEL_ITEMS[current].description}</p>
+        <p className="font-display italic text-base text-text-main/80 leading-relaxed">{CAROUSEL_ITEMS[current].description}</p>
         
         {/* Indicators */}
         <div className="flex gap-2 mt-2 justify-end">
@@ -93,7 +94,7 @@ const ProjectCarousel: React.FC = () => {
             <button
               key={idx}
               onClick={() => setCurrent(idx)}
-              className={`w-3 h-3 border border-border-color transition-colors cursor-pointer ${
+              className={`w-3 h-3 border border-border-color transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 ${
                 idx === current ? 'bg-primary' : 'bg-surface'
               }`}
               aria-label={`Slide ${idx + 1}`}
@@ -116,36 +117,55 @@ const Hero: React.FC = () => {
             <main className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start py-10">
               <div className="flex flex-col gap-8" data-aos="fade-right">
                 <div className="space-y-4">
-                  <h3 className="font-mono text-sm uppercase tracking-widest text-primary">System Architect</h3>
+                  <h3 className="font-mono text-sm uppercase tracking-widest text-primary font-bold">
+                    <GSAPSplitText type="words" animation="slide-up">
+                      System Architect
+                    </GSAPSplitText>
+                  </h3>
                   <h1 className="font-sans font-semibold text-5xl md:text-6xl tracking-[-0.02em] leading-[1.1] text-text-main">
-                    Full-Stack &<br/>AI Engineer.
+                    <GSAPSplitText type="chars" animation="slide-up" delay={0.15}>
+                      Full-Stack &
+                    </GSAPSplitText>
+                    <br/>
+                    <GSAPSplitText type="chars" animation="slide-up" delay={0.35}>
+                      AI Engineer.
+                    </GSAPSplitText>
                   </h1>
                 </div>
-                <p className="font-display text-xl text-muted leading-relaxed max-w-md">
+                <p className="font-display text-xl text-text-main font-semibold leading-relaxed max-w-md">
                   {PROFILE.tagline}
                 </p>
                 <div className="flex flex-wrap gap-4 pt-4">
-                  <a href="#projects" className="flex items-center justify-center bg-text-main text-surface px-6 py-3 border border-border-color font-mono text-sm uppercase tracking-wide hover:-translate-y-[2px] hover:-translate-x-[2px] hover:shadow-hard-hover transition-all duration-200">
-                    View Work
-                  </a>
-                  <a href={`mailto:${PROFILE.contact.email}`} className="flex items-center justify-center bg-surface text-text-main px-6 py-3 border border-border-color font-mono text-sm uppercase tracking-wide shadow-hard hover:-translate-y-[2px] hover:-translate-x-[2px] hover:shadow-hard-hover hover:text-primary transition-all duration-200">
-                    Contact Me
-                  </a>
+                  <GSAPMagnetic strength={0.35} tolerance={55}>
+                    <a href="#projects" className="flex items-center justify-center bg-text-main text-surface px-6 py-3 border border-border-color font-mono text-sm uppercase tracking-wide hover:-translate-y-[2px] hover:-translate-x-[2px] hover:shadow-hard-hover transition-all duration-200 focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2">
+                      View Work
+                    </a>
+                  </GSAPMagnetic>
+                  <GSAPMagnetic strength={0.35} tolerance={55}>
+                    <a href={`mailto:${PROFILE.contact.email}`} className="flex items-center justify-center bg-surface text-text-main px-6 py-3 border border-border-color font-mono text-sm uppercase tracking-wide shadow-hard hover:-translate-y-[2px] hover:-translate-x-[2px] hover:shadow-hard-hover hover:text-primary transition-all duration-200 focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2">
+                      Contact Me
+                    </a>
+                  </GSAPMagnetic>
                 </div>
               </div>
 
               <div className="flex flex-col gap-6" data-aos="fade-left" data-aos-delay="200">
                 <div className="border-b-2 border-border-color pb-2">
                   <h2 className="font-display italic text-3xl md:text-4xl font-extrabold tracking-tight text-text-main leading-tight">
-                    Build Anything <span className="text-primary not-italic">Faster</span> and <span className="text-primary not-italic">Safer</span>
+                    <GSAPSplitText type="words" animation="slide-up" delay={0.25}>
+                      Build Anything Faster and Safer
+                    </GSAPSplitText>
                   </h2>
                 </div>
                 
-                {/* Project Scroller Carousel */}
-                <ProjectCarousel />
+                {/* Reveal panel mask on the project carousel */}
+                <GSAPReveal direction="right" duration={1.1} delay={0.1}>
+                  <div>
+                    <ProjectCarousel />
+                  </div>
+                </GSAPReveal>
               </div>
             </main>
-
 
           </div>
         </div>

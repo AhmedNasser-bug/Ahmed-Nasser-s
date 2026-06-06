@@ -25,29 +25,7 @@ const ThreeBackground: React.FC = () => {
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
     container.appendChild(renderer.domElement);
 
-    // 3. Programmatic Canvas Texture for Soft Glowing Particles (Zero-Network Request)
-    const createCircleTexture = () => {
-      const canvas = document.createElement('canvas');
-      canvas.width = 32;
-      canvas.height = 32;
-      const ctx = canvas.getContext('2d');
-      if (ctx) {
-        const gradient = ctx.createRadialGradient(16, 16, 0, 16, 16, 16);
-        // Soft glowing circular profile matching primary indigo brand colors
-        gradient.addColorStop(0, 'rgba(255, 255, 255, 1.0)');
-        gradient.addColorStop(0.2, 'rgba(129, 140, 248, 0.9)'); // Indigo accent
-        gradient.addColorStop(0.5, 'rgba(55, 48, 163, 0.4)');   // Primary brand
-        gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
-        ctx.fillStyle = gradient;
-        ctx.fillRect(0, 0, 32, 32);
-      }
-      const texture = new THREE.CanvasTexture(canvas);
-      return texture;
-    };
-
-    const circleTexture = createCircleTexture();
-
-    // 4. Initialize Particle Array Data (120 nodes for smooth density)
+    // 3. Initialize Particle Array Data (120 nodes for smooth density)
     const particleCount = 120;
     interface NodeParticle {
       x: number;
@@ -62,7 +40,6 @@ const ThreeBackground: React.FC = () => {
     }
 
     const particles: NodeParticle[] = [];
-    const pointPositions = new Float32Array(particleCount * 3);
 
     for (let i = 0; i < particleCount; i++) {
       const x = (Math.random() - 0.5) * 80;
@@ -80,27 +57,7 @@ const ThreeBackground: React.FC = () => {
         baseVy: vy,
         baseVz: vz
       });
-
-      pointPositions[i * 3] = x;
-      pointPositions[i * 3 + 1] = y;
-      pointPositions[i * 3 + 2] = z;
     }
-
-    // Points Geometry & Material
-    const pointsGeometry = new THREE.BufferGeometry();
-    pointsGeometry.setAttribute('position', new THREE.BufferAttribute(pointPositions, 3));
-
-    const pointsMaterial = new THREE.PointsMaterial({
-      size: 1.8,
-      sizeAttenuation: true,
-      map: circleTexture,
-      transparent: true,
-      blending: THREE.AdditiveBlending,
-      depthWrite: false
-    });
-
-    const pointCloud = new THREE.Points(pointsGeometry, pointsMaterial);
-    scene.add(pointCloud);
 
     // 5. Pre-allocate Buffer for Constellation Lines (Performance Hygiene: Prevents memory allocation cycles)
     const maxLines = 350;
@@ -154,10 +111,8 @@ const ThreeBackground: React.FC = () => {
       const mouse3D = new THREE.Vector3(mouseX * 40, mouseY * 25, 0);
       targetMouse.lerp(mouse3D, 0.08); // smooth interpolation
 
-      const positions = pointsGeometry.attributes.position.array as Float32Array;
-
       // Update Particle Physics & Mouse Repulsion
-      particles.forEach((p, idx) => {
+      particles.forEach((p) => {
         // Subtle drift movement
         p.x += p.vx;
         p.y += p.vy;
@@ -195,13 +150,7 @@ const ThreeBackground: React.FC = () => {
         if (p.z < -45) p.vz *= -1;
         if (p.z > 15) p.vz *= -1;
 
-        // Update positions buffer
-        positions[idx * 3] = p.x;
-        positions[idx * 3 + 1] = p.y;
-        positions[idx * 3 + 2] = p.z;
       });
-
-      pointsGeometry.attributes.position.needsUpdate = true;
 
       // Compute Constellation Lines (O(N) visual range check)
       let lineCount = 0;
@@ -289,11 +238,8 @@ const ThreeBackground: React.FC = () => {
       }
 
       // Dispose all geometry and materials
-      pointsGeometry.dispose();
-      pointsMaterial.dispose();
       lineGeometry.dispose();
       lineMaterial.dispose();
-      circleTexture.dispose();
       renderer.dispose();
     };
   }, []);

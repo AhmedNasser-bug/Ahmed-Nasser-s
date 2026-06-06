@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Lenis from 'lenis';
 import Header from './components/Header';
@@ -12,6 +12,7 @@ import ProjectsPage from './components/ProjectsPage';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ui/ScrollToTop';
+import Preloader from './components/ui/Preloader';
 
 const Home = () => (
   <div className="animate-page-in">
@@ -26,8 +27,16 @@ const Home = () => (
 
 const App: React.FC = () => {
   const location = useLocation();
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    // Prevent scroll initialization and AOS bindings until loading completes
+    if (isLoading) {
+      document.body.style.overflow = 'hidden';
+      return;
+    }
+    document.body.style.overflow = '';
+
     // Initialize Lenis for premium smooth scrolling
     const lenis = new Lenis({
       duration: 1.2,
@@ -74,19 +83,29 @@ const App: React.FC = () => {
       lenis.destroy();
       cancelAnimationFrame(rafId);
     };
-  }, [location.pathname]); // Re-initialize or handle scroll on route change
+  }, [location.pathname, isLoading]); // Re-run when pathname changes or loading completes
 
   return (
-    <main className="min-h-screen overflow-x-hidden">
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/projects" element={<ProjectsPage />} />
-      </Routes>
-      <Footer />
-      <ScrollToTop />
-    </main>
+    <>
+      {/* 1. Neobrutalist Page Preloader */}
+      <Preloader onComplete={() => setIsLoading(false)} />
+
+      {/* 2. Main application wrapper with smooth entrance transition */}
+      <main 
+        className={`min-h-screen overflow-x-hidden transition-opacity duration-1000 ease-in-out ${
+          isLoading ? 'opacity-0 max-h-screen overflow-hidden' : 'opacity-100'
+        }`}
+      >
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/projects" element={<ProjectsPage />} />
+        </Routes>
+        <Footer />
+        <ScrollToTop />
+      </main>
+    </>
   );
 };
 

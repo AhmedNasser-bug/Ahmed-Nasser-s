@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Search, Compass, Cpu, Layers, ShieldCheck, ArrowRight, Activity } from 'lucide-react';
 import ScrollPaintStroke from './ui/ScrollPaintStroke';
+import { GSAPSplitText, GSAPMagnetic, GSAPTilt } from './gsap';
 
 // High-fidelity Inline Text Highlight component (Neobrutalist tag)
 const Highlight: React.FC<{ children: React.ReactNode }> = ({ children }) => (
@@ -553,7 +554,10 @@ const ProcessTimeline: React.FC = () => {
             {/* Section Header */}
             <div className="mb-6 border-b border-border-color pb-4">
               <h2 className="font-display italic text-3xl md:text-5xl font-extrabold tracking-tight text-text-main">
-                How I Engineer <ScrollPaintStroke>Time, Safety, and Cost</ScrollPaintStroke>
+                <GSAPSplitText type="words" animation="slide-up">
+                  How I Engineer
+                </GSAPSplitText>{' '}
+                <ScrollPaintStroke>Time, Safety, and Cost</ScrollPaintStroke>
               </h2>
               <p className="font-mono text-sm text-primary font-bold mt-2.5 uppercase tracking-widest">
                 The System Orchestrator's Lifecycle {isLocked && "• (LOCKED)"}
@@ -571,54 +575,55 @@ const ProcessTimeline: React.FC = () => {
                   {PROCESS_STEPS.map((step, idx) => {
                     const isStepActive = activeStep === idx;
                     return (
-                      <button
-                        key={step.id}
-                        onClick={() => handleStepClick(idx)}
-                        className={`text-left p-3.5 border transition-all duration-300 flex items-start gap-4 shadow-hard hover:shadow-hard-hover cursor-pointer relative group focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 ${
-                          isStepActive 
-                            ? 'border-2 border-primary bg-surface -translate-y-[2px] -translate-x-[2px] shadow-hard-hover' 
-                            : 'border-border-color/30 bg-surface/75 hover:bg-background-light'
-                        }`}
-                      >
-                        {/* Neobrutalist left border stripe on active step button */}
-                        {isStepActive && (
-                          <div className="absolute left-0 top-0 bottom-0 w-2 bg-primary" />
-                        )}
+                      <GSAPMagnetic key={step.id} strength={0.18} tolerance={30} className="w-full">
+                        <button
+                          onClick={() => handleStepClick(idx)}
+                          className={`w-full text-left p-3.5 border transition-all duration-300 flex items-start gap-4 shadow-hard hover:shadow-hard-hover cursor-pointer relative group focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 ${
+                            isStepActive 
+                              ? 'border-2 border-primary bg-surface -translate-y-[2px] -translate-x-[2px] shadow-hard-hover' 
+                              : 'border-border-color/30 bg-surface/75 hover:bg-background-light'
+                          }`}
+                        >
+                          {/* Neobrutalist left border stripe on active step button */}
+                          {isStepActive && (
+                            <div className="absolute left-0 top-0 bottom-0 w-2 bg-primary" />
+                          )}
 
-                        {/* Neobrutalist square active indicator tag */}
-                        {isStepActive && (
-                          <div className="absolute top-2 right-2 w-2.5 h-2.5 bg-primary border border-text-main animate-pulse" />
-                        )}
+                          {/* Neobrutalist square active indicator tag */}
+                          {isStepActive && (
+                            <div className="absolute top-2 right-2 w-2.5 h-2.5 bg-primary border border-text-main animate-pulse" />
+                          )}
 
-                        <div className={`p-1.5 border border-border-color transition-colors ${
-                          isStepActive ? 'bg-primary text-surface' : 'bg-background-light text-text-main'
-                        }`}>
-                          {step.icon}
-                        </div>
-                        
-                        <div className="flex-1 min-w-0">
-                          <div className="flex items-center justify-between">
-                            <span className={`font-mono text-xs font-bold ${isStepActive ? 'text-primary' : 'text-text-main'}`}>
-                              STEP 0{step.id}
-                            </span>
-                            <span className="font-mono text-[10px] uppercase bg-background-light border border-border-color px-2 py-0.5 text-text-main font-bold relative">
-                              {isStepActive ? (
-                                <ScrollPaintStroke active={true} color="text-primary">
-                                  {step.metric}
-                                </ScrollPaintStroke>
-                              ) : (
-                                step.metric
-                              )}
-                            </span>
+                          <div className={`p-1.5 border border-border-color transition-colors ${
+                            isStepActive ? 'bg-primary text-surface' : 'bg-background-light text-text-main'
+                          }`}>
+                            {step.icon}
                           </div>
-                          <h4 className="font-sans font-extrabold text-base text-text-main mt-0.5 group-hover:text-primary transition-colors">
-                            {step.title}
-                          </h4>
-                          <p className="font-display italic text-xs text-text-main font-semibold mt-0.5 leading-normal truncate">
-                            {step.subtitle}
-                          </p>
-                        </div>
-                      </button>
+                          
+                          <div className="flex-1 min-w-0">
+                            <div className="flex items-center justify-between">
+                              <span className={`font-mono text-xs font-bold ${isStepActive ? 'text-primary' : 'text-text-main'}`}>
+                                STEP 0{step.id}
+                              </span>
+                              <span className="font-mono text-[10px] uppercase bg-background-light border border-border-color px-2 py-0.5 text-text-main font-bold relative">
+                                {isStepActive ? (
+                                  <ScrollPaintStroke active={true} color="text-primary">
+                                    {step.metric}
+                                  </ScrollPaintStroke>
+                                ) : (
+                                  step.metric
+                                )}
+                              </span>
+                            </div>
+                            <h4 className="font-sans font-extrabold text-base text-text-main mt-0.5 group-hover:text-primary transition-colors">
+                              {step.title}
+                            </h4>
+                            <p className="font-display italic text-xs text-text-main font-semibold mt-0.5 leading-normal truncate">
+                              {step.subtitle}
+                            </p>
+                          </div>
+                        </button>
+                      </GSAPMagnetic>
                     );
                   })}
                 </div>
@@ -678,102 +683,104 @@ const ProcessTimeline: React.FC = () => {
                 </div>
 
                 {/* AI Orchestration Flowchart Visualization */}
-                <div className="border-2 border-border-color bg-surface shadow-hard p-4 flex flex-col gap-3 relative">
-                  <div className="border-b border-border-color pb-2 flex items-center justify-between">
-                    <h4 className="font-mono text-[11px] uppercase tracking-wider text-text-main flex items-center gap-2 font-bold">
-                      <Activity className="w-3.5 h-3.5 text-primary animate-pulse" />
-                      AI Orchestration Team Blueprint
-                    </h4>
-                    <span className="font-mono text-[9px] bg-primary/10 border border-primary/20 px-2 py-0.5 text-primary font-bold uppercase">
-                      Reference Workflow
-                    </span>
+                <GSAPTilt maxTilt={10} perspective={900}>
+                  <div className="border-2 border-border-color bg-surface shadow-hard p-4 flex flex-col gap-3 relative">
+                    <div className="border-b border-border-color pb-2 flex items-center justify-between">
+                      <h4 className="font-mono text-[11px] uppercase tracking-wider text-text-main flex items-center gap-2 font-bold">
+                        <Activity className="w-3.5 h-3.5 text-primary animate-pulse" />
+                        AI Orchestration Team Blueprint
+                      </h4>
+                      <span className="font-mono text-[9px] bg-primary/10 border border-primary/20 px-2 py-0.5 text-primary font-bold uppercase">
+                        Reference Workflow
+                      </span>
+                    </div>
+
+                    {/* Nodes Grid representing the blueprint pipeline */}
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 text-center text-xs font-mono">
+                      <div className={getNodeClass('project-mgr')}>
+                        {isNodeActive('project-mgr') && (
+                          <div className="absolute top-1 right-1 w-1.5 h-1.5 bg-primary border border-text-main animate-pulse" />
+                        )}
+                        <div className="text-[9px] text-primary font-semibold mb-0.5">Product</div>
+                        <div className="font-bold text-[11px]">Project Mgr</div>
+                      </div>
+                      
+                      <div className={getNodeClass('stitch-designer')}>
+                        {isNodeActive('stitch-designer') && (
+                          <div className="absolute top-1 right-1 w-1.5 h-1.5 bg-primary border border-text-main animate-pulse" />
+                        )}
+                        <div className="text-[9px] text-primary font-semibold mb-0.5">UI/UX</div>
+                        <div className="font-bold text-[11px]">Stitch Designer</div>
+                      </div>
+
+                      <div className={getNodeClass('ai-studio')}>
+                        {isNodeActive('ai-studio') && (
+                          <div className="absolute top-1 right-1 w-1.5 h-1.5 bg-primary border border-text-main animate-pulse" />
+                        )}
+                        <div className="text-[9px] text-primary font-semibold mb-0.5">Builder</div>
+                        <div className="font-bold text-[11px]">AI Studio</div>
+                      </div>
+
+                      <div className={getNodeClass('engineering-mgr')}>
+                        {isNodeActive('engineering-mgr') && (
+                          <div className="absolute top-1 right-1 w-1.5 h-1.5 bg-primary border border-text-main animate-pulse" />
+                        )}
+                        <div className="text-[9px] text-primary font-semibold mb-0.5">Quality</div>
+                        <div className="font-bold text-[11px]">Engineering Mgr</div>
+                      </div>
+                    </div>
+
+                    {/* Flow Arrow Indicator */}
+                    <div className="flex justify-center my-0 transition-all duration-300">
+                      <svg 
+                        className={`w-5 h-5 transition-all duration-300 ${
+                          isArrowActive 
+                            ? 'text-primary scale-110 stroke-[2.5px] animate-bounce' 
+                            : 'text-text-main stroke-2'
+                        }`} 
+                        fill="none" 
+                        viewBox="0 0 24 24" 
+                        stroke="currentColor"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                      </svg>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-center text-xs font-mono">
+                      
+                      {/* Active Developer Agent */}
+                      <div className={getNodeClass('antigravity-agent')}>
+                        {isNodeActive('antigravity-agent') && (
+                          <div className="absolute top-1 right-1 w-1.5 h-1.5 bg-primary border border-text-main animate-pulse" />
+                        )}
+                        <div className="text-[9px] text-primary font-semibold mb-0.5">Active Coder</div>
+                        <div className="text-[11px]">Antigravity Agent</div>
+                      </div>
+
+                      {/* Chrome DevTools */}
+                      <div className={getNodeClass('chrome-devtools')}>
+                        {isNodeActive('chrome-devtools') && (
+                          <div className="absolute top-1 right-1 w-1.5 h-1.5 bg-primary border border-text-main animate-pulse" />
+                        )}
+                        <div className="text-[9px] text-primary font-semibold mb-0.5">Testing Pipeline</div>
+                        <div className="text-[11px]">Chrome DevTools</div>
+                      </div>
+
+                      {/* Jules Suggestions */}
+                      <div className={getNodeClass('jules-suggestions')}>
+                        {isNodeActive('jules-suggestions') && (
+                          <div className="absolute top-1 right-1 w-1.5 h-1.5 bg-primary border border-text-main animate-pulse" />
+                        )}
+                        <div className="text-[9px] text-primary font-semibold mb-0.5">Feedback Loop</div>
+                        <div className="text-[11px]">Jules suggestions</div>
+                      </div>
+                    </div>
+
+                    <p className="font-display italic text-[11px] text-text-main font-semibold text-center mt-1 leading-relaxed">
+                      By feeding highly detailed specs to the Antigravity Agent, the code is auto-submitted, manually and robotically checked in Chrome, and finalized with Jules suggestions, ensuring a flawless production lifecycle.
+                    </p>
                   </div>
-
-                  {/* Nodes Grid representing the blueprint pipeline */}
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 text-center text-xs font-mono">
-                    <div className={getNodeClass('project-mgr')}>
-                      {isNodeActive('project-mgr') && (
-                        <div className="absolute top-1 right-1 w-1.5 h-1.5 bg-primary border border-text-main animate-pulse" />
-                      )}
-                      <div className="text-[9px] text-primary font-semibold mb-0.5">Product</div>
-                      <div className="font-bold text-[11px]">Project Mgr</div>
-                    </div>
-                    
-                    <div className={getNodeClass('stitch-designer')}>
-                      {isNodeActive('stitch-designer') && (
-                        <div className="absolute top-1 right-1 w-1.5 h-1.5 bg-primary border border-text-main animate-pulse" />
-                      )}
-                      <div className="text-[9px] text-primary font-semibold mb-0.5">UI/UX</div>
-                      <div className="font-bold text-[11px]">Stitch Designer</div>
-                    </div>
-
-                    <div className={getNodeClass('ai-studio')}>
-                      {isNodeActive('ai-studio') && (
-                        <div className="absolute top-1 right-1 w-1.5 h-1.5 bg-primary border border-text-main animate-pulse" />
-                      )}
-                      <div className="text-[9px] text-primary font-semibold mb-0.5">Builder</div>
-                      <div className="font-bold text-[11px]">AI Studio</div>
-                    </div>
-
-                    <div className={getNodeClass('engineering-mgr')}>
-                      {isNodeActive('engineering-mgr') && (
-                        <div className="absolute top-1 right-1 w-1.5 h-1.5 bg-primary border border-text-main animate-pulse" />
-                      )}
-                      <div className="text-[9px] text-primary font-semibold mb-0.5">Quality</div>
-                      <div className="font-bold text-[11px]">Engineering Mgr</div>
-                    </div>
-                  </div>
-
-                  {/* Flow Arrow Indicator */}
-                  <div className="flex justify-center my-0 transition-all duration-300">
-                    <svg 
-                      className={`w-5 h-5 transition-all duration-300 ${
-                        isArrowActive 
-                          ? 'text-primary scale-110 stroke-[2.5px] animate-bounce' 
-                          : 'text-text-main stroke-2'
-                      }`} 
-                      fill="none" 
-                      viewBox="0 0 24 24" 
-                      stroke="currentColor"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-                    </svg>
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-center text-xs font-mono">
-                    
-                    {/* Active Developer Agent */}
-                    <div className={getNodeClass('antigravity-agent')}>
-                      {isNodeActive('antigravity-agent') && (
-                        <div className="absolute top-1 right-1 w-1.5 h-1.5 bg-primary border border-text-main animate-pulse" />
-                      )}
-                      <div className="text-[9px] text-primary font-semibold mb-0.5">Active Coder</div>
-                      <div className="text-[11px]">Antigravity Agent</div>
-                    </div>
-
-                    {/* Chrome DevTools */}
-                    <div className={getNodeClass('chrome-devtools')}>
-                      {isNodeActive('chrome-devtools') && (
-                        <div className="absolute top-1 right-1 w-1.5 h-1.5 bg-primary border border-text-main animate-pulse" />
-                      )}
-                      <div className="text-[9px] text-primary font-semibold mb-0.5">Testing Pipeline</div>
-                      <div className="text-[11px]">Chrome DevTools</div>
-                    </div>
-
-                    {/* Jules Suggestions */}
-                    <div className={getNodeClass('jules-suggestions')}>
-                      {isNodeActive('jules-suggestions') && (
-                        <div className="absolute top-1 right-1 w-1.5 h-1.5 bg-primary border border-text-main animate-pulse" />
-                      )}
-                      <div className="text-[9px] text-primary font-semibold mb-0.5">Feedback Loop</div>
-                      <div className="text-[11px]">Jules suggestions</div>
-                    </div>
-                  </div>
-
-                  <p className="font-display italic text-[11px] text-text-main font-semibold text-center mt-1 leading-relaxed">
-                    By feeding highly detailed specs to the Antigravity Agent, the code is auto-submitted, manually and robotically checked in Chrome, and finalized with Jules suggestions, ensuring a flawless production lifecycle.
-                  </p>
-                </div>
+                </GSAPTilt>
 
               </div>
 
