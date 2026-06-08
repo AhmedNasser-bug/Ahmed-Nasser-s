@@ -7,30 +7,36 @@
 ```mermaid
 graph LR
   classDef hub fill:#2d0022,stroke:#ff00aa,color:#fff
-  classDef newComp fill:#0d2137,stroke:#4ecdc4,color:#fff
+  classDef orphan fill:#1a1a00,stroke:#aaaa00,color:#fff
+  classDef circular stroke:#ff0000,stroke-width:3px
 
-  App[App.tsx]
-  ProjectsPage[components/ProjectsPage.tsx]
-  GithubCarousel[components/GithubCarousel.tsx]:::newComp
-  
-  constants[constants.tsx]:::hub
-  types[types.ts]
-  
-  GSAPTilt[components/gsap/GSAPTilt.tsx]
-  GSAPMagnetic[components/gsap/GSAPMagnetic.tsx]
-  GSAPReveal[components/gsap/GSAPReveal.tsx]
-  
-  App --> ProjectsPage
-  ProjectsPage --> constants
-  ProjectsPage --> GithubCarousel
-  GithubCarousel --> GSAPTilt
-  GithubCarousel --> GSAPMagnetic
-  GithubCarousel --> GSAPReveal
-  constants --> types
+  INDEX[src/index.tsx]
+  APP[src/App.tsx]
+  CONSTANTS[src/constants.tsx]:::hub
+  TYPES[src/types.ts]
+  GSAP[src/components/gsap/index.ts]:::hub
+
+  INDEX --> APP
+  APP --> HEADER[components/Header]
+  APP --> HERO[components/Hero]
+  APP --> SKILLS[components/Skills]
+  APP --> TIMELINE[components/ProcessTimeline]
+  APP --> ABOUT_PREV[components/About]
+  APP --> ABOUT_PAGE[components/AboutPage]
+  APP --> PROJECTS[components/Projects]
+  APP --> PROJECTS_PAGE[components/ProjectsPage]
+  APP --> CONTACT[components/Contact]
+  APP --> FOOTER[components/Footer]
+  APP --> PRELOADER[components/ui/Preloader]
+  APP --> SCROLL_TOP[components/ui/ScrollToTop]
+
+  HERO & SKILLS & TIMELINE & ABOUT_PREV & ABOUT_PAGE & PROJECTS & PROJECTS_PAGE & CONTACT --> CONSTANTS
+  HERO & SKILLS & TIMELINE & ABOUT_PREV & ABOUT_PAGE & PROJECTS & PROJECTS_PAGE & CONTACT --> GSAP
+  PROJECTS & PROJECTS_PAGE & ABOUT_PAGE --> TYPES
 ```
 
 ## Analysis Notes
 
-- **Circular dependencies:** None.
-- **Hub nodes:** `constants.tsx` remains the single source of truth for portfolio profile, timeline, skills, and projects data.
-- **New component:** `GithubCarousel.tsx` isolates the GitHub projects slider to avoid cluttering `ProjectsPage.tsx`.
+- **Circular dependencies:** None identified.
+- **Hub nodes:** `src/constants.tsx` and `src/components/gsap/index.ts` are primary hubs imported by multiple components.
+- **Orphans:** None identified.

@@ -6,45 +6,56 @@
 
 ```mermaid
 graph TD
-  subgraph "User Interface & Pages"
-    Home["Home (/)"]
-    About["AboutPage (/about)"]
-    Projects["ProjectsPage (/projects)"]
+  subgraph "User & Entry"
+    USER[User / Browser]
+    HTML[index.html]
+    INDEX_TSX[src/index.tsx]
+    APP_TSX[src/App.tsx]
   end
 
-  subgraph "Shared UI Components"
-    Header
-    Footer
-    Preloader
-    ThreeBackground
+  subgraph "Pages & Sections"
+    HOME[Home Component]
+    ABOUT_PAGE[AboutPage]
+    PROJECTS_PAGE[ProjectsPage]
   end
 
-  subgraph "GSAP Core Animation Wrapper Libraries"
-    GSAPReveal["GSAPReveal (components/gsap/GSAPReveal.tsx)"]
-    GSAPTilt["GSAPTilt (components/gsap/GSAPTilt.tsx)"]
-    GSAPMagnetic["GSAPMagnetic (components/gsap/GSAPMagnetic.tsx)"]
-    GSAPSplitText["GSAPSplitText (components/gsap/GSAPSplitText.tsx)"]
+  subgraph "Home Page Subcomponents"
+    HERO[Hero]
+    SKILLS[Skills]
+    TIMELINE[ProcessTimeline]
+    ABOUT_PREV[AboutPreview]
+    PROJECTS_PREV[Projects]
+    CONTACT[Contact]
   end
 
-  subgraph "GitHub Labs Carousel Subsystem [NEW]"
-    GithubCarousel["GithubCarousel (components/GithubCarousel.tsx)"]
+  subgraph "Shared Infrastructure"
+    CONSTANTS[src/constants.tsx]
+    TYPES[src/types.ts]
+    CSS[src/index.css]
+    THREE_BG[ThreeBackground]
+    GSAP_LIB[GSAP Animation Library Components]
   end
 
-  Home --> Header
-  Home --> Footer
-  Home --> ThreeBackground
-  About --> Header
-  About --> Footer
-  Projects --> Header
-  Projects --> Footer
-  Projects --> GithubCarousel
-  
-  GithubCarousel --> GSAPTilt
-  GithubCarousel --> GSAPMagnetic
-  GithubCarousel --> GSAPReveal
+  USER --> HTML
+  HTML --> INDEX_TSX
+  INDEX_TSX --> APP_TSX
+  APP_TSX --> HOME
+  APP_TSX --> ABOUT_PAGE
+  APP_TSX --> PROJECTS_PAGE
+
+  HOME --> HERO
+  HOME --> SKILLS
+  HOME --> TIMELINE
+  HOME --> ABOUT_PREV
+  HOME --> PROJECTS_PREV
+  HOME --> CONTACT
+
+  HERO & SKILLS & TIMELINE & ABOUT_PREV & PROJECTS_PREV & CONTACT & ABOUT_PAGE & PROJECTS_PAGE --> CONSTANTS
+  HERO & SKILLS & TIMELINE & ABOUT_PREV & PROJECTS_PREV & CONTACT & ABOUT_PAGE & PROJECTS_PAGE --> GSAP_LIB
+  INDEX_TSX & APP_TSX --> CSS
 ```
 
 ## Analysis Notes
 
-- **Critical paths:** The new `GithubCarousel` is embedded inside `ProjectsPage.tsx` at the bottom, which is snap-scrolled. It leverages `GSAPTilt`, `GSAPMagnetic`, and `GSAPReveal` for modern neobrutalist interactions.
-- **Risk areas:** Lenis scrolling and CSS snap scroll could conflict if horizontal scrolling pins the view using GSAP ScrollTrigger. By utilizing an interactive draggable/clickable strip, we eliminate snap scroll conflicts.
+- **Critical paths:** The routing path from `src/index.tsx` -> `src/App.tsx` which renders the active page.
+- **Risk areas:** Proper resource loading and routing setup when moving files under `src/`.

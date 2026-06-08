@@ -17,7 +17,7 @@ const FEATURED_PROJECTS: FeaturedProject[] = [
   {
     title: "Finals-Qb Quiz Platform",
     subtitle: "A System that Scales Infinitely",
-    image: "/finals_qb_preview.png",
+    image: "/src/assets/finals-qb.png",
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "shadcn/ui", "Zod Validation", "Metacognitive Monitoring"],
     pitch: "An educational quiz platform designed for maximum throughput and zero architectural drift. Built with Strategy Patterns for game modes, strict Zod schema validation boundaries for adapters, a Polymorphic Render Registry for question displays, and a Diagnostic Evaluation Engine to optimize learning rates dynamically.",
     link: "https://finals-qb.vercel.app/"
@@ -25,7 +25,7 @@ const FEATURED_PROJECTS: FeaturedProject[] = [
   {
     title: "Live Star Agency Landing Page",
     subtitle: "Strategic Business Case & CRO Multiplier",
-    image: "/livestar_preview.png",
+    image: "/src/assets/livestar.png",
     tech: ["React", "Framer Motion", "Tailwind CSS", "Vite", "Lenis Scroll"],
     pitch: "A conversion rate optimization (CRO) engine built after analyzing 135+ pages of regional market constraints. Engineered to double baseline conversion rates (2.5% to 5.0%), halving acquisition costs (CPL down to 100 EGP) on a fixed 50k EGP budget, while completely bypassing annual CMS maintenance fees.",
     link: "https://livestar.agency"
@@ -33,7 +33,7 @@ const FEATURED_PROJECTS: FeaturedProject[] = [
   {
     title: "DVLD Licensing System",
     subtitle: "Handmade Giant Full-Stack Solution",
-    image: "/dvld_preview.png",
+    image: "/src/assets/dvld_preview.png",
     tech: ["C# .NET 4.7", "SQL Server", "ADO.NET", "T-SQL", "Desktop/WinForms"],
     pitch: "A comprehensive, high-integrity Driver and Vehicle Licensing Department platform engineered from scratch. Manages 10+ core administrative licensing workflows (from vision tests and theory exams to international permits). Implements strict transactional safety, relational integrity, and custom database telemetry.",
   }

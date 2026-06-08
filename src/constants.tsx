@@ -220,3 +220,30 @@ export const AWARDS = [
     description: "Secured 1st place at University ranking. Assisted team with study materials and advanced algorithm problem solving."
   }
 ];
+
+export const GITHUB_PROJECTS: Project[] = [
+  {
+    title: "DVLD Licensing System",
+    category: "Systems & Security",
+    tech: ["C#", ".NET 4.7", "SQL Server", "T-SQL", "WinForms", "ADO.NET", "Windows Logging"],
+    description: "A comprehensive, high-integrity Driver and Vehicle Licensing Department platform. Manages 10+ core administrative licensing workflows (from vision tests and theory exams to international permits) with strict transactional safety.",
+    highlights: ["10+ Administrative Workflows", "Transactional ACID Safety", "Custom Data Access layer", "Three-Tier Architecture"],
+    link: "https://github.com/AhmedNasser-bug/DVLD-System-Project"
+  },
+  {
+    title: "Algorithm Analysis",
+    category: "Data Structures & Benchmarking",
+    tech: ["C#", ".NET Framework", "Windows Forms GUI", "Multiprogramming & Threads", "Performance Profiling"],
+    description: "A desktop application for analyzing and visualizing algorithm performance through an intuitive GUI, running custom benchmarks on different dataset sizes.",
+    highlights: ["Interactive GUI Step Execution", "Custom Performance Benchmarking", "Data Size Efficiency Comparison", "Extensible Algorithm Registry"],
+    link: "https://github.com/AhmedNasser-bug/Algorithm-Analysis"
+  },
+  {
+    title: "Algorithmic Game Solver",
+    category: "Artificial Intelligence & Search",
+    tech: ["Python", "Tkinter", "CustomTkinter", "Graph Algorithms", "Heuristic Search Models"],
+    description: "Python-based system utilizing reusable pathfinding search algorithms (DLS, BFS, IDDFS, HillClimb) to solve Sudoku, 8-Queens, and Maze games via a unified Graph state interface.",
+    highlights: ["Sudoku Graph Solver (BFS)", "8-Queens Board Search", "Maze Pathfinding Visualization", "Unified Graph Search Interface"],
+    link: "https://github.com/AhmedNasser-bug/Algorithmic-Game-solver"
+  }
+];
