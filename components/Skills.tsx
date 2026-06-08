@@ -29,7 +29,7 @@ const Skills: React.FC = () => {
                   <div key={idx} className="bg-surface flex flex-col h-full">
                     <div className="bg-text-main text-surface font-mono text-[13px] uppercase px-4 py-2 flex items-center justify-between">
                       <span>{category.name}</span>
-                      <Icon size={16} />
+                      <Icon size={16} aria-hidden="true" />
                     </div>
                     <ul className="flex flex-col flex-1 p-0">
                       {category.skills.map((skill, sIdx) => (
