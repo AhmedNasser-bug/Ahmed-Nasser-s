@@ -37,27 +37,34 @@ const App: React.FC = () => {
     }
     document.body.style.overflow = '';
 
-    // Initialize Lenis for premium smooth scrolling
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      orientation: 'vertical',
-      gestureOrientation: 'vertical',
-      smoothWheel: true,
-      wheelMultiplier: 1,
-      touchMultiplier: 2,
-    });
-
-    (window as any).lenis = lenis;
-
+    // Respect prefers-reduced-motion for smooth scrolling
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let lenis: any = null;
     let rafId: number;
 
-    function raf(time: number) {
-      lenis.raf(time);
-      rafId = requestAnimationFrame(raf);
-    }
+    if (!prefersReducedMotion) {
+      // Initialize Lenis for premium smooth scrolling
+      lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        orientation: 'vertical',
+        gestureOrientation: 'vertical',
+        smoothWheel: true,
+        wheelMultiplier: 1,
+        touchMultiplier: 2,
+      });
 
-    rafId = requestAnimationFrame(raf);
+      (window as any).lenis = lenis;
+
+      function raf(time: number) {
+        lenis.raf(time);
+        rafId = requestAnimationFrame(raf);
+      }
+
+      rafId = requestAnimationFrame(raf);
+    } else {
+      (window as any).lenis = null;
+    }
 
     // Initialize AOS after component mount to ensure elements exist in DOM
     const AOS = (window as any).AOS;
@@ -80,19 +87,31 @@ const App: React.FC = () => {
     window.scrollTo({ top: 0, behavior: 'instant' });
 
     return () => {
-      lenis.destroy();
-      cancelAnimationFrame(rafId);
+      if (lenis) {
+        lenis.destroy();
+        cancelAnimationFrame(rafId);
+      }
     };
   }, [location.pathname, isLoading]); // Re-run when pathname changes or loading completes
 
   return (
     <>
+      {/* Skip to content link for accessibility */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:z-[9999] focus:p-4 focus:bg-surface focus:text-primary focus:font-bold focus:border-2 focus:border-primary focus:top-0 focus:left-0"
+      >
+        Skip to main content
+      </a>
+
       {/* 1. Neobrutalist Page Preloader */}
       <Preloader onComplete={() => setIsLoading(false)} />
 
       {/* 2. Main application wrapper with smooth entrance transition */}
       <main 
-        className={`min-h-screen overflow-x-hidden transition-opacity duration-1000 ease-in-out ${
+        id="main-content"
+        tabIndex={-1}
+        className={`focus:outline-none min-h-screen overflow-x-hidden transition-opacity duration-1000 ease-in-out ${
           isLoading ? 'opacity-0 max-h-screen overflow-hidden' : 'opacity-100'
         }`}
       >

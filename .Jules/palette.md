@@ -67,3 +67,7 @@
 ## 2026-05-26 - [Skip-to-Content Link Targeting and React Accessibility Fixes]
 **Learning:** When adding skip-to-content links, ensuring the target element has an `id` and `tabIndex={-1}` is crucial for programmatic focus. React requires camelCase attributes like `crossOrigin` and `referrerPolicy`. Additionally, extracting aria-live announcements from `useEffect` directly into render scope prevents unnecessary cascading re-renders.
 **Action:** Verify that skip-to-content links resolve to valid, focusable `id`s. Ensure standard HTML attributes are converted to their React equivalents. Compute purely derived state synchronously rather than using `useEffect`.
+
+## 2026-05-27 - [Graceful Degradation of Custom Scroll and 3D Animations]
+**Learning:** Even well-crafted performance-tuned 3D backgrounds (Three.js) and smooth scrolling libraries (Lenis) can cause discomfort for users with motion sensitivity. Relying purely on CSS `@media (prefers-reduced-motion: reduce)` is insufficient when animations are driven by JavaScript or WebGL.
+**Action:** Always conditionally instantiate libraries like `Lenis` and WebGL render loops (`Three.js`) using `window.matchMedia('(prefers-reduced-motion: reduce)').matches`. Bypass the initialization entirely if true to provide a safe, degraded experience.
