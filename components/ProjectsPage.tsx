@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { PROJECTS } from '../constants';
 import { ArrowLeft, ExternalLink, Terminal, ShieldAlert, Cpu, Image as ImageIcon, Globe, Zap } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import GithubCarousel from './GithubCarousel';
 
 interface ScrollItemProps {
   project: typeof PROJECTS[0];
@@ -332,6 +333,7 @@ const ProjectsPage: React.FC = () => {
             index={idx} 
           />
         ))}
+        <GithubCarousel />
       </div>
 
       {/* Page Footer Navigation helper */}
