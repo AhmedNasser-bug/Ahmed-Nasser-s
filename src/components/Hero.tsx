@@ -97,7 +97,8 @@ const ProjectCarousel: React.FC = () => {
               className={`w-3 h-3 border border-border-color transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 ${
                 idx === current ? 'bg-primary' : 'bg-surface'
               }`}
-              aria-label={`Slide ${idx + 1}`}
+              aria-label={`Go to slide ${idx + 1}`}
+              aria-pressed={idx === current}
             />
           ))}
         </div>
