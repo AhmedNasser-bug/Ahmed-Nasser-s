@@ -279,7 +279,7 @@ const ProjectScrollItem: React.FC<ScrollItemProps> = ({ project, index }) => {
                     mediaMode === 'iframe' ? 'bg-surface text-text-main font-bold' : 'text-surface/50 hover:text-surface'
                   }`}
                 >
-                  <Globe size={10} />
+                  <Globe size={10} aria-hidden="true" />
                   Live App
                 </button>
               </div>
@@ -342,15 +342,17 @@ const GitHubProjectsCarousel: React.FC = () => {
             onClick={() => scroll('left')}
             className="w-10 h-10 border border-border-color bg-surface flex items-center justify-center hover:bg-background-light shadow-hard hover:shadow-hard-hover active:translate-x-0.5 active:translate-y-0.5 transition-all cursor-pointer"
             aria-label="Previous Project"
+            title="Previous Project"
           >
-            <ChevronLeft className="w-5 h-5 text-text-main" />
+            <ChevronLeft className="w-5 h-5 text-text-main" aria-hidden="true" />
           </button>
           <button 
             onClick={() => scroll('right')}
             className="w-10 h-10 border border-border-color bg-surface flex items-center justify-center hover:bg-background-light shadow-hard hover:shadow-hard-hover active:translate-x-0.5 active:translate-y-0.5 transition-all cursor-pointer"
             aria-label="Next Project"
+            title="Next Project"
           >
-            <ChevronRight className="w-5 h-5 text-text-main" />
+            <ChevronRight className="w-5 h-5 text-text-main" aria-hidden="true" />
           </button>
         </div>
       </div>
@@ -366,7 +368,7 @@ const GitHubProjectsCarousel: React.FC = () => {
           return (
             <div 
               key={idx}
-              className="w-[290px] sm:w-[350px] shrink-0 border border-border-color bg-surface shadow-hard hover:shadow-hard-hover hover:-translate-x-1 hover:-translate-y-1 transition-all duration-300 snap-center flex flex-col justify-between overflow-hidden cursor-pointer"
+              className="w-[290px] sm:w-[350px] shrink-0 border border-border-color bg-surface shadow-hard hover:shadow-hard-hover hover:-translate-x-1 hover:-translate-y-1 transition-all duration-300 snap-center flex flex-col justify-between overflow-hidden"
             >
               {/* Header Telemetry */}
               <div className="bg-text-main text-surface p-3 px-4 flex items-center justify-between border-b border-border-color">
@@ -436,7 +438,7 @@ const GitHubProjectsCarousel: React.FC = () => {
                       rel="noreferrer" 
                       className="w-full inline-flex items-center justify-center bg-surface hover:bg-text-main text-text-main hover:text-surface px-3 py-2 border border-border-color font-mono text-[10px] uppercase tracking-wider transition-colors cursor-pointer"
                     >
-                      <Github className="mr-1.5 w-3.5 h-3.5" /> View on GitHub
+                      <Github className="mr-1.5 w-3.5 h-3.5" aria-hidden="true" /> View on GitHub
                     </a>
                   </div>
                 </div>
@@ -463,7 +465,7 @@ const ProjectsPage: React.FC = () => {
       <div className="w-full max-w-[1200px] px-4 md:px-8 pt-20 pb-4 border-b border-border-color/20 flex items-center justify-between z-30 bg-background-light/95 backdrop-blur-sm sticky top-0">
         <div>
           <Link to="/" className="inline-flex items-center gap-1.5 font-mono text-xs uppercase text-primary font-bold hover:underline mb-1 group">
-            <ArrowLeft className="w-3 h-3 group-hover:-translate-x-0.5 transition-transform" /> Back to Home
+            <ArrowLeft className="w-3 h-3 group-hover:-translate-x-0.5 transition-transform" aria-hidden="true" /> Back to Home
           </Link>
           <h1 className="font-display italic text-2xl md:text-4xl font-extrabold tracking-tight text-text-main">
             Project Showcase

@@ -17,7 +17,7 @@ const About: React.FC = () => {
               </div>
               <Link to="/about" className="inline-flex items-center font-mono text-sm text-primary font-medium hover:underline underline-offset-4 decoration-primary decoration-2 mt-4 md:mt-0 group/link whitespace-nowrap">
                 Read Full Details
-                <ArrowRight className="ml-1 w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
+                <ArrowRight className="ml-1 w-4 h-4 group-hover/link:translate-x-1 transition-transform" aria-hidden="true" />
               </Link>
             </div>
 
@@ -37,7 +37,7 @@ const About: React.FC = () => {
                       <ul className="list-none space-y-3 mb-6">
                         {exp.achievements.slice(0, 2).map((ach, aIdx) => (
                           <li key={aIdx} className="flex items-start">
-                            <GitCommit className="text-text-main w-4 h-4 mr-2 mt-1 shrink-0" />
+                            <GitCommit className="text-text-main w-4 h-4 mr-2 mt-1 shrink-0" aria-hidden="true" />
                             <span className="text-[16px] leading-relaxed font-sans">{ach}</span>
                           </li>
                         ))}
