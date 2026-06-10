@@ -67,3 +67,6 @@
 ## 2026-05-26 - [Skip-to-Content Link Targeting and React Accessibility Fixes]
 **Learning:** When adding skip-to-content links, ensuring the target element has an `id` and `tabIndex={-1}` is crucial for programmatic focus. React requires camelCase attributes like `crossOrigin` and `referrerPolicy`. Additionally, extracting aria-live announcements from `useEffect` directly into render scope prevents unnecessary cascading re-renders.
 **Action:** Verify that skip-to-content links resolve to valid, focusable `id`s. Ensure standard HTML attributes are converted to their React equivalents. Compute purely derived state synchronously rather than using `useEffect`.
+## 2026-05-26 - [Cursor Semantics and Decorative Elements]
+**Learning:** Using `cursor-pointer` on non-interactive semantic elements (like standard `div` or `article` wrappers for cards) misleads sighted users into expecting native click interactions, while decorative icons (like generic arrows or standard lucide UI elements) create excessive screen reader noise.
+**Action:** Remove misleading `cursor-pointer` classes from static layout elements, and proactively add `aria-hidden="true"` to SVG icons that do not provide unique functional meaning.
