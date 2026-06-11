@@ -248,7 +248,7 @@ const ThreeBackground: React.FC = () => {
     <div 
       id="canvas-container" 
       ref={containerRef}
-      className="absolute top-0 left-0 w-full h-full z-0 pointer-events-none opacity-40"
+      className="absolute top-0 left-0 w-full h-full z-0 pointer-events-none opacity-40" aria-hidden="true"
     />
   );
 };

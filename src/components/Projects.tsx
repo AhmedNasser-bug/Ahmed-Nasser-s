@@ -100,7 +100,7 @@ const Projects: React.FC = () => {
                               </span>
                             </div>
                             {project.link && (
-                              <a href={project.link} target="_blank" rel="noreferrer" className="text-muted hover:text-primary transition-colors p-1" aria-label="External Link">
+                              <a href={project.link} target="_blank" rel="noreferrer" className="text-muted hover:text-primary transition-colors p-1" aria-label="External Link (opens in a new tab)">
                                 <ExternalLink size={18} />
                               </a>
                             )}
@@ -123,7 +123,7 @@ const Projects: React.FC = () => {
                             </div>
                             
                             {project.link ? (
-                              <a href={project.link} target="_blank" rel="noreferrer" className="inline-flex items-center font-mono text-xs uppercase text-primary font-bold hover:underline group/link">
+                              <a href={project.link} target="_blank" rel="noreferrer" className="inline-flex items-center font-mono text-xs uppercase text-primary font-bold hover:underline group/link" aria-label="View Live Deployment (opens in a new tab)">
                                 View Live Deployment 
                                 <ArrowRight className="ml-1 w-3.5 h-3.5 group-hover/link:translate-x-1 transition-transform" />
                               </a>

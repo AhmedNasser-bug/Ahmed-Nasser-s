@@ -70,15 +70,15 @@ const ProjectCarousel: React.FC = () => {
         {/* Navigation buttons */}
         <button
           onClick={handlePrev}
-          className="absolute left-2 top-1/2 -translate-y-1/2 bg-surface hover:bg-text-main hover:text-surface border border-border-color p-2 transition-all z-20 cursor-pointer shadow-hard focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2"
-          aria-label="Previous Project"
+          className="absolute left-2 top-1/2 -translate-y-1/2 bg-surface hover:bg-text-main hover:text-surface border border-border-color p-2 transition-all z-20 cursor-pointer shadow-hard focus-visible:ring-2 focus-visible:outline-none focus-visible:ring-primary"
+          title="Previous Project" aria-label="Previous Project"
         >
           <ChevronLeft size={16} />
         </button>
         <button
           onClick={handleNext}
-          className="absolute right-2 top-1/2 -translate-y-1/2 bg-surface hover:bg-text-main hover:text-surface border border-border-color p-2 transition-all z-20 cursor-pointer shadow-hard focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2"
-          aria-label="Next Project"
+          className="absolute right-2 top-1/2 -translate-y-1/2 bg-surface hover:bg-text-main hover:text-surface border border-border-color p-2 transition-all z-20 cursor-pointer shadow-hard focus-visible:ring-2 focus-visible:outline-none focus-visible:ring-primary"
+          title="Next Project" aria-label="Next Project"
         >
           <ChevronRight size={16} />
         </button>
@@ -94,10 +94,10 @@ const ProjectCarousel: React.FC = () => {
             <button
               key={idx}
               onClick={() => setCurrent(idx)}
-              className={`w-3 h-3 border border-border-color transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 ${
+              className={`w-3 h-3 border border-border-color transition-colors cursor-pointer focus-visible:ring-2 focus-visible:outline-none focus-visible:ring-primary ${
                 idx === current ? 'bg-primary' : 'bg-surface'
               }`}
-              aria-label={`Slide ${idx + 1}`}
+              title={`Slide ${idx + 1}`} aria-label={`Slide ${idx + 1}`}
             />
           ))}
         </div>
@@ -137,12 +137,12 @@ const Hero: React.FC = () => {
                 </p>
                 <div className="flex flex-wrap gap-4 pt-4">
                   <GSAPMagnetic strength={0.35} tolerance={55}>
-                    <a href="#projects" className="flex items-center justify-center bg-text-main text-surface px-6 py-3 border border-border-color font-mono text-sm uppercase tracking-wide hover:-translate-y-[2px] hover:-translate-x-[2px] hover:shadow-hard-hover transition-all duration-200 focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2">
+                    <a href="#projects" className="flex items-center justify-center bg-text-main text-surface px-6 py-3 border border-border-color font-mono text-sm uppercase tracking-wide hover:-translate-y-[2px] hover:-translate-x-[2px] hover:shadow-hard-hover transition-all duration-200 focus-visible:ring-2 focus-visible:outline-none focus-visible:ring-primary">
                       View Work
                     </a>
                   </GSAPMagnetic>
                   <GSAPMagnetic strength={0.35} tolerance={55}>
-                    <a href={`mailto:${PROFILE.contact.email}`} className="flex items-center justify-center bg-surface text-text-main px-6 py-3 border border-border-color font-mono text-sm uppercase tracking-wide shadow-hard hover:-translate-y-[2px] hover:-translate-x-[2px] hover:shadow-hard-hover hover:text-primary transition-all duration-200 focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2">
+                    <a href={`mailto:${PROFILE.contact.email}`} className="flex items-center justify-center bg-surface text-text-main px-6 py-3 border border-border-color font-mono text-sm uppercase tracking-wide shadow-hard hover:-translate-y-[2px] hover:-translate-x-[2px] hover:shadow-hard-hover hover:text-primary transition-all duration-200 focus-visible:ring-2 focus-visible:outline-none focus-visible:ring-primary">
                       Contact Me
                     </a>
                   </GSAPMagnetic>
