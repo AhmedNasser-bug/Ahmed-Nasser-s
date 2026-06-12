@@ -12,7 +12,13 @@ const Contact: React.FC = () => {
             
             {/* Education Section */}
             <GSAPTilt maxTilt={4} perspective={1200}>
-              <div className="w-full h-full bg-surface border border-border-color shadow-hard p-8 hover:shadow-hard-hover transition-shadow duration-300 cursor-pointer" data-aos="fade-up">
+              <div
+                className="w-full h-full bg-surface border border-border-color shadow-hard p-8 hover:shadow-hard-hover transition-shadow duration-300 cursor-pointer focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2"
+                data-aos="fade-up"
+                tabIndex={0}
+                role="region"
+                aria-label="Education Information"
+              >
                 <div className="flex items-center justify-between border-b border-border-color pb-4 mb-6">
                   <h2 className="font-display font-semibold text-2xl uppercase tracking-tight text-text-main">Education</h2>
                 </div>
@@ -30,7 +36,14 @@ const Contact: React.FC = () => {
 
             {/* Contact Section */}
             <GSAPTilt maxTilt={4} perspective={1200}>
-              <div className="w-full h-full bg-surface border border-border-color shadow-hard p-8 hover:shadow-hard-hover transition-shadow duration-300 cursor-pointer" data-aos="fade-up" data-aos-delay="100">
+              <div
+                className="w-full h-full bg-surface border border-border-color shadow-hard p-8 hover:shadow-hard-hover transition-shadow duration-300 cursor-pointer focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2"
+                data-aos="fade-up"
+                data-aos-delay="100"
+                tabIndex={0}
+                role="region"
+                aria-label="Contact Information"
+              >
                 <div className="flex flex-col gap-12">
                   <div className="flex flex-col gap-4">
                     <h2 className="font-mono text-sm uppercase text-muted">Get in touch</h2>

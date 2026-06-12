@@ -67,3 +67,6 @@
 ## 2026-05-26 - [Skip-to-Content Link Targeting and React Accessibility Fixes]
 **Learning:** When adding skip-to-content links, ensuring the target element has an `id` and `tabIndex={-1}` is crucial for programmatic focus. React requires camelCase attributes like `crossOrigin` and `referrerPolicy`. Additionally, extracting aria-live announcements from `useEffect` directly into render scope prevents unnecessary cascading re-renders.
 **Action:** Verify that skip-to-content links resolve to valid, focusable `id`s. Ensure standard HTML attributes are converted to their React equivalents. Compute purely derived state synchronously rather than using `useEffect`.
+## 2024-06-12 - [A11y/UX: Aria-Current for Steps and Clickable Cards]
+**Learning:** Found that custom clickable cards lacking semantic tags were completely inaccessible via keyboard, and timeline steps lacked screen-reader context for which step was active.
+**Action:** When converting structural elements (`article`/`div`) to clickable components, always attach `tabIndex={0}`, an appropriate `role` (`button` or `region`), visible focus styles, and a `keydown` handler for "Enter"/"Space". Also, use `aria-current="step"` to communicate active states in timelines/wizards.
