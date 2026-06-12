@@ -340,17 +340,19 @@ const GitHubProjectsCarousel: React.FC = () => {
         <div className="flex items-center gap-2">
           <button 
             onClick={() => scroll('left')}
-            className="w-10 h-10 border border-border-color bg-surface flex items-center justify-center hover:bg-background-light shadow-hard hover:shadow-hard-hover active:translate-x-0.5 active:translate-y-0.5 transition-all cursor-pointer"
+            className="w-10 h-10 border border-border-color bg-surface flex items-center justify-center hover:bg-background-light shadow-hard hover:shadow-hard-hover active:translate-x-0.5 active:translate-y-0.5 transition-all cursor-pointer focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2"
             aria-label="Previous Project"
+            title="Previous Project"
           >
-            <ChevronLeft className="w-5 h-5 text-text-main" />
+            <ChevronLeft className="w-5 h-5 text-text-main" aria-hidden="true" />
           </button>
           <button 
             onClick={() => scroll('right')}
-            className="w-10 h-10 border border-border-color bg-surface flex items-center justify-center hover:bg-background-light shadow-hard hover:shadow-hard-hover active:translate-x-0.5 active:translate-y-0.5 transition-all cursor-pointer"
+            className="w-10 h-10 border border-border-color bg-surface flex items-center justify-center hover:bg-background-light shadow-hard hover:shadow-hard-hover active:translate-x-0.5 active:translate-y-0.5 transition-all cursor-pointer focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2"
             aria-label="Next Project"
+            title="Next Project"
           >
-            <ChevronRight className="w-5 h-5 text-text-main" />
+            <ChevronRight className="w-5 h-5 text-text-main" aria-hidden="true" />
           </button>
         </div>
       </div>
