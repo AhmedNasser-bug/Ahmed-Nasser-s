@@ -67,3 +67,6 @@
 ## 2026-05-26 - [Skip-to-Content Link Targeting and React Accessibility Fixes]
 **Learning:** When adding skip-to-content links, ensuring the target element has an `id` and `tabIndex={-1}` is crucial for programmatic focus. React requires camelCase attributes like `crossOrigin` and `referrerPolicy`. Additionally, extracting aria-live announcements from `useEffect` directly into render scope prevents unnecessary cascading re-renders.
 **Action:** Verify that skip-to-content links resolve to valid, focusable `id`s. Ensure standard HTML attributes are converted to their React equivalents. Compute purely derived state synchronously rather than using `useEffect`.
+## 2026-06-13 - Preloader Wait Times
+**Learning:** When using Playwright to test applications with full-screen, duration-based preloaders, relying solely on CSS selectors like `text=...` without properly scoping or waiting for the `state='hidden'` transition to finish can lead to flaky tests, as the preloader often contains many deeply nested text nodes that might briefly match.
+**Action:** Use specific, high-level wrapper IDs or wait for explicit fade-out classes to disappear, and always provide a generous timeout (e.g. 10000ms) to accommodate varying environment execution speeds.

@@ -37,27 +37,30 @@ const App: React.FC = () => {
     }
     document.body.style.overflow = '';
 
-    // Initialize Lenis for premium smooth scrolling
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      orientation: 'vertical',
-      gestureOrientation: 'vertical',
-      smoothWheel: true,
-      wheelMultiplier: 1,
-      touchMultiplier: 2,
-    });
-
-    (window as any).lenis = lenis;
-
+    // Initialize Lenis for premium smooth scrolling (conditionally if reduced motion is disabled)
+    let lenis: any = null;
     let rafId: number;
 
-    function raf(time: number) {
-      lenis.raf(time);
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        orientation: 'vertical',
+        gestureOrientation: 'vertical',
+        smoothWheel: true,
+        wheelMultiplier: 1,
+        touchMultiplier: 2,
+      });
+
+      (window as any).lenis = lenis;
+
+      const raf = (time: number) => {
+        lenis.raf(time);
+        rafId = requestAnimationFrame(raf);
+      };
+
       rafId = requestAnimationFrame(raf);
     }
-
-    rafId = requestAnimationFrame(raf);
 
     // Initialize AOS after component mount to ensure elements exist in DOM
     const AOS = (window as any).AOS;
@@ -80,13 +83,23 @@ const App: React.FC = () => {
     window.scrollTo({ top: 0, behavior: 'instant' });
 
     return () => {
-      lenis.destroy();
-      cancelAnimationFrame(rafId);
+      if (lenis) {
+        lenis.destroy();
+        cancelAnimationFrame(rafId);
+      }
     };
   }, [location.pathname, isLoading]); // Re-run when pathname changes or loading completes
 
   return (
     <>
+      {/* 0. Skip-to-content link for accessibility */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:bg-surface focus:text-text-main focus:px-4 focus:py-2 focus:border focus:border-border-color focus:shadow-hard focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2"
+      >
+        Skip to main content
+      </a>
+
       {/* 1. Neobrutalist Page Preloader */}
       <Preloader onComplete={() => setIsLoading(false)} />
 
@@ -97,11 +110,13 @@ const App: React.FC = () => {
         }`}
       >
         <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/projects" element={<ProjectsPage />} />
-        </Routes>
+        <div id="main-content" tabIndex={-1} className="focus:outline-none">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/projects" element={<ProjectsPage />} />
+          </Routes>
+        </div>
         <Footer />
         <ScrollToTop />
       </main>

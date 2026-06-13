@@ -72,15 +72,17 @@ const ProjectCarousel: React.FC = () => {
           onClick={handlePrev}
           className="absolute left-2 top-1/2 -translate-y-1/2 bg-surface hover:bg-text-main hover:text-surface border border-border-color p-2 transition-all z-20 cursor-pointer shadow-hard focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2"
           aria-label="Previous Project"
+          title="Previous Project"
         >
-          <ChevronLeft size={16} />
+          <ChevronLeft size={16} aria-hidden="true" />
         </button>
         <button
           onClick={handleNext}
           className="absolute right-2 top-1/2 -translate-y-1/2 bg-surface hover:bg-text-main hover:text-surface border border-border-color p-2 transition-all z-20 cursor-pointer shadow-hard focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2"
           aria-label="Next Project"
+          title="Next Project"
         >
-          <ChevronRight size={16} />
+          <ChevronRight size={16} aria-hidden="true" />
         </button>
       </div>
 
