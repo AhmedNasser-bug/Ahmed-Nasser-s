@@ -70,10 +70,10 @@ const Projects: React.FC = () => {
             </div>
             
             {/* Highlights Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8" role="list">
               {FEATURED_PROJECTS.map((project, idx) => (
                 <GSAPReveal direction="up" duration={0.85} delay={idx * 0.15} key={idx}>
-                  <div className="h-full flex flex-col">
+                  <div className="h-full flex flex-col" role="listitem">
                     <GSAPTilt maxTilt={8} perspective={1000}>
                       <article 
                         className="bg-surface border border-border-color flex flex-col group hover:bg-background-light transition-shadow duration-300 shadow-hard hover:shadow-hard-hover h-full cursor-pointer"
@@ -100,8 +100,8 @@ const Projects: React.FC = () => {
                               </span>
                             </div>
                             {project.link && (
-                              <a href={project.link} target="_blank" rel="noreferrer" className="text-muted hover:text-primary transition-colors p-1" aria-label="External Link">
-                                <ExternalLink size={18} />
+                              <a href={project.link} target="_blank" rel="noreferrer" className="text-muted hover:text-primary transition-colors p-1" aria-label="External Link" title="External Link">
+                                <ExternalLink size={18} aria-hidden="true" />
                               </a>
                             )}
                           </div>
@@ -125,11 +125,11 @@ const Projects: React.FC = () => {
                             {project.link ? (
                               <a href={project.link} target="_blank" rel="noreferrer" className="inline-flex items-center font-mono text-xs uppercase text-primary font-bold hover:underline group/link">
                                 View Live Deployment 
-                                <ArrowRight className="ml-1 w-3.5 h-3.5 group-hover/link:translate-x-1 transition-transform" />
+                                <ArrowRight className="ml-1 w-3.5 h-3.5 group-hover/link:translate-x-1 transition-transform" aria-hidden="true" />
                               </a>
                             ) : (
                               <span className="inline-flex items-center font-mono text-xs uppercase text-muted font-bold gap-1">
-                                <ShieldAlert size={14} /> Desktop/Internal Platform
+                                <ShieldAlert size={14} aria-hidden="true" /> Desktop/Internal Platform
                               </span>
                             )}
                           </div>
