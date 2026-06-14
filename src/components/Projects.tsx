@@ -76,7 +76,18 @@ const Projects: React.FC = () => {
                   <div className="h-full flex flex-col">
                     <GSAPTilt maxTilt={8} perspective={1000}>
                       <article 
-                        className="bg-surface border border-border-color flex flex-col group hover:bg-background-light transition-shadow duration-300 shadow-hard hover:shadow-hard-hover h-full cursor-pointer"
+                        tabIndex={0}
+                        role="region"
+                        aria-labelledby={`project-title-${idx}`}
+                        className="bg-surface border border-border-color flex flex-col group hover:bg-background-light transition-shadow duration-300 shadow-hard hover:shadow-hard-hover h-full cursor-pointer focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2"
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            if (project.link) {
+                              window.open(project.link, '_blank');
+                            }
+                          }
+                        }}
                       >
                         {/* Mock Screenshot Section */}
                         <div className="h-48 bg-background-light border-b border-border-color relative flex items-center justify-center overflow-hidden shrink-0">
@@ -92,7 +103,7 @@ const Projects: React.FC = () => {
                         <div className="p-6 flex flex-col flex-grow">
                           <div className="flex justify-between items-start mb-2">
                             <div>
-                              <h3 className="text-xl font-sans font-extrabold group-hover:text-primary transition-colors text-text-main leading-tight">
+                              <h3 id={`project-title-${idx}`} className="text-xl font-sans font-extrabold group-hover:text-primary transition-colors text-text-main leading-tight">
                                 {project.title}
                               </h3>
                               <span className="font-mono text-[10px] text-primary uppercase font-bold tracking-wider block mt-1">

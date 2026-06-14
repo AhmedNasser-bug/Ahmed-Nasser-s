@@ -67,3 +67,9 @@
 ## 2026-05-26 - [Skip-to-Content Link Targeting and React Accessibility Fixes]
 **Learning:** When adding skip-to-content links, ensuring the target element has an `id` and `tabIndex={-1}` is crucial for programmatic focus. React requires camelCase attributes like `crossOrigin` and `referrerPolicy`. Additionally, extracting aria-live announcements from `useEffect` directly into render scope prevents unnecessary cascading re-renders.
 **Action:** Verify that skip-to-content links resolve to valid, focusable `id`s. Ensure standard HTML attributes are converted to their React equivalents. Compute purely derived state synchronously rather than using `useEffect`.
+## 2024-06-14 - Reduced Motion and Focus Targets
+**Learning:** When using Lenis smooth scroll and Three.js backgrounds in React, relying on conditional initializations based on `window.matchMedia('(prefers-reduced-motion: reduce)')` significantly improves the accessibility baseline for motion-sensitive users. Also, setting  and  on standard `<main>` wrappers ensures smooth programmatic focus transitions for 'Skip to Content' links without causing unsightly focus rings.
+**Action:** Add reduced motion checks to all heavy animation or scroll-hijacking tools. Standardize 'Skip to Content' focus targets with .
+## 2024-06-14 - Reduced Motion and Focus Targets
+**Learning:** When using Lenis smooth scroll and Three.js backgrounds in React, relying on conditional initializations based on `window.matchMedia('(prefers-reduced-motion: reduce)')` significantly improves the accessibility baseline for motion-sensitive users. Also, setting `tabIndex={-1}` and `focus:outline-none` on standard `<main>` wrappers ensures smooth programmatic focus transitions for 'Skip to Content' links without causing unsightly focus rings.
+**Action:** Add reduced motion checks to all heavy animation or scroll-hijacking tools. Standardize 'Skip to Content' focus targets with `tabIndex={-1}`.

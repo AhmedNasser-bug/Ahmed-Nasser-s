@@ -7,8 +7,10 @@ const ThreeBackground: React.FC = () => {
 
   useEffect(() => {
     const container = containerRef.current;
-    // Only run on desktop/tablet views for performance hygiene
-    if (!container || window.innerWidth < 768) return;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Only run on desktop/tablet views and if user hasn't requested reduced motion
+    if (!container || window.innerWidth < 768 || prefersReducedMotion) return;
 
     // 1. Scene & Camera Setup
     const scene = new THREE.Scene();
