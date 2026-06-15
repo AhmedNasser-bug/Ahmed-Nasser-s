@@ -578,6 +578,7 @@ const ProcessTimeline: React.FC = () => {
                       <GSAPMagnetic key={step.id} strength={0.18} tolerance={30} className="w-full">
                         <button
                           onClick={() => handleStepClick(idx)}
+                          aria-current={isStepActive ? 'step' : undefined}
                           className={`w-full text-left p-3.5 border transition-all duration-300 flex items-start gap-4 shadow-hard hover:shadow-hard-hover cursor-pointer relative group focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 ${
                             isStepActive 
                               ? 'border-2 border-primary bg-surface -translate-y-[2px] -translate-x-[2px] shadow-hard-hover' 

@@ -102,7 +102,14 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
         </div>
 
         {/* Neobrutalist Progress Bar */}
-        <div className="relative h-6 w-full bg-surface border-2 border-border-color shadow-hard overflow-hidden">
+        <div
+          className="relative h-6 w-full bg-surface border-2 border-border-color shadow-hard overflow-hidden"
+          role="progressbar"
+          aria-valuemin={0}
+          aria-valuemax={100}
+          aria-valuenow={progress}
+          aria-label="Loading portfolio"
+        >
           <div 
             className="h-full bg-primary border-r-2 border-border-color transition-all duration-100 ease-out"
             style={{ width: `${progress}%` }}

@@ -92,7 +92,9 @@ const App: React.FC = () => {
 
       {/* 2. Main application wrapper with smooth entrance transition */}
       <main 
-        className={`min-h-screen overflow-x-hidden transition-opacity duration-1000 ease-in-out ${
+        id="main-content"
+        tabIndex={-1}
+        className={`min-h-screen overflow-x-hidden transition-opacity duration-1000 ease-in-out outline-none ${
           isLoading ? 'opacity-0 max-h-screen overflow-hidden' : 'opacity-100'
         }`}
       >
