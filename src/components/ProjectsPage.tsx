@@ -340,17 +340,19 @@ const GitHubProjectsCarousel: React.FC = () => {
         <div className="flex items-center gap-2">
           <button 
             onClick={() => scroll('left')}
-            className="w-10 h-10 border border-border-color bg-surface flex items-center justify-center hover:bg-background-light shadow-hard hover:shadow-hard-hover active:translate-x-0.5 active:translate-y-0.5 transition-all cursor-pointer"
+            className="w-10 h-10 border border-border-color bg-surface flex items-center justify-center hover:bg-background-light shadow-hard hover:shadow-hard-hover active:translate-x-0.5 active:translate-y-0.5 transition-all cursor-pointer focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2"
             aria-label="Previous Project"
+            title="Previous Project"
           >
-            <ChevronLeft className="w-5 h-5 text-text-main" />
+            <ChevronLeft className="w-5 h-5 text-text-main" aria-hidden="true" />
           </button>
           <button 
             onClick={() => scroll('right')}
-            className="w-10 h-10 border border-border-color bg-surface flex items-center justify-center hover:bg-background-light shadow-hard hover:shadow-hard-hover active:translate-x-0.5 active:translate-y-0.5 transition-all cursor-pointer"
+            className="w-10 h-10 border border-border-color bg-surface flex items-center justify-center hover:bg-background-light shadow-hard hover:shadow-hard-hover active:translate-x-0.5 active:translate-y-0.5 transition-all cursor-pointer focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2"
             aria-label="Next Project"
+            title="Next Project"
           >
-            <ChevronRight className="w-5 h-5 text-text-main" />
+            <ChevronRight className="w-5 h-5 text-text-main" aria-hidden="true" />
           </button>
         </div>
       </div>
@@ -434,9 +436,10 @@ const GitHubProjectsCarousel: React.FC = () => {
                       href={project.link} 
                       target="_blank" 
                       rel="noreferrer" 
-                      className="w-full inline-flex items-center justify-center bg-surface hover:bg-text-main text-text-main hover:text-surface px-3 py-2 border border-border-color font-mono text-[10px] uppercase tracking-wider transition-colors cursor-pointer"
+                      aria-label={`View ${project.title} on GitHub`}
+                      className="w-full inline-flex items-center justify-center bg-surface hover:bg-text-main text-text-main hover:text-surface px-3 py-2 border border-border-color font-mono text-[10px] uppercase tracking-wider transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2"
                     >
-                      <Github className="mr-1.5 w-3.5 h-3.5" /> View on GitHub
+                      <Github className="mr-1.5 w-3.5 h-3.5" aria-hidden="true" /> View on GitHub
                     </a>
                   </div>
                 </div>
@@ -447,7 +450,7 @@ const GitHubProjectsCarousel: React.FC = () => {
       </div>
       
       {/* Scroll Hint */}
-      <div className="flex justify-between items-center text-[10px] font-mono text-muted uppercase tracking-wider">
+      <div className="flex justify-between items-center text-[10px] font-mono text-muted uppercase tracking-wider" aria-hidden="true">
         <span>← Swipe / Scroll horizontally →</span>
         <span>{GITHUB_PROJECTS.length} Systems Compiled</span>
       </div>
