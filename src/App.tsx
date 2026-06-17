@@ -38,26 +38,29 @@ const App: React.FC = () => {
     document.body.style.overflow = '';
 
     // Initialize Lenis for premium smooth scrolling
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      orientation: 'vertical',
-      gestureOrientation: 'vertical',
-      smoothWheel: true,
-      wheelMultiplier: 1,
-      touchMultiplier: 2,
-    });
-
-    (window as any).lenis = lenis;
-
+    let lenis: Lenis | null = null;
     let rafId: number;
 
-    function raf(time: number) {
-      lenis.raf(time);
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        orientation: 'vertical',
+        gestureOrientation: 'vertical',
+        smoothWheel: true,
+        wheelMultiplier: 1,
+        touchMultiplier: 2,
+      });
+
+      (window as any).lenis = lenis;
+
+      const raf = (time: number) => {
+        lenis?.raf(time);
+        rafId = requestAnimationFrame(raf);
+      };
+
       rafId = requestAnimationFrame(raf);
     }
-
-    rafId = requestAnimationFrame(raf);
 
     // Initialize AOS after component mount to ensure elements exist in DOM
     const AOS = (window as any).AOS;
@@ -80,8 +83,8 @@ const App: React.FC = () => {
     window.scrollTo({ top: 0, behavior: 'instant' });
 
     return () => {
-      lenis.destroy();
-      cancelAnimationFrame(rafId);
+      if (lenis) lenis.destroy();
+      if (rafId) cancelAnimationFrame(rafId);
     };
   }, [location.pathname, isLoading]); // Re-run when pathname changes or loading completes
 
