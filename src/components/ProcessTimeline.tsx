@@ -571,12 +571,20 @@ const ProcessTimeline: React.FC = () => {
                 <h3 className="font-mono text-xs uppercase tracking-widest text-text-main font-bold mb-1">
                   Select a phase to pitch
                 </h3>
-                <div className="flex flex-col gap-2.5">
+                <div
+                  className="flex flex-col gap-2.5"
+                  role="tablist"
+                  aria-orientation="vertical"
+                >
                   {PROCESS_STEPS.map((step, idx) => {
                     const isStepActive = activeStep === idx;
                     return (
                       <GSAPMagnetic key={step.id} strength={0.18} tolerance={30} className="w-full">
                         <button
+                          role="tab"
+                          aria-selected={isStepActive}
+                          aria-controls="process-pitch-panel"
+                          id={`process-tab-${idx}`}
                           onClick={() => handleStepClick(idx)}
                           className={`w-full text-left p-3.5 border transition-all duration-300 flex items-start gap-4 shadow-hard hover:shadow-hard-hover cursor-pointer relative group focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 ${
                             isStepActive 
@@ -630,7 +638,12 @@ const ProcessTimeline: React.FC = () => {
               </div>
 
               {/* Right Column: Detailed Pitch and AI Orchestration Flowchart blueprint */}
-              <div className="lg:col-span-7 flex flex-col gap-4">
+              <div
+                className="lg:col-span-7 flex flex-col gap-4"
+                id="process-pitch-panel"
+                role="tabpanel"
+                aria-labelledby={`process-tab-${activeStep}`}
+              >
                 
                 {/* Active Pitch Card */}
                 <div className="bg-surface border-2 border-border-color p-5 shadow-hard relative">

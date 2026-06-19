@@ -37,27 +37,35 @@ const App: React.FC = () => {
     }
     document.body.style.overflow = '';
 
-    // Initialize Lenis for premium smooth scrolling
-    const lenis = new Lenis({
+    // Check for reduced motion preference
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Initialize Lenis for premium smooth scrolling (only if reduced motion is not preferred)
+    let lenis: Lenis | null = null;
+    let rafId: number;
+
+    if (!prefersReducedMotion) {
+      lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: 'vertical',
       gestureOrientation: 'vertical',
-      smoothWheel: true,
-      wheelMultiplier: 1,
-      touchMultiplier: 2,
-    });
+        smoothWheel: true,
+        wheelMultiplier: 1,
+        touchMultiplier: 2,
+      });
 
-    (window as any).lenis = lenis;
+      (window as any).lenis = lenis;
 
-    let rafId: number;
+      function raf(time: number) {
+        if (lenis) {
+            lenis.raf(time);
+            rafId = requestAnimationFrame(raf);
+        }
+      }
 
-    function raf(time: number) {
-      lenis.raf(time);
       rafId = requestAnimationFrame(raf);
     }
-
-    rafId = requestAnimationFrame(raf);
 
     // Initialize AOS after component mount to ensure elements exist in DOM
     const AOS = (window as any).AOS;
@@ -80,8 +88,12 @@ const App: React.FC = () => {
     window.scrollTo({ top: 0, behavior: 'instant' });
 
     return () => {
-      lenis.destroy();
-      cancelAnimationFrame(rafId);
+      if (lenis) {
+          lenis.destroy();
+      }
+      if (rafId) {
+          cancelAnimationFrame(rafId);
+      }
     };
   }, [location.pathname, isLoading]); // Re-run when pathname changes or loading completes
 
@@ -90,7 +102,15 @@ const App: React.FC = () => {
       {/* 1. Neobrutalist Page Preloader */}
       <Preloader onComplete={() => setIsLoading(false)} />
 
-      {/* 2. Main application wrapper with smooth entrance transition */}
+      {/* 2. Skip to Content Link for Accessibility */}
+      <a
+        href="#skills"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 z-[9999] bg-primary text-surface px-4 py-2 font-mono font-bold shadow-hard focus-visible:outline-2 focus-visible:outline-text-main focus-visible:outline-offset-2"
+      >
+        Skip to main content
+      </a>
+
+      {/* 3. Main application wrapper with smooth entrance transition */}
       <main 
         className={`min-h-screen overflow-x-hidden transition-opacity duration-1000 ease-in-out ${
           isLoading ? 'opacity-0 max-h-screen overflow-hidden' : 'opacity-100'

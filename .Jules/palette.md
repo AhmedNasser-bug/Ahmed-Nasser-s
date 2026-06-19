@@ -67,3 +67,7 @@
 ## 2026-05-26 - [Skip-to-Content Link Targeting and React Accessibility Fixes]
 **Learning:** When adding skip-to-content links, ensuring the target element has an `id` and `tabIndex={-1}` is crucial for programmatic focus. React requires camelCase attributes like `crossOrigin` and `referrerPolicy`. Additionally, extracting aria-live announcements from `useEffect` directly into render scope prevents unnecessary cascading re-renders.
 **Action:** Verify that skip-to-content links resolve to valid, focusable `id`s. Ensure standard HTML attributes are converted to their React equivalents. Compute purely derived state synchronously rather than using `useEffect`.
+
+## 2024-05-18 - [Invisible Keyboard Traps & WebGL Reduced Motion]
+**Learning:** Hidden components (like bottom-right "Scroll To Top" buttons initialized with opacity-0) still receive programmatic focus via tab loops if `tabIndex` isn't dynamically managed. Furthermore, WebGL initializations (like Three.js scenes) consume GPU resources and trigger motion-sickness symptoms even if nested in backgrounds.
+**Action:** Always conditionally attach `tabIndex={isVisible ? 0 : -1}` and `aria-hidden={!isVisible}` to dynamically hidden elements. Always query `window.matchMedia('(prefers-reduced-motion: reduce)').matches` before executing heavy JS-driven animations or canvas renders.

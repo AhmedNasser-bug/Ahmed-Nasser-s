@@ -39,14 +39,14 @@ const Header: React.FC = () => {
           
           {PROFILE.contact.github && (
             <GSAPMagnetic strength={0.25} tolerance={30} className="hidden md:inline-block">
-              <a className="flex items-center gap-2 text-text-main hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2" href={PROFILE.contact.github} target="_blank" rel="noreferrer" aria-label="GitHub">
+              <a className="flex items-center gap-2 text-text-main hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2" href={PROFILE.contact.github} target="_blank" rel="noreferrer" aria-label="GitHub" title="GitHub">
                 <Github size={16} />
               </a>
             </GSAPMagnetic>
           )}
           {PROFILE.contact.linkedin && (
             <GSAPMagnetic strength={0.25} tolerance={30} className="hidden md:inline-block">
-              <a className="flex items-center gap-2 text-text-main hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2" href={PROFILE.contact.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn">
+              <a className="flex items-center gap-2 text-text-main hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2" href={PROFILE.contact.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn" title="LinkedIn">
                 <Linkedin size={16} />
               </a>
             </GSAPMagnetic>
