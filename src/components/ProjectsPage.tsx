@@ -342,6 +342,7 @@ const GitHubProjectsCarousel: React.FC = () => {
             onClick={() => scroll('left')}
             className="w-10 h-10 border border-border-color bg-surface flex items-center justify-center hover:bg-background-light shadow-hard hover:shadow-hard-hover active:translate-x-0.5 active:translate-y-0.5 transition-all cursor-pointer"
             aria-label="Previous Project"
+            title="Previous Project"
           >
             <ChevronLeft className="w-5 h-5 text-text-main" />
           </button>
@@ -349,6 +350,7 @@ const GitHubProjectsCarousel: React.FC = () => {
             onClick={() => scroll('right')}
             className="w-10 h-10 border border-border-color bg-surface flex items-center justify-center hover:bg-background-light shadow-hard hover:shadow-hard-hover active:translate-x-0.5 active:translate-y-0.5 transition-all cursor-pointer"
             aria-label="Next Project"
+            title="Next Project"
           >
             <ChevronRight className="w-5 h-5 text-text-main" />
           </button>
@@ -366,7 +368,7 @@ const GitHubProjectsCarousel: React.FC = () => {
           return (
             <div 
               key={idx}
-              className="w-[290px] sm:w-[350px] shrink-0 border border-border-color bg-surface shadow-hard hover:shadow-hard-hover hover:-translate-x-1 hover:-translate-y-1 transition-all duration-300 snap-center flex flex-col justify-between overflow-hidden cursor-pointer"
+              className="w-[290px] sm:w-[350px] shrink-0 border border-border-color bg-surface shadow-hard hover:shadow-hard-hover hover:-translate-x-1 hover:-translate-y-1 transition-all duration-300 snap-center flex flex-col justify-between overflow-hidden"
             >
               {/* Header Telemetry */}
               <div className="bg-text-main text-surface p-3 px-4 flex items-center justify-between border-b border-border-color">
