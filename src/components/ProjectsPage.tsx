@@ -266,20 +266,22 @@ const ProjectScrollItem: React.FC<ScrollItemProps> = ({ project, index }) => {
               <div className="flex border border-surface/20 bg-surface/5 rounded-sm p-0.5 overflow-hidden">
                 <button
                   onClick={() => setMediaMode('image')}
-                  className={`px-2 py-0.5 font-mono text-[9px] uppercase tracking-wider rounded-sm transition-all flex items-center gap-1 cursor-pointer ${
+                  className={`px-2 py-0.5 font-mono text-[9px] uppercase tracking-wider rounded-sm transition-all flex items-center gap-1 cursor-pointer focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 ${
                     mediaMode === 'image' ? 'bg-surface text-text-main font-bold' : 'text-surface/50 hover:text-surface'
                   }`}
+                  aria-pressed={mediaMode === 'image'}
                 >
-                  <ImageIcon size={10} />
+                  <ImageIcon size={10} aria-hidden="true" />
                   Screenshot
                 </button>
                 <button
                   onClick={() => setMediaMode('iframe')}
-                  className={`px-2 py-0.5 font-mono text-[9px] uppercase tracking-wider rounded-sm transition-all flex items-center gap-1 cursor-pointer ${
+                  className={`px-2 py-0.5 font-mono text-[9px] uppercase tracking-wider rounded-sm transition-all flex items-center gap-1 cursor-pointer focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 ${
                     mediaMode === 'iframe' ? 'bg-surface text-text-main font-bold' : 'text-surface/50 hover:text-surface'
                   }`}
+                  aria-pressed={mediaMode === 'iframe'}
                 >
-                  <Globe size={10} />
+                  <Globe size={10} aria-hidden="true" />
                   Live App
                 </button>
               </div>
@@ -340,17 +342,19 @@ const GitHubProjectsCarousel: React.FC = () => {
         <div className="flex items-center gap-2">
           <button 
             onClick={() => scroll('left')}
-            className="w-10 h-10 border border-border-color bg-surface flex items-center justify-center hover:bg-background-light shadow-hard hover:shadow-hard-hover active:translate-x-0.5 active:translate-y-0.5 transition-all cursor-pointer"
+            className="w-10 h-10 border border-border-color bg-surface flex items-center justify-center hover:bg-background-light shadow-hard hover:shadow-hard-hover active:translate-x-0.5 active:translate-y-0.5 transition-all cursor-pointer focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2"
             aria-label="Previous Project"
+            title="Previous Project"
           >
-            <ChevronLeft className="w-5 h-5 text-text-main" />
+            <ChevronLeft className="w-5 h-5 text-text-main" aria-hidden="true" />
           </button>
           <button 
             onClick={() => scroll('right')}
-            className="w-10 h-10 border border-border-color bg-surface flex items-center justify-center hover:bg-background-light shadow-hard hover:shadow-hard-hover active:translate-x-0.5 active:translate-y-0.5 transition-all cursor-pointer"
+            className="w-10 h-10 border border-border-color bg-surface flex items-center justify-center hover:bg-background-light shadow-hard hover:shadow-hard-hover active:translate-x-0.5 active:translate-y-0.5 transition-all cursor-pointer focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2"
             aria-label="Next Project"
+            title="Next Project"
           >
-            <ChevronRight className="w-5 h-5 text-text-main" />
+            <ChevronRight className="w-5 h-5 text-text-main" aria-hidden="true" />
           </button>
         </div>
       </div>
