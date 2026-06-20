@@ -12,7 +12,7 @@ const Header: React.FC = () => {
       <div className="flex items-center gap-4 text-text-main">
         <Link to="/" className="flex items-center gap-4 focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2">
           <div className="size-5 text-primary">
-            <Terminal size={20} />
+            <Terminal size={20} aria-hidden="true" />
           </div>
           <h2 className="text-text-main font-display text-xl font-bold leading-tight hidden sm:block">{PROFILE.name}</h2>
           <h2 className="text-text-main font-display text-xl font-bold leading-tight sm:hidden">Ahmed</h2>
@@ -39,15 +39,15 @@ const Header: React.FC = () => {
           
           {PROFILE.contact.github && (
             <GSAPMagnetic strength={0.25} tolerance={30} className="hidden md:inline-block">
-              <a className="flex items-center gap-2 text-text-main hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2" href={PROFILE.contact.github} target="_blank" rel="noreferrer" aria-label="GitHub">
-                <Github size={16} />
+              <a className="flex items-center gap-2 text-text-main hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2" href={PROFILE.contact.github} target="_blank" rel="noreferrer" aria-label="GitHub" title="GitHub">
+                <Github size={16} aria-hidden="true" />
               </a>
             </GSAPMagnetic>
           )}
           {PROFILE.contact.linkedin && (
             <GSAPMagnetic strength={0.25} tolerance={30} className="hidden md:inline-block">
-              <a className="flex items-center gap-2 text-text-main hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2" href={PROFILE.contact.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn">
-                <Linkedin size={16} />
+              <a className="flex items-center gap-2 text-text-main hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2" href={PROFILE.contact.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn" title="LinkedIn">
+                <Linkedin size={16} aria-hidden="true" />
               </a>
             </GSAPMagnetic>
           )}

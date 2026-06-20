@@ -43,17 +43,17 @@ const Contact: React.FC = () => {
                   <div className="flex flex-wrap gap-6 border-t border-border-color pt-6">
                     {PROFILE.contact.linkedin && (
                       <GSAPMagnetic strength={0.3} tolerance={40}>
-                        <a className="font-mono text-sm uppercase text-text-main hover:text-primary transition-colors flex items-center gap-2 group" href={PROFILE.contact.linkedin} target="_blank" rel="noreferrer">
+                        <a className="font-mono text-sm uppercase text-text-main hover:text-primary transition-colors flex items-center gap-2 group focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2" href={PROFILE.contact.linkedin} target="_blank" rel="noreferrer">
                           LinkedIn
-                          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
                         </a>
                       </GSAPMagnetic>
                     )}
                     {PROFILE.contact.github && (
                       <GSAPMagnetic strength={0.3} tolerance={40}>
-                        <a className="font-mono text-sm uppercase text-text-main hover:text-primary transition-colors flex items-center gap-2 group" href={PROFILE.contact.github} target="_blank" rel="noreferrer">
+                        <a className="font-mono text-sm uppercase text-text-main hover:text-primary transition-colors flex items-center gap-2 group focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2" href={PROFILE.contact.github} target="_blank" rel="noreferrer">
                           GitHub
-                          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
                         </a>
                       </GSAPMagnetic>
                     )}
