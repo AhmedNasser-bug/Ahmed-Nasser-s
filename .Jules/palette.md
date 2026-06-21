@@ -67,3 +67,14 @@
 ## 2026-05-26 - [Skip-to-Content Link Targeting and React Accessibility Fixes]
 **Learning:** When adding skip-to-content links, ensuring the target element has an `id` and `tabIndex={-1}` is crucial for programmatic focus. React requires camelCase attributes like `crossOrigin` and `referrerPolicy`. Additionally, extracting aria-live announcements from `useEffect` directly into render scope prevents unnecessary cascading re-renders.
 **Action:** Verify that skip-to-content links resolve to valid, focusable `id`s. Ensure standard HTML attributes are converted to their React equivalents. Compute purely derived state synchronously rather than using `useEffect`.
+## 2024-05-18 - [Navigation Active States]
+**Learning:** Adding aria-current="page" to active routes provides necessary context for screen readers navigating SPAs, mirroring the visual "bold" state dynamically.
+**Action:** Always bind aria-current to router location paths alongside visual active classes.
+
+## 2024-05-18 - [Progress Bar Role]
+**Learning:** Custom UI preloaders (like the one used during initial hydration) are completely invisible to screen readers without standard progressbar semantics.
+**Action:** When implementing custom loading bars spanning the viewport, apply role="progressbar" and dynamically bind aria-valuenow to the progress percentage state.
+
+## 2024-05-18 - [Hidden Button Traps]
+**Learning:** "Scroll to top" buttons that fade out using opacity transition remain interactive to keyboard navigators, creating an invisible focus trap.
+**Action:** Conditionally map tabIndex={isVisible ? 0 : -1} and aria-hidden={!isVisible} to buttons that rely on visual opacity transitions.
