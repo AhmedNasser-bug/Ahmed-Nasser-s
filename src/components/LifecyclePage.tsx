@@ -224,9 +224,45 @@ const PROCESS_STEPS: ProcessStep[] = [
   }
 ];
 
+const PHASE_NAMES = [
+  "",
+  "RESEARCH",
+  "PLANNING",
+  "ORCHESTRATION",
+  "IMPLEMENTATION",
+  "MAINTENANCE"
+];
+
 const LifecyclePage: React.FC = () => {
+  const [activePhase, setActivePhase] = React.useState(1);
+
+  React.useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: '-30% 0px -50% 0px',
+      threshold: 0.1,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const stepId = parseInt(entry.target.getAttribute('data-step-id') || '1', 10);
+          setActivePhase(stepId);
+        }
+      });
+    }, observerOptions);
+
+    const stepElements = document.querySelectorAll('[data-step-id]');
+    stepElements.forEach((el) => observer.observe(el));
+
+    return () => {
+      stepElements.forEach((el) => observer.unobserve(el));
+      observer.disconnect();
+    };
+  }, []);
+
   return (
-    <div className="min-h-screen bg-background-light graph-paper flex flex-col items-center animate-page-in">
+    <div className="min-h-screen bg-background-light graph-paper flex flex-col items-center animate-page-in relative">
       
       {/* Page Header */}
       <div className="w-full max-w-[1200px] px-4 md:px-8 pt-20 pb-6 border-b border-border-color/20 flex flex-col sm:flex-row sm:items-end justify-between z-30 bg-background-light/90 sticky top-0 backdrop-blur-sm">
@@ -244,81 +280,161 @@ const LifecyclePage: React.FC = () => {
       </div>
 
       {/* Flat List Container */}
-      <div className="w-full max-w-[1200px] px-4 md:px-8 py-12 flex flex-col gap-10">
+      <div className="w-full max-w-[1200px] px-4 md:px-8 py-12 flex flex-col lg:flex-row gap-8 items-start relative">
         
-        {/* Intro Blueprint block */}
-        <div className="bg-surface border-2 border-border-color p-8 shadow-hard relative overflow-hidden" data-aos="fade-up">
-          <div className="absolute top-0 right-0 bg-text-main text-surface px-4 py-1.5 font-mono text-[9px] uppercase tracking-wider border-b border-l border-border-color">
-            Telemetry Dashboard
+        {/* Left Column: Intro & Cards */}
+        <div className="flex-1 flex flex-col gap-10">
+          {/* Intro Blueprint block */}
+          <div className="bg-surface border-2 border-border-color p-8 shadow-hard relative overflow-hidden" data-aos="fade-up">
+            <div className="absolute top-0 right-0 bg-text-main text-surface px-4 py-1.5 font-mono text-[9px] uppercase tracking-wider border-b border-l border-border-color">
+              Telemetry Dashboard
+            </div>
+            <div className="flex items-center gap-2 mb-4">
+              <Activity className="w-5 h-5 text-primary animate-pulse" />
+              <span className="font-mono text-xs font-bold uppercase tracking-widest text-text-main">
+                Continuous Improvement Pipeline
+              </span>
+            </div>
+            <p className="font-sans text-muted text-base leading-relaxed max-w-3xl">
+              My development workflow leverages a strict, multi-stage pipeline designed to prevent technical debt before writing the first line of code. By combining thorough requirement analysis with custom Model Context Protocol (MCP) agents, low-level type constraints, and strict automated review loops, I deliver highly secure, scalable architectures with rapid deployment velocities.
+            </p>
           </div>
-          <div className="flex items-center gap-2 mb-4">
-            <Activity className="w-5 h-5 text-primary animate-pulse" />
-            <span className="font-mono text-xs font-bold uppercase tracking-widest text-text-main">
-              Continuous Improvement Pipeline
-            </span>
+
+          {/* Steps mapping in flat, large cards */}
+          <div className="flex flex-col gap-8">
+            {PROCESS_STEPS.map((step, idx) => (
+              <div 
+                key={step.id} 
+                data-step-id={step.id}
+                className="bg-surface border border-border-color p-6 md:p-8 shadow-hard hover:shadow-hard-hover hover:-translate-x-[2px] hover:-translate-y-[2px] transition-all duration-300 relative group flex flex-col md:flex-row gap-6 items-start"
+                data-aos="fade-up"
+              >
+                {/* Step Badge */}
+                <div className="font-mono text-xs text-primary font-bold bg-primary/5 border border-primary/20 p-3 shrink-0 flex items-center justify-center">
+                  {step.icon}
+                </div>
+
+                {/* Step Content */}
+                <div className="flex-1 flex flex-col gap-4">
+                  <div className="flex flex-wrap items-center justify-between gap-2 border-b border-border-color/10 pb-2">
+                    <div>
+                      <span className="font-mono text-[10px] text-primary uppercase font-bold tracking-widest block mb-0.5">
+                        PHASE 0{step.id}
+                      </span>
+                      <h2 className="font-sans font-black text-xl text-text-main leading-tight tracking-tight">
+                        {step.title}
+                      </h2>
+                    </div>
+                    <span className="font-mono text-xs font-bold uppercase border border-border-color/20 bg-background-light px-3 py-1 text-text-main h-fit">
+                      {step.metric}
+                    </span>
+                  </div>
+
+                  <p className="font-display italic text-base text-muted font-medium -mt-2 leading-relaxed">
+                    {step.subtitle}
+                  </p>
+
+                  <div className="font-sans text-sm text-text-main leading-relaxed max-w-3xl">
+                    {step.pitchBody}
+                  </div>
+
+                  {/* Integrations */}
+                  <div className="border-t border-border-color/10 pt-4 mt-2 flex flex-wrap items-center gap-3">
+                    <span className="font-mono text-[10px] uppercase font-bold text-muted">
+                      Core Integrations:
+                    </span>
+                    <div className="flex flex-wrap gap-2">
+                      {step.integrations.map((integration, index) => (
+                        <span 
+                          key={index}
+                          className="inline-flex items-center gap-1.5 px-2.5 py-1 border border-border-color bg-background-light font-mono text-[10px] font-bold text-text-main shadow-[1.5px_1.5px_0px_#171717]"
+                        >
+                          {integration.logo}
+                          {integration.name}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
-          <p className="font-sans text-muted text-base leading-relaxed max-w-3xl">
-            My development workflow leverages a strict, multi-stage pipeline designed to prevent technical debt before writing the first line of code. By combining thorough requirement analysis with custom Model Context Protocol (MCP) agents, low-level type constraints, and strict automated review loops, I deliver highly secure, scalable architectures with rapid deployment velocities.
-          </p>
         </div>
 
-        {/* Steps mapping in flat, large cards */}
-        <div className="flex flex-col gap-8">
-          {PROCESS_STEPS.map((step, idx) => (
-            <div 
-              key={step.id} 
-              className="bg-surface border border-border-color p-6 md:p-8 shadow-hard hover:shadow-hard-hover hover:-translate-x-[2px] hover:-translate-y-[2px] transition-all duration-300 relative group flex flex-col md:flex-row gap-6 items-start"
-              data-aos="fade-up"
-            >
-              {/* Step Badge */}
-              <div className="font-mono text-xs text-primary font-bold bg-primary/5 border border-primary/20 p-3 shrink-0 flex items-center justify-center">
-                {step.icon}
+        {/* Right Column: Sticky Wireframe Panel */}
+        <aside className="hidden lg:block w-[280px] shrink-0 sticky top-[160px] self-start z-20">
+          <div className="border-2 border-border-color bg-surface p-6 shadow-hard flex flex-col gap-6 relative overflow-hidden">
+            {/* Grid Pattern Background for Wireframe Aesthetic */}
+            <div className="absolute inset-0 opacity-5 pointer-events-none" style={{
+              backgroundImage: 'radial-gradient(#3730A3 1px, transparent 1px)',
+              backgroundSize: '16px 16px'
+            }} />
+
+            {/* Header / Telemetry style */}
+            <div className="flex items-center justify-between border-b border-border-color pb-3 z-10">
+              <span className="font-mono text-[9px] font-bold uppercase tracking-widest text-[#3730A3] flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#3730A3] animate-pulse" />
+                Phase Tracker
+              </span>
+              <span className="font-mono text-[9px] text-muted">
+                SYS.LOC: active
+              </span>
+            </div>
+
+            {/* Display active phase */}
+            <div className="flex flex-col items-center py-4 z-10">
+              <div 
+                className="font-display text-5xl font-black tracking-tighter leading-none"
+                style={{ WebkitTextStroke: '2.5px #3730A3', color: 'transparent' }}
+              >
+                PHASE
               </div>
-
-              {/* Step Content */}
-              <div className="flex-1 flex flex-col gap-4">
-                <div className="flex flex-wrap items-center justify-between gap-2 border-b border-border-color/10 pb-2">
-                  <div>
-                    <span className="font-mono text-[10px] text-primary uppercase font-bold tracking-widest block mb-0.5">
-                      PHASE 0{step.id}
-                    </span>
-                    <h2 className="font-sans font-black text-xl text-text-main leading-tight tracking-tight">
-                      {step.title}
-                    </h2>
-                  </div>
-                  <span className="font-mono text-xs font-bold uppercase border border-border-color/20 bg-background-light px-3 py-1 text-text-main h-fit">
-                    {step.metric}
-                  </span>
-                </div>
-
-                <p className="font-display italic text-base text-muted font-medium -mt-2 leading-relaxed">
-                  {step.subtitle}
-                </p>
-
-                <div className="font-sans text-sm text-text-main leading-relaxed max-w-3xl">
-                  {step.pitchBody}
-                </div>
-
-                {/* Integrations */}
-                <div className="border-t border-border-color/10 pt-4 mt-2 flex flex-wrap items-center gap-3">
-                  <span className="font-mono text-[10px] uppercase font-bold text-muted">
-                    Core Integrations:
-                  </span>
-                  <div className="flex flex-wrap gap-2">
-                    {step.integrations.map((integration, index) => (
-                      <span 
-                        key={index}
-                        className="inline-flex items-center gap-1.5 px-2.5 py-1 border border-border-color bg-background-light font-mono text-[10px] font-bold text-text-main shadow-[1.5px_1.5px_0px_#171717]"
-                      >
-                        {integration.logo}
-                        {integration.name}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+              <div className="font-display text-8xl font-black text-[#3730A3] leading-none select-none my-2">
+                {String(activePhase).padStart(2, '0')}
+              </div>
+              <div className="bg-[#3730A3] text-surface font-sans font-black text-sm px-3 py-1 border border-border-color uppercase tracking-wider text-center w-full shadow-[2px_2px_0px_#171717]">
+                {PHASE_NAMES[activePhase]}
               </div>
             </div>
-          ))}
+
+            {/* Vertical Flow Diagram */}
+            <div className="flex flex-col gap-3 border-t border-border-color pt-4 z-10">
+              {PROCESS_STEPS.map((step) => {
+                const isActive = step.id === activePhase;
+                return (
+                  <div key={step.id} className="flex items-center gap-3">
+                    {/* Circle / Square Node */}
+                    <div className={`w-4 h-4 border-2 flex items-center justify-center font-mono text-[8px] font-bold transition-all duration-300 ${
+                      isActive 
+                        ? 'border-[#3730A3] bg-[#3730A3] text-surface scale-110 shadow-[1px_1px_0px_#171717]' 
+                        : 'border-border-color/40 text-muted bg-background-light'
+                    }`}>
+                      {step.id}
+                    </div>
+                    {/* Label */}
+                    <span className={`font-mono text-[10px] tracking-tight uppercase font-bold transition-colors duration-300 ${
+                      isActive ? 'text-[#3730A3]' : 'text-muted'
+                    }`}>
+                      {step.title.split(' & ')[0].split(' - ')[0]}
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </aside>
+
+      </div>
+
+      {/* Mobile Floating Action Indicator */}
+      <div className="lg:hidden fixed bottom-6 right-6 z-40">
+        <div className="bg-surface border-2 border-border-color p-3 shadow-hard flex flex-col items-center gap-1 min-w-[110px]">
+          <span className="font-mono text-[9px] font-bold text-[#3730A3] uppercase">
+            PHASE 0{activePhase}
+          </span>
+          <span className="font-sans font-black text-[10px] uppercase text-text-main bg-[#FFE600] px-1.5 py-0.5 border border-border-color shadow-[1px_1px_0px_#171717]">
+            {PHASE_NAMES[activePhase]}
+          </span>
         </div>
       </div>
 

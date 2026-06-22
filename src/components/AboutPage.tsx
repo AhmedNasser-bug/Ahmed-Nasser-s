@@ -20,7 +20,7 @@ const AboutPage: React.FC = () => {
                 <div className="absolute inset-0 bg-primary/20 blur-3xl rounded-full scale-110 group-hover:bg-primary/30 transition-colors duration-500"></div>
                 <div className="relative aspect-[9/12] w-full max-w-[400px] mx-auto border border-primary/30 rounded-lg overflow-hidden bg-surface shadow-hard">
                   <img 
-                    src="/src/assets/hero.jpeg" 
+                    src="/assets/hero.jpeg" 
                     alt="Ahmed Nasser" 
                     className="w-full h-full object-cover object-top opacity-90 group-hover:opacity-100 transition-opacity duration-300"
                   />

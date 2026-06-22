@@ -12,19 +12,19 @@ interface CarouselItem {
 
 const CAROUSEL_ITEMS: CarouselItem[] = [
   {
-    image: '/src/assets/finals-qb.png',
+    image: '/assets/finals-qb.png',
     title: 'Finals-Qb Quiz Platform',
     metric: 'WAF Infinite Scaling',
     description: 'Mastery Quiz Engine engineered with strategy patterns, Zod validation boundaries, and metacognitive diagnostics aligning with WAF pillars.'
   },
   {
-    image: '/src/assets/livestar.png',
+    image: '/assets/livestar.png',
     title: 'Live Star Conversion Funnel',
     metric: 'Double Lead Vol. | Halved CPL',
     description: 'High-conversion, mobile-first agency landing page leveraging advanced web telemetry and responsive interface optimization.'
   },
   {
-    image: '/src/assets/dvld_preview.png',
+    image: '/assets/dvld_preview.png',
     title: 'DVLD Enterprise Dashboard',
     metric: '10+ Complex Workflows',
     description: 'Custom full-stack licensing platform built from scratch in C# .NET + SQL Server to enforce strict regulatory data integrity.'

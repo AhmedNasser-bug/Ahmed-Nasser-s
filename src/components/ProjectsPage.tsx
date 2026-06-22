@@ -11,10 +11,10 @@ interface ScrollItemProps {
 
 // Map custom screenshot mocks for projects if they exist
 const PROJECT_MOCKS: Record<string, string> = {
-  "Finals QB": "/src/assets/finals-qb.png",
-  "Live Star Agency": "/src/assets/livestar.png",
-  "ICPC PUA Platform": "/src/assets/icpc2.png",
-  "DVLD Licensing System": "/src/assets/dvld_preview.png"
+  "Finals QB": "/assets/finals-qb.png",
+  "Live Star Agency": "/assets/livestar.png",
+  "ICPC PUA Platform": "/assets/icpc2.png",
+  "DVLD Licensing System": "/assets/dvld_preview.png"
 };
 
 const ProjectScrollItem: React.FC<ScrollItemProps> = ({ project, index }) => {

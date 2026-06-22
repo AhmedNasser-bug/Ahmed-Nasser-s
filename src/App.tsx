@@ -91,7 +91,7 @@ const App: React.FC = () => {
 
       {/* 2. Main application wrapper with smooth entrance transition */}
       <main 
-        className={`min-h-screen overflow-x-hidden transition-opacity duration-1000 ease-in-out ${
+        className={`min-h-screen overflow-x-clip transition-opacity duration-1000 ease-in-out ${
           isLoading ? 'opacity-0 max-h-screen overflow-hidden' : 'opacity-100'
         }`}
       >
