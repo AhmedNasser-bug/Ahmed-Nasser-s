@@ -1,5 +1,4 @@
 import React from 'react';
-import ThreeBackground from './ThreeBackground';
 import { PROFILE, EXPERIENCE, SKILLS } from '../constants';
 import { GitCommit, Download, MapPin, Mail, Phone, Code2, Brain, Cpu, Users, GraduationCap, Laptop, Landmark, Terminal, Medal } from 'lucide-react';
 import ScrollPaintStroke from './ui/ScrollPaintStroke';
@@ -13,8 +12,6 @@ const AboutPage: React.FC = () => {
         
         {/* --- Hero Section --- */}
         <section className="relative w-full max-w-[1200px] px-4 md:px-10 lg:px-20 pt-32 pb-16 min-h-[90vh] flex flex-col justify-center">
-          {/* Background Effect */}
-          <ThreeBackground />
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
             
             {/* Image Column */}
@@ -344,56 +341,6 @@ const AboutPage: React.FC = () => {
                 </div>
               </div>
 
-            </div>
-          </div>
-        </section>
-
-        {/* --- CTA Section --- */}
-        <section className="w-full py-24 border-y border-border-color mt-16 relative overflow-hidden">
-          <div className="w-full max-w-[800px] mx-auto px-4 relative z-10 text-center">
-            <h2 className="font-sans font-extrabold text-4xl md:text-5xl tracking-tight mb-4">I see you're convinced</h2>
-            <p className="font-display italic text-2xl text-muted mb-10">Shall we begin?</p>
-            
-            <div className="flex flex-wrap justify-center gap-4 mb-12">
-              <a href={PROFILE.contact.linkedin} target="_blank" rel="noopener noreferrer" className="bg-text-main text-surface hover:bg-primary transition-colors border-2 border-text-main hover:border-primary px-8 py-3 font-mono font-bold uppercase tracking-wider flex items-center gap-2 shadow-hard hover:-translate-y-1 hover:-translate-x-1 hover:shadow-hard-hover">
-                LinkedIn 
-                <svg className="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-              </a>
-              <a href={`https://wa.me/${PROFILE.contact.phone}`} target="_blank" rel="noopener noreferrer" className="bg-background-light text-text-main hover:bg-green-500 hover:text-white transition-colors border-2 border-border-color hover:border-green-500 px-8 py-3 font-mono font-bold uppercase tracking-wider flex items-center gap-2 shadow-hard hover:-translate-y-1 hover:-translate-x-1 hover:shadow-hard-hover">
-                WhatsApp
-                <Phone className="w-4 h-4 ml-1" />
-              </a>
-              <a href="https://www.upwork.com/freelancers/~01f54fd7d135eb3939" target="_blank" rel="noopener noreferrer" className="bg-background-light text-text-main hover:bg-[#14a800] hover:text-white transition-colors border-2 border-border-color hover:border-[#14a800] px-8 py-3 font-mono font-bold uppercase tracking-wider flex items-center gap-2 shadow-hard hover:-translate-y-1 hover:-translate-x-1 hover:shadow-hard-hover">
-                Upwork
-                <Code2 className="w-4 h-4 ml-1" />
-              </a>
-            </div>
-
-            <div className="bg-background-light border border-border-color shadow-hard p-6 max-w-[500px] mx-auto text-left flex flex-col gap-4 relative">
-              <div className="absolute top-0 right-0 p-2">
-                <div className="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
-              </div>
-              <h3 className="font-mono text-sm uppercase tracking-widest text-muted border-b border-border-color pb-2">Prefer Direct Contact?</h3>
-              
-              <div className="flex items-center gap-4 group">
-                <div className="w-12 h-12 bg-primary/10 border border-primary flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-surface transition-colors">
-                  <Mail className="w-5 h-5" />
-                </div>
-                <div>
-                  <div className="text-xs text-muted font-mono uppercase tracking-wider">Email Address</div>
-                  <a href={`mailto:${PROFILE.contact.email}`} className="text-lg font-bold hover:text-primary transition-colors">{PROFILE.contact.email}</a>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-4 group">
-                <div className="w-12 h-12 bg-primary/10 border border-primary flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-surface transition-colors">
-                  <Phone className="w-5 h-5" />
-                </div>
-                <div>
-                  <div className="text-xs text-muted font-mono uppercase tracking-wider">Phone</div>
-                  <a href={`tel:${PROFILE.contact.phone}`} className="text-lg font-bold hover:text-primary transition-colors">{PROFILE.contact.phone}</a>
-                </div>
-              </div>
             </div>
           </div>
         </section>

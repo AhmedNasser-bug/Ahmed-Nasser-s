@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { PROFILE } from '../constants';
-import ThreeBackground from './ThreeBackground';
-import { GSAPSplitText, GSAPMagnetic, GSAPReveal } from './gsap';
+import { GSAPSplitText, GSAPReveal } from './gsap';
 
 interface CarouselItem {
   image: string;
@@ -13,19 +12,19 @@ interface CarouselItem {
 
 const CAROUSEL_ITEMS: CarouselItem[] = [
   {
-    image: '/finals_qb_preview.png',
+    image: '/src/assets/finals-qb.png',
     title: 'Finals-Qb Quiz Platform',
     metric: 'WAF Infinite Scaling',
     description: 'Mastery Quiz Engine engineered with strategy patterns, Zod validation boundaries, and metacognitive diagnostics aligning with WAF pillars.'
   },
   {
-    image: '/livestar_preview.png',
+    image: '/src/assets/livestar.png',
     title: 'Live Star Conversion Funnel',
     metric: 'Double Lead Vol. | Halved CPL',
     description: 'High-conversion, mobile-first agency landing page leveraging advanced web telemetry and responsive interface optimization.'
   },
   {
-    image: '/dvld_preview.png',
+    image: '/src/assets/dvld_preview.png',
     title: 'DVLD Enterprise Dashboard',
     metric: '10+ Complex Workflows',
     description: 'Custom full-stack licensing platform built from scratch in C# .NET + SQL Server to enforce strict regulatory data integrity.'
@@ -109,7 +108,6 @@ const ProjectCarousel: React.FC = () => {
 const Hero: React.FC = () => {
   return (
     <section className="relative flex h-auto w-full flex-col group/design-root pt-10 pb-10">
-      <ThreeBackground />
       <div className="layout-container flex h-full grow flex-col relative z-10 pointer-events-none">
         <div className="px-4 md:px-10 lg:px-40 flex flex-1 justify-center py-5 pointer-events-auto">
           <div className="layout-content-container flex flex-col w-full max-w-[1200px] flex-1">
@@ -136,16 +134,12 @@ const Hero: React.FC = () => {
                   {PROFILE.tagline}
                 </p>
                 <div className="flex flex-wrap gap-4 pt-4">
-                  <GSAPMagnetic strength={0.35} tolerance={55}>
-                    <a href="#projects" className="flex items-center justify-center bg-text-main text-surface px-6 py-3 border border-border-color font-mono text-sm uppercase tracking-wide hover:-translate-y-[2px] hover:-translate-x-[2px] hover:shadow-hard-hover transition-all duration-200 focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2">
-                      View Work
-                    </a>
-                  </GSAPMagnetic>
-                  <GSAPMagnetic strength={0.35} tolerance={55}>
-                    <a href={`mailto:${PROFILE.contact.email}`} className="flex items-center justify-center bg-surface text-text-main px-6 py-3 border border-border-color font-mono text-sm uppercase tracking-wide shadow-hard hover:-translate-y-[2px] hover:-translate-x-[2px] hover:shadow-hard-hover hover:text-primary transition-all duration-200 focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2">
-                      Contact Me
-                    </a>
-                  </GSAPMagnetic>
+                  <a href="#projects" className="flex items-center justify-center bg-text-main text-surface px-6 py-3 border border-border-color font-mono text-sm uppercase tracking-wide hover:-translate-y-[2px] hover:-translate-x-[2px] hover:shadow-hard-hover transition-all duration-200 focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2">
+                    View Work
+                  </a>
+                  <a href={`mailto:${PROFILE.contact.email}`} className="flex items-center justify-center bg-surface text-text-main px-6 py-3 border border-border-color font-mono text-sm uppercase tracking-wide shadow-hard hover:-translate-y-[2px] hover:-translate-x-[2px] hover:shadow-hard-hover hover:text-primary transition-all duration-200 focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2">
+                    Contact Me
+                  </a>
                 </div>
               </div>
 

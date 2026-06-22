@@ -36,6 +36,18 @@ graph TD
     GSAP_LIB[GSAP Animation Library Components]
   end
 
+  subgraph "WAF Knowledge Graph Context"
+    WAF_README[.agents/waf/README.md]
+    WAF_CODING[.agents/waf/coding_principles.md]
+    WAF_PROMPTS[.agents/waf/prompts.md]
+    WAF_AUTO[.agents/waf/automation.md]
+    WAF_PILLARS[.agents/waf/pillars/*]
+    WAF_SERVICES[.agents/waf/services/*]
+    WAF_GUIDES[.agents/waf/design_guides/*]
+    WAF_ROLE[.agents/waf/role/*]
+    WAF_ASSESS[.agents/waf/assessment/*]
+  end
+
   USER --> HTML
   HTML --> INDEX_TSX
   INDEX_TSX --> APP_TSX
@@ -53,6 +65,13 @@ graph TD
   HERO & SKILLS & TIMELINE & ABOUT_PREV & PROJECTS_PREV & CONTACT & ABOUT_PAGE & PROJECTS_PAGE --> CONSTANTS
   HERO & SKILLS & TIMELINE & ABOUT_PREV & PROJECTS_PREV & CONTACT & ABOUT_PAGE & PROJECTS_PAGE --> GSAP_LIB
   INDEX_TSX & APP_TSX --> CSS
+
+  WAF_README --> WAF_CODING & WAF_PROMPTS & WAF_AUTO
+  WAF_README --> WAF_PILLARS & WAF_SERVICES & WAF_GUIDES & WAF_ROLE & WAF_ASSESS
+  
+  WAF_CODING -.-> APP_TSX
+  WAF_PROMPTS -.-> CONSTANTS
+  WAF_AUTO -.-> CSS
 ```
 
 ## Analysis Notes

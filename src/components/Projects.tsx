@@ -1,8 +1,8 @@
 // Reference: file:///d:/Study/Programming/Projects/Portfolio%203/Ahmed-Nasser-s/.agents/skills/frontend-design/SKILL.md
 import React from 'react';
-import { ArrowRight, Terminal, ExternalLink, ShieldAlert } from 'lucide-react';
+import { ArrowRight, ExternalLink, ShieldAlert } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { GSAPSplitText, GSAPMagnetic, GSAPReveal, GSAPTilt } from './gsap';
+import { GSAPSplitText, GSAPReveal, GSAPTilt } from './gsap';
 
 interface FeaturedProject {
   title: string;
@@ -15,11 +15,11 @@ interface FeaturedProject {
 
 const FEATURED_PROJECTS: FeaturedProject[] = [
   {
-    title: "Finals-Qb Quiz Platform",
-    subtitle: "A System that Scales Infinitely",
+    title: "Finals QB",
+    subtitle: "Interactive Prep Engine",
     image: "/src/assets/finals-qb.png",
-    tech: ["Next.js", "TypeScript", "Tailwind CSS", "shadcn/ui", "Zod Validation", "Metacognitive Monitoring"],
-    pitch: "An educational quiz platform designed for maximum throughput and zero architectural drift. Built with Strategy Patterns for game modes, strict Zod schema validation boundaries for adapters, a Polymorphic Render Registry for question displays, and a Diagnostic Evaluation Engine to optimize learning rates dynamically.",
+    tech: ["React", "TypeScript", "Tailwind CSS", "Vite"],
+    pitch: "A complete neobrutalist interactive study ecosystem. Employs advanced state synchronization, clientside telemetry, and rapid quiz generation to help students optimize preparation and study paths for final exams.",
     link: "https://finals-qb.vercel.app/"
   },
   {
@@ -58,15 +58,13 @@ const Projects: React.FC = () => {
                   High-Impact Implementations
                 </p>
               </div>
-              <GSAPMagnetic strength={0.25} tolerance={40}>
-                <Link 
-                  to="/projects" 
-                  className="inline-flex items-center gap-2 font-mono text-sm uppercase text-primary font-bold hover:underline mt-4 sm:mt-0 group"
-                >
-                  View Full Portfolio 
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </GSAPMagnetic>
+              <Link 
+                to="/projects" 
+                className="inline-flex items-center gap-2 font-mono text-sm uppercase text-primary font-bold hover:underline mt-4 sm:mt-0 group"
+              >
+                View Full Portfolio 
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
             </div>
             
             {/* Highlights Grid */}
@@ -143,15 +141,13 @@ const Projects: React.FC = () => {
 
             {/* Bottom Large CTA */}
             <div className="mt-12 text-center" data-aos="fade-up">
-              <GSAPMagnetic strength={0.35} tolerance={55}>
-                <Link 
-                  to="/projects"
-                  className="inline-flex items-center justify-center bg-text-main text-surface px-8 py-4 border-2 border-border-color font-mono text-sm uppercase tracking-wider hover:-translate-y-[2px] hover:-translate-x-[2px] hover:shadow-hard-hover transition-all duration-200 shadow-hard"
-                >
-                  Explore Full Interactive Portfolio
-                  <ArrowRight className="ml-2 w-4 h-4" />
-                </Link>
-              </GSAPMagnetic>
+              <Link 
+                to="/projects"
+                className="inline-flex items-center justify-center bg-text-main text-surface px-8 py-4 border-2 border-border-color font-mono text-sm uppercase tracking-wider hover:-translate-y-[2px] hover:-translate-x-[2px] hover:shadow-hard-hover transition-all duration-200 shadow-hard"
+              >
+                Explore Full Interactive Portfolio
+                <ArrowRight className="ml-2 w-4 h-4" />
+              </Link>
             </div>
 
           </div>

@@ -4,12 +4,12 @@ import Lenis from 'lenis';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Skills from './components/Skills';
-import ProcessTimeline from './components/ProcessTimeline';
+import ProcessHomeSection from './components/ProcessHomeSection';
 import AboutPreview from './components/About';
 import AboutPage from './components/AboutPage';
+import LifecyclePage from './components/LifecyclePage';
 import Projects from './components/Projects';
 import ProjectsPage from './components/ProjectsPage';
-import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ui/ScrollToTop';
 import Preloader from './components/ui/Preloader';
@@ -18,10 +18,9 @@ const Home = () => (
   <div className="animate-page-in">
     <Hero />
     <Skills />
-    <ProcessTimeline />
+    <ProcessHomeSection />
     <AboutPreview />
     <Projects />
-    <Contact />
   </div>
 );
 
@@ -101,6 +100,7 @@ const App: React.FC = () => {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/projects" element={<ProjectsPage />} />
+          <Route path="/lifecycle" element={<LifecyclePage />} />
         </Routes>
         <Footer />
         <ScrollToTop />

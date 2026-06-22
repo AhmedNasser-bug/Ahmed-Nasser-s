@@ -15,6 +15,10 @@ graph LR
   CONSTANTS[src/constants.tsx]:::hub
   TYPES[src/types.ts]
   GSAP[src/components/gsap/index.ts]:::hub
+  WAF_README[.agents/waf/README.md]:::hub
+  WAF_CODING[.agents/waf/coding_principles.md]
+  WAF_PROMPTS[.agents/waf/prompts.md]
+  WAF_AUTO[.agents/waf/automation.md]
 
   INDEX --> APP
   APP --> HEADER[components/Header]
@@ -33,6 +37,11 @@ graph LR
   HERO & SKILLS & TIMELINE & ABOUT_PREV & ABOUT_PAGE & PROJECTS & PROJECTS_PAGE & CONTACT --> CONSTANTS
   HERO & SKILLS & TIMELINE & ABOUT_PREV & ABOUT_PAGE & PROJECTS & PROJECTS_PAGE & CONTACT --> GSAP
   PROJECTS & PROJECTS_PAGE & ABOUT_PAGE --> TYPES
+
+  WAF_README --> WAF_CODING & WAF_PROMPTS & WAF_AUTO
+  WAF_CODING -.-> APP
+  WAF_PROMPTS -.-> CONSTANTS
+  WAF_AUTO -.-> APP
 ```
 
 ## Analysis Notes

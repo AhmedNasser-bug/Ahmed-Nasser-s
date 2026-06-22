@@ -13,14 +13,17 @@ interface ScrollItemProps {
 const PROJECT_MOCKS: Record<string, string> = {
   "Finals QB": "/src/assets/finals-qb.png",
   "Live Star Agency": "/src/assets/livestar.png",
-  "LiveStar Portfolio": "/src/assets/livestar.png",
+  "ICPC PUA Platform": "/src/assets/icpc2.png",
   "DVLD Licensing System": "/src/assets/dvld_preview.png"
 };
 
 const ProjectScrollItem: React.FC<ScrollItemProps> = ({ project, index }) => {
+  const hasMockImage = !!PROJECT_MOCKS[project.title];
+  const mockImagePath = PROJECT_MOCKS[project.title] || "";
+  
   const [inView, setInView] = useState(false);
   const [iframeLoaded, setIframeLoaded] = useState(false);
-  const [mediaMode, setMediaMode] = useState<'image' | 'iframe'>('image');
+  const [mediaMode, setMediaMode] = useState<'image' | 'iframe'>(hasMockImage ? 'image' : 'iframe');
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -41,9 +44,6 @@ const ProjectScrollItem: React.FC<ScrollItemProps> = ({ project, index }) => {
     return () => observer.disconnect();
   }, []);
 
-  const hasMockImage = !!PROJECT_MOCKS[project.title] || project.title.toLowerCase().includes('final') || project.title.toLowerCase().includes('live') || project.title.toLowerCase().includes('dvld');
-  const mockImagePath = PROJECT_MOCKS[project.title] || (project.title.toLowerCase().includes('final') ? '/src/assets/finals-qb.png' : project.title.toLowerCase().includes('live') ? '/src/assets/livestar.png' : '/src/assets/dvld_preview.png');
-  
   const isLiveStar = project.title.toLowerCase().includes('live star') || project.title.toLowerCase().includes('livestar');
 
   // Render the Right Column Media Panel
@@ -304,24 +304,12 @@ const ProjectScrollItem: React.FC<ScrollItemProps> = ({ project, index }) => {
   );
 };
 
-const GitHubProjectsCarousel: React.FC = () => {
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
-  
+const GitHubProjectsGrid: React.FC = () => {
   // Mapping the images for GitHub projects
   const GITHUB_PROJECT_IMAGES: Record<string, string> = {
     "DVLD Licensing System": "/src/assets/dvld_preview.png",
     "Algorithm Analysis": "/src/assets/AlgorithmVisualizer.png",
     "Algorithmic Game Solver": "/src/assets/game_solver.png"
-  };
-
-  const scroll = (direction: 'left' | 'right') => {
-    if (scrollContainerRef.current) {
-      const scrollAmount = 374; // Card width (350px) + gap (24px)
-      scrollContainerRef.current.scrollBy({
-        left: direction === 'left' ? -scrollAmount : scrollAmount,
-        behavior: 'smooth'
-      });
-    }
   };
 
   return (
@@ -335,38 +323,16 @@ const GitHubProjectsCarousel: React.FC = () => {
             GitHub Core Engines
           </h2>
         </div>
-        
-        {/* Navigation Buttons */}
-        <div className="flex items-center gap-2">
-          <button 
-            onClick={() => scroll('left')}
-            className="w-10 h-10 border border-border-color bg-surface flex items-center justify-center hover:bg-background-light shadow-hard hover:shadow-hard-hover active:translate-x-0.5 active:translate-y-0.5 transition-all cursor-pointer"
-            aria-label="Previous Project"
-          >
-            <ChevronLeft className="w-5 h-5 text-text-main" />
-          </button>
-          <button 
-            onClick={() => scroll('right')}
-            className="w-10 h-10 border border-border-color bg-surface flex items-center justify-center hover:bg-background-light shadow-hard hover:shadow-hard-hover active:translate-x-0.5 active:translate-y-0.5 transition-all cursor-pointer"
-            aria-label="Next Project"
-          >
-            <ChevronRight className="w-5 h-5 text-text-main" />
-          </button>
-        </div>
       </div>
 
-      {/* Horizontal Scroller Container */}
-      <div 
-        ref={scrollContainerRef}
-        className="w-full flex overflow-x-auto gap-6 py-6 px-1 snap-x select-none scroll-smooth"
-        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-      >
+      {/* Static Grid Container */}
+      <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-6">
         {GITHUB_PROJECTS.map((project, idx) => {
           const imagePath = GITHUB_PROJECT_IMAGES[project.title] || "/src/assets/dvld_preview.png";
           return (
             <div 
               key={idx}
-              className="w-[290px] sm:w-[350px] shrink-0 border border-border-color bg-surface shadow-hard hover:shadow-hard-hover hover:-translate-x-1 hover:-translate-y-1 transition-all duration-300 snap-center flex flex-col justify-between overflow-hidden cursor-pointer"
+              className="border border-border-color bg-surface shadow-hard hover:shadow-hard-hover hover:-translate-x-1 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between overflow-hidden cursor-pointer"
             >
               {/* Header Telemetry */}
               <div className="bg-text-main text-surface p-3 px-4 flex items-center justify-between border-b border-border-color">
@@ -446,9 +412,9 @@ const GitHubProjectsCarousel: React.FC = () => {
         })}
       </div>
       
-      {/* Scroll Hint */}
+      {/* Footer Info */}
       <div className="flex justify-between items-center text-[10px] font-mono text-muted uppercase tracking-wider">
-        <span>← Swipe / Scroll horizontally →</span>
+        <span>Static Blueprint Grid</span>
         <span>{GITHUB_PROJECTS.length} Systems Compiled</span>
       </div>
     </section>
@@ -485,19 +451,8 @@ const ProjectsPage: React.FC = () => {
         ))}
       </div>
 
-      {/* GitHub Projects Carousel */}
-      <GitHubProjectsCarousel />
-
-      {/* Page Footer Navigation helper */}
-      <div className="py-8 flex flex-col items-center gap-2 border-t border-border-color/20 w-full max-w-[1200px] mt-12">
-        <span className="font-mono text-[10px] text-muted uppercase">End of Portfolio</span>
-        <Link 
-          to="/" 
-          className="inline-flex items-center justify-center bg-text-main text-surface px-5 py-2.5 border border-border-color font-mono text-xs uppercase tracking-wider hover:bg-primary transition-colors shadow-hard"
-        >
-          Return to Homepage
-        </Link>
-      </div>
+      {/* GitHub Projects Grid */}
+      <GitHubProjectsGrid />
 
     </div>
   );
