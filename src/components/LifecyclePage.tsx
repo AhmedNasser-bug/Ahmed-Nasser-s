@@ -237,27 +237,30 @@ const LifecyclePage: React.FC = () => {
   const [activePhase, setActivePhase] = React.useState(1);
 
   React.useEffect(() => {
-    const observerOptions = {
-      root: null,
-      rootMargin: '-30% 0px -50% 0px',
-      threshold: 0.1,
-    };
+    const handleScroll = () => {
+      const stepElements = document.querySelectorAll('[data-step-id]');
+      let currentActive = 1;
+      let minDistance = Infinity;
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const stepId = parseInt(entry.target.getAttribute('data-step-id') || '1', 10);
-          setActivePhase(stepId);
+      stepElements.forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        // Target active line at 220px from screen top (clearing the sticky header)
+        const distance = Math.abs(rect.top - 220);
+        if (distance < minDistance) {
+          minDistance = distance;
+          currentActive = parseInt(el.getAttribute('data-step-id') || '1', 10);
         }
       });
-    }, observerOptions);
 
-    const stepElements = document.querySelectorAll('[data-step-id]');
-    stepElements.forEach((el) => observer.observe(el));
+      setActivePhase(currentActive);
+    };
 
+    // Trigger initial calculation
+    handleScroll();
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => {
-      stepElements.forEach((el) => observer.unobserve(el));
-      observer.disconnect();
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 

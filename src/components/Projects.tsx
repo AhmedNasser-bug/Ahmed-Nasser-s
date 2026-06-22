@@ -4,6 +4,11 @@ import { ArrowRight, ExternalLink, ShieldAlert } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { GSAPSplitText, GSAPReveal, GSAPTilt } from './gsap';
 
+// ES Module asset imports
+import finalsQbImage from '../assets/finals-qb.png';
+import livestarImage from '../assets/livestar.png';
+import dvldImage from '../assets/dvld_preview.png';
+
 interface FeaturedProject {
   title: string;
   subtitle: string;
@@ -17,7 +22,7 @@ const FEATURED_PROJECTS: FeaturedProject[] = [
   {
     title: "Finals QB",
     subtitle: "Interactive Prep Engine",
-    image: "/assets/finals-qb.png",
+    image: finalsQbImage,
     tech: ["React", "TypeScript", "Tailwind CSS", "Vite"],
     pitch: "A complete neobrutalist interactive study ecosystem. Employs advanced state synchronization, clientside telemetry, and rapid quiz generation to help students optimize preparation and study paths for final exams.",
     link: "https://finals-qb.vercel.app/"
@@ -25,7 +30,7 @@ const FEATURED_PROJECTS: FeaturedProject[] = [
   {
     title: "Live Star Agency Landing Page",
     subtitle: "Strategic Business Case & CRO Multiplier",
-    image: "/assets/livestar.png",
+    image: livestarImage,
     tech: ["React", "Framer Motion", "Tailwind CSS", "Vite", "Lenis Scroll"],
     pitch: "A conversion rate optimization (CRO) engine built after analyzing 135+ pages of regional market constraints. Engineered to double baseline conversion rates (2.5% to 5.0%), halving acquisition costs (CPL down to 100 EGP) on a fixed 50k EGP budget, while completely bypassing annual CMS maintenance fees.",
     link: "https://livestar.agency"
@@ -33,7 +38,7 @@ const FEATURED_PROJECTS: FeaturedProject[] = [
   {
     title: "DVLD Licensing System",
     subtitle: "Handmade Giant Full-Stack Solution",
-    image: "/assets/dvld_preview.png",
+    image: dvldImage,
     tech: ["C# .NET 4.7", "SQL Server", "ADO.NET", "T-SQL", "Desktop/WinForms"],
     pitch: "A comprehensive, high-integrity Driver and Vehicle Licensing Department platform engineered from scratch. Manages 10+ core administrative licensing workflows (from vision tests and theory exams to international permits). Implements strict transactional safety, relational integrity, and custom database telemetry.",
   }

@@ -4,6 +4,14 @@ import { PROJECTS, GITHUB_PROJECTS } from '../constants';
 import { ArrowLeft, ExternalLink, Terminal, ShieldAlert, Cpu, Image as ImageIcon, Globe, Zap, Github, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
+// ES Module asset imports
+import finalsQbImage from '../assets/finals-qb.png';
+import livestarImage from '../assets/livestar.png';
+import icpc2Image from '../assets/icpc2.png';
+import dvldImage from '../assets/dvld_preview.png';
+import algorithmVisualizerImage from '../assets/AlgorithmVisualizer.png';
+import gameSolverImage from '../assets/game_solver.png';
+
 interface ScrollItemProps {
   project: typeof PROJECTS[0];
   index: number;
@@ -11,10 +19,10 @@ interface ScrollItemProps {
 
 // Map custom screenshot mocks for projects if they exist
 const PROJECT_MOCKS: Record<string, string> = {
-  "Finals QB": "/assets/finals-qb.png",
-  "Live Star Agency": "/assets/livestar.png",
-  "ICPC PUA Platform": "/assets/icpc2.png",
-  "DVLD Licensing System": "/assets/dvld_preview.png"
+  "Finals QB": finalsQbImage,
+  "Live Star Agency": livestarImage,
+  "ICPC PUA Platform": icpc2Image,
+  "DVLD Licensing System": dvldImage
 };
 
 const ProjectScrollItem: React.FC<ScrollItemProps> = ({ project, index }) => {
@@ -307,9 +315,9 @@ const ProjectScrollItem: React.FC<ScrollItemProps> = ({ project, index }) => {
 const GitHubProjectsGrid: React.FC = () => {
   // Mapping the images for GitHub projects
   const GITHUB_PROJECT_IMAGES: Record<string, string> = {
-    "DVLD Licensing System": "/src/assets/dvld_preview.png",
-    "Algorithm Analysis": "/src/assets/AlgorithmVisualizer.png",
-    "Algorithmic Game Solver": "/src/assets/game_solver.png"
+    "DVLD Licensing System": dvldImage,
+    "Algorithm Analysis": algorithmVisualizerImage,
+    "Algorithmic Game Solver": gameSolverImage
   };
 
   return (
@@ -328,7 +336,7 @@ const GitHubProjectsGrid: React.FC = () => {
       {/* Static Grid Container */}
       <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-6">
         {GITHUB_PROJECTS.map((project, idx) => {
-          const imagePath = GITHUB_PROJECT_IMAGES[project.title] || "/src/assets/dvld_preview.png";
+          const imagePath = GITHUB_PROJECT_IMAGES[project.title] || dvldImage;
           return (
             <div 
               key={idx}

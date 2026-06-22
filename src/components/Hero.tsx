@@ -3,6 +3,11 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { PROFILE } from '../constants';
 import { GSAPSplitText, GSAPReveal } from './gsap';
 
+// ES Module asset imports
+import finalsQbImage from '../assets/finals-qb.png';
+import livestarImage from '../assets/livestar.png';
+import dvldImage from '../assets/dvld_preview.png';
+
 interface CarouselItem {
   image: string;
   title: string;
@@ -12,19 +17,19 @@ interface CarouselItem {
 
 const CAROUSEL_ITEMS: CarouselItem[] = [
   {
-    image: '/assets/finals-qb.png',
+    image: finalsQbImage,
     title: 'Finals-Qb Quiz Platform',
     metric: 'WAF Infinite Scaling',
     description: 'Mastery Quiz Engine engineered with strategy patterns, Zod validation boundaries, and metacognitive diagnostics aligning with WAF pillars.'
   },
   {
-    image: '/assets/livestar.png',
+    image: livestarImage,
     title: 'Live Star Conversion Funnel',
     metric: 'Double Lead Vol. | Halved CPL',
     description: 'High-conversion, mobile-first agency landing page leveraging advanced web telemetry and responsive interface optimization.'
   },
   {
-    image: '/assets/dvld_preview.png',
+    image: dvldImage,
     title: 'DVLD Enterprise Dashboard',
     metric: '10+ Complex Workflows',
     description: 'Custom full-stack licensing platform built from scratch in C# .NET + SQL Server to enforce strict regulatory data integrity.'
