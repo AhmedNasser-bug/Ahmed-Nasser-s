@@ -106,6 +106,10 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
           <div 
             className="h-full bg-primary border-r-2 border-border-color transition-all duration-100 ease-out"
             style={{ width: `${progress}%` }}
+            role="progressbar"
+            aria-valuenow={progress}
+            aria-valuemin={0}
+            aria-valuemax={100}
           />
         </div>
 
