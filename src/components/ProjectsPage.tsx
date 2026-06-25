@@ -334,12 +334,13 @@ const GitHubProjectsGrid: React.FC = () => {
       </div>
 
       {/* Static Grid Container */}
-      <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-6" role="list">
         {GITHUB_PROJECTS.map((project, idx) => {
           const imagePath = GITHUB_PROJECT_IMAGES[project.title] || dvldImage;
           return (
             <div 
               key={idx}
+              role="listitem"
               className="border border-border-color bg-surface shadow-hard hover:shadow-hard-hover hover:-translate-x-1 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between overflow-hidden cursor-pointer"
             >
               {/* Header Telemetry */}
@@ -409,8 +410,9 @@ const GitHubProjectsGrid: React.FC = () => {
                       target="_blank" 
                       rel="noreferrer" 
                       className="w-full inline-flex items-center justify-center bg-surface hover:bg-text-main text-text-main hover:text-surface px-3 py-2 border border-border-color font-mono text-[10px] uppercase tracking-wider transition-colors cursor-pointer"
+                      aria-label={`View ${project.title} on GitHub (opens in a new tab)`}
                     >
-                      <Github className="mr-1.5 w-3.5 h-3.5" /> View on GitHub
+                      <Github className="mr-1.5 w-3.5 h-3.5" aria-hidden="true" /> View on GitHub
                     </a>
                   </div>
                 </div>
