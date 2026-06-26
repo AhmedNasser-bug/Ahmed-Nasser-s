@@ -79,7 +79,7 @@ const Projects: React.FC = () => {
                   <div className="h-full flex flex-col">
                     <GSAPTilt maxTilt={8} perspective={1000}>
                       <article 
-                        className="bg-surface border border-border-color flex flex-col group hover:bg-background-light transition-shadow duration-300 shadow-hard hover:shadow-hard-hover h-full cursor-pointer"
+                        className="bg-surface border border-border-color flex flex-col group hover:bg-background-light transition-shadow duration-300 shadow-hard hover:shadow-hard-hover h-full"
                       >
                         {/* Mock Screenshot Section */}
                         <div className="h-48 bg-background-light border-b border-border-color relative flex items-center justify-center overflow-hidden shrink-0">
@@ -103,8 +103,8 @@ const Projects: React.FC = () => {
                               </span>
                             </div>
                             {project.link && (
-                              <a href={project.link} target="_blank" rel="noreferrer" className="text-muted hover:text-primary transition-colors p-1" aria-label="External Link">
-                                <ExternalLink size={18} />
+                              <a href={project.link} target="_blank" rel="noreferrer" className="text-muted hover:text-primary transition-colors p-1 focus-visible:outline-2 focus-visible:outline-primary focus-visible:-outline-offset-1" aria-label="External Link (opens in a new tab)" title="External Link (opens in a new tab)">
+                                <ExternalLink size={18} aria-hidden="true" />
                               </a>
                             )}
                           </div>
@@ -126,9 +126,9 @@ const Projects: React.FC = () => {
                             </div>
                             
                             {project.link ? (
-                              <a href={project.link} target="_blank" rel="noreferrer" className="inline-flex items-center font-mono text-xs uppercase text-primary font-bold hover:underline group/link">
+                              <a href={project.link} target="_blank" rel="noreferrer" className="inline-flex items-center font-mono text-xs uppercase text-primary font-bold hover:underline group/link focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2" aria-label="View Live Deployment (opens in a new tab)" title="View Live Deployment (opens in a new tab)">
                                 View Live Deployment 
-                                <ArrowRight className="ml-1 w-3.5 h-3.5 group-hover/link:translate-x-1 transition-transform" />
+                                <ArrowRight className="ml-1 w-3.5 h-3.5 group-hover/link:translate-x-1 transition-transform" aria-hidden="true" />
                               </a>
                             ) : (
                               <span className="inline-flex items-center font-mono text-xs uppercase text-muted font-bold gap-1">
