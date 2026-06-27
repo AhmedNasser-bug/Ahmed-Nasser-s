@@ -76,19 +76,21 @@ const ProjectCarousel: React.FC = () => {
           onClick={handlePrev}
           className="absolute left-2 top-1/2 -translate-y-1/2 bg-surface hover:bg-text-main hover:text-surface border border-border-color p-2 transition-all z-20 cursor-pointer shadow-hard focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2"
           aria-label="Previous Project"
+          title="Previous Project"
         >
-          <ChevronLeft size={16} />
+          <ChevronLeft size={16} aria-hidden="true" />
         </button>
         <button
           onClick={handleNext}
           className="absolute right-2 top-1/2 -translate-y-1/2 bg-surface hover:bg-text-main hover:text-surface border border-border-color p-2 transition-all z-20 cursor-pointer shadow-hard focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2"
           aria-label="Next Project"
+          title="Next Project"
         >
-          <ChevronRight size={16} />
+          <ChevronRight size={16} aria-hidden="true" />
         </button>
       </div>
 
-      <div className="p-5 flex flex-col gap-2 min-h-[125px]">
+      <div className="p-5 flex flex-col gap-2 min-h-[125px]" aria-live="polite">
         <h4 className="font-sans font-bold text-lg text-text-main tracking-tight">{CAROUSEL_ITEMS[current].title}</h4>
         <p className="font-display italic text-base text-text-main/80 leading-relaxed">{CAROUSEL_ITEMS[current].description}</p>
         
@@ -102,6 +104,7 @@ const ProjectCarousel: React.FC = () => {
                 idx === current ? 'bg-primary' : 'bg-surface'
               }`}
               aria-label={`Slide ${idx + 1}`}
+              aria-current={idx === current ? 'true' : undefined}
             />
           ))}
         </div>
