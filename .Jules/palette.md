@@ -67,3 +67,14 @@
 ## 2026-05-26 - [Skip-to-Content Link Targeting and React Accessibility Fixes]
 **Learning:** When adding skip-to-content links, ensuring the target element has an `id` and `tabIndex={-1}` is crucial for programmatic focus. React requires camelCase attributes like `crossOrigin` and `referrerPolicy`. Additionally, extracting aria-live announcements from `useEffect` directly into render scope prevents unnecessary cascading re-renders.
 **Action:** Verify that skip-to-content links resolve to valid, focusable `id`s. Ensure standard HTML attributes are converted to their React equivalents. Compute purely derived state synchronously rather than using `useEffect`.
+## 2026-05-27 - [Progress Bar Role]
+**Learning:** Adding a visual progress bar (like in a preloader) is meaningless to a screen reader unless it has the correct role and attributes.
+**Action:** Always add `role="progressbar"`, `aria-valuenow`, `aria-valuemin`, and `aria-valuemax` to custom visual progress bars to ensure loading states are communicated properly.
+
+## 2026-05-27 - [Invisible Keyboard Traps]
+**Learning:** Elements that are visually hidden using opacity or translations (like a "Scroll to top" button) can still receive keyboard focus if their `tabIndex` is not managed, creating an invisible keyboard trap.
+**Action:** Conditionally apply `tabIndex={isVisible ? 0 : -1}` and `aria-hidden={!isVisible}` to elements that transition in and out of the viewport.
+
+## 2026-05-27 - [Decorative SVG Noise]
+**Learning:** `<svg>` elements used purely for decoration inside links or buttons (like an external link arrow) can cause screen readers to announce confusing fallback text or raw markup.
+**Action:** Explicitly add `aria-hidden="true"` to any SVG icon that does not convey semantic meaning on its own.

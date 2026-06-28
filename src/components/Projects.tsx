@@ -103,8 +103,8 @@ const Projects: React.FC = () => {
                               </span>
                             </div>
                             {project.link && (
-                              <a href={project.link} target="_blank" rel="noreferrer" className="text-muted hover:text-primary transition-colors p-1" aria-label="External Link">
-                                <ExternalLink size={18} />
+                              <a href={project.link} target="_blank" rel="noreferrer" className="text-muted hover:text-primary transition-colors p-1" aria-label="External Link (opens in a new tab)" title="External Link">
+                                <ExternalLink size={18} aria-hidden="true" />
                               </a>
                             )}
                           </div>
@@ -126,13 +126,13 @@ const Projects: React.FC = () => {
                             </div>
                             
                             {project.link ? (
-                              <a href={project.link} target="_blank" rel="noreferrer" className="inline-flex items-center font-mono text-xs uppercase text-primary font-bold hover:underline group/link">
+                              <a href={project.link} target="_blank" rel="noreferrer" className="inline-flex items-center font-mono text-xs uppercase text-primary font-bold hover:underline group/link" aria-label="View Live Deployment (opens in a new tab)" title="View Live Deployment">
                                 View Live Deployment 
-                                <ArrowRight className="ml-1 w-3.5 h-3.5 group-hover/link:translate-x-1 transition-transform" />
+                                <ArrowRight className="ml-1 w-3.5 h-3.5 group-hover/link:translate-x-1 transition-transform" aria-hidden="true" />
                               </a>
                             ) : (
                               <span className="inline-flex items-center font-mono text-xs uppercase text-muted font-bold gap-1">
-                                <ShieldAlert size={14} /> Desktop/Internal Platform
+                                <ShieldAlert size={14} aria-hidden="true" /> Desktop/Internal Platform
                               </span>
                             )}
                           </div>
