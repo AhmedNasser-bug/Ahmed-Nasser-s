@@ -34,13 +34,13 @@ const Header: React.FC = () => {
           <div className="w-[1px] h-4 bg-border-color/30 hidden md:block"></div>
           
           {PROFILE.contact.github && (
-            <a className="flex items-center gap-2 text-text-main hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 hidden md:inline-block" href={PROFILE.contact.github} target="_blank" rel="noreferrer" aria-label="GitHub">
-              <Github size={16} />
+            <a className="flex items-center gap-2 text-text-main hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 hidden md:inline-block" href={PROFILE.contact.github} target="_blank" rel="noreferrer" aria-label="GitHub (opens in a new tab)" title="GitHub">
+              <Github size={16} aria-hidden="true" />
             </a>
           )}
           {PROFILE.contact.linkedin && (
-            <a className="flex items-center gap-2 text-text-main hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 hidden md:inline-block" href={PROFILE.contact.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn">
-              <Linkedin size={16} />
+            <a className="flex items-center gap-2 text-text-main hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 hidden md:inline-block" href={PROFILE.contact.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn (opens in a new tab)" title="LinkedIn">
+              <Linkedin size={16} aria-hidden="true" />
             </a>
           )}
           
