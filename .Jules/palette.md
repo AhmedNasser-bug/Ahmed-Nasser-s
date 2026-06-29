@@ -67,3 +67,10 @@
 ## 2026-05-26 - [Skip-to-Content Link Targeting and React Accessibility Fixes]
 **Learning:** When adding skip-to-content links, ensuring the target element has an `id` and `tabIndex={-1}` is crucial for programmatic focus. React requires camelCase attributes like `crossOrigin` and `referrerPolicy`. Additionally, extracting aria-live announcements from `useEffect` directly into render scope prevents unnecessary cascading re-renders.
 **Action:** Verify that skip-to-content links resolve to valid, focusable `id`s. Ensure standard HTML attributes are converted to their React equivalents. Compute purely derived state synchronously rather than using `useEffect`.
+## 2026-06-29 - [Active State Semantics in Timelines]
+**Learning:** Relying solely on visual changes (like color or scale) to indicate the active step in a sequential process (like a timeline or flow diagram) leaves screen reader users without context.
+**Action:** Apply `aria-current="step"` to the active element in custom timelines and sequential flows to semantically communicate the current state to assistive technologies.
+
+## 2026-06-29 - [Visibility State and Keyboard Traps]
+**Learning:** Hiding an element visually (e.g., using opacity or translations) without removing it from the DOM or explicitly hiding it from assistive tech creates invisible keyboard traps. Users tabbing through the document can get 'stuck' on invisible buttons.
+**Action:** When conditionally hiding interactive elements (like scroll-to-top buttons), ensure you dynamically set `aria-hidden={!isVisible}` and `tabIndex={isVisible ? 0 : -1}` to remove them from the accessibility tree and tab order.

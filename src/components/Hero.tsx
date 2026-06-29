@@ -55,11 +55,23 @@ const ProjectCarousel: React.FC = () => {
   };
 
   return (
-    <div className="relative border border-border-color bg-surface shadow-hard hover:shadow-hard-hover transition-all duration-300 w-full overflow-hidden flex flex-col pointer-events-auto">
-      <div className="relative w-full aspect-[16/10] bg-background-light overflow-hidden border-b border-border-color">
+    <div
+      className="relative border border-border-color bg-surface shadow-hard hover:shadow-hard-hover transition-all duration-300 w-full overflow-hidden flex flex-col pointer-events-auto"
+      aria-roledescription="carousel"
+      aria-label="Featured Projects"
+    >
+      <div
+        className="relative w-full aspect-[16/10] bg-background-light overflow-hidden border-b border-border-color"
+        aria-live="polite"
+        aria-atomic="true"
+      >
         {CAROUSEL_ITEMS.map((item, idx) => (
           <div
             key={idx}
+            role="group"
+            aria-roledescription="slide"
+            aria-label={`Slide ${idx + 1} of ${CAROUSEL_ITEMS.length}`}
+            aria-hidden={idx !== current}
             className={`absolute inset-0 w-full h-full transition-all duration-700 ease-in-out flex items-center justify-center ${
               idx === current ? 'opacity-100 scale-100 z-10' : 'opacity-0 scale-95 z-0'
             }`}
@@ -89,14 +101,16 @@ const ProjectCarousel: React.FC = () => {
       </div>
 
       <div className="p-5 flex flex-col gap-2 min-h-[125px]">
-        <h4 className="font-sans font-bold text-lg text-text-main tracking-tight">{CAROUSEL_ITEMS[current].title}</h4>
-        <p className="font-display italic text-base text-text-main/80 leading-relaxed">{CAROUSEL_ITEMS[current].description}</p>
+        <h4 className="font-sans font-bold text-lg text-text-main tracking-tight" aria-hidden="true">{CAROUSEL_ITEMS[current].title}</h4>
+        <p className="font-display italic text-base text-text-main/80 leading-relaxed" aria-hidden="true">{CAROUSEL_ITEMS[current].description}</p>
         
         {/* Indicators */}
-        <div className="flex gap-2 mt-2 justify-end">
+        <div className="flex gap-2 mt-2 justify-end" role="tablist" aria-label="Carousel Slides">
           {CAROUSEL_ITEMS.map((_, idx) => (
             <button
               key={idx}
+              role="tab"
+              aria-selected={idx === current}
               onClick={() => setCurrent(idx)}
               className={`w-3 h-3 border border-border-color transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 ${
                 idx === current ? 'bg-primary' : 'bg-surface'
