@@ -19,28 +19,28 @@ const Header: React.FC = () => {
       </div>
       <div className="flex flex-1 justify-end gap-8">
         <div className="flex items-center gap-6 font-mono text-sm uppercase tracking-wider">
-          <Link to="/" className={`transition-colors focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 ${location.pathname === '/' ? 'text-primary font-bold' : 'text-text-main hover:text-primary'}`}>
+          <Link to="/" className={`transition-colors focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 ${location.pathname === '/' ? 'text-primary font-bold' : 'text-text-main hover:text-primary'}`} aria-current={location.pathname === '/' ? 'page' : undefined}>
             Home
           </Link>
-          <Link to="/projects" className={`transition-colors focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 ${location.pathname === '/projects' ? 'text-primary font-bold' : 'text-text-main hover:text-primary'}`}>
+          <Link to="/projects" className={`transition-colors focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 ${location.pathname === '/projects' ? 'text-primary font-bold' : 'text-text-main hover:text-primary'}`} aria-current={location.pathname === '/projects' ? 'page' : undefined}>
             Projects
           </Link>
-          <Link to="/lifecycle" className={`transition-colors focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 ${location.pathname === '/lifecycle' ? 'text-primary font-bold' : 'text-text-main hover:text-primary'}`}>
+          <Link to="/lifecycle" className={`transition-colors focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 ${location.pathname === '/lifecycle' ? 'text-primary font-bold' : 'text-text-main hover:text-primary'}`} aria-current={location.pathname === '/lifecycle' ? 'page' : undefined}>
             Lifecycle
           </Link>
-          <Link to="/about" className={`transition-colors focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 ${location.pathname === '/about' ? 'text-primary font-bold' : 'text-text-main hover:text-primary'}`}>
+          <Link to="/about" className={`transition-colors focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 ${location.pathname === '/about' ? 'text-primary font-bold' : 'text-text-main hover:text-primary'}`} aria-current={location.pathname === '/about' ? 'page' : undefined}>
             About
           </Link>
           <div className="w-[1px] h-4 bg-border-color/30 hidden md:block"></div>
           
           {PROFILE.contact.github && (
-            <a className="flex items-center gap-2 text-text-main hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 hidden md:inline-block" href={PROFILE.contact.github} target="_blank" rel="noreferrer" aria-label="GitHub">
-              <Github size={16} />
+            <a className="flex items-center gap-2 text-text-main hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 hidden md:inline-block" href={PROFILE.contact.github} target="_blank" rel="noreferrer" aria-label="GitHub (opens in a new tab)">
+              <Github size={16} aria-hidden="true" />
             </a>
           )}
           {PROFILE.contact.linkedin && (
-            <a className="flex items-center gap-2 text-text-main hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 hidden md:inline-block" href={PROFILE.contact.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn">
-              <Linkedin size={16} />
+            <a className="flex items-center gap-2 text-text-main hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 hidden md:inline-block" href={PROFILE.contact.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn (opens in a new tab)">
+              <Linkedin size={16} aria-hidden="true" />
             </a>
           )}
           
@@ -49,13 +49,13 @@ const Header: React.FC = () => {
           </a>
           
           <div className="md:hidden flex items-center gap-4">
-             <Link to="/projects" className={`transition-colors focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 ${location.pathname === '/projects' ? 'text-primary font-bold' : 'text-text-main'}`}>
+             <Link to="/projects" className={`transition-colors focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 ${location.pathname === '/projects' ? 'text-primary font-bold' : 'text-text-main'}`} aria-current={location.pathname === '/projects' ? 'page' : undefined}>
                 Projects
              </Link>
-             <Link to="/lifecycle" className={`transition-colors focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 ${location.pathname === '/lifecycle' ? 'text-primary font-bold' : 'text-text-main'}`}>
+             <Link to="/lifecycle" className={`transition-colors focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 ${location.pathname === '/lifecycle' ? 'text-primary font-bold' : 'text-text-main'}`} aria-current={location.pathname === '/lifecycle' ? 'page' : undefined}>
                 Lifecycle
              </Link>
-             <Link to="/about" className={`transition-colors focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 ${location.pathname === '/about' ? 'text-primary font-bold' : 'text-text-main'}`}>
+             <Link to="/about" className={`transition-colors focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 ${location.pathname === '/about' ? 'text-primary font-bold' : 'text-text-main'}`} aria-current={location.pathname === '/about' ? 'page' : undefined}>
                 About
              </Link>
           </div>
