@@ -67,3 +67,6 @@
 ## 2026-05-26 - [Skip-to-Content Link Targeting and React Accessibility Fixes]
 **Learning:** When adding skip-to-content links, ensuring the target element has an `id` and `tabIndex={-1}` is crucial for programmatic focus. React requires camelCase attributes like `crossOrigin` and `referrerPolicy`. Additionally, extracting aria-live announcements from `useEffect` directly into render scope prevents unnecessary cascading re-renders.
 **Action:** Verify that skip-to-content links resolve to valid, focusable `id`s. Ensure standard HTML attributes are converted to their React equivalents. Compute purely derived state synchronously rather than using `useEffect`.
+## 2026-06-30 - [Lockfile Pruning]
+**Learning:** Running `pnpm install` can automatically generate a `pnpm-lock.yaml` file. For routine UX enhancement PRs that don't intend to manage dependency versions, this lockfile causes unnecessary diff noise.
+**Action:** Unstage and remove the newly generated `pnpm-lock.yaml` before submitting the PR to ensure only relevant UX changes are committed.
