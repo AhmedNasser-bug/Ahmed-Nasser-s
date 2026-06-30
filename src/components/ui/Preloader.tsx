@@ -72,6 +72,10 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
         clipPath: isFading ? 'polygon(0 0, 100% 0, 100% 0, 0 0)' : 'polygon(0 0, 100% 0, 100% 100%, 0 100%)',
         transition: 'all 600ms cubic-bezier(0.85, 0, 0.15, 1)'
       }}
+      role="progressbar"
+      aria-valuenow={progress}
+      aria-valuemin={0}
+      aria-valuemax={100}
     >
       {/* Repeating Graph Paper Background Grid */}
       <div 
