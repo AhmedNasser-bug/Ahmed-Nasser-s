@@ -93,15 +93,17 @@ const ProjectCarousel: React.FC = () => {
         <p className="font-display italic text-base text-text-main/80 leading-relaxed">{CAROUSEL_ITEMS[current].description}</p>
         
         {/* Indicators */}
-        <div className="flex gap-2 mt-2 justify-end">
+        <div className="flex gap-2 mt-2 justify-end" role="tablist" aria-label="Project carousel slides">
           {CAROUSEL_ITEMS.map((_, idx) => (
             <button
               key={idx}
               onClick={() => setCurrent(idx)}
+              role="tab"
+              aria-selected={idx === current}
+              aria-label={`Slide ${idx + 1}`}
               className={`w-3 h-3 border border-border-color transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 ${
                 idx === current ? 'bg-primary' : 'bg-surface'
               }`}
-              aria-label={`Slide ${idx + 1}`}
             />
           ))}
         </div>

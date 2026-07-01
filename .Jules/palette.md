@@ -67,3 +67,6 @@
 ## 2026-05-26 - [Skip-to-Content Link Targeting and React Accessibility Fixes]
 **Learning:** When adding skip-to-content links, ensuring the target element has an `id` and `tabIndex={-1}` is crucial for programmatic focus. React requires camelCase attributes like `crossOrigin` and `referrerPolicy`. Additionally, extracting aria-live announcements from `useEffect` directly into render scope prevents unnecessary cascading re-renders.
 **Action:** Verify that skip-to-content links resolve to valid, focusable `id`s. Ensure standard HTML attributes are converted to their React equivalents. Compute purely derived state synchronously rather than using `useEffect`.
+## 2026-06-22 - Semantic Layout & Skip Links
+**Learning:** Adding a visible-on-focus skip link is highly effective, but it must be paired with proper semantic layout (e.g. modifying a `<main>` container to wrap just the content, not global headers/footers) so screen readers jump exactly where they need to go.
+**Action:** Always verify the target of a skip link (e.g. `<main>`) does not contain the global navigation components it's trying to skip over.
