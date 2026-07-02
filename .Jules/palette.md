@@ -67,3 +67,6 @@
 ## 2026-05-26 - [Skip-to-Content Link Targeting and React Accessibility Fixes]
 **Learning:** When adding skip-to-content links, ensuring the target element has an `id` and `tabIndex={-1}` is crucial for programmatic focus. React requires camelCase attributes like `crossOrigin` and `referrerPolicy`. Additionally, extracting aria-live announcements from `useEffect` directly into render scope prevents unnecessary cascading re-renders.
 **Action:** Verify that skip-to-content links resolve to valid, focusable `id`s. Ensure standard HTML attributes are converted to their React equivalents. Compute purely derived state synchronously rather than using `useEffect`.
+## 2026-07-02 - Disable smooth scrolling for reduced motion users
+**Learning:** Lenis smooth scrolling (and requestAnimationFrame loops) can cause nausea or distraction for users with vestibular disorders. Disabling it based on `prefers-reduced-motion` significantly improves accessibility and also saves CPU cycles on low-end devices.
+**Action:** When initializing Lenis or other inertia-based scroll hijackers, wrap the initialization block in an `if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches)` condition.
