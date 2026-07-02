@@ -271,23 +271,27 @@ const ProjectScrollItem: React.FC<ScrollItemProps> = ({ project, index }) => {
             
             {/* Screenshot vs Live App Toggle tabs (for projects with deployment links, except Live Star) */}
             {project.link && !isLiveStar && (
-              <div className="flex border border-surface/20 bg-surface/5 rounded-sm p-0.5 overflow-hidden">
+              <div className="flex border border-surface/20 bg-surface/5 rounded-sm p-0.5 overflow-hidden" role="tablist">
                 <button
                   onClick={() => setMediaMode('image')}
+                  role="tab"
+                  aria-selected={mediaMode === 'image'}
                   className={`px-2 py-0.5 font-mono text-[9px] uppercase tracking-wider rounded-sm transition-all flex items-center gap-1 cursor-pointer ${
                     mediaMode === 'image' ? 'bg-surface text-text-main font-bold' : 'text-surface/50 hover:text-surface'
                   }`}
                 >
-                  <ImageIcon size={10} />
+                  <ImageIcon size={10} aria-hidden="true" />
                   Screenshot
                 </button>
                 <button
                   onClick={() => setMediaMode('iframe')}
+                  role="tab"
+                  aria-selected={mediaMode === 'iframe'}
                   className={`px-2 py-0.5 font-mono text-[9px] uppercase tracking-wider rounded-sm transition-all flex items-center gap-1 cursor-pointer ${
                     mediaMode === 'iframe' ? 'bg-surface text-text-main font-bold' : 'text-surface/50 hover:text-surface'
                   }`}
                 >
-                  <Globe size={10} />
+                  <Globe size={10} aria-hidden="true" />
                   Live App
                 </button>
               </div>
@@ -340,7 +344,7 @@ const GitHubProjectsGrid: React.FC = () => {
           return (
             <div 
               key={idx}
-              className="border border-border-color bg-surface shadow-hard hover:shadow-hard-hover hover:-translate-x-1 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between overflow-hidden cursor-pointer"
+              className="border border-border-color bg-surface shadow-hard hover:shadow-hard-hover hover:-translate-x-1 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between overflow-hidden"
             >
               {/* Header Telemetry */}
               <div className="bg-text-main text-surface p-3 px-4 flex items-center justify-between border-b border-border-color">
