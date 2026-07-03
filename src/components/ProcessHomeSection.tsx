@@ -56,8 +56,8 @@ const ProcessHomeSection: React.FC = () => {
                     </h3>
 
                     {/* Compact Phase Indicator Nodes */}
-                    <div className="flex flex-col gap-3 font-sans text-xs font-medium">
-                      <div className="flex items-center gap-3 p-2 border border-border-color/10 bg-background-light">
+                    <div className="flex flex-col gap-3 font-sans text-xs font-medium" role="list">
+                      <div className="flex items-center gap-3 p-2 border border-border-color/10 bg-background-light" role="listitem">
                         <div className="p-1 bg-primary/10 border border-primary/20 text-primary shrink-0">
                           <Search size={14} />
                         </div>
@@ -67,7 +67,7 @@ const ProcessHomeSection: React.FC = () => {
                         </div>
                       </div>
 
-                      <div className="flex items-center gap-3 p-2 border border-border-color/10 bg-background-light">
+                      <div className="flex items-center gap-3 p-2 border border-border-color/10 bg-background-light" role="listitem">
                         <div className="p-1 bg-primary/10 border border-primary/20 text-primary shrink-0">
                           <Compass size={14} />
                         </div>
@@ -77,7 +77,7 @@ const ProcessHomeSection: React.FC = () => {
                         </div>
                       </div>
 
-                      <div className="flex items-center gap-3 p-2 border border-border-color/10 bg-background-light">
+                      <div className="flex items-center gap-3 p-2 border border-border-color/10 bg-background-light" role="listitem">
                         <div className="p-1 bg-primary/10 border border-primary/20 text-primary shrink-0">
                           <Cpu size={14} />
                         </div>
@@ -87,7 +87,7 @@ const ProcessHomeSection: React.FC = () => {
                         </div>
                       </div>
 
-                      <div className="flex items-center gap-3 p-2 border border-border-color/10 bg-background-light opacity-50">
+                      <div className="flex items-center gap-3 p-2 border border-border-color/10 bg-background-light opacity-50" role="listitem">
                         <div className="p-1 bg-muted/15 border border-muted/20 text-muted shrink-0">
                           <Layers size={14} />
                         </div>
