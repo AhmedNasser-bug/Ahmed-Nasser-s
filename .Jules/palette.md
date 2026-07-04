@@ -67,3 +67,9 @@
 ## 2026-05-26 - [Skip-to-Content Link Targeting and React Accessibility Fixes]
 **Learning:** When adding skip-to-content links, ensuring the target element has an `id` and `tabIndex={-1}` is crucial for programmatic focus. React requires camelCase attributes like `crossOrigin` and `referrerPolicy`. Additionally, extracting aria-live announcements from `useEffect` directly into render scope prevents unnecessary cascading re-renders.
 **Action:** Verify that skip-to-content links resolve to valid, focusable `id`s. Ensure standard HTML attributes are converted to their React equivalents. Compute purely derived state synchronously rather than using `useEffect`.
+## 2026-05-27 - [Misleading Structural Cursors]
+**Learning:** Applying `cursor-pointer` to non-interactive structural components (like entire `div` or `article` blocks) severely misleads users. They assume the entire container is clickable and may experience friction when their clicks don't result in navigation.
+**Action:** Remove `cursor-pointer` from wrapping elements and restrict native interactive cues to explicit `<a>` or `<button>` tags.
+## 2026-05-27 - [Carousel ARIA Patterns]
+**Learning:** Carousel indicators are essentially a custom tab implementation. Relying solely on visual changes or basic `button` tags leaves screen readers without structural context.
+**Action:** When building carousel or slider indicators, implement the standard `role="tablist"` wrapper and `role="tab"` buttons with dynamically bound `aria-selected` attributes.
