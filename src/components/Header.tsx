@@ -8,6 +8,9 @@ const Header: React.FC = () => {
 
   return (
     <header className="flex items-center justify-between whitespace-nowrap border-b border-solid border-border-color bg-surface px-6 py-4 shadow-hard sticky top-4 z-50 mx-4 md:mx-10 lg:mx-20 max-w-[1200px] xl:mx-auto">
+      <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:z-[9999] bg-surface text-text-main px-4 py-2 border-2 border-primary">
+        Skip to content
+      </a>
       <div className="flex items-center gap-4 text-text-main">
         <Link to="/" className="flex items-center gap-4 focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2">
           <div className="size-5 text-primary">

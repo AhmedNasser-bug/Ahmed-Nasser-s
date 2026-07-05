@@ -59,6 +59,10 @@ const ProjectCarousel: React.FC = () => {
       <div className="relative w-full aspect-[16/10] bg-background-light overflow-hidden border-b border-border-color">
         {CAROUSEL_ITEMS.map((item, idx) => (
           <div
+            id={`carousel-slide-${idx}`}
+            role="tabpanel"
+            aria-labelledby={`carousel-slide-tab-${idx}`}
+            aria-hidden={idx !== current}
             key={idx}
             className={`absolute inset-0 w-full h-full transition-all duration-700 ease-in-out flex items-center justify-center ${
               idx === current ? 'opacity-100 scale-100 z-10' : 'opacity-0 scale-95 z-0'
@@ -93,10 +97,14 @@ const ProjectCarousel: React.FC = () => {
         <p className="font-display italic text-base text-text-main/80 leading-relaxed">{CAROUSEL_ITEMS[current].description}</p>
         
         {/* Indicators */}
-        <div className="flex gap-2 mt-2 justify-end">
+        <div className="flex gap-2 mt-2 justify-end" role="tablist" aria-label="Project carousel slides">
           {CAROUSEL_ITEMS.map((_, idx) => (
             <button
+              id={`carousel-slide-tab-${idx}`}
               key={idx}
+              role="tab"
+              aria-selected={idx === current}
+              aria-controls={`carousel-slide-${idx}`}
               onClick={() => setCurrent(idx)}
               className={`w-3 h-3 border border-border-color transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 ${
                 idx === current ? 'bg-primary' : 'bg-surface'
