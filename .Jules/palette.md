@@ -67,3 +67,9 @@
 ## 2026-05-26 - [Skip-to-Content Link Targeting and React Accessibility Fixes]
 **Learning:** When adding skip-to-content links, ensuring the target element has an `id` and `tabIndex={-1}` is crucial for programmatic focus. React requires camelCase attributes like `crossOrigin` and `referrerPolicy`. Additionally, extracting aria-live announcements from `useEffect` directly into render scope prevents unnecessary cascading re-renders.
 **Action:** Verify that skip-to-content links resolve to valid, focusable `id`s. Ensure standard HTML attributes are converted to their React equivalents. Compute purely derived state synchronously rather than using `useEffect`.
+## 2026-05-27 - [Component Roles vs Styling]
+**Learning:** While adding `cursor-pointer` to generic visual containers (like cards) without interactive behaviors looks nice for mouse users, it causes significant friction for keyboard-only or screen reader users who expect native interactive semantics (e.g., links or buttons) when presented with interactive cursors.
+**Action:** Never add `cursor-pointer` to generic `<article>` or `<div>` elements without also providing corresponding keyboard interaction (`tabindex="0"`, `keydown` events) and semantic roles (`role="button"`, `role="link"`).
+## 2026-05-27 - [Hidden Skip Links and Focus Outlines]
+**Learning:** When implementing a `sr-only focus:not-sr-only` skip-to-content link targeting an internal ID (like `#main-content`), the target element itself needs a `tabindex="-1"` so it can be programmatically focused, but it also requires `focus:outline-none` so the layout does not show a jarring outline around the entire page container.
+**Action:** Always pair `tabindex="-1"` with `focus:outline-none` when applying programmatic focus targets to main layout containers.

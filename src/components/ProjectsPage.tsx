@@ -271,23 +271,29 @@ const ProjectScrollItem: React.FC<ScrollItemProps> = ({ project, index }) => {
             
             {/* Screenshot vs Live App Toggle tabs (for projects with deployment links, except Live Star) */}
             {project.link && !isLiveStar && (
-              <div className="flex border border-surface/20 bg-surface/5 rounded-sm p-0.5 overflow-hidden">
+              <div className="flex border border-surface/20 bg-surface/5 rounded-sm p-0.5 overflow-hidden" role="tablist" aria-label="Media Toggle">
                 <button
+                  role="tab"
+                  aria-selected={mediaMode === 'image'}
+                  aria-controls={`media-panel-image-${project.title.replace(/\s+/g, '-').toLowerCase()}`}
                   onClick={() => setMediaMode('image')}
-                  className={`px-2 py-0.5 font-mono text-[9px] uppercase tracking-wider rounded-sm transition-all flex items-center gap-1 cursor-pointer ${
+                  className={`px-2 py-0.5 font-mono text-[9px] uppercase tracking-wider rounded-sm transition-all flex items-center gap-1 cursor-pointer focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-1 ${
                     mediaMode === 'image' ? 'bg-surface text-text-main font-bold' : 'text-surface/50 hover:text-surface'
                   }`}
                 >
-                  <ImageIcon size={10} />
+                  <ImageIcon size={10} aria-hidden="true" />
                   Screenshot
                 </button>
                 <button
+                  role="tab"
+                  aria-selected={mediaMode === 'iframe'}
+                  aria-controls={`media-panel-iframe-${project.title.replace(/\s+/g, '-').toLowerCase()}`}
                   onClick={() => setMediaMode('iframe')}
-                  className={`px-2 py-0.5 font-mono text-[9px] uppercase tracking-wider rounded-sm transition-all flex items-center gap-1 cursor-pointer ${
+                  className={`px-2 py-0.5 font-mono text-[9px] uppercase tracking-wider rounded-sm transition-all flex items-center gap-1 cursor-pointer focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-1 ${
                     mediaMode === 'iframe' ? 'bg-surface text-text-main font-bold' : 'text-surface/50 hover:text-surface'
                   }`}
                 >
-                  <Globe size={10} />
+                  <Globe size={10} aria-hidden="true" />
                   Live App
                 </button>
               </div>
