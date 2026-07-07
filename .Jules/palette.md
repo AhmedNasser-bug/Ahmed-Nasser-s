@@ -67,3 +67,11 @@
 ## 2026-05-26 - [Skip-to-Content Link Targeting and React Accessibility Fixes]
 **Learning:** When adding skip-to-content links, ensuring the target element has an `id` and `tabIndex={-1}` is crucial for programmatic focus. React requires camelCase attributes like `crossOrigin` and `referrerPolicy`. Additionally, extracting aria-live announcements from `useEffect` directly into render scope prevents unnecessary cascading re-renders.
 **Action:** Verify that skip-to-content links resolve to valid, focusable `id`s. Ensure standard HTML attributes are converted to their React equivalents. Compute purely derived state synchronously rather than using `useEffect`.
+
+## 2026-07-07 - [Comprehensive Interactive Element Accessibility & Motion Handling]
+**Learning:** Found patterns where interactive elements lacked appropriate roles, purely decorative elements added screen-reader noise, and animations via Lenis forced smooth scrolling on users who prefer reduced motion. Additionally, Playwright tests can hang waiting for elements masked by slow entrance animations.
+**Action:**
+1. Conditionally instantiate Lenis based on `window.matchMedia('(prefers-reduced-motion: reduce)')`.
+2. Apply `aria-hidden="true"` to decorative Lucide icons.
+3. Apply `aria-current="page"` for active navigation indicators.
+4. In Playwright, explicitly use `page.emulate_media(reduced_motion="reduce")` to bypass long animations during UI tests.
