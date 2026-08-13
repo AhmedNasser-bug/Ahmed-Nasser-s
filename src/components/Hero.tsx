@@ -60,6 +60,9 @@ const ProjectCarousel: React.FC = () => {
         {CAROUSEL_ITEMS.map((item, idx) => (
           <div
             key={idx}
+            id={`carousel-panel-${idx}`}
+            role="tabpanel"
+            aria-hidden={idx !== current}
             className={`absolute inset-0 w-full h-full transition-all duration-700 ease-in-out flex items-center justify-center ${
               idx === current ? 'opacity-100 scale-100 z-10' : 'opacity-0 scale-95 z-0'
             }`}
@@ -76,15 +79,17 @@ const ProjectCarousel: React.FC = () => {
           onClick={handlePrev}
           className="absolute left-2 top-1/2 -translate-y-1/2 bg-surface hover:bg-text-main hover:text-surface border border-border-color p-2 transition-all z-20 cursor-pointer shadow-hard focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2"
           aria-label="Previous Project"
+          title="Previous Project"
         >
-          <ChevronLeft size={16} />
+          <ChevronLeft size={16} aria-hidden="true" />
         </button>
         <button
           onClick={handleNext}
           className="absolute right-2 top-1/2 -translate-y-1/2 bg-surface hover:bg-text-main hover:text-surface border border-border-color p-2 transition-all z-20 cursor-pointer shadow-hard focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2"
           aria-label="Next Project"
+          title="Next Project"
         >
-          <ChevronRight size={16} />
+          <ChevronRight size={16} aria-hidden="true" />
         </button>
       </div>
 
@@ -93,15 +98,19 @@ const ProjectCarousel: React.FC = () => {
         <p className="font-display italic text-base text-text-main/80 leading-relaxed">{CAROUSEL_ITEMS[current].description}</p>
         
         {/* Indicators */}
-        <div className="flex gap-2 mt-2 justify-end">
+        <div className="flex gap-2 mt-2 justify-end" role="tablist" aria-label="Project carousel slides">
           {CAROUSEL_ITEMS.map((_, idx) => (
             <button
               key={idx}
+              role="tab"
+              aria-selected={idx === current}
+              aria-controls={`carousel-panel-${idx}`}
               onClick={() => setCurrent(idx)}
               className={`w-3 h-3 border border-border-color transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 ${
                 idx === current ? 'bg-primary' : 'bg-surface'
               }`}
               aria-label={`Slide ${idx + 1}`}
+              title={`Slide ${idx + 1}`}
             />
           ))}
         </div>
