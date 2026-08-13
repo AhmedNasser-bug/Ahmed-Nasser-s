@@ -238,12 +238,13 @@ const ProjectScrollItem: React.FC<ScrollItemProps> = ({ project, index }) => {
                   target="_blank" 
                   rel="noreferrer" 
                   className="inline-flex items-center justify-center bg-text-main text-surface px-3 py-1.5 border border-border-color font-mono text-[10px] uppercase tracking-wider hover:bg-primary transition-colors cursor-pointer"
+                  aria-label="Open Live App (opens in a new tab)"
                 >
-                  Open Live App <ExternalLink className="ml-1.5 w-3 h-3" />
+                  Open Live App <ExternalLink className="ml-1.5 w-3 h-3" aria-hidden="true" />
                 </a>
               ) : (
                 <span className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase text-muted font-bold">
-                  <ShieldAlert size={12} /> Internal System
+                  <ShieldAlert className="w-3 h-3" aria-hidden="true" /> Internal / Desktop
                 </span>
               )}
             </div>
@@ -278,7 +279,7 @@ const ProjectScrollItem: React.FC<ScrollItemProps> = ({ project, index }) => {
                     mediaMode === 'image' ? 'bg-surface text-text-main font-bold' : 'text-surface/50 hover:text-surface'
                   }`}
                 >
-                  <ImageIcon size={10} />
+                  <ImageIcon size={10} aria-hidden="true" />
                   Screenshot
                 </button>
                 <button
@@ -287,7 +288,7 @@ const ProjectScrollItem: React.FC<ScrollItemProps> = ({ project, index }) => {
                     mediaMode === 'iframe' ? 'bg-surface text-text-main font-bold' : 'text-surface/50 hover:text-surface'
                   }`}
                 >
-                  <Globe size={10} />
+                  <Globe size={10} aria-hidden="true" />
                   Live App
                 </button>
               </div>
@@ -409,8 +410,9 @@ const GitHubProjectsGrid: React.FC = () => {
                       target="_blank" 
                       rel="noreferrer" 
                       className="w-full inline-flex items-center justify-center bg-surface hover:bg-text-main text-text-main hover:text-surface px-3 py-2 border border-border-color font-mono text-[10px] uppercase tracking-wider transition-colors cursor-pointer"
+                      aria-label="View on GitHub (opens in a new tab)"
                     >
-                      <Github className="mr-1.5 w-3.5 h-3.5" /> View on GitHub
+                      <Github className="mr-1.5 w-3.5 h-3.5" aria-hidden="true" /> View on GitHub
                     </a>
                   </div>
                 </div>
@@ -437,7 +439,7 @@ const ProjectsPage: React.FC = () => {
       <div className="w-full max-w-[1200px] px-4 md:px-8 pt-20 pb-4 border-b border-border-color/20 flex items-center justify-between z-30 bg-background-light/95 backdrop-blur-sm sticky top-0">
         <div>
           <Link to="/" className="inline-flex items-center gap-1.5 font-mono text-xs uppercase text-primary font-bold hover:underline mb-1 group">
-            <ArrowLeft className="w-3 h-3 group-hover:-translate-x-0.5 transition-transform" /> Back to Home
+            <ArrowLeft className="w-3 h-3 group-hover:-translate-x-0.5 transition-transform" aria-hidden="true" /> Back to Home
           </Link>
           <h1 className="font-display italic text-2xl md:text-4xl font-extrabold tracking-tight text-text-main">
             Project Showcase
