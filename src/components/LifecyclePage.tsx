@@ -405,13 +405,13 @@ const LifecyclePage: React.FC = () => {
               {PROCESS_STEPS.map((step) => {
                 const isActive = step.id === activePhase;
                 return (
-                  <div key={step.id} className="flex items-center gap-3">
+                  <div key={step.id} className="flex items-center gap-3" aria-current={isActive ? 'step' : undefined}>
                     {/* Circle / Square Node */}
                     <div className={`w-4 h-4 border-2 flex items-center justify-center font-mono text-[8px] font-bold transition-all duration-300 ${
                       isActive 
                         ? 'border-[#3730A3] bg-[#3730A3] text-surface scale-110 shadow-[1px_1px_0px_#171717]' 
                         : 'border-border-color/40 text-muted bg-background-light'
-                    }`}>
+                    }`} aria-hidden="true">
                       {step.id}
                     </div>
                     {/* Label */}
