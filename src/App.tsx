@@ -86,25 +86,35 @@ const App: React.FC = () => {
 
   return (
     <>
+      {/* Skip to Content Link */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[9999] bg-text-main text-surface px-4 py-2 font-mono text-sm uppercase font-bold border-2 border-border-color focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2"
+      >
+        Skip to main content
+      </a>
+
       {/* 1. Neobrutalist Page Preloader */}
       <Preloader onComplete={() => setIsLoading(false)} />
 
       {/* 2. Main application wrapper with smooth entrance transition */}
-      <main 
-        className={`min-h-screen overflow-x-clip transition-opacity duration-1000 ease-in-out ${
+      <div
+        className={`min-h-screen overflow-x-clip flex flex-col transition-opacity duration-1000 ease-in-out ${
           isLoading ? 'opacity-0 max-h-screen overflow-hidden' : 'opacity-100'
         }`}
       >
         <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/projects" element={<ProjectsPage />} />
-          <Route path="/lifecycle" element={<LifecyclePage />} />
-        </Routes>
+        <main id="main-content" tabIndex={-1} className="focus:outline-none flex-grow">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/projects" element={<ProjectsPage />} />
+            <Route path="/lifecycle" element={<LifecyclePage />} />
+          </Routes>
+        </main>
         <Footer />
         <ScrollToTop />
-      </main>
+      </div>
     </>
   );
 };

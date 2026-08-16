@@ -67,3 +67,7 @@
 ## 2026-05-26 - [Skip-to-Content Link Targeting and React Accessibility Fixes]
 **Learning:** When adding skip-to-content links, ensuring the target element has an `id` and `tabIndex={-1}` is crucial for programmatic focus. React requires camelCase attributes like `crossOrigin` and `referrerPolicy`. Additionally, extracting aria-live announcements from `useEffect` directly into render scope prevents unnecessary cascading re-renders.
 **Action:** Verify that skip-to-content links resolve to valid, focusable `id`s. Ensure standard HTML attributes are converted to their React equivalents. Compute purely derived state synchronously rather than using `useEffect`.
+
+## 2024-05-18 - [Dual-Pattern ARIA Linking & Semantic Wrapping]
+**Learning:** External links utilizing complex SVG icons combined with structural text required a "dual-pattern" approach (both `aria-label` specifying window context changes AND `title` attributes on the parent link, while setting `aria-hidden="true"` on the child decorative SVGs) to provide a consistent and noise-free interaction across diverse assistive technologies. Additionally, wrapping the central routing outlet natively in a `<main>` block while applying `tabIndex={-1}` is essential for standard skip-to-content links to function reliably in a React Router SPA environment without inadvertently bypassing critical child focus traps.
+**Action:** Apply this specific dual-pattern strategy proactively to all future component designs containing custom SVGs used as sole interaction targets or appended to external semantic links.
