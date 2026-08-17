@@ -67,3 +67,6 @@
 ## 2026-05-26 - [Skip-to-Content Link Targeting and React Accessibility Fixes]
 **Learning:** When adding skip-to-content links, ensuring the target element has an `id` and `tabIndex={-1}` is crucial for programmatic focus. React requires camelCase attributes like `crossOrigin` and `referrerPolicy`. Additionally, extracting aria-live announcements from `useEffect` directly into render scope prevents unnecessary cascading re-renders.
 **Action:** Verify that skip-to-content links resolve to valid, focusable `id`s. Ensure standard HTML attributes are converted to their React equivalents. Compute purely derived state synchronously rather than using `useEffect`.
+## 2026-08-17 - [Accessible Interactive Elements]
+**Learning:** When upgrading visual interactive elements to custom ARIA implementations (like role='tablist'), ensuring focus states match visually hidden elements is vital. Further, the cursor-pointer class on parent wrapper semantic tags can severely confuse screen reader bounds when native interactive anchors exist within them.
+**Action:** Consistently remove cursor-pointer from non-interactive wrappers enclosing native links. Always pair custom tabs with their corresponding aria-controls tabpanels.
