@@ -401,17 +401,20 @@ const LifecyclePage: React.FC = () => {
             </div>
 
             {/* Vertical Flow Diagram */}
-            <div className="flex flex-col gap-3 border-t border-border-color pt-4 z-10">
+            <div className="flex flex-col gap-3 border-t border-border-color pt-4 z-10" aria-label="Lifecycle Phases" role="list">
               {PROCESS_STEPS.map((step) => {
                 const isActive = step.id === activePhase;
                 return (
-                  <div key={step.id} className="flex items-center gap-3">
+                  <div key={step.id} className="flex items-center gap-3" role="listitem">
                     {/* Circle / Square Node */}
-                    <div className={`w-4 h-4 border-2 flex items-center justify-center font-mono text-[8px] font-bold transition-all duration-300 ${
-                      isActive 
-                        ? 'border-[#3730A3] bg-[#3730A3] text-surface scale-110 shadow-[1px_1px_0px_#171717]' 
-                        : 'border-border-color/40 text-muted bg-background-light'
-                    }`}>
+                    <div
+                      className={`w-4 h-4 border-2 flex items-center justify-center font-mono text-[8px] font-bold transition-all duration-300 ${
+                        isActive
+                          ? 'border-[#3730A3] bg-[#3730A3] text-surface scale-110 shadow-[1px_1px_0px_#171717]'
+                          : 'border-border-color/40 text-muted bg-background-light'
+                      }`}
+                      aria-current={isActive ? "step" : undefined}
+                    >
                       {step.id}
                     </div>
                     {/* Label */}
