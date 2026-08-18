@@ -89,9 +89,19 @@ const App: React.FC = () => {
       {/* 1. Neobrutalist Page Preloader */}
       <Preloader onComplete={() => setIsLoading(false)} />
 
-      {/* 2. Main application wrapper with smooth entrance transition */}
+      {/* 2. Skip to Content Link */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:z-[9999] focus:top-4 focus:left-4 focus:bg-surface focus:text-text-main focus:px-4 focus:py-2 focus:border-2 focus:border-border-color focus:shadow-hard focus-visible:outline-none"
+      >
+        Skip to content
+      </a>
+
+      {/* 3. Main application wrapper with smooth entrance transition */}
       <main 
-        className={`min-h-screen overflow-x-clip transition-opacity duration-1000 ease-in-out ${
+        id="main-content"
+        tabIndex={-1}
+        className={`min-h-screen overflow-x-clip transition-opacity duration-1000 ease-in-out focus:outline-none ${
           isLoading ? 'opacity-0 max-h-screen overflow-hidden' : 'opacity-100'
         }`}
       >
