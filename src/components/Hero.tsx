@@ -102,6 +102,7 @@ const ProjectCarousel: React.FC = () => {
                 idx === current ? 'bg-primary' : 'bg-surface'
               }`}
               aria-label={`Slide ${idx + 1}`}
+              aria-current={idx === current ? 'step' : undefined}
             />
           ))}
         </div>
