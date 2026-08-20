@@ -103,8 +103,8 @@ const Projects: React.FC = () => {
                               </span>
                             </div>
                             {project.link && (
-                              <a href={project.link} target="_blank" rel="noreferrer" className="text-muted hover:text-primary transition-colors p-1" aria-label="External Link">
-                                <ExternalLink size={18} />
+                              <a href={project.link} target="_blank" rel="noreferrer" className="text-muted hover:text-primary transition-colors p-1" aria-label="External Link (opens in a new tab)" title="External Link (opens in a new tab)">
+                                <ExternalLink size={18} aria-hidden="true" />
                               </a>
                             )}
                           </div>
