@@ -68,7 +68,7 @@ const Projects: React.FC = () => {
                 className="inline-flex items-center gap-2 font-mono text-sm uppercase text-primary font-bold hover:underline mt-4 sm:mt-0 group"
               >
                 View Full Portfolio 
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight aria-hidden="true" className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
             
@@ -103,8 +103,8 @@ const Projects: React.FC = () => {
                               </span>
                             </div>
                             {project.link && (
-                              <a href={project.link} target="_blank" rel="noreferrer" className="text-muted hover:text-primary transition-colors p-1" aria-label="External Link">
-                                <ExternalLink size={18} />
+                              <a href={project.link} target="_blank" rel="noreferrer" className="text-muted hover:text-primary transition-colors p-1" aria-label="External Link (opens in a new tab)" title="External Link (opens in a new tab)">
+                                <ExternalLink aria-hidden="true" size={18} />
                               </a>
                             )}
                           </div>
@@ -128,11 +128,11 @@ const Projects: React.FC = () => {
                             {project.link ? (
                               <a href={project.link} target="_blank" rel="noreferrer" className="inline-flex items-center font-mono text-xs uppercase text-primary font-bold hover:underline group/link">
                                 View Live Deployment 
-                                <ArrowRight className="ml-1 w-3.5 h-3.5 group-hover/link:translate-x-1 transition-transform" />
+                                <ArrowRight aria-hidden="true" className="ml-1 w-3.5 h-3.5 group-hover/link:translate-x-1 transition-transform" />
                               </a>
                             ) : (
                               <span className="inline-flex items-center font-mono text-xs uppercase text-muted font-bold gap-1">
-                                <ShieldAlert size={14} /> Desktop/Internal Platform
+                                <ShieldAlert aria-hidden="true" size={14} /> Desktop/Internal Platform
                               </span>
                             )}
                           </div>
@@ -151,7 +151,7 @@ const Projects: React.FC = () => {
                 className="inline-flex items-center justify-center bg-text-main text-surface px-8 py-4 border-2 border-border-color font-mono text-sm uppercase tracking-wider hover:-translate-y-[2px] hover:-translate-x-[2px] hover:shadow-hard-hover transition-all duration-200 shadow-hard"
               >
                 Explore Full Interactive Portfolio
-                <ArrowRight className="ml-2 w-4 h-4" />
+                <ArrowRight aria-hidden="true" className="ml-2 w-4 h-4" />
               </Link>
             </div>
 
