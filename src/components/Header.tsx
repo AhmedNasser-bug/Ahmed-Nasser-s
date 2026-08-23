@@ -7,6 +7,10 @@ const Header: React.FC = () => {
   const location = useLocation();
 
   return (
+    <>
+    <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute top-4 left-4 z-[100] bg-primary text-surface px-4 py-2 font-mono font-bold focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2">
+      Skip to main content
+    </a>
     <header className="flex items-center justify-between whitespace-nowrap border-b border-solid border-border-color bg-surface px-6 py-4 shadow-hard sticky top-4 z-50 mx-4 md:mx-10 lg:mx-20 max-w-[1200px] xl:mx-auto">
       <div className="flex items-center gap-4 text-text-main">
         <Link to="/" className="flex items-center gap-4 focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2">
@@ -34,12 +38,12 @@ const Header: React.FC = () => {
           <div className="w-[1px] h-4 bg-border-color/30 hidden md:block"></div>
           
           {PROFILE.contact.github && (
-            <a className="flex items-center gap-2 text-text-main hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 hidden md:inline-block" href={PROFILE.contact.github} target="_blank" rel="noreferrer" aria-label="GitHub" title="GitHub">
+            <a className="flex items-center gap-2 text-text-main hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 hidden md:inline-block" href={PROFILE.contact.github} target="_blank" rel="noreferrer" aria-label="GitHub (opens in a new tab)" title="GitHub (opens in a new tab)">
               <Github aria-hidden="true" size={16} />
             </a>
           )}
           {PROFILE.contact.linkedin && (
-            <a className="flex items-center gap-2 text-text-main hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 hidden md:inline-block" href={PROFILE.contact.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn" title="LinkedIn">
+            <a className="flex items-center gap-2 text-text-main hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 hidden md:inline-block" href={PROFILE.contact.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn (opens in a new tab)" title="LinkedIn (opens in a new tab)">
               <Linkedin aria-hidden="true" size={16} />
             </a>
           )}
@@ -62,6 +66,7 @@ const Header: React.FC = () => {
         </div>
       </div>
     </header>
+    </>
   );
 };
 
