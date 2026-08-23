@@ -71,3 +71,6 @@
 ## 2026-08-22 - [Groundedness and JSX Validation]
 **Learning:** The 'cat' command in the bash sandbox environment frequently truncates output on larger files (like React components), leading to unverified assumptions about JSX structures and failing plan reviews (Groundedness Rule).
 **Action:** Use `grep -A 10 -B 10 'keyword'` or the `read_file` tool to reliably inspect and verify exact DOM elements before proposing targeted accessibility improvements.
+## 2026-08-23 - [Micro-UX Audit & Widespread Accessibility Fixes]
+**Learning:** Found several opportunities to improve accessibility across the app (skip-to-content links, fixing hidden focus traps, adding screen reader context for external links, tracking active steps semantically, and removing misleading cursor pointers on non-interactive semantic HTML containers) that significantly improve user experience for both standard and assistive tech users without requiring large structural changes.
+**Action:** Always verify that interactive elements have adequate focus states, non-interactive elements don't mimic them, hidden interactive elements manage their tabIndex, and external links explicitly communicate their context.
