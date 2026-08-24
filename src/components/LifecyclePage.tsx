@@ -304,10 +304,11 @@ const LifecyclePage: React.FC = () => {
           </div>
 
           {/* Steps mapping in flat, large cards */}
-          <div className="flex flex-col gap-8">
+          <div className="flex flex-col gap-8" role="list">
             {PROCESS_STEPS.map((step, idx) => (
               <div 
                 key={step.id} 
+                role="listitem"
                 data-step-id={step.id}
                 className="bg-surface border border-border-color p-6 md:p-8 shadow-hard hover:shadow-hard-hover hover:-translate-x-[2px] hover:-translate-y-[2px] transition-all duration-300 relative group flex flex-col md:flex-row gap-6 items-start"
                 data-aos="fade-up"
@@ -401,11 +402,11 @@ const LifecyclePage: React.FC = () => {
             </div>
 
             {/* Vertical Flow Diagram */}
-            <div className="flex flex-col gap-3 border-t border-border-color pt-4 z-10">
+            <div className="flex flex-col gap-3 border-t border-border-color pt-4 z-10" role="list">
               {PROCESS_STEPS.map((step) => {
                 const isActive = step.id === activePhase;
                 return (
-                  <div key={step.id} className="flex items-center gap-3">
+                  <div key={step.id} role="listitem" aria-current={isActive ? 'step' : undefined} className="flex items-center gap-3">
                     {/* Circle / Square Node */}
                     <div className={`w-4 h-4 border-2 flex items-center justify-center font-mono text-[8px] font-bold transition-all duration-300 ${
                       isActive 
