@@ -22,16 +22,16 @@ const Skills: React.FC = () => {
               <h2 className="font-display italic text-3xl font-medium tracking-tight border-b border-border-color pb-4 inline-block pr-12 text-text-main">Technical Expertise</h2>
             </div>
 
-            <div className="bg-border-color gap-px grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border border-border-color shadow-hard" data-aos="fade-up" data-aos-delay="100">
+            <div className="bg-border-color gap-px grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border border-border-color shadow-hard" data-aos="fade-up" data-aos-delay="100" role="list">
               {SKILLS.map((category, idx) => {
                 const Icon = iconMap[category.iconName] || Code2;
                 return (
-                  <div key={idx} className="bg-surface flex flex-col h-full">
+                  <div key={idx} role="listitem" className="bg-surface flex flex-col h-full">
                     <div className="bg-text-main text-surface font-mono text-[13px] uppercase px-4 py-2 flex items-center justify-between">
                       <span>{category.name}</span>
-                      <Icon size={16} />
+                      <Icon size={16} aria-hidden="true" />
                     </div>
-                    <ul className="flex flex-col flex-1 p-0">
+                    <ul className="flex flex-col flex-1 p-0" role="list">
                       {category.skills.map((skill, sIdx) => (
                         <li key={sIdx} className="px-5 py-4 border-b border-[#E5E5E5] last:border-0 hover:bg-background-light transition-colors flex justify-between items-baseline">
                           <span className="font-medium font-sans text-text-main">{skill}</span>

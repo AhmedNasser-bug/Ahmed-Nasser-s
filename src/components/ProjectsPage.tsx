@@ -274,6 +274,7 @@ const ProjectScrollItem: React.FC<ScrollItemProps> = ({ project, index }) => {
               <div className="flex border border-surface/20 bg-surface/5 rounded-sm p-0.5 overflow-hidden">
                 <button
                   onClick={() => setMediaMode('image')}
+                  aria-pressed={mediaMode === 'image'}
                   className={`px-2 py-0.5 font-mono text-[9px] uppercase tracking-wider rounded-sm transition-all flex items-center gap-1 cursor-pointer ${
                     mediaMode === 'image' ? 'bg-surface text-text-main font-bold' : 'text-surface/50 hover:text-surface'
                   }`}
@@ -283,6 +284,7 @@ const ProjectScrollItem: React.FC<ScrollItemProps> = ({ project, index }) => {
                 </button>
                 <button
                   onClick={() => setMediaMode('iframe')}
+                  aria-pressed={mediaMode === 'iframe'}
                   className={`px-2 py-0.5 font-mono text-[9px] uppercase tracking-wider rounded-sm transition-all flex items-center gap-1 cursor-pointer ${
                     mediaMode === 'iframe' ? 'bg-surface text-text-main font-bold' : 'text-surface/50 hover:text-surface'
                   }`}
@@ -340,7 +342,7 @@ const GitHubProjectsGrid: React.FC = () => {
           return (
             <div 
               key={idx}
-              className="border border-border-color bg-surface shadow-hard hover:shadow-hard-hover hover:-translate-x-1 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between overflow-hidden cursor-pointer"
+              className="border border-border-color bg-surface shadow-hard hover:shadow-hard-hover hover:-translate-x-1 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between overflow-hidden"
             >
               {/* Header Telemetry */}
               <div className="bg-text-main text-surface p-3 px-4 flex items-center justify-between border-b border-border-color">
