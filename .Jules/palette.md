@@ -71,3 +71,6 @@
 ## 2026-08-22 - [Groundedness and JSX Validation]
 **Learning:** The 'cat' command in the bash sandbox environment frequently truncates output on larger files (like React components), leading to unverified assumptions about JSX structures and failing plan reviews (Groundedness Rule).
 **Action:** Use `grep -A 10 -B 10 'keyword'` or the `read_file` tool to reliably inspect and verify exact DOM elements before proposing targeted accessibility improvements.
+## 2026-08-26 - Dynamic Preloaders Need aria-busy
+**Learning:** When creating custom preloaders that dynamically cycle through text strings (like telemetry logs), adding `aria-live` isn't enough to prevent screen reader noise/confusion. Screen readers might try to announce every single rapid update, or fail to recognize when the sequence stops.
+**Action:** Apply `aria-busy={isLoading}` directly to the `aria-live` container. This signals to assistive technologies that the element is currently updating and to manage announcements accordingly, then signals completion when `aria-busy={false}`.
