@@ -96,7 +96,7 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
         </div>
 
         {/* Dynamic Telemetry Log Line */}
-        <div aria-live="polite" aria-atomic="true" className="h-12 flex items-center bg-[#E0E7FF]/40 border border-primary/20 px-4 py-2 font-mono text-[11px] text-text-main shadow-[2px_2px_0px_rgba(55,48,163,0.1)]">
+        <div aria-live="polite" aria-atomic="true" aria-busy={progress < 100} className="h-12 flex items-center bg-[#E0E7FF]/40 border border-primary/20 px-4 py-2 font-mono text-[11px] text-text-main shadow-[2px_2px_0px_rgba(55,48,163,0.1)]">
           <span className="text-primary font-bold mr-2">&gt;</span>
           <span className="animate-pulse">{activeLog}</span>
         </div>
