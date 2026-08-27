@@ -71,3 +71,6 @@
 ## 2026-08-22 - [Groundedness and JSX Validation]
 **Learning:** The 'cat' command in the bash sandbox environment frequently truncates output on larger files (like React components), leading to unverified assumptions about JSX structures and failing plan reviews (Groundedness Rule).
 **Action:** Use `grep -A 10 -B 10 'keyword'` or the `read_file` tool to reliably inspect and verify exact DOM elements before proposing targeted accessibility improvements.
+## 2026-08-27 - [Carousel Pause-on-Hover for Readability]
+**Learning:** Auto-advancing carousels without pause mechanisms frustrate users trying to read the content or click internal links, and fail WCAG 2.2 criteria for moving/auto-updating content.
+**Action:** Always implement a pause-on-hover (`onMouseEnter`/`onMouseLeave`) and pause-on-focus (`onFocus`/`onBlur`) interaction state for auto-playing carousels or timed media to give users sufficient time to read and interact with the content.
