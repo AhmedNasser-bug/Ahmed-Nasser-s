@@ -71,3 +71,6 @@
 ## 2026-08-22 - [Groundedness and JSX Validation]
 **Learning:** The 'cat' command in the bash sandbox environment frequently truncates output on larger files (like React components), leading to unverified assumptions about JSX structures and failing plan reviews (Groundedness Rule).
 **Action:** Use `grep -A 10 -B 10 'keyword'` or the `read_file` tool to reliably inspect and verify exact DOM elements before proposing targeted accessibility improvements.
+## 2026-05-27 - [Workflow: Avoid Command Chaining for Verification]
+**Learning:** Chaining commands like `grep` or `sed` to verify multiple files in a single execution often leads to truncated output in the sandbox environment. This causes plan reviews to fail the 'Groundedness Rule' because the later elements in the chain are never fully revealed or confirmed in the trace.
+**Action:** Execute single, targeted `grep` or `sed` commands for each file when verifying code structures prior to proposing modifications.
