@@ -71,3 +71,11 @@
 ## 2026-08-22 - [Groundedness and JSX Validation]
 **Learning:** The 'cat' command in the bash sandbox environment frequently truncates output on larger files (like React components), leading to unverified assumptions about JSX structures and failing plan reviews (Groundedness Rule).
 **Action:** Use `grep -A 10 -B 10 'keyword'` or the `read_file` tool to reliably inspect and verify exact DOM elements before proposing targeted accessibility improvements.
+
+## 2023-11-20 - [Conditional tabindex on animated vanishing UI]
+**Learning:** Elements that visually transition out of view (like a ScrollToTop floating action button fading and shifting downwards via CSS transforms) often remain in the DOM. This creates an invisible keyboard trap where screen reader or keyboard-only users will focus on an element they cannot see, breaking the navigation flow.
+**Action:** Always conditionally bind `tabIndex={isVisible ? 0 : -1}` and `aria-hidden={!isVisible}` to interactive elements that are visually hidden via CSS opacity or transforms instead of being completely removed from the DOM.
+
+## 2023-11-20 - [Routing-aware Skip to Content]
+**Learning:** In a single page application using `<Routes>`, wrapping the global layout (like the header) inside the main content tag breaks skip-to-content links. Users clicking "skip to content" will still be forced to tab through the navigation menu.
+**Action:** The `<main>` tag must be positioned *inside* the layout wrapper, strictly encapsulating only the routed views (e.g. `<Routes>`). Furthermore, the target `<main>` needs `tabIndex={-1}` and `focus:outline-none` so it receives programmatic focus from the skip link without displaying an unwanted focus ring.

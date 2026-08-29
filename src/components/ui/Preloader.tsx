@@ -67,6 +67,7 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
       className={`fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-background-light transition-all duration-500 ease-in-out ${
         isFading ? 'opacity-0 pointer-events-none -translate-y-full' : 'opacity-100'
       }`}
+      aria-busy={!isFading}
       style={{
         // WebGL-friendly clipping mask for visual slide-up reveal
         clipPath: isFading ? 'polygon(0 0, 100% 0, 100% 0, 0 0)' : 'polygon(0 0, 100% 0, 100% 100%, 0 100%)',
