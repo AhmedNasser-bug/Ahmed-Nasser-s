@@ -401,11 +401,11 @@ const LifecyclePage: React.FC = () => {
             </div>
 
             {/* Vertical Flow Diagram */}
-            <div className="flex flex-col gap-3 border-t border-border-color pt-4 z-10">
+            <div className="flex flex-col gap-3 border-t border-border-color pt-4 z-10" role="list">
               {PROCESS_STEPS.map((step) => {
                 const isActive = step.id === activePhase;
                 return (
-                  <div key={step.id} className="flex items-center gap-3">
+                  <div key={step.id} className="flex items-center gap-3" role="listitem" aria-current={isActive ? 'step' : undefined}>
                     {/* Circle / Square Node */}
                     <div className={`w-4 h-4 border-2 flex items-center justify-center font-mono text-[8px] font-bold transition-all duration-300 ${
                       isActive 
