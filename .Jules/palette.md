@@ -71,3 +71,6 @@
 ## 2026-08-22 - [Groundedness and JSX Validation]
 **Learning:** The 'cat' command in the bash sandbox environment frequently truncates output on larger files (like React components), leading to unverified assumptions about JSX structures and failing plan reviews (Groundedness Rule).
 **Action:** Use `grep -A 10 -B 10 'keyword'` or the `read_file` tool to reliably inspect and verify exact DOM elements before proposing targeted accessibility improvements.
+## 2026-08-30 - [Accessibility & Micro-UX Refinements]
+**Learning:** Implementing visually hidden skip-to-content links using Tailwind (`sr-only focus:not-sr-only`) is highly effective when paired with a semantic `<main>` wrapper that accepts programmatic focus (`tabIndex={-1}` and `focus:outline-none`). Additionally, applying `role="tablist"` and `role="tab"` with `aria-selected` is crucial for communicating the state of custom view toggle components (like the Image/Iframe toggler) to assistive technologies.
+**Action:** When adding bypass blocks, ensure the target element can receive focus natively or programmatically. Always prefer established ARIA design patterns (like tabs) for custom interactive controls that conditionally render content.
