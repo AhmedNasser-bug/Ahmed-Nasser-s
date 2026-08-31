@@ -104,6 +104,7 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
         {/* Neobrutalist Progress Bar */}
         <div
           role="progressbar"
+          aria-label="System Initialization Progress"
           aria-valuenow={progress}
           aria-valuemin={0}
           aria-valuemax={100}
