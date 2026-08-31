@@ -22,11 +22,11 @@ const Skills: React.FC = () => {
               <h2 className="font-display italic text-3xl font-medium tracking-tight border-b border-border-color pb-4 inline-block pr-12 text-text-main">Technical Expertise</h2>
             </div>
 
-            <div className="bg-border-color gap-px grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border border-border-color shadow-hard" data-aos="fade-up" data-aos-delay="100">
+            <div role="list" className="bg-border-color gap-px grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border border-border-color shadow-hard" data-aos="fade-up" data-aos-delay="100">
               {SKILLS.map((category, idx) => {
                 const Icon = iconMap[category.iconName] || Code2;
                 return (
-                  <div key={idx} className="bg-surface flex flex-col h-full">
+                  <div role="listitem" key={idx} className="bg-surface flex flex-col h-full">
                     <div className="bg-text-main text-surface font-mono text-[13px] uppercase px-4 py-2 flex items-center justify-between">
                       <span>{category.name}</span>
                       <Icon size={16} />
