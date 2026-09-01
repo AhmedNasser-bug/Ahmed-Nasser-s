@@ -31,7 +31,9 @@ const ScrollToTop: React.FC = () => {
       <button
         type="button"
         onClick={scrollToTop}
-        className="p-4 bg-surface border border-border-color text-text-main hover:bg-background-light hover:text-primary transition-all duration-300 shadow-hard hover:shadow-hard-hover group"
+        tabIndex={isVisible ? 0 : -1}
+        aria-hidden={!isVisible}
+        className="p-4 bg-surface border border-border-color text-text-main hover:bg-background-light hover:text-primary transition-all duration-300 shadow-hard hover:shadow-hard-hover group focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2"
         aria-label="Scroll to top"
         title="Scroll to top"
       >

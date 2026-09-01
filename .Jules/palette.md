@@ -71,3 +71,12 @@
 ## 2026-08-22 - [Groundedness and JSX Validation]
 **Learning:** The 'cat' command in the bash sandbox environment frequently truncates output on larger files (like React components), leading to unverified assumptions about JSX structures and failing plan reviews (Groundedness Rule).
 **Action:** Use `grep -A 10 -B 10 'keyword'` or the `read_file` tool to reliably inspect and verify exact DOM elements before proposing targeted accessibility improvements.
+## 2026-08-22 - [Dynamic Pause Control on Auto-playing Layouts]
+**Learning:** Found that relying on 'setInterval' without interaction constraints for auto-playing layouts, such as carousels, fails accessibility heuristics by overriding the user's ability to read complex material at their own pace.
+**Action:** When implementing auto-playing carousels or looping timelines, bind 'onMouseEnter', 'onMouseLeave', 'onFocus', and 'onBlur' listeners to a 'isPaused' state to dynamically halt 'setInterval' and restore user control.
+## 2026-08-22 - [Removing Misleading Cursor Affordances]
+**Learning:** Found 'cursor-pointer' applied to structural containers (like 'article' or 'div') that lacked 'onClick' handlers, misleading sighted mouse users and masking nested focusable interactive elements.
+**Action:** Do not use 'cursor-pointer' classes on non-interactive semantic elements. Ensure interactive properties, such as focus outlines and keyboard click triggers, are only applied to native interactive elements like buttons and anchors within the container structure.
+## 2026-08-22 - [Context Shift Announcements via Visually Hidden Text]
+**Learning:** Found that overriding standard text links with 'aria-label' removes standard screen reader content. Applying a visually hidden '<span>' inside the DOM structure is an optimal way to announce context shifts like '(opens in a new tab)' for link elements.
+**Action:** When adding context instructions to text-based external links, append an embedded '<span className="sr-only">(opens in a new tab)</span>' to preserve the native text content while informing screen readers.
