@@ -71,3 +71,10 @@
 ## 2026-08-22 - [Groundedness and JSX Validation]
 **Learning:** The 'cat' command in the bash sandbox environment frequently truncates output on larger files (like React components), leading to unverified assumptions about JSX structures and failing plan reviews (Groundedness Rule).
 **Action:** Use `grep -A 10 -B 10 'keyword'` or the `read_file` tool to reliably inspect and verify exact DOM elements before proposing targeted accessibility improvements.
+## 2024-09-02 - [Preloader ARIA State]
+**Learning:** Using `aria-live="polite"` combined with `aria-busy={isLoading}` on custom, dynamic UI preloaders is a clean way to ensure screen readers correctly announce the application's initialization sequence to visually impaired users, establishing parity with visual telemetry indicators.
+**Action:** When encountering heavy entrance animations or full-page custom loaders in Single Page Applications, default to combining `aria-live` and `aria-busy` to map the custom state back to standardized accessibility APIs.
+
+## 2024-09-02 - [Skip-to-Content Implementation]
+**Learning:** In highly visual or structurally deep single-page applications, ensuring the `<main>` tag strictly bounds the primary routing content, and providing a skip link that utilizes the `sr-only focus:not-sr-only focus:absolute` Tailwind combination, provides an immediate, massive UX win for keyboard navigators bypassing global navigation headers.
+**Action:** Always verify the `<main>` landmark exists and is correctly positioned before implementing a skip link to ensure the bypass targets the actual core content.

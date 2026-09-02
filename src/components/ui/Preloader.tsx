@@ -64,6 +64,8 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
 
   return (
     <div 
+      aria-live="polite"
+      aria-busy={progress < 100}
       className={`fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-background-light transition-all duration-500 ease-in-out ${
         isFading ? 'opacity-0 pointer-events-none -translate-y-full' : 'opacity-100'
       }`}

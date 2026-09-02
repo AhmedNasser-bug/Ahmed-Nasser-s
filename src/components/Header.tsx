@@ -8,6 +8,12 @@ const Header: React.FC = () => {
 
   return (
     <header className="flex items-center justify-between whitespace-nowrap border-b border-solid border-border-color bg-surface px-6 py-4 shadow-hard sticky top-4 z-50 mx-4 md:mx-10 lg:mx-20 max-w-[1200px] xl:mx-auto">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-full focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-surface focus:text-primary focus:border focus:border-border-color focus:shadow-hard focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2"
+      >
+        Skip to content
+      </a>
       <div className="flex items-center gap-4 text-text-main">
         <Link to="/" className="flex items-center gap-4 focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2">
           <div className="size-5 text-primary">
@@ -18,7 +24,7 @@ const Header: React.FC = () => {
         </Link>
       </div>
       <div className="flex flex-1 justify-end gap-8">
-        <div className="flex items-center gap-6 font-mono text-sm uppercase tracking-wider">
+        <nav aria-label="Main Navigation" className="flex items-center gap-6 font-mono text-sm uppercase tracking-wider">
           <Link to="/" aria-current={location.pathname === '/' ? 'page' : undefined} className={`transition-colors focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 ${location.pathname === '/' ? 'text-primary font-bold' : 'text-text-main hover:text-primary'}`}>
             Home
           </Link>
@@ -34,12 +40,12 @@ const Header: React.FC = () => {
           <div className="w-[1px] h-4 bg-border-color/30 hidden md:block"></div>
           
           {PROFILE.contact.github && (
-            <a className="flex items-center gap-2 text-text-main hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 hidden md:inline-block" href={PROFILE.contact.github} target="_blank" rel="noreferrer" aria-label="GitHub" title="GitHub">
+            <a className="flex items-center gap-2 text-text-main hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 hidden md:inline-block" href={PROFILE.contact.github} target="_blank" rel="noreferrer" aria-label="GitHub (opens in a new tab)" title="GitHub (opens in a new tab)">
               <Github aria-hidden="true" size={16} />
             </a>
           )}
           {PROFILE.contact.linkedin && (
-            <a className="flex items-center gap-2 text-text-main hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 hidden md:inline-block" href={PROFILE.contact.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn" title="LinkedIn">
+            <a className="flex items-center gap-2 text-text-main hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 hidden md:inline-block" href={PROFILE.contact.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn (opens in a new tab)" title="LinkedIn (opens in a new tab)">
               <Linkedin aria-hidden="true" size={16} />
             </a>
           )}
@@ -59,7 +65,7 @@ const Header: React.FC = () => {
                 About
              </Link>
           </div>
-        </div>
+        </nav>
       </div>
     </header>
   );
