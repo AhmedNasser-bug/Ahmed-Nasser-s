@@ -79,7 +79,7 @@ const Projects: React.FC = () => {
                   <div className="h-full flex flex-col">
                     <GSAPTilt maxTilt={8} perspective={1000}>
                       <article 
-                        className="bg-surface border border-border-color flex flex-col group hover:bg-background-light transition-shadow duration-300 shadow-hard hover:shadow-hard-hover h-full cursor-pointer"
+                        className="bg-surface border border-border-color flex flex-col group hover:bg-background-light transition-shadow duration-300 shadow-hard hover:shadow-hard-hover h-full "
                       >
                         {/* Mock Screenshot Section */}
                         <div className="h-48 bg-background-light border-b border-border-color relative flex items-center justify-center overflow-hidden shrink-0">

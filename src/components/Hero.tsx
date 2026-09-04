@@ -74,7 +74,7 @@ const ProjectCarousel: React.FC = () => {
         {/* Navigation buttons */}
         <button
           onClick={handlePrev}
-          className="absolute left-2 top-1/2 -translate-y-1/2 bg-surface hover:bg-text-main hover:text-surface border border-border-color p-2 transition-all z-20 cursor-pointer shadow-hard focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2"
+          className="absolute left-2 top-1/2 -translate-y-1/2 bg-surface hover:bg-text-main hover:text-surface border border-border-color p-2 transition-all z-20  shadow-hard focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2"
           aria-label="Previous Project"
           title="Previous Project"
         >
@@ -82,7 +82,7 @@ const ProjectCarousel: React.FC = () => {
         </button>
         <button
           onClick={handleNext}
-          className="absolute right-2 top-1/2 -translate-y-1/2 bg-surface hover:bg-text-main hover:text-surface border border-border-color p-2 transition-all z-20 cursor-pointer shadow-hard focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2"
+          className="absolute right-2 top-1/2 -translate-y-1/2 bg-surface hover:bg-text-main hover:text-surface border border-border-color p-2 transition-all z-20  shadow-hard focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2"
           aria-label="Next Project"
           title="Next Project"
         >
@@ -102,7 +102,7 @@ const ProjectCarousel: React.FC = () => {
               role="tab"
               aria-selected={idx === current}
               onClick={() => setCurrent(idx)}
-              className={`w-3 h-3 border border-border-color transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 ${
+              className={`w-3 h-3 border border-border-color transition-colors  focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 ${
                 idx === current ? 'bg-primary' : 'bg-surface'
               }`}
               aria-label={`Slide ${idx + 1}`}
