@@ -340,7 +340,7 @@ const GitHubProjectsGrid: React.FC = () => {
           return (
             <div 
               key={idx}
-              className="border border-border-color bg-surface shadow-hard hover:shadow-hard-hover hover:-translate-x-1 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between overflow-hidden cursor-pointer"
+              className="border border-border-color bg-surface shadow-hard hover:shadow-hard-hover hover:-translate-x-1 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between overflow-hidden"
             >
               {/* Header Telemetry */}
               <div className="bg-text-main text-surface p-3 px-4 flex items-center justify-between border-b border-border-color">
