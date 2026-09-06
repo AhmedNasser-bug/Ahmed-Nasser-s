@@ -71,3 +71,7 @@
 ## 2026-08-22 - [Groundedness and JSX Validation]
 **Learning:** The 'cat' command in the bash sandbox environment frequently truncates output on larger files (like React components), leading to unverified assumptions about JSX structures and failing plan reviews (Groundedness Rule).
 **Action:** Use `grep -A 10 -B 10 'keyword'` or the `read_file` tool to reliably inspect and verify exact DOM elements before proposing targeted accessibility improvements.
+
+## 2024-05-18 - [App-wide Semantic and Accessibility Enhancements]
+**Learning:** Adding a pause-on-hover functionality to automatic carousels heavily improves usability, avoiding user frustration when attempting to read content or interact with slides. Missing semantic roles on visual grids create ambiguity for screen readers; explicitly converting them via `role="list"` clarifies layout intent. Hidden interactive elements (like scroll-to-top buttons) that animate opacity without managing `tabIndex` create frustrating invisible keyboard traps.
+**Action:** Always implement `isPaused` state managed by mouse and focus events for timed UI components. Dynamically synchronize `tabIndex` and `aria-hidden` attributes alongside visual hiding mechanisms (like opacity or `translate`) for dynamic utility buttons.
