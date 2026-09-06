@@ -73,13 +73,13 @@ const Projects: React.FC = () => {
             </div>
             
             {/* Highlights Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8" role="list">
               {FEATURED_PROJECTS.map((project, idx) => (
                 <GSAPReveal direction="up" duration={0.85} delay={idx * 0.15} key={idx}>
-                  <div className="h-full flex flex-col">
+                  <div className="h-full flex flex-col" role="listitem">
                     <GSAPTilt maxTilt={8} perspective={1000}>
                       <article 
-                        className="bg-surface border border-border-color flex flex-col group hover:bg-background-light transition-shadow duration-300 shadow-hard hover:shadow-hard-hover h-full cursor-pointer"
+                        className="bg-surface border border-border-color flex flex-col group hover:bg-background-light transition-shadow duration-300 shadow-hard hover:shadow-hard-hover h-full"
                       >
                         {/* Mock Screenshot Section */}
                         <div className="h-48 bg-background-light border-b border-border-color relative flex items-center justify-center overflow-hidden shrink-0">
