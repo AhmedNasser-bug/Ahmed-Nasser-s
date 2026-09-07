@@ -71,3 +71,6 @@
 ## 2026-08-22 - [Groundedness and JSX Validation]
 **Learning:** The 'cat' command in the bash sandbox environment frequently truncates output on larger files (like React components), leading to unverified assumptions about JSX structures and failing plan reviews (Groundedness Rule).
 **Action:** Use `grep -A 10 -B 10 'keyword'` or the `read_file` tool to reliably inspect and verify exact DOM elements before proposing targeted accessibility improvements.
+## 2024-05-18 - Focus Accessibility Improvements
+**Learning:** Missed `aria-label`s on external links that open in new tabs, and hidden keyboard traps on dynamically visible components (like scroll to top) are subtle accessibility hazards. Similarly, active toggles using `mediaMode` should be mapped to `aria-pressed` so screen readers understand state changes without relying strictly on CSS classes. Skip to content functionality must bypass main navigation successfully by wrapping Routes rather than just the page root to be genuinely useful.
+**Action:** When implementing visual toggles, immediately evaluate whether `aria-pressed` or `aria-current` communicates state. For components that conditionally appear, dynamically set `tabIndex` and `aria-hidden` mapping to visibility.
