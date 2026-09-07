@@ -395,7 +395,7 @@ const LifecyclePage: React.FC = () => {
               <div className="font-display text-8xl font-black text-[#3730A3] leading-none select-none my-2">
                 {String(activePhase).padStart(2, '0')}
               </div>
-              <div className="bg-[#3730A3] text-surface font-sans font-black text-sm px-3 py-1 border border-border-color uppercase tracking-wider text-center w-full shadow-[2px_2px_0px_#171717]">
+              <div aria-live="polite" aria-atomic="true" className="bg-[#3730A3] text-surface font-sans font-black text-sm px-3 py-1 border border-border-color uppercase tracking-wider text-center w-full shadow-[2px_2px_0px_#171717]">
                 {PHASE_NAMES[activePhase]}
               </div>
             </div>
