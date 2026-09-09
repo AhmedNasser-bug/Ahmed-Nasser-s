@@ -31,9 +31,9 @@ const Skills: React.FC = () => {
                       <span>{category.name}</span>
                       <Icon size={16} />
                     </div>
-                    <ul className="flex flex-col flex-1 p-0">
+                    <ul role="list" className="flex flex-col flex-1 p-0">
                       {category.skills.map((skill, sIdx) => (
-                        <li key={sIdx} className="px-5 py-4 border-b border-[#E5E5E5] last:border-0 hover:bg-background-light transition-colors flex justify-between items-baseline">
+                        <li key={sIdx} role="listitem" className="px-5 py-4 border-b border-[#E5E5E5] last:border-0 hover:bg-background-light transition-colors flex justify-between items-baseline">
                           <span className="font-medium font-sans text-text-main">{skill}</span>
                         </li>
                       ))}
