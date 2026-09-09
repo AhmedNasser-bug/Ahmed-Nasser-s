@@ -7,7 +7,10 @@ const Header: React.FC = () => {
   const location = useLocation();
 
   return (
-    <header className="flex items-center justify-between whitespace-nowrap border-b border-solid border-border-color bg-surface px-6 py-4 shadow-hard sticky top-4 z-50 mx-4 md:mx-10 lg:mx-20 max-w-[1200px] xl:mx-auto">
+        <header className="flex items-center justify-between whitespace-nowrap border-b border-solid border-border-color bg-surface px-6 py-4 shadow-hard sticky top-4 z-50 mx-4 md:mx-10 lg:mx-20 max-w-[1200px] xl:mx-auto">
+      <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-[60] bg-text-main text-surface px-4 py-2 font-mono text-sm uppercase tracking-wider shadow-hard focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2">
+        Skip to main content
+      </a>
       <div className="flex items-center gap-4 text-text-main">
         <Link to="/" className="flex items-center gap-4 focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2">
           <div className="size-5 text-primary">
@@ -34,12 +37,12 @@ const Header: React.FC = () => {
           <div className="w-[1px] h-4 bg-border-color/30 hidden md:block"></div>
           
           {PROFILE.contact.github && (
-            <a className="flex items-center gap-2 text-text-main hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 hidden md:inline-block" href={PROFILE.contact.github} target="_blank" rel="noreferrer" aria-label="GitHub" title="GitHub">
+            <a className="flex items-center gap-2 text-text-main hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 hidden md:inline-block" href={PROFILE.contact.github} target="_blank" rel="noreferrer" aria-label="GitHub (opens in a new tab)" title="GitHub">
               <Github aria-hidden="true" size={16} />
             </a>
           )}
           {PROFILE.contact.linkedin && (
-            <a className="flex items-center gap-2 text-text-main hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 hidden md:inline-block" href={PROFILE.contact.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn" title="LinkedIn">
+            <a className="flex items-center gap-2 text-text-main hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 hidden md:inline-block" href={PROFILE.contact.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn (opens in a new tab)" title="LinkedIn">
               <Linkedin aria-hidden="true" size={16} />
             </a>
           )}

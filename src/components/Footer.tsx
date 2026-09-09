@@ -50,7 +50,7 @@ const Footer: React.FC = () => {
               href={`https://wa.me/${PROFILE.contact.phone.replace(/[^0-9]/g, '')}`} 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="bg-surface text-text-main hover:bg-green-500 hover:text-surface transition-colors border-2 border-border-color hover:border-green-500 px-8 py-3 font-mono font-bold uppercase tracking-wider flex items-center gap-2 shadow-hard hover:-translate-y-0.5 hover:-translate-x-0.5"
+              className="bg-surface text-text-main hover:bg-green-500 hover:text-surface transition-colors border-2 border-border-color hover:border-green-500 px-8 py-3 font-mono font-bold uppercase tracking-wider flex items-center gap-2 shadow-hard hover:-translate-y-0.5 hover:-translate-x-0.5" aria-label="WhatsApp (opens in a new tab)" title="WhatsApp"
             >
               WhatsApp
               <Phone aria-hidden="true" className="w-4 h-4 ml-1" />
@@ -59,7 +59,7 @@ const Footer: React.FC = () => {
               href="https://www.upwork.com/freelancers/~01f54fd7d135eb3939" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="bg-surface text-text-main hover:bg-[#14a800] hover:text-surface transition-colors border-2 border-border-color hover:border-[#14a800] px-8 py-3 font-mono font-bold uppercase tracking-wider flex items-center gap-2 shadow-hard hover:-translate-y-0.5 hover:-translate-x-0.5"
+              className="bg-surface text-text-main hover:bg-[#14a800] hover:text-surface transition-colors border-2 border-border-color hover:border-[#14a800] px-8 py-3 font-mono font-bold uppercase tracking-wider flex items-center gap-2 shadow-hard hover:-translate-y-0.5 hover:-translate-x-0.5" aria-label="Upwork (opens in a new tab)" title="Upwork"
             >
               Upwork
               <Code2 aria-hidden="true" className="w-4 h-4 ml-1" />

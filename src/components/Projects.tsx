@@ -79,7 +79,7 @@ const Projects: React.FC = () => {
                   <div className="h-full flex flex-col">
                     <GSAPTilt maxTilt={8} perspective={1000}>
                       <article 
-                        className="bg-surface border border-border-color flex flex-col group hover:bg-background-light transition-shadow duration-300 shadow-hard hover:shadow-hard-hover h-full cursor-pointer"
+                        className="bg-surface border border-border-color flex flex-col group hover:bg-background-light transition-shadow duration-300 shadow-hard hover:shadow-hard-hover h-full"
                       >
                         {/* Mock Screenshot Section */}
                         <div className="h-48 bg-background-light border-b border-border-color relative flex items-center justify-center overflow-hidden shrink-0">
@@ -126,7 +126,7 @@ const Projects: React.FC = () => {
                             </div>
                             
                             {project.link ? (
-                              <a href={project.link} target="_blank" rel="noreferrer" className="inline-flex items-center font-mono text-xs uppercase text-primary font-bold hover:underline group/link">
+                              <a href={project.link} target="_blank" rel="noreferrer" className="inline-flex items-center font-mono text-xs uppercase text-primary font-bold hover:underline group/link" aria-label="View Live Deployment (opens in a new tab)" title="View Live Deployment">
                                 View Live Deployment 
                                 <ArrowRight aria-hidden="true" className="ml-1 w-3.5 h-3.5 group-hover/link:translate-x-1 transition-transform" />
                               </a>
