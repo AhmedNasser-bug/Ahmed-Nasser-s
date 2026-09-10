@@ -71,3 +71,6 @@
 ## 2026-08-22 - [Groundedness and JSX Validation]
 **Learning:** The 'cat' command in the bash sandbox environment frequently truncates output on larger files (like React components), leading to unverified assumptions about JSX structures and failing plan reviews (Groundedness Rule).
 **Action:** Use `grep -A 10 -B 10 'keyword'` or the `read_file` tool to reliably inspect and verify exact DOM elements before proposing targeted accessibility improvements.
+## 2024-05-30 - [Hidden Elements Trapping Focus]
+**Learning:** Hiding an element visually (e.g., via `opacity-0` or `translate-y-10`) doesn't remove it from the keyboard focus order. Screen reader and keyboard-only users will still tab onto it, creating a confusing experience where focus disappears.
+**Action:** Always conditionally bind `tabIndex={isVisible ? 0 : -1}` and `aria-hidden={!isVisible}` to elements whose visibility is toggled visually via CSS classes rather than React unmounting.
