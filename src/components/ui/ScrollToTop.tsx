@@ -30,8 +30,10 @@ const ScrollToTop: React.FC = () => {
     <div className={`fixed bottom-8 right-8 z-50 transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'}`}>
       <button
         type="button"
+        tabIndex={isVisible ? 0 : -1}
+        aria-hidden={!isVisible}
         onClick={scrollToTop}
-        className="p-4 bg-surface border border-border-color text-text-main hover:bg-background-light hover:text-primary transition-all duration-300 shadow-hard hover:shadow-hard-hover group"
+        className="p-4 bg-surface border border-border-color text-text-main hover:bg-background-light hover:text-primary transition-all duration-300 shadow-hard hover:shadow-hard-hover group focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2"
         aria-label="Scroll to top"
         title="Scroll to top"
       >
