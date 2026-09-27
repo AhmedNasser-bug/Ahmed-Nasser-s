@@ -71,3 +71,6 @@
 ## 2026-08-22 - [Groundedness and JSX Validation]
 **Learning:** The 'cat' command in the bash sandbox environment frequently truncates output on larger files (like React components), leading to unverified assumptions about JSX structures and failing plan reviews (Groundedness Rule).
 **Action:** Use `grep -A 10 -B 10 'keyword'` or the `read_file` tool to reliably inspect and verify exact DOM elements before proposing targeted accessibility improvements.
+## 2026-09-27 - Respecting Reduced Motion Preferences
+**Learning:** Implementing custom smooth scrolling (like Lenis) globally can cause vestibular issues for users with motion sensitivity, even if they have OS-level settings enabled to reduce motion.
+**Action:** Always conditionally wrap scroll hijacking and entrance animations with `window.matchMedia('(prefers-reduced-motion: reduce)').matches` checks to gracefully fall back to native browser behavior when required.

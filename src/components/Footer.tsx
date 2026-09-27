@@ -40,6 +40,7 @@ const Footer: React.FC = () => {
                 href={PROFILE.contact.linkedin} 
                 target="_blank" 
                 rel="noopener noreferrer" 
+                aria-label="LinkedIn (opens in a new tab)"
                 className="bg-text-main text-surface hover:bg-primary transition-colors border-2 border-text-main hover:border-primary px-8 py-3 font-mono font-bold uppercase tracking-wider flex items-center gap-2 shadow-hard hover:-translate-y-0.5 hover:-translate-x-0.5"
               >
                 LinkedIn 
@@ -50,6 +51,7 @@ const Footer: React.FC = () => {
               href={`https://wa.me/${PROFILE.contact.phone.replace(/[^0-9]/g, '')}`} 
               target="_blank" 
               rel="noopener noreferrer" 
+              aria-label="WhatsApp (opens in a new tab)"
               className="bg-surface text-text-main hover:bg-green-500 hover:text-surface transition-colors border-2 border-border-color hover:border-green-500 px-8 py-3 font-mono font-bold uppercase tracking-wider flex items-center gap-2 shadow-hard hover:-translate-y-0.5 hover:-translate-x-0.5"
             >
               WhatsApp
@@ -59,6 +61,7 @@ const Footer: React.FC = () => {
               href="https://www.upwork.com/freelancers/~01f54fd7d135eb3939" 
               target="_blank" 
               rel="noopener noreferrer" 
+              aria-label="Upwork (opens in a new tab)"
               className="bg-surface text-text-main hover:bg-[#14a800] hover:text-surface transition-colors border-2 border-border-color hover:border-[#14a800] px-8 py-3 font-mono font-bold uppercase tracking-wider flex items-center gap-2 shadow-hard hover:-translate-y-0.5 hover:-translate-x-0.5"
             >
               Upwork
