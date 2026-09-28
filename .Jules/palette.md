@@ -71,3 +71,6 @@
 ## 2026-08-22 - [Groundedness and JSX Validation]
 **Learning:** The 'cat' command in the bash sandbox environment frequently truncates output on larger files (like React components), leading to unverified assumptions about JSX structures and failing plan reviews (Groundedness Rule).
 **Action:** Use `grep -A 10 -B 10 'keyword'` or the `read_file` tool to reliably inspect and verify exact DOM elements before proposing targeted accessibility improvements.
+## 2026-08-25 - [Skip-to-Content Implementation Details]
+**Learning:** Adding a skip-to-content link correctly requires more than just an anchor tag. The target element must have an `id` that matches the anchor's `href`, it must be focusable (using `tabIndex={-1}`), and it should use `focus:outline-none` if you don't want a default focus ring to appear around the entire main content area when activated. Furthermore, the `skip-to-content` link should be conditionally styled with Tailwind to be visually hidden until it receives keyboard focus (`sr-only focus:not-sr-only focus:absolute z-[100]`).
+**Action:** When adding skip-to-content functionality, ensure the combination of `sr-only` and `focus:not-sr-only` is applied to the link, and `tabIndex={-1}` and `focus:outline-none` are applied to the programmatic target.

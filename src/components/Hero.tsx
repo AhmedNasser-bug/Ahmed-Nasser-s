@@ -122,7 +122,7 @@ const Hero: React.FC = () => {
         <div className="px-4 md:px-10 lg:px-40 flex flex-1 justify-center py-5 pointer-events-auto">
           <div className="layout-content-container flex flex-col w-full max-w-[1200px] flex-1">
             
-            <main className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start py-10">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start py-10">
               <div className="flex flex-col gap-8" data-aos="fade-right">
                 <div className="space-y-4">
                   <h3 className="font-mono text-sm uppercase tracking-widest text-primary font-bold">
@@ -169,7 +169,7 @@ const Hero: React.FC = () => {
                   </div>
                 </GSAPReveal>
               </div>
-            </main>
+            </div>
 
           </div>
         </div>
