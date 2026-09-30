@@ -71,3 +71,7 @@
 ## 2026-08-22 - [Groundedness and JSX Validation]
 **Learning:** The 'cat' command in the bash sandbox environment frequently truncates output on larger files (like React components), leading to unverified assumptions about JSX structures and failing plan reviews (Groundedness Rule).
 **Action:** Use `grep -A 10 -B 10 'keyword'` or the `read_file` tool to reliably inspect and verify exact DOM elements before proposing targeted accessibility improvements.
+
+## 2024-05-30 - React JSX Groundedness
+**Learning:** When proposing code insertions in React components during plan reviews, reference exact JSX elements or structures (e.g., 'at the top of the React fragment `<>`') rather than generic HTML document concepts (like 'at the top of the body') to ensure accuracy and pass the Groundedness Rule.
+**Action:** Always verify the actual root element returned by a React component (like `<>` or `<div>`) before describing where to insert skip links or layout wrappers.
