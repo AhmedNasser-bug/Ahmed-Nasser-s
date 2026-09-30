@@ -38,13 +38,15 @@ const CAROUSEL_ITEMS: CarouselItem[] = [
 
 const ProjectCarousel: React.FC = () => {
   const [current, setCurrent] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
+    if (isPaused) return;
     const timer = setInterval(() => {
       setCurrent((prev) => (prev + 1) % CAROUSEL_ITEMS.length);
     }, 4500);
     return () => clearInterval(timer);
-  }, []);
+  }, [isPaused]);
 
   const handlePrev = () => {
     setCurrent((prev) => (prev - 1 + CAROUSEL_ITEMS.length) % CAROUSEL_ITEMS.length);
@@ -55,7 +57,13 @@ const ProjectCarousel: React.FC = () => {
   };
 
   return (
-    <div className="relative border border-border-color bg-surface shadow-hard hover:shadow-hard-hover transition-all duration-300 w-full overflow-hidden flex flex-col pointer-events-auto">
+    <div
+      className="relative border border-border-color bg-surface shadow-hard hover:shadow-hard-hover transition-all duration-300 w-full overflow-hidden flex flex-col pointer-events-auto"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+      onFocus={() => setIsPaused(true)}
+      onBlur={() => setIsPaused(false)}
+    >
       <div className="relative w-full aspect-[16/10] bg-background-light overflow-hidden border-b border-border-color">
         {CAROUSEL_ITEMS.map((item, idx) => (
           <div
@@ -91,8 +99,10 @@ const ProjectCarousel: React.FC = () => {
       </div>
 
       <div className="p-5 flex flex-col gap-2 min-h-[125px]">
-        <h4 className="font-sans font-bold text-lg text-text-main tracking-tight">{CAROUSEL_ITEMS[current].title}</h4>
-        <p className="font-display italic text-base text-text-main/80 leading-relaxed">{CAROUSEL_ITEMS[current].description}</p>
+        <div aria-live="polite" aria-atomic="true">
+          <h4 className="font-sans font-bold text-lg text-text-main tracking-tight">{CAROUSEL_ITEMS[current].title}</h4>
+          <p className="font-display italic text-base text-text-main/80 leading-relaxed">{CAROUSEL_ITEMS[current].description}</p>
+        </div>
         
         {/* Indicators */}
         <div className="flex gap-2 mt-2 justify-end" role="tablist" aria-label="Carousel Slides">
