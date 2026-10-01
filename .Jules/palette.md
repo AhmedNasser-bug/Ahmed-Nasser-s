@@ -71,3 +71,6 @@
 ## 2026-08-22 - [Groundedness and JSX Validation]
 **Learning:** The 'cat' command in the bash sandbox environment frequently truncates output on larger files (like React components), leading to unverified assumptions about JSX structures and failing plan reviews (Groundedness Rule).
 **Action:** Use `grep -A 10 -B 10 'keyword'` or the `read_file` tool to reliably inspect and verify exact DOM elements before proposing targeted accessibility improvements.
+## 2024-10-01 - [Semantic List Roles & Tablist Redundancies]
+**Learning:** Implementing custom toggle buttons inside a container utilizing `role="tablist"` correctly exposes semantic regions to screen readers, but mixing `aria-selected` alongside `aria-pressed` triggers WAI-ARIA validation friction because `aria-pressed` is meant strictly for `role="button"` toggles. Additionally, visualizing workflows as continuous visual pipes without explicit `role="list"` container definitions strips meaningful enumeration for screen reader users traversing the tree.
+**Action:** When implementing custom `tablist`s, only utilize `aria-selected`. Ensure visual process flows (like phase trackers) are structurally wrapped in `role="list"` and `role="listitem"` to preserve semantic relationships.
