@@ -71,3 +71,6 @@
 ## 2026-08-22 - [Groundedness and JSX Validation]
 **Learning:** The 'cat' command in the bash sandbox environment frequently truncates output on larger files (like React components), leading to unverified assumptions about JSX structures and failing plan reviews (Groundedness Rule).
 **Action:** Use `grep -A 10 -B 10 'keyword'` or the `read_file` tool to reliably inspect and verify exact DOM elements before proposing targeted accessibility improvements.
+## 2026-08-22 - [Visibility-Based Keyboard Traps]
+**Learning:** Transitioning opacity to 0 visually hides elements (like floating "Scroll To Top" buttons) but leaves them in the DOM and fully accessible via the keyboard 'Tab' key, creating an invisible focus trap for screen readers and keyboard users.
+**Action:** Always conditionally attach `tabIndex={isVisible ? 0 : -1}` and `aria-hidden={!isVisible}` to elements toggled by opacity transitions to ensure they are truly removed from the accessibility tree when hidden.
