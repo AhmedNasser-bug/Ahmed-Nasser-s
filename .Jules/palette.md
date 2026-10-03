@@ -71,3 +71,6 @@
 ## 2026-08-22 - [Groundedness and JSX Validation]
 **Learning:** The 'cat' command in the bash sandbox environment frequently truncates output on larger files (like React components), leading to unverified assumptions about JSX structures and failing plan reviews (Groundedness Rule).
 **Action:** Use `grep -A 10 -B 10 'keyword'` or the `read_file` tool to reliably inspect and verify exact DOM elements before proposing targeted accessibility improvements.
+## 2024-10-03 - [A11y Enhancements]
+**Learning:** Discovered areas lacking ARIA attributes (like toggles missing `aria-pressed`, loaders missing `aria-busy`, and step indicators missing `aria-current="step"`) and missing skip-to-content logic, as well as missing dual ARIA label and title tags for interactive elements.
+**Action:** Add comprehensive accessibility coverage combining focus management, live regions, motion preferences, and contextual feedback during development.
