@@ -71,3 +71,15 @@
 ## 2026-08-22 - [Groundedness and JSX Validation]
 **Learning:** The 'cat' command in the bash sandbox environment frequently truncates output on larger files (like React components), leading to unverified assumptions about JSX structures and failing plan reviews (Groundedness Rule).
 **Action:** Use `grep -A 10 -B 10 'keyword'` or the `read_file` tool to reliably inspect and verify exact DOM elements before proposing targeted accessibility improvements.
+
+## 2026-08-25 - [Semantic Nav and Skip Links Integration]
+**Learning:** Adding a skip-to-content link required restructuring the top-level React structure inside `App.tsx` from `<main>` to a generalized wrapper, placing the new semantic `<main>` specifically around `<Routes>`. Navigation containers needed an explicit semantic `<nav>` wrapper.
+**Action:** When implementing application-wide layout shells, keep the `<main>` tag strictly around the core changing content (like react-router `<Routes>`) rather than the global static UI.
+
+## 2026-08-25 - [Clipboard Feedback Accessibility]
+**Learning:** While building contact sections, it's critical to provide multi-modal feedback upon copying text using the Clipboard API.
+**Action:** Implement an inline `CopyItem` pattern: dynamically switch an icon (e.g. from `<Copy>` to `<Check>`) and update the `aria-label`/`title` momentarily to explicitly announce "Copied!" for screen readers.
+
+## 2026-08-25 - [Pause-on-Hover for Custom Carousels]
+**Learning:** Custom CSS-based `setInterval` carousels can cause accessibility frustrations if they auto-rotate while a user is reading or trying to click them.
+**Action:** Always wrap the top-level container of auto-rotating elements with `onMouseEnter`, `onMouseLeave`, `onFocus`, and `onBlur` events that toggle an `isPaused` state, effectively halting the rotation interval during interaction.

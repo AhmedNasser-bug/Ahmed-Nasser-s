@@ -126,7 +126,7 @@ const Projects: React.FC = () => {
                             </div>
                             
                             {project.link ? (
-                              <a href={project.link} target="_blank" rel="noreferrer" className="inline-flex items-center font-mono text-xs uppercase text-primary font-bold hover:underline group/link">
+                              <a href={project.link} target="_blank" rel="noreferrer" className="inline-flex items-center font-mono text-xs uppercase text-primary font-bold hover:underline group/link focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2" aria-label="View Live Deployment (opens in a new tab)" title="View Live Deployment (opens in a new tab)">
                                 View Live Deployment 
                                 <ArrowRight aria-hidden="true" className="ml-1 w-3.5 h-3.5 group-hover/link:translate-x-1 transition-transform" />
                               </a>
