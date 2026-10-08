@@ -95,13 +95,21 @@ const App: React.FC = () => {
           isLoading ? 'opacity-0 max-h-screen overflow-hidden' : 'opacity-100'
         }`}
       >
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:z-[9999] focus:p-4 focus:bg-surface focus:text-text-main focus:font-bold focus:shadow-hard focus:border focus:border-border-color focus-visible:outline-2 focus-visible:outline-primary"
+        >
+          Skip to main content
+        </a>
         <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/projects" element={<ProjectsPage />} />
-          <Route path="/lifecycle" element={<LifecyclePage />} />
-        </Routes>
+        <div id="main-content" tabIndex={-1} className="focus:outline-none flex-1 w-full">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/projects" element={<ProjectsPage />} />
+            <Route path="/lifecycle" element={<LifecyclePage />} />
+          </Routes>
+        </div>
         <Footer />
         <ScrollToTop />
       </main>
