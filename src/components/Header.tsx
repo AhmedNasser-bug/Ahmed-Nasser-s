@@ -17,7 +17,7 @@ const Header: React.FC = () => {
           <h2 className="text-text-main font-display text-xl font-bold leading-tight sm:hidden">Ahmed</h2>
         </Link>
       </div>
-      <div className="flex flex-1 justify-end gap-8">
+      <nav className="flex flex-1 justify-end gap-8" aria-label="Main Navigation">
         <div className="flex items-center gap-6 font-mono text-sm uppercase tracking-wider">
           <Link to="/" aria-current={location.pathname === '/' ? 'page' : undefined} className={`transition-colors focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 ${location.pathname === '/' ? 'text-primary font-bold' : 'text-text-main hover:text-primary'}`}>
             Home
@@ -34,12 +34,12 @@ const Header: React.FC = () => {
           <div className="w-[1px] h-4 bg-border-color/30 hidden md:block"></div>
           
           {PROFILE.contact.github && (
-            <a className="flex items-center gap-2 text-text-main hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 hidden md:inline-block" href={PROFILE.contact.github} target="_blank" rel="noreferrer" aria-label="GitHub" title="GitHub">
+            <a className="flex items-center gap-2 text-text-main hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 hidden md:inline-block" href={PROFILE.contact.github} target="_blank" rel="noreferrer" aria-label="GitHub (opens in a new tab)" title="GitHub">
               <Github aria-hidden="true" size={16} />
             </a>
           )}
           {PROFILE.contact.linkedin && (
-            <a className="flex items-center gap-2 text-text-main hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 hidden md:inline-block" href={PROFILE.contact.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn" title="LinkedIn">
+            <a className="flex items-center gap-2 text-text-main hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 hidden md:inline-block" href={PROFILE.contact.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn (opens in a new tab)" title="LinkedIn">
               <Linkedin aria-hidden="true" size={16} />
             </a>
           )}
@@ -60,7 +60,7 @@ const Header: React.FC = () => {
              </Link>
           </div>
         </div>
-      </div>
+      </nav>
     </header>
   );
 };
