@@ -91,10 +91,14 @@ const App: React.FC = () => {
 
       {/* 2. Main application wrapper with smooth entrance transition */}
       <main 
+        id="main-content"
         className={`min-h-screen overflow-x-clip transition-opacity duration-1000 ease-in-out ${
           isLoading ? 'opacity-0 max-h-screen overflow-hidden' : 'opacity-100'
         }`}
       >
+        <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:p-4 focus:bg-surface focus:text-text-main" tabIndex={0}>
+          Skip to main content
+        </a>
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />

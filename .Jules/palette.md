@@ -71,3 +71,6 @@
 ## 2026-08-22 - [Groundedness and JSX Validation]
 **Learning:** The 'cat' command in the bash sandbox environment frequently truncates output on larger files (like React components), leading to unverified assumptions about JSX structures and failing plan reviews (Groundedness Rule).
 **Action:** Use `grep -A 10 -B 10 'keyword'` or the `read_file` tool to reliably inspect and verify exact DOM elements before proposing targeted accessibility improvements.
+## 2025-03-09 - [Accessible ARIA View Toggles]
+**Learning:** For interactive UI elements acting as custom tab switchers (e.g., toggling between an image and an iframe view), applying standard `button` elements is insufficient for screen readers. Using the `role="tablist"` on the container and `role="tab"` with `aria-selected` on the buttons clearly communicates the active state and structure to assistive technologies.
+**Action:** Always implement the `tablist` and `tab` pattern for custom view toggle controls, ensuring `aria-selected` is dynamically bound to the active state.

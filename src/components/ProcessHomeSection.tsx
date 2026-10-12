@@ -59,7 +59,7 @@ const ProcessHomeSection: React.FC = () => {
                     <div className="flex flex-col gap-3 font-sans text-xs font-medium">
                       <div className="flex items-center gap-3 p-2 border border-border-color/10 bg-background-light">
                         <div className="p-1 bg-primary/10 border border-primary/20 text-primary shrink-0">
-                          <Search size={14} />
+                          <Search aria-hidden="true" size={14} />
                         </div>
                         <div>
                           <div className="font-mono text-[9px] text-muted">PHASE 01</div>
@@ -69,7 +69,7 @@ const ProcessHomeSection: React.FC = () => {
 
                       <div className="flex items-center gap-3 p-2 border border-border-color/10 bg-background-light">
                         <div className="p-1 bg-primary/10 border border-primary/20 text-primary shrink-0">
-                          <Compass size={14} />
+                          <Compass aria-hidden="true" size={14} />
                         </div>
                         <div>
                           <div className="font-mono text-[9px] text-muted">PHASE 02</div>
@@ -79,7 +79,7 @@ const ProcessHomeSection: React.FC = () => {
 
                       <div className="flex items-center gap-3 p-2 border border-border-color/10 bg-background-light">
                         <div className="p-1 bg-primary/10 border border-primary/20 text-primary shrink-0">
-                          <Cpu size={14} />
+                          <Cpu aria-hidden="true" size={14} />
                         </div>
                         <div>
                           <div className="font-mono text-[9px] text-muted">PHASE 03</div>
@@ -89,7 +89,7 @@ const ProcessHomeSection: React.FC = () => {
 
                       <div className="flex items-center gap-3 p-2 border border-border-color/10 bg-background-light opacity-50">
                         <div className="p-1 bg-muted/15 border border-muted/20 text-muted shrink-0">
-                          <Layers size={14} />
+                          <Layers aria-hidden="true" size={14} />
                         </div>
                         <div>
                           <div className="font-mono text-[9px] text-muted">PHASE 04</div>
