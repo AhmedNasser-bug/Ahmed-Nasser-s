@@ -38,13 +38,16 @@ const CAROUSEL_ITEMS: CarouselItem[] = [
 
 const ProjectCarousel: React.FC = () => {
   const [current, setCurrent] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % CAROUSEL_ITEMS.length);
+      if (!isPaused) {
+        setCurrent((prev) => (prev + 1) % CAROUSEL_ITEMS.length);
+      }
     }, 4500);
     return () => clearInterval(timer);
-  }, []);
+  }, [isPaused]);
 
   const handlePrev = () => {
     setCurrent((prev) => (prev - 1 + CAROUSEL_ITEMS.length) % CAROUSEL_ITEMS.length);
@@ -55,7 +58,13 @@ const ProjectCarousel: React.FC = () => {
   };
 
   return (
-    <div className="relative border border-border-color bg-surface shadow-hard hover:shadow-hard-hover transition-all duration-300 w-full overflow-hidden flex flex-col pointer-events-auto">
+    <div
+      className="relative border border-border-color bg-surface shadow-hard hover:shadow-hard-hover transition-all duration-300 w-full overflow-hidden flex flex-col pointer-events-auto"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+      onFocus={() => setIsPaused(true)}
+      onBlur={() => setIsPaused(false)}
+    >
       <div className="relative w-full aspect-[16/10] bg-background-light overflow-hidden border-b border-border-color">
         {CAROUSEL_ITEMS.map((item, idx) => (
           <div
