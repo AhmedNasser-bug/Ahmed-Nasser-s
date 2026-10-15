@@ -86,12 +86,15 @@ const App: React.FC = () => {
 
   return (
     <>
+      <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute top-0 left-0 z-[1000] bg-primary text-surface px-4 py-2 font-mono font-bold">Skip to main content</a>
       {/* 1. Neobrutalist Page Preloader */}
       <Preloader onComplete={() => setIsLoading(false)} />
 
       {/* 2. Main application wrapper with smooth entrance transition */}
       <main 
-        className={`min-h-screen overflow-x-clip transition-opacity duration-1000 ease-in-out ${
+        id="main-content"
+        tabIndex={-1}
+        className={`min-h-screen overflow-x-clip transition-opacity duration-1000 ease-in-out focus:outline-none ${
           isLoading ? 'opacity-0 max-h-screen overflow-hidden' : 'opacity-100'
         }`}
       >

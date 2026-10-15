@@ -71,3 +71,6 @@
 ## 2026-08-22 - [Groundedness and JSX Validation]
 **Learning:** The 'cat' command in the bash sandbox environment frequently truncates output on larger files (like React components), leading to unverified assumptions about JSX structures and failing plan reviews (Groundedness Rule).
 **Action:** Use `grep -A 10 -B 10 'keyword'` or the `read_file` tool to reliably inspect and verify exact DOM elements before proposing targeted accessibility improvements.
+## 2026-08-25 - [A11y: Playwright and Skip-to-content Visibility]
+**Learning:** When using Playwright to visually test that a `sr-only focus:not-sr-only` skip-to-content link correctly appears on keyboard focus, the default `page.goto()` sequence might not put initial focus on the `document.body` in a headless environment. A `page.keyboard.press("Tab")` triggers focus, and you can reliably screenshot the link appearing dynamically to verify styling without writing complex DOM assertions.
+**Action:** Always include a visual verification flow in Playwright scripts when adding skip-to-content links by simulating keyboard navigation, ensuring `z-index` and colors render correctly.
