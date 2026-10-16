@@ -1,10 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { PROFILE } from '../constants';
-import { Mail, Phone, Code2 } from 'lucide-react';
+import { Mail, Phone, Code2, Copy, Check } from 'lucide-react';
 
 const Footer: React.FC = () => {
   const location = useLocation();
+  const [isEmailCopied, setIsEmailCopied] = useState(false);
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText(PROFILE.contact.email).then(() => {
+      setIsEmailCopied(true);
+      setTimeout(() => setIsEmailCopied(false), 2000);
+    });
+  };
 
   // Dynamic headings depending on page path
   let ctaTitle = "I see you're convinced";
@@ -77,9 +85,19 @@ const Footer: React.FC = () => {
               <div className="w-12 h-12 bg-primary/10 border border-primary flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-surface transition-colors">
                 <Mail aria-hidden="true" className="w-5 h-5 text-primary group-hover:text-surface" />
               </div>
-              <div>
-                <div className="text-xs text-muted font-mono uppercase tracking-wider">Email</div>
-                <a href={`mailto:${PROFILE.contact.email}`} className="text-lg font-bold hover:text-primary transition-colors text-text-main">{PROFILE.contact.email}</a>
+              <div className="flex-1 flex justify-between items-center pr-2">
+                <div>
+                  <div className="text-xs text-muted font-mono uppercase tracking-wider">Email</div>
+                  <a href={`mailto:${PROFILE.contact.email}`} className="text-lg font-bold hover:text-primary transition-colors text-text-main">{PROFILE.contact.email}</a>
+                </div>
+                <button
+                  onClick={handleCopyEmail}
+                  className="p-2 text-muted hover:text-primary hover:bg-background-light border border-transparent hover:border-border-color transition-colors focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2"
+                  aria-label={isEmailCopied ? "Copied!" : "Copy email address"}
+                  title={isEmailCopied ? "Copied!" : "Copy email address"}
+                >
+                  {isEmailCopied ? <Check aria-hidden="true" size={18} className="text-green-500" /> : <Copy aria-hidden="true" size={18} />}
+                </button>
               </div>
             </div>
 

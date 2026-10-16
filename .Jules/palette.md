@@ -71,3 +71,7 @@
 ## 2026-08-22 - [Groundedness and JSX Validation]
 **Learning:** The 'cat' command in the bash sandbox environment frequently truncates output on larger files (like React components), leading to unverified assumptions about JSX structures and failing plan reviews (Groundedness Rule).
 **Action:** Use `grep -A 10 -B 10 'keyword'` or the `read_file` tool to reliably inspect and verify exact DOM elements before proposing targeted accessibility improvements.
+
+## 2026-05-26 - [Skip-to-Content and Programmatic Focus Target]
+**Learning:** When using a skip-to-content link, simply navigating to an ID hash is not enough for keyboard accessibility. If the target element is a structural tag (like `<main>`) that isn't inherently focusable, screen readers might not correctly begin reading from that point, and the next 'Tab' press may loop back to the top of the page.
+**Action:** Always ensure the target of a skip-to-content link has `tabIndex={-1}` and `focus:outline-none` (or equivalent) so it can receive programmatic focus without showing a misleading outline to sighted users.
