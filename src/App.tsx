@@ -36,27 +36,31 @@ const App: React.FC = () => {
     }
     document.body.style.overflow = '';
 
-    // Initialize Lenis for premium smooth scrolling
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      orientation: 'vertical',
-      gestureOrientation: 'vertical',
-      smoothWheel: true,
-      wheelMultiplier: 1,
-      touchMultiplier: 2,
-    });
-
-    (window as any).lenis = lenis;
-
+    // Initialize Lenis for premium smooth scrolling only if user doesn't prefer reduced motion
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let lenis: any = null;
     let rafId: number;
 
-    function raf(time: number) {
-      lenis.raf(time);
+    if (!prefersReducedMotion) {
+      lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        orientation: 'vertical',
+        gestureOrientation: 'vertical',
+        smoothWheel: true,
+        wheelMultiplier: 1,
+        touchMultiplier: 2,
+      });
+
+      (window as any).lenis = lenis;
+
+      function raf(time: number) {
+        lenis.raf(time);
+        rafId = requestAnimationFrame(raf);
+      }
+
       rafId = requestAnimationFrame(raf);
     }
-
-    rafId = requestAnimationFrame(raf);
 
     // Initialize AOS after component mount to ensure elements exist in DOM
     const AOS = (window as any).AOS;
@@ -79,23 +83,34 @@ const App: React.FC = () => {
     window.scrollTo({ top: 0, behavior: 'instant' });
 
     return () => {
-      lenis.destroy();
-      cancelAnimationFrame(rafId);
+      if (lenis) lenis.destroy();
+      if (rafId) cancelAnimationFrame(rafId);
     };
   }, [location.pathname, isLoading]); // Re-run when pathname changes or loading completes
 
   return (
     <>
+      {/* Skip to Content Link for Accessibility */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:z-[10000] focus:top-4 focus:left-4 focus:px-4 focus:py-2 focus:bg-surface focus:text-primary focus:border-2 focus:border-primary focus:shadow-hard focus-visible:outline-none focus:font-mono focus:text-sm focus:uppercase focus:tracking-wider"
+      >
+        Skip to main content
+      </a>
+
       {/* 1. Neobrutalist Page Preloader */}
       <Preloader onComplete={() => setIsLoading(false)} />
 
+      <Header />
+
       {/* 2. Main application wrapper with smooth entrance transition */}
       <main 
-        className={`min-h-screen overflow-x-clip transition-opacity duration-1000 ease-in-out ${
+        id="main-content"
+        tabIndex={-1}
+        className={`min-h-screen overflow-x-clip focus:outline-none transition-opacity duration-1000 ease-in-out ${
           isLoading ? 'opacity-0 max-h-screen overflow-hidden' : 'opacity-100'
         }`}
       >
-        <Header />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<AboutPage />} />
