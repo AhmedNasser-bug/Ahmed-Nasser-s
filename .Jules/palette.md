@@ -71,3 +71,6 @@
 ## 2026-08-22 - [Groundedness and JSX Validation]
 **Learning:** The 'cat' command in the bash sandbox environment frequently truncates output on larger files (like React components), leading to unverified assumptions about JSX structures and failing plan reviews (Groundedness Rule).
 **Action:** Use `grep -A 10 -B 10 'keyword'` or the `read_file` tool to reliably inspect and verify exact DOM elements before proposing targeted accessibility improvements.
+## 2024-10-17 - [Contextual Accessibility for Native Channels]
+**Learning:** Adding semantic context (via `aria-label` and `title`) to explicit native channel links (like `mailto:` and `tel:`) creates an instantly better experience for screen reader users and mouse users, reducing friction when users are presented with a naked phone number or email address that serves as the trigger.
+**Action:** Extend the dual-pattern (aria-label + title) to include contact links (`mailto:` and `tel:`), explicitly outlining the action the user is about to take (e.g. "Send an email to..." or "Call...").
