@@ -89,22 +89,26 @@ const App: React.FC = () => {
       {/* 1. Neobrutalist Page Preloader */}
       <Preloader onComplete={() => setIsLoading(false)} />
 
+      <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute z-[100] top-4 left-4 bg-text-main text-surface px-4 py-2 font-mono text-sm shadow-hard border-2 border-border-color focus:outline-none focus:ring-2 focus:ring-primary">Skip to content</a>
+
       {/* 2. Main application wrapper with smooth entrance transition */}
-      <main 
+      <div
         className={`min-h-screen overflow-x-clip transition-opacity duration-1000 ease-in-out ${
           isLoading ? 'opacity-0 max-h-screen overflow-hidden' : 'opacity-100'
         }`}
       >
         <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/projects" element={<ProjectsPage />} />
-          <Route path="/lifecycle" element={<LifecyclePage />} />
-        </Routes>
+        <main id="main-content" tabIndex={-1} className="focus:outline-none">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/projects" element={<ProjectsPage />} />
+            <Route path="/lifecycle" element={<LifecyclePage />} />
+          </Routes>
+        </main>
         <Footer />
         <ScrollToTop />
-      </main>
+      </div>
     </>
   );
 };
