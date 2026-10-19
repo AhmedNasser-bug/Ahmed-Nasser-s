@@ -71,3 +71,9 @@
 ## 2026-08-22 - [Groundedness and JSX Validation]
 **Learning:** The 'cat' command in the bash sandbox environment frequently truncates output on larger files (like React components), leading to unverified assumptions about JSX structures and failing plan reviews (Groundedness Rule).
 **Action:** Use `grep -A 10 -B 10 'keyword'` or the `read_file` tool to reliably inspect and verify exact DOM elements before proposing targeted accessibility improvements.
+## 2024-05-18 - Semantic Navigation
+**Learning:** This repo has a Neobrutalist design pattern that heavily uses utility classes. Generic divs are commonly used instead of nav tags for navigation links, and screen readers benefit greatly from explicitly labelling these with <nav aria-label='...'>.
+**Action:** Always verify if a group of navigation links is wrapped in a generic container and replace it with a proper semantic `<nav>` with an appropriate `aria-label`.
+## 2024-05-18 - Auto-playing Carousels
+**Learning:** The project uses simple setInterval loops for auto-playing carousels without built-in pause mechanisms. This creates accessibility issues for users needing more time to read.
+**Action:** For any auto-updating or auto-playing component, ensure there's a state to track interaction (e.g., `isPaused`) and use `onMouseEnter/onFocus` to pause and `onMouseLeave/onBlur` to resume.
