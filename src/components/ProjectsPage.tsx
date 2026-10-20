@@ -238,6 +238,8 @@ const ProjectScrollItem: React.FC<ScrollItemProps> = ({ project, index }) => {
                   target="_blank" 
                   rel="noreferrer" 
                   className="inline-flex items-center justify-center bg-text-main text-surface px-3 py-1.5 border border-border-color font-mono text-[10px] uppercase tracking-wider hover:bg-primary transition-colors cursor-pointer"
+                  aria-label="Open Live App (opens in a new tab)"
+                  title="Open Live App (opens in a new tab)"
                 >
                   Open Live App <ExternalLink className="ml-1.5 w-3 h-3" />
                 </a>
@@ -340,7 +342,7 @@ const GitHubProjectsGrid: React.FC = () => {
           return (
             <div 
               key={idx}
-              className="border border-border-color bg-surface shadow-hard hover:shadow-hard-hover hover:-translate-x-1 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between overflow-hidden cursor-pointer"
+              className="border border-border-color bg-surface shadow-hard hover:shadow-hard-hover hover:-translate-x-1 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between overflow-hidden"
             >
               {/* Header Telemetry */}
               <div className="bg-text-main text-surface p-3 px-4 flex items-center justify-between border-b border-border-color">
@@ -409,6 +411,8 @@ const GitHubProjectsGrid: React.FC = () => {
                       target="_blank" 
                       rel="noreferrer" 
                       className="w-full inline-flex items-center justify-center bg-surface hover:bg-text-main text-text-main hover:text-surface px-3 py-2 border border-border-color font-mono text-[10px] uppercase tracking-wider transition-colors cursor-pointer"
+                      aria-label="View on GitHub (opens in a new tab)"
+                      title="View on GitHub (opens in a new tab)"
                     >
                       <Github aria-hidden="true" className="mr-1.5 w-3.5 h-3.5" /> View on GitHub
                     </a>

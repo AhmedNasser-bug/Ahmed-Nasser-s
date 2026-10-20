@@ -71,3 +71,11 @@
 ## 2026-08-22 - [Groundedness and JSX Validation]
 **Learning:** The 'cat' command in the bash sandbox environment frequently truncates output on larger files (like React components), leading to unverified assumptions about JSX structures and failing plan reviews (Groundedness Rule).
 **Action:** Use `grep -A 10 -B 10 'keyword'` or the `read_file` tool to reliably inspect and verify exact DOM elements before proposing targeted accessibility improvements.
+
+## 2024-04-28 - [Accessible Hidden Elements]
+**Learning:** For components that transition from hidden to visible (like "Scroll to Top" buttons), simply using CSS `opacity: 0` or `translate` doesn't remove them from the accessibility tree, creating an invisible keyboard trap.
+**Action:** Always conditionally apply `tabIndex={isVisible ? 0 : -1}` and `aria-hidden={!isVisible}` to elements that are visually hidden but remain in the DOM, ensuring they are only reachable via keyboard or screen reader when actually visible and interactable.
+
+## 2024-04-28 - [Semantic Wrappers and Skip Links]
+**Learning:** A skip-to-content link is less effective if the `<main>` element wraps global layout pieces like `<Header>` and `<Footer>`, as focusing the main element still forces users through navigation.
+**Action:** Ensure the `<main>` wrapper strictly encases the primary routing content or core application views, allowing the skip link to successfully bypass all global navigation headers.
