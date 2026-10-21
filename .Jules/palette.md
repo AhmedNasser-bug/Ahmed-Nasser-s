@@ -71,3 +71,6 @@
 ## 2026-08-22 - [Groundedness and JSX Validation]
 **Learning:** The 'cat' command in the bash sandbox environment frequently truncates output on larger files (like React components), leading to unverified assumptions about JSX structures and failing plan reviews (Groundedness Rule).
 **Action:** Use `grep -A 10 -B 10 'keyword'` or the `read_file` tool to reliably inspect and verify exact DOM elements before proposing targeted accessibility improvements.
+## 2026-08-22 - [Live Regions for Dynamic Scroll Trackers]
+**Learning:** When implementing complex scroll-spy components or dynamic progress indicators (like the Phase Tracker in LifecyclePage.tsx), visual updates alone are entirely missed by screen readers. Furthermore, adding `aria-live` to a deeply nested changing element can sometimes fail to announce reliably depending on the screen reader verbosity settings.
+**Action:** Always apply `aria-live="polite"` and `aria-atomic="true"` directly to the text container of dynamically updating visual state elements so that assistive technologies announce the updated string accurately as the user navigates the page.
