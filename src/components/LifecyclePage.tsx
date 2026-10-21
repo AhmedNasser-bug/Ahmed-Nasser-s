@@ -392,10 +392,10 @@ const LifecyclePage: React.FC = () => {
               >
                 PHASE
               </div>
-              <div className="font-display text-8xl font-black text-[#3730A3] leading-none select-none my-2">
+              <div aria-live="polite" aria-atomic="true" className="font-display text-8xl font-black text-[#3730A3] leading-none select-none my-2">
                 {String(activePhase).padStart(2, '0')}
               </div>
-              <div className="bg-[#3730A3] text-surface font-sans font-black text-sm px-3 py-1 border border-border-color uppercase tracking-wider text-center w-full shadow-[2px_2px_0px_#171717]">
+              <div aria-live="polite" aria-atomic="true" className="bg-[#3730A3] text-surface font-sans font-black text-sm px-3 py-1 border border-border-color uppercase tracking-wider text-center w-full shadow-[2px_2px_0px_#171717]">
                 {PHASE_NAMES[activePhase]}
               </div>
             </div>
@@ -431,7 +431,7 @@ const LifecyclePage: React.FC = () => {
 
       {/* Mobile Floating Action Indicator */}
       <div className="lg:hidden fixed bottom-6 right-6 z-40">
-        <div className="bg-surface border-2 border-border-color p-3 shadow-hard flex flex-col items-center gap-1 min-w-[110px]">
+        <div aria-live="polite" aria-atomic="true" className="bg-surface border-2 border-border-color p-3 shadow-hard flex flex-col items-center gap-1 min-w-[110px]">
           <span className="font-mono text-[9px] font-bold text-[#3730A3] uppercase">
             PHASE 0{activePhase}
           </span>
