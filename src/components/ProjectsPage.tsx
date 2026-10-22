@@ -408,6 +408,7 @@ const GitHubProjectsGrid: React.FC = () => {
                       href={project.link} 
                       target="_blank" 
                       rel="noreferrer" 
+                      aria-label="View on GitHub (opens in a new tab)"
                       className="w-full inline-flex items-center justify-center bg-surface hover:bg-text-main text-text-main hover:text-surface px-3 py-2 border border-border-color font-mono text-[10px] uppercase tracking-wider transition-colors cursor-pointer"
                     >
                       <Github aria-hidden="true" className="mr-1.5 w-3.5 h-3.5" /> View on GitHub
