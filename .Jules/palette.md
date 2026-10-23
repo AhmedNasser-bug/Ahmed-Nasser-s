@@ -71,3 +71,6 @@
 ## 2026-08-22 - [Groundedness and JSX Validation]
 **Learning:** The 'cat' command in the bash sandbox environment frequently truncates output on larger files (like React components), leading to unverified assumptions about JSX structures and failing plan reviews (Groundedness Rule).
 **Action:** Use `grep -A 10 -B 10 'keyword'` or the `read_file` tool to reliably inspect and verify exact DOM elements before proposing targeted accessibility improvements.
+## 2026-08-22 - [React Auto-playing Carousel Pause Interaction]
+**Learning:** Using `setInterval` in React effects for auto-playing UI components (like carousels) without providing `isPaused` states triggered by mouse AND keyboard interactions (hover and focus) creates severe accessibility hurdles, particularly for cognitive processing and screen reader flow.
+**Action:** When implementing timed components, wrap the timer instantiation in an effect that depends on a boolean `isPaused` state. Bind `onMouseEnter`, `onMouseLeave`, `onFocus`, and `onBlur` to the component container to gracefully suspend auto-play when the user interacts or navigates into the area.
