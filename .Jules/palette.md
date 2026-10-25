@@ -71,3 +71,6 @@
 ## 2026-08-22 - [Groundedness and JSX Validation]
 **Learning:** The 'cat' command in the bash sandbox environment frequently truncates output on larger files (like React components), leading to unverified assumptions about JSX structures and failing plan reviews (Groundedness Rule).
 **Action:** Use `grep -A 10 -B 10 'keyword'` or the `read_file` tool to reliably inspect and verify exact DOM elements before proposing targeted accessibility improvements.
+## 2025-02-27 - [Live Region Pattern for WebGL Loaders]
+**Learning:** For custom canvas/WebGL loaders wrapping progress logs (like in `Preloader.tsx`), binding `aria-busy={progress < 100}` concurrently with `aria-live="polite"` safely guarantees that assistive tech treats the changing text streams as a continuous background operation rather than discrete disjointed announcements.
+**Action:** When implementing custom preloaders in Neobrutalist components, always enforce `aria-busy` on the live region until unmount.
