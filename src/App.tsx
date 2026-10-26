@@ -36,27 +36,32 @@ const App: React.FC = () => {
     }
     document.body.style.overflow = '';
 
-    // Initialize Lenis for premium smooth scrolling
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      orientation: 'vertical',
-      gestureOrientation: 'vertical',
-      smoothWheel: true,
-      wheelMultiplier: 1,
-      touchMultiplier: 2,
-    });
+    // Initialize Lenis for premium smooth scrolling, conditionally respecting reduced motion
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    (window as any).lenis = lenis;
-
+    let lenis: Lenis | undefined;
     let rafId: number;
 
-    function raf(time: number) {
-      lenis.raf(time);
+    if (!prefersReducedMotion) {
+      lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        orientation: 'vertical',
+        gestureOrientation: 'vertical',
+        smoothWheel: true,
+        wheelMultiplier: 1,
+        touchMultiplier: 2,
+      });
+
+      (window as any).lenis = lenis;
+
+      const raf = (time: number) => {
+        lenis?.raf(time);
+        rafId = requestAnimationFrame(raf);
+      };
+
       rafId = requestAnimationFrame(raf);
     }
-
-    rafId = requestAnimationFrame(raf);
 
     // Initialize AOS after component mount to ensure elements exist in DOM
     const AOS = (window as any).AOS;
@@ -79,8 +84,8 @@ const App: React.FC = () => {
     window.scrollTo({ top: 0, behavior: 'instant' });
 
     return () => {
-      lenis.destroy();
-      cancelAnimationFrame(rafId);
+      if (lenis) lenis.destroy();
+      if (rafId) cancelAnimationFrame(rafId);
     };
   }, [location.pathname, isLoading]); // Re-run when pathname changes or loading completes
 
@@ -90,21 +95,29 @@ const App: React.FC = () => {
       <Preloader onComplete={() => setIsLoading(false)} />
 
       {/* 2. Main application wrapper with smooth entrance transition */}
-      <main 
-        className={`min-h-screen overflow-x-clip transition-opacity duration-1000 ease-in-out ${
+      <div
+        className={`min-h-screen overflow-x-clip transition-opacity duration-1000 ease-in-out flex flex-col ${
           isLoading ? 'opacity-0 max-h-screen overflow-hidden' : 'opacity-100'
         }`}
       >
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute bg-text-main text-surface px-4 py-2 font-mono text-sm uppercase font-bold top-2 left-2 z-[9999]"
+        >
+          Skip to main content
+        </a>
         <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/projects" element={<ProjectsPage />} />
-          <Route path="/lifecycle" element={<LifecyclePage />} />
-        </Routes>
+        <main id="main-content" tabIndex={-1} className="focus:outline-none flex-grow">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/projects" element={<ProjectsPage />} />
+            <Route path="/lifecycle" element={<LifecyclePage />} />
+          </Routes>
+        </main>
         <Footer />
         <ScrollToTop />
-      </main>
+      </div>
     </>
   );
 };
