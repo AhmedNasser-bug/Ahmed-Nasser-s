@@ -38,13 +38,15 @@ const CAROUSEL_ITEMS: CarouselItem[] = [
 
 const ProjectCarousel: React.FC = () => {
   const [current, setCurrent] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
+    if (isPaused) return;
     const timer = setInterval(() => {
       setCurrent((prev) => (prev + 1) % CAROUSEL_ITEMS.length);
     }, 4500);
     return () => clearInterval(timer);
-  }, []);
+  }, [isPaused]);
 
   const handlePrev = () => {
     setCurrent((prev) => (prev - 1 + CAROUSEL_ITEMS.length) % CAROUSEL_ITEMS.length);
@@ -55,7 +57,13 @@ const ProjectCarousel: React.FC = () => {
   };
 
   return (
-    <div className="relative border border-border-color bg-surface shadow-hard hover:shadow-hard-hover transition-all duration-300 w-full overflow-hidden flex flex-col pointer-events-auto">
+    <div
+      className="relative border border-border-color bg-surface shadow-hard hover:shadow-hard-hover transition-all duration-300 w-full overflow-hidden flex flex-col pointer-events-auto"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+      onFocus={() => setIsPaused(true)}
+      onBlur={() => setIsPaused(false)}
+    >
       <div className="relative w-full aspect-[16/10] bg-background-light overflow-hidden border-b border-border-color">
         {CAROUSEL_ITEMS.map((item, idx) => (
           <div
@@ -122,7 +130,7 @@ const Hero: React.FC = () => {
         <div className="px-4 md:px-10 lg:px-40 flex flex-1 justify-center py-5 pointer-events-auto">
           <div className="layout-content-container flex flex-col w-full max-w-[1200px] flex-1">
             
-            <main className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start py-10">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start py-10">
               <div className="flex flex-col gap-8" data-aos="fade-right">
                 <div className="space-y-4">
                   <h3 className="font-mono text-sm uppercase tracking-widest text-primary font-bold">
@@ -169,7 +177,7 @@ const Hero: React.FC = () => {
                   </div>
                 </GSAPReveal>
               </div>
-            </main>
+            </div>
 
           </div>
         </div>

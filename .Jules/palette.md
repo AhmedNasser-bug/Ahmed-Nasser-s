@@ -71,3 +71,6 @@
 ## 2026-08-22 - [Groundedness and JSX Validation]
 **Learning:** The 'cat' command in the bash sandbox environment frequently truncates output on larger files (like React components), leading to unverified assumptions about JSX structures and failing plan reviews (Groundedness Rule).
 **Action:** Use `grep -A 10 -B 10 'keyword'` or the `read_file` tool to reliably inspect and verify exact DOM elements before proposing targeted accessibility improvements.
+## 2024-11-21 - [A11y/UX Skip Links and Semantic Main]
+**Learning:** Found an accessibility issue where the `<main>` tag was wrapping global UI like the `<Header />` and `<Footer />`, rendering the standard skip-to-content anchor pattern ineffective for screen reader users trying to bypass navigation. Additionally, external CTAs and generic toggles required dual-pattern ARIA labeling to be accessible.
+**Action:** Always verify that `<main>` only wraps the routable core content. Apply `tabIndex={-1}` and `focus:outline-none` on the target so the skip link can programmatically focus the element without triggering visual artifacts. Wrap Lenis scroll setup in `matchMedia('(prefers-reduced-motion: reduce)')` checks to honor OS accessibility preferences.
