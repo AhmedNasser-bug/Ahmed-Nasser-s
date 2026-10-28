@@ -223,9 +223,9 @@ const ProjectScrollItem: React.FC<ScrollItemProps> = ({ project, index }) => {
 
           {/* Bottom Actions and Stack */}
           <div className="mt-6 flex flex-col gap-3">
-            <div className="flex flex-wrap gap-1">
+            <div className="flex flex-wrap gap-1" role="list">
               {project.tech.map((tech, tIdx) => (
-                <span key={tIdx} className="font-mono text-[9px] px-2 py-0.5 border border-border-color/10 bg-background-light text-text-main">
+                <span key={tIdx} role="listitem" className="font-mono text-[9px] px-2 py-0.5 border border-border-color/10 bg-background-light text-text-main">
                   {tech}
                 </span>
               ))}
