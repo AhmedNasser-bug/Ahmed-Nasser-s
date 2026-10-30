@@ -71,3 +71,6 @@
 ## 2026-08-22 - [Groundedness and JSX Validation]
 **Learning:** The 'cat' command in the bash sandbox environment frequently truncates output on larger files (like React components), leading to unverified assumptions about JSX structures and failing plan reviews (Groundedness Rule).
 **Action:** Use `grep -A 10 -B 10 'keyword'` or the `read_file` tool to reliably inspect and verify exact DOM elements before proposing targeted accessibility improvements.
+## 2024-10-30 - Carousel Off-Screen Content Screen Reader Issue
+**Learning:** In custom React carousels (like Hero.tsx), simply hiding non-active slides with CSS `opacity-0` or `scale-95` leaves their text content fully discoverable by screen readers, creating a confusing, non-sequential reading experience.
+**Action:** Always map over carousel slides and dynamically apply `aria-hidden={idx !== current}` to any slide wrapper that is not currently visible.
