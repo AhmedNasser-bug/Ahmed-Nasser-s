@@ -79,7 +79,7 @@ const Projects: React.FC = () => {
                   <div className="h-full flex flex-col">
                     <GSAPTilt maxTilt={8} perspective={1000}>
                       <article 
-                        className="bg-surface border border-border-color flex flex-col group hover:bg-background-light transition-shadow duration-300 shadow-hard hover:shadow-hard-hover h-full cursor-pointer"
+                        className="bg-surface border border-border-color flex flex-col group hover:bg-background-light transition-shadow duration-300 shadow-hard hover:shadow-hard-hover h-full"
                       >
                         {/* Mock Screenshot Section */}
                         <div className="h-48 bg-background-light border-b border-border-color relative flex items-center justify-center overflow-hidden shrink-0">
@@ -115,9 +115,9 @@ const Projects: React.FC = () => {
                           
                           <div className="mt-auto">
                             {/* Tech Stack Tags */}
-                            <div className="mb-6 flex flex-wrap gap-2">
+                            <div role="list" className="mb-6 flex flex-wrap gap-2">
                               {project.tech.map((tech, tIdx) => (
-                                <span key={tIdx} className={`font-mono text-[10px] px-2 py-0.5 border ${
+                                <span role="listitem" key={tIdx} className={`font-mono text-[10px] px-2 py-0.5 border ${
                                   tIdx === 0 ? 'bg-text-main text-surface border-text-main' : 'border-border-color/30 bg-background-light text-text-main'
                                 }`}>
                                   {tech}
