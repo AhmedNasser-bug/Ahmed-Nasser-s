@@ -36,13 +36,15 @@ const App: React.FC = () => {
     }
     document.body.style.overflow = '';
 
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
     // Initialize Lenis for premium smooth scrolling
     const lenis = new Lenis({
-      duration: 1.2,
+      duration: prefersReducedMotion ? 0 : 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: 'vertical',
       gestureOrientation: 'vertical',
-      smoothWheel: true,
+      smoothWheel: !prefersReducedMotion,
       wheelMultiplier: 1,
       touchMultiplier: 2,
     });
@@ -89,22 +91,29 @@ const App: React.FC = () => {
       {/* 1. Neobrutalist Page Preloader */}
       <Preloader onComplete={() => setIsLoading(false)} />
 
+      {/* Skip to main content link for keyboard users */}
+      <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute top-4 left-4 z-[9999] bg-text-main text-surface px-4 py-2 font-mono text-sm uppercase tracking-wider font-bold outline outline-2 outline-offset-2 outline-primary">
+        Skip to main content
+      </a>
+
       {/* 2. Main application wrapper with smooth entrance transition */}
-      <main 
+      <div
         className={`min-h-screen overflow-x-clip transition-opacity duration-1000 ease-in-out ${
           isLoading ? 'opacity-0 max-h-screen overflow-hidden' : 'opacity-100'
         }`}
       >
         <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/projects" element={<ProjectsPage />} />
-          <Route path="/lifecycle" element={<LifecyclePage />} />
-        </Routes>
+        <main id="main-content" tabIndex={-1} className="focus:outline-none">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/projects" element={<ProjectsPage />} />
+            <Route path="/lifecycle" element={<LifecyclePage />} />
+          </Routes>
+        </main>
         <Footer />
         <ScrollToTop />
-      </main>
+      </div>
     </>
   );
 };

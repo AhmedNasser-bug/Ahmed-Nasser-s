@@ -79,7 +79,7 @@ const Footer: React.FC = () => {
               </div>
               <div>
                 <div className="text-xs text-muted font-mono uppercase tracking-wider">Email</div>
-                <a href={`mailto:${PROFILE.contact.email}`} className="text-lg font-bold hover:text-primary transition-colors text-text-main">{PROFILE.contact.email}</a>
+                <a href={`mailto:${PROFILE.contact.email}`} aria-label={`Send an email to ${PROFILE.contact.email}`} className="text-lg font-bold hover:text-primary transition-colors text-text-main">{PROFILE.contact.email}</a>
               </div>
             </div>
 
@@ -89,7 +89,7 @@ const Footer: React.FC = () => {
               </div>
               <div>
                 <div className="text-xs text-muted font-mono uppercase tracking-wider">Phone</div>
-                <a href={`tel:${PROFILE.contact.phone}`} className="text-lg font-bold hover:text-primary transition-colors text-text-main">{PROFILE.contact.phone}</a>
+                <a href={`tel:${PROFILE.contact.phone}`} aria-label={`Call ${PROFILE.contact.phone}`} className="text-lg font-bold hover:text-primary transition-colors text-text-main">{PROFILE.contact.phone}</a>
               </div>
             </div>
           </div>
