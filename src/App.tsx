@@ -36,13 +36,15 @@ const App: React.FC = () => {
     }
     document.body.style.overflow = '';
 
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
     // Initialize Lenis for premium smooth scrolling
     const lenis = new Lenis({
-      duration: 1.2,
+      duration: prefersReducedMotion ? 0 : 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: 'vertical',
       gestureOrientation: 'vertical',
-      smoothWheel: true,
+      smoothWheel: !prefersReducedMotion,
       wheelMultiplier: 1,
       touchMultiplier: 2,
     });
@@ -86,25 +88,28 @@ const App: React.FC = () => {
 
   return (
     <>
+      <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute z-[100] top-0 left-0 p-4 bg-surface text-primary font-bold">Skip to content</a>
       {/* 1. Neobrutalist Page Preloader */}
       <Preloader onComplete={() => setIsLoading(false)} />
 
       {/* 2. Main application wrapper with smooth entrance transition */}
-      <main 
+      <div
         className={`min-h-screen overflow-x-clip transition-opacity duration-1000 ease-in-out ${
           isLoading ? 'opacity-0 max-h-screen overflow-hidden' : 'opacity-100'
         }`}
       >
         <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/projects" element={<ProjectsPage />} />
-          <Route path="/lifecycle" element={<LifecyclePage />} />
-        </Routes>
+        <main id="main-content" tabIndex={-1} className="flex-1 focus:outline-none">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/projects" element={<ProjectsPage />} />
+            <Route path="/lifecycle" element={<LifecyclePage />} />
+          </Routes>
+        </main>
         <Footer />
         <ScrollToTop />
-      </main>
+      </div>
     </>
   );
 };
