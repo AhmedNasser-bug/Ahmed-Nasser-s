@@ -18,7 +18,7 @@ const Header: React.FC = () => {
         </Link>
       </div>
       <div className="flex flex-1 justify-end gap-8">
-        <div className="flex items-center gap-6 font-mono text-sm uppercase tracking-wider">
+        <nav aria-label="Main Navigation" className="flex items-center gap-6 font-mono text-sm uppercase tracking-wider">
           <Link to="/" aria-current={location.pathname === '/' ? 'page' : undefined} className={`transition-colors focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 ${location.pathname === '/' ? 'text-primary font-bold' : 'text-text-main hover:text-primary'}`}>
             Home
           </Link>
@@ -59,7 +59,7 @@ const Header: React.FC = () => {
                 About
              </Link>
           </div>
-        </div>
+        </nav>
       </div>
     </header>
   );
