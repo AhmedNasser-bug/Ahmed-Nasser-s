@@ -115,9 +115,9 @@ const Projects: React.FC = () => {
                           
                           <div className="mt-auto">
                             {/* Tech Stack Tags */}
-                            <div className="mb-6 flex flex-wrap gap-2">
+                            <div role="list" className="mb-6 flex flex-wrap gap-2">
                               {project.tech.map((tech, tIdx) => (
-                                <span key={tIdx} className={`font-mono text-[10px] px-2 py-0.5 border ${
+                                <span role="listitem" key={tIdx} className={`font-mono text-[10px] px-2 py-0.5 border ${
                                   tIdx === 0 ? 'bg-text-main text-surface border-text-main' : 'border-border-color/30 bg-background-light text-text-main'
                                 }`}>
                                   {tech}
