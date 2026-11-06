@@ -71,3 +71,6 @@
 ## 2026-08-22 - [Groundedness and JSX Validation]
 **Learning:** The 'cat' command in the bash sandbox environment frequently truncates output on larger files (like React components), leading to unverified assumptions about JSX structures and failing plan reviews (Groundedness Rule).
 **Action:** Use `grep -A 10 -B 10 'keyword'` or the `read_file` tool to reliably inspect and verify exact DOM elements before proposing targeted accessibility improvements.
+## 2026-10-25 - [Skip-to-Content Targeting and React Outline Nullification]
+**Learning:** Adding `tabIndex={-1}` to a skip-to-content target container (like a `<div id="main-content">`) allows it to receive programmatic focus, but the browser natively draws a focus ring around the entire container when skipped to, which can look jarring.
+**Action:** When adding programmatic focus targets for skip links, explicitly add an `outline-none` class (or equivalent) to the target container to suppress the unwanted visual focus ring while maintaining the accessibility benefit of shifting the internal focus state.
