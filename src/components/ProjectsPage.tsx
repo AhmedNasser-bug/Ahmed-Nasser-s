@@ -223,9 +223,9 @@ const ProjectScrollItem: React.FC<ScrollItemProps> = ({ project, index }) => {
 
           {/* Bottom Actions and Stack */}
           <div className="mt-6 flex flex-col gap-3">
-            <div className="flex flex-wrap gap-1">
+            <div role="list" aria-label="Technologies used" className="flex flex-wrap gap-1">
               {project.tech.map((tech, tIdx) => (
-                <span key={tIdx} className="font-mono text-[9px] px-2 py-0.5 border border-border-color/10 bg-background-light text-text-main">
+                <span role="listitem" key={tIdx} className="font-mono text-[9px] px-2 py-0.5 border border-border-color/10 bg-background-light text-text-main">
                   {tech}
                 </span>
               ))}
@@ -271,8 +271,10 @@ const ProjectScrollItem: React.FC<ScrollItemProps> = ({ project, index }) => {
             
             {/* Screenshot vs Live App Toggle tabs (for projects with deployment links, except Live Star) */}
             {project.link && !isLiveStar && (
-              <div className="flex border border-surface/20 bg-surface/5 rounded-sm p-0.5 overflow-hidden">
+              <div role="tablist" aria-label="Media View Mode" className="flex border border-surface/20 bg-surface/5 rounded-sm p-0.5 overflow-hidden">
                 <button
+                  role="tab"
+                  aria-selected={mediaMode === 'image'}
                   onClick={() => setMediaMode('image')}
                   className={`px-2 py-0.5 font-mono text-[9px] uppercase tracking-wider rounded-sm transition-all flex items-center gap-1 cursor-pointer ${
                     mediaMode === 'image' ? 'bg-surface text-text-main font-bold' : 'text-surface/50 hover:text-surface'
@@ -282,6 +284,8 @@ const ProjectScrollItem: React.FC<ScrollItemProps> = ({ project, index }) => {
                   Screenshot
                 </button>
                 <button
+                  role="tab"
+                  aria-selected={mediaMode === 'iframe'}
                   onClick={() => setMediaMode('iframe')}
                   className={`px-2 py-0.5 font-mono text-[9px] uppercase tracking-wider rounded-sm transition-all flex items-center gap-1 cursor-pointer ${
                     mediaMode === 'iframe' ? 'bg-surface text-text-main font-bold' : 'text-surface/50 hover:text-surface'
@@ -340,7 +344,7 @@ const GitHubProjectsGrid: React.FC = () => {
           return (
             <div 
               key={idx}
-              className="border border-border-color bg-surface shadow-hard hover:shadow-hard-hover hover:-translate-x-1 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between overflow-hidden cursor-pointer"
+              className="border border-border-color bg-surface shadow-hard hover:shadow-hard-hover hover:-translate-x-1 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between overflow-hidden"
             >
               {/* Header Telemetry */}
               <div className="bg-text-main text-surface p-3 px-4 flex items-center justify-between border-b border-border-color">
@@ -389,14 +393,14 @@ const GitHubProjectsGrid: React.FC = () => {
 
                 <div className="flex flex-col gap-3">
                   {/* Tech stack tags */}
-                  <div className="flex flex-wrap gap-1">
+                  <div role="list" aria-label="Technologies used" className="flex flex-wrap gap-1">
                     {project.tech.slice(0, 4).map((tech, tIdx) => (
-                      <span key={tIdx} className="font-mono text-[8px] px-1.5 py-0.5 border border-border-color/10 bg-background-light text-text-main">
+                      <span role="listitem" key={tIdx} className="font-mono text-[8px] px-1.5 py-0.5 border border-border-color/10 bg-background-light text-text-main">
                         {tech}
                       </span>
                     ))}
                     {project.tech.length > 4 && (
-                      <span className="font-mono text-[8px] px-1.5 py-0.5 border border-border-color/10 bg-background-light text-muted">
+                      <span role="listitem" className="font-mono text-[8px] px-1.5 py-0.5 border border-border-color/10 bg-background-light text-muted">
                         +{project.tech.length - 4} more
                       </span>
                     )}

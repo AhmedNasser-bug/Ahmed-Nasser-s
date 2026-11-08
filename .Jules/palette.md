@@ -71,3 +71,6 @@
 ## 2026-08-22 - [Groundedness and JSX Validation]
 **Learning:** The 'cat' command in the bash sandbox environment frequently truncates output on larger files (like React components), leading to unverified assumptions about JSX structures and failing plan reviews (Groundedness Rule).
 **Action:** Use `grep -A 10 -B 10 'keyword'` or the `read_file` tool to reliably inspect and verify exact DOM elements before proposing targeted accessibility improvements.
+## 2024-05-14 - Repository Command Constraints & Micro-UX Fixes
+**Learning:** This repository (`ahmed-naser-portfolio`) lacks standard `pnpm lint`, `pnpm format`, and `pnpm test` scripts within `package.json`, causing standard boilerplate verification steps to fail. Type checking and syntax validation must be performed exclusively via `pnpm build`. Additionally, various interactive elements were lacking proper ARIA properties like `tablist`, `list`, or incorrectly used `cursor-pointer` on static containers.
+**Action:** When working in this repository, explicitly bypass `lint`/`test`/`format` commands and rely strictly on `pnpm build` for validation. Always verify the existence of specific line structures using commands like `sed -n 'X,Yp'` when creating plans to adhere strictly to groundedness constraints, as bash `cat` and `grep` frequently truncate output.
