@@ -18,7 +18,7 @@ const Header: React.FC = () => {
         </Link>
       </div>
       <div className="flex flex-1 justify-end gap-8">
-        <div className="flex items-center gap-6 font-mono text-sm uppercase tracking-wider">
+        <nav aria-label="Main Navigation" className="flex items-center gap-6 font-mono text-sm uppercase tracking-wider">
           <Link to="/" aria-current={location.pathname === '/' ? 'page' : undefined} className={`transition-colors focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 ${location.pathname === '/' ? 'text-primary font-bold' : 'text-text-main hover:text-primary'}`}>
             Home
           </Link>
@@ -48,7 +48,7 @@ const Header: React.FC = () => {
             Contact
           </a>
           
-          <div className="md:hidden flex items-center gap-4">
+          <nav aria-label="Mobile Navigation" className="md:hidden flex items-center gap-4">
              <Link to="/projects" aria-current={location.pathname === '/projects' ? 'page' : undefined} className={`transition-colors focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 ${location.pathname === '/projects' ? 'text-primary font-bold' : 'text-text-main'}`}>
                 Projects
              </Link>
@@ -58,8 +58,8 @@ const Header: React.FC = () => {
              <Link to="/about" aria-current={location.pathname === '/about' ? 'page' : undefined} className={`transition-colors focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 ${location.pathname === '/about' ? 'text-primary font-bold' : 'text-text-main'}`}>
                 About
              </Link>
-          </div>
-        </div>
+          </nav>
+        </nav>
       </div>
     </header>
   );

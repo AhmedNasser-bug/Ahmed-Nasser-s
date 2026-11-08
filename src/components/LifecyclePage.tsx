@@ -385,7 +385,7 @@ const LifecyclePage: React.FC = () => {
             </div>
 
             {/* Display active phase */}
-            <div className="flex flex-col items-center py-4 z-10">
+            <div className="flex flex-col items-center py-4 z-10" aria-live="polite" aria-atomic="true">
               <div 
                 className="font-display text-5xl font-black tracking-tighter leading-none"
                 style={{ WebkitTextStroke: '2.5px #3730A3', color: 'transparent' }}
@@ -431,7 +431,7 @@ const LifecyclePage: React.FC = () => {
 
       {/* Mobile Floating Action Indicator */}
       <div className="lg:hidden fixed bottom-6 right-6 z-40">
-        <div className="bg-surface border-2 border-border-color p-3 shadow-hard flex flex-col items-center gap-1 min-w-[110px]">
+        <div aria-live="polite" aria-atomic="true" className="bg-surface border-2 border-border-color p-3 shadow-hard flex flex-col items-center gap-1 min-w-[110px]">
           <span className="font-mono text-[9px] font-bold text-[#3730A3] uppercase">
             PHASE 0{activePhase}
           </span>
