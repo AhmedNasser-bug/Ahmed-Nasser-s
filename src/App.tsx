@@ -36,13 +36,15 @@ const App: React.FC = () => {
     }
     document.body.style.overflow = '';
 
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
     // Initialize Lenis for premium smooth scrolling
     const lenis = new Lenis({
-      duration: 1.2,
+      duration: prefersReducedMotion ? 0 : 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: 'vertical',
       gestureOrientation: 'vertical',
-      smoothWheel: true,
+      smoothWheel: !prefersReducedMotion,
       wheelMultiplier: 1,
       touchMultiplier: 2,
     });
@@ -90,21 +92,26 @@ const App: React.FC = () => {
       <Preloader onComplete={() => setIsLoading(false)} />
 
       {/* 2. Main application wrapper with smooth entrance transition */}
-      <main 
-        className={`min-h-screen overflow-x-clip transition-opacity duration-1000 ease-in-out ${
+      <div
+        className={`min-h-screen overflow-x-clip transition-opacity duration-1000 ease-in-out flex flex-col ${
           isLoading ? 'opacity-0 max-h-screen overflow-hidden' : 'opacity-100'
         }`}
       >
+        <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute z-[100] bg-text-main text-surface px-6 py-3 font-mono font-bold uppercase tracking-wider top-4 left-4 border border-border-color shadow-hard focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2">
+          Skip to main content
+        </a>
         <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/projects" element={<ProjectsPage />} />
-          <Route path="/lifecycle" element={<LifecyclePage />} />
-        </Routes>
+        <main id="main-content" tabIndex={-1} className="focus:outline-none flex-grow">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/projects" element={<ProjectsPage />} />
+            <Route path="/lifecycle" element={<LifecyclePage />} />
+          </Routes>
+        </main>
         <Footer />
         <ScrollToTop />
-      </main>
+      </div>
     </>
   );
 };
