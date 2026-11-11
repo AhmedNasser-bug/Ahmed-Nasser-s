@@ -71,3 +71,6 @@
 ## 2026-08-22 - [Groundedness and JSX Validation]
 **Learning:** The 'cat' command in the bash sandbox environment frequently truncates output on larger files (like React components), leading to unverified assumptions about JSX structures and failing plan reviews (Groundedness Rule).
 **Action:** Use `grep -A 10 -B 10 'keyword'` or the `read_file` tool to reliably inspect and verify exact DOM elements before proposing targeted accessibility improvements.
+## 2023-11-11 - [Accessibility & Keyboard Navigation Polish]
+**Learning:** Adding `tabIndex={-1}` and `aria-hidden={!isVisible}` on CSS-hidden floating elements like a "Scroll to Top" button is critical to prevent keyboard traps for non-sighted users. Similarly, using the `sr-only focus:not-sr-only` utility pattern is an effective way to implement visually hidden skip-to-content links without introducing custom CSS.
+**Action:** Always ensure visually hidden interactive elements explicitly manage `tabIndex` and `aria-hidden` attributes to maintain a predictable tab order. Implement skip-to-content links by default in all applications featuring complex navigation structures.
